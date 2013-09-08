@@ -29,7 +29,7 @@
     pdfborder={0 0 0}
 }
 
-\title{Really Introductory Introduction to $\mathbb{R}$ (Fall 2011)}
+\title{Really Introductory Introduction to $\mathbb{R}$}
 \author{Thomas J. Leeper\\
 Department of Political Science,\\
 Northwestern University}
@@ -64,10 +64,10 @@ The first step is downloading and installing $\mathbb{R}$. This is straightforwa
 sqrt(4)
 @
 
-But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R (what I use), Emacs, or RStudio.\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
+But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
 \begin{itemize*}
 \item Simple text editors: Notepad, TextPad, TextEdit, Wordpad (usually one or more of these is built-in with your computer's operating system)
-\item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}
+\item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}, \href{http://notepad-plus-plus.org/}{Notepad++}
 \item Advanced front-ends for $\mathbb{R}$: \textbf{\href{http://rstudio.org/}{RStudio}, \href{http://www.revolutionanalytics.com/products/revolution-enterprise.php}{Revolution R}, \href{http://rforge.net/JGR/}{JGR}, \href{http://www.deducer.org/pmwiki/pmwiki.php}{Deducer}}
 \item Graphical User Interface for $\mathbb{R}$: \textbf{\href{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}{Rcmdr}, \href{http://rkward.sourceforge.net/}{RKWard}}
 \end{itemize*}
@@ -76,9 +76,11 @@ If you save all of your code in one of these programs with a \verb|.R| file exte
 
 \subsection{Some General Notes Before Getting Started}
 \begin{itemize*}
-\item $\mathbb{R}$ is case-sensitive. You need to type commands and variable names correctly or they will not work.
+\item $\mathbb{R}$ is an object-oriented programming language. That means when we talk about particular statistics or procedures, we have to write code that tells $\mathbb{R}$ how to perform that statistical \emph{procedure} on a \emph{data object}. Usually, this looks something like \verb|mean(x)|, where \verb|mean()| is a procedure and \verb|x| is an object (specifically, a vector of data points). At first, it can be hard to distinguish what text is a procedure from what text is the label for a data object, but over time this will get easier. If you use a text editor with syntax recognition, the text editor will highlight procedures making the process of reading and writing code even easier.
+\item $\mathbb{R}$ is case-sensitive. You need to type commands and variable names correctly or they will not work. As an example, \verb|Mean()| does not mean \verb|mean()|.
 \item Arrow up and Arrow down on your keyboard cycle through previous commands you have entered. They do not scroll the screen up and down. Use your mouse scrollpad, Page Up and Page Down, or the scrollbar instead.
-\item If you forget to put closing brackets on your commands, $\mathbb{R}$ will get confused and give you a \verb|+| symbol instead of the usual \verb|>| prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that $\mathbb{R}$ doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and $\mathbb{R}$ will have no problem with this, as long as you put the appropriate closing bracket at the end.
+\item If you forget to put closing brackets on your commands, $\mathbb{R}$ will get confused and give you a \verb|+| symbol instead of the usual \verb|>| prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that $\mathbb{R}$ doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and $\mathbb{R}$ will have no problem with this, as long as you put the appropriate closing bracket at the end. If you use Mac OS or Linux OS, or some of the fancier text editors, closing brackets are often put in automatically as you type. If you're a Windows user like me, you're out of luck and need to be really careful with brackets.
+\item Sometimes $\mathbb{R}$ does weird stuff that doesn't make any sense. When this happens, double check your brackets and capitalization. Then, trying Googling it. If that doesn't work, you can always just restart the program.
 \end{itemize*}
 
 \subsection{Creating constants, vectors, matrices, and dataframes}
@@ -144,6 +146,10 @@ v
 sqrt(v) #standard deviation
 sd(dice) #easier way of getting standard deviation
 @
+
+One thing that can be initially confusing for new users of $\mathbb{R}$ is exactly what is happening when you type in a given command. $\mathbb{R}$ does not solve mathematical equations. Instead, like any programming language, it performs a set of procedures in a specific order on a particular data object (i.e., it performs an algorithm). What does an algorithm look like and why does it matter? To use $\mathbb{R}$ effectively, one needs to understand what it is doing and how to think in algorithms rather than equations. Think about the formula for the mean of a set of data (like our dice roll data). The mathematical equation is $\bar{x}=\sigma x_{i} / n$.
+
+
 
 Two important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O$\mathbb{R}$ we can simply take the square root of the variance directly).
 <<vector3.5>>=
@@ -386,6 +392,28 @@ mean(v3)
 
 Using the \verb|na.omit()| function changes the length of the original vector. So, while \verb|cor(v1,v2)| will give us a resulting correlation between our original two vectors of \verb|NA|, if we attempt to calculate the correlations of \verb|cor(v1,v3)| or \verb|cor(v2,v3)| $\mathbb{R}$ will produce an \verb|incompatible dimensions| error because \verb|v3| has a length of 8, while both \verb|v1| and \verb|v2| have length 10. In practice, you may want to consider imputing missing values rather than simply removing missing values to avoid these technical errors and larger inferential problems. That, however, is the subject for another discussion.
 
+\section{Randomness}\label{sec:random}
+
+One of the very convenient sets of functionality in $\mathbb{R}$ is its ability to generate (pseudo-)random numbers and to conduct sampling. Details about the different random number generates can be found here: \url{http://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html}. Random numbers can be generated according to a number of different distributions including (using the attendant command):
+\begin{itemize*}
+\item Normal/Gaussian: \verb|rnorm()|
+\item Chi-squared: \verb|rchisq()|
+\item Student's t: \verb|rt()|
+\item Uniform: \verb|runif()|
+\end{itmeize*}
+
+Each of these (and the other) distributions also have built-in functions for producing density functions, quantiles, and p-values using commands of the form \verb|dnorm()|, \verb|qnorm()|, and \verb|pnorm()|, respectively. True random numbers and sequences can also be obtained using the \verb|random| package, which makes calls to the random number generates at \url{http://www.random.org} instead of the built-in R pseudo-random number generators. Random integers can be extracted using the \verb|random| package or by rounding the output of one of the \verb|runif()|-type functions.
+
+Besides generating random numbers, $\mathbb{R}$ also provides the ability to sample values from a vector or observations from a dataframe using the \verb|sample()| command. Sampling can be conducted with or without replacement and involve samples of any size:
+<<random>>=
+set = c(1,2,3,4,5)
+sample(set,5,replace=FALSE)
+sample(set,5,replace=TRUE)
+sample(set,10,replace=TRUE)
+@
+
+Sampling commands could be used to conduct simulations, including bootstrapping and permutation procedures, as well as Monte Carlo simulations (the latter, in combination with the random number generation functions).
+
 \section{Plots}\label{sec:plots}
 The real power of $\mathbb{R}$ is its sophisticated graphical functionality. $\mathbb{R}$ comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. Let's discuss a couple of the basic $\mathbb{R}$ plots; these should be familiar to you from your previous statistics and mathematics training.
 \begin{itemize*}
@@ -572,6 +600,14 @@ But now we've seen multiple ways to apply functions to objects. Which should we 
 
 \section{Conclusion}\label{sec:conclusion}
 So now you've learned the basic information you need to know to use $\mathbb{R}$ for this class. Hopefully this tutorial has helped you be less intimidated by and frustrated with the language and this course as a whole. Best of luck and let me know if you have questions!
+
+
+%INCLUDE AN APPENDIX WITH FULL CODE PROGRAMS
+%%MAKE AT LEAST ONE SET OF EXAMPLES WHERE THE SAME TASK IS PERFORMED USING DIFFERENT SETS OF CODE
+%%SHOW DIFFERENT COMMENTING STYLES
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \singlespacing
