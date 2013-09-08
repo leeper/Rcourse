@@ -21,11 +21,12 @@ CRAN provides [a number of manuals and other resources for R](http://cran.r-proj
 * [Task Views](http://cran.r-project.org/web/views/) provide summaries of useful R packages by subject area
 
 Other non-CRAN resources include:
-* [PDF](http://lib.stat.cmu.edu/S/Spoetry/Tutor/R_inferno.pdf) *The R Inferno* by Patrick Burns provides some insight into common challenges beginners (and advanced users) face with R
-* [Quick-R](http://www.statmethods.net/) provides some simple tutorials about an array of methods
-* [R-bloggers](http://www.r-bloggers.com/) aggregates blog posts about R from all over the web
+* [PDF](http://lib.stat.cmu.edu/S/Spoetry/Tutor/R_inferno.pdf) *The R Inferno* by Patrick Burns provides some insight into common challenges beginners (and advanced users) face with R.
+* [Quick-R](http://www.statmethods.net/) provides some simple tutorials about an array of methods.
+* [R-bloggers](http://www.r-bloggers.com/) aggregates blog posts about R from all over the web.
 * I've written [a short R introduction](/Intro2R.pdf) for undergraduates that may be helpful.
-
+* [Teppei Yamamoto](http://web.mit.edu/teppei/www/teaching.html) has some simple handouts for Princeton's "Statistical Software Camp".
+* Christopher Green's somewhat old [R Primer](http://www.stat.washington.edu/cggreen/rprimer/) provides still useful information.
 
 ## R Books ##
 You can always find the latest R books on Amazon or wherever, but a couple that are useful (depending on your background):
