@@ -1,14 +1,18 @@
 \documentclass[12pt]{article}
 \usepackage{titlesec}
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx,setspace,hyperref,fullpage,amsmath,amsfonts,times,multirow,ccaption,tabularx,verbatim,booktabs,mdwlist}
-\setlength{\marginparwidth}{.5in}
+% page layout
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+% font
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+% bibliography
 \usepackage{natbib}
 \bibpunct{(}{)}{;}{a}{}{,} %set in-line reference punctuation
 \setlength{\bibsep}{0.1in} %set spacing between references
 \setlength{\bibhang}{.5in} %set hanging indent for references
 \setlength{\parindent}{0.5in}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
@@ -19,19 +23,19 @@
     pdftitle={Introduction to R},    % title
     pdfauthor={Thomas J. Leeper},     % author
     pdfsubject={Political Science},   % subject of the document
-%    pdfkeywords={politics} {public opinion} {information acquisition} {media exposure} {time}, % list of keywords
+    pdfkeywords={R}, 		% list of keywords
     pdfnewwindow=true,      % links in new window
-    %colorlinks=false,       % false: boxed links; true: colored links
+    colorlinks=false,       % false: boxed links; true: colored links
     %linkcolor=red,          % color of internal links
     %citecolor=green,        % color of links to bibliography
     %filecolor=magenta,      % color of file links
-    %urlcolor=cyan           % color of external links
+    %urlcolor=cyan,           % color of external links
     pdfborder={0 0 0}
 }
 
 \title{Really Introductory Introduction to $\mathbb{R}$}
 \author{Thomas J. Leeper\\
-Department of Political Science,\\
+Department of Political Science\\
 Northwestern University}
 
 \SweaveOpts{echo=true,keep.source=TRUE}
@@ -40,7 +44,7 @@ Northwestern University}
 
 \maketitle
 
-\abstract{The purpose of this document is to provide a brief introduction to $\mathbb{R}$, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning $\mathbb{R}$ and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of undergraduate Northwestern students, who have --- in past versions of this course --- expressed frustration with the technical aspects of the course. My aim in this document is to make learning $\mathbb{R}$ relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to $\mathbb{R}$'' Short Course.}}
+{\abstract The purpose of this document is to provide a brief introduction to $\mathbb{R}$, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning $\mathbb{R}$ and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of students who are learning $\mathbb{R}$ for the first time in the context of a course that provides little technical instruction in programming. My aim in this document is to make learning $\mathbb{R}$ relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to $\mathbb{R}$'' Short Course. It is released without copyright, but citation is always appreciated.}}
 
 \section{Why R?}\label{sec:intro}
 $\mathbb{R}$ refers to a statistical computing environment and the programming language used therein. We use $\mathbb{R}$ in this course because it is free, open source, well-documented, involves a large community of active users, and, most importantly, because it provides nearly unlimited functionality that far exceeds that of all other statistical packages.
@@ -64,7 +68,7 @@ The first step is downloading and installing $\mathbb{R}$. This is straightforwa
 sqrt(4)
 @
 
-But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
+But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.%\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
 \begin{itemize*}
 \item Simple text editors: Notepad, TextPad, TextEdit, Wordpad (usually one or more of these is built-in with your computer's operating system)
 \item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}, \href{http://notepad-plus-plus.org/}{Notepad++}
@@ -147,11 +151,45 @@ sqrt(v) #standard deviation
 sd(dice) #easier way of getting standard deviation
 @
 
-One thing that can be initially confusing for new users of $\mathbb{R}$ is exactly what is happening when you type in a given command. $\mathbb{R}$ does not solve mathematical equations. Instead, like any programming language, it performs a set of procedures in a specific order on a particular data object (i.e., it performs an algorithm). What does an algorithm look like and why does it matter? To use $\mathbb{R}$ effectively, one needs to understand what it is doing and how to think in algorithms rather than equations. Think about the formula for the mean of a set of data (like our dice roll data). The mathematical equation is $\bar{x}=\sigma x_{i} / n$.
+One thing that can be initially confusing for new users of $\mathbb{R}$ is exactly what is happening when you type in a given command. $\mathbb{R}$ does not solve mathematical equations. Instead, like any programming language, it performs a set of procedures in a specific order on a particular data object (i.e., it performs an algorithm). What does an algorithm look like and why does it matter? To use $\mathbb{R}$ effectively, one needs to understand what it is doing and how to think in algorithms rather than equations. Think about the formula for the mean of a set of data (like our dice roll data). The mathematical equation is $\bar{x}=\Sigma x_{i} / n$. This translates into an $\mathbb{R}$ algorithm like the following:
+<<algorithm>>=
+dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
+sum=2+2+3+4+4+5+5+5+5+5+6+6+7+7+7+7+8+9+10+11
+sum
+length=length(dice)
+length
+mean=sum/length
+mean
+@
 
+As we can see, the result is the same as using $\mathbb{R}$'s built-in \verb|mean()| function. We could attempt something similar by converting the equation for variance ($Var[x]=\Sigma (x_{i} - \bar{x})^2 / (n-1)$) into an algorithm (the first four steps of which are the same as calculating the mean):
+\begin{enumerate*}
+\item Load the vector of all $x_i$, called \emph{data}
+\item Sum all $x_i$, store this result as \emph{sum}
+\item Count the number of $x_i$, store this as \emph{length}
+\item Divide \emph{sum} by \emph{length}, store this as \emph{mean}
+\item Create a new vector, where each entry in the vector is the difference between each $x_i$ in \emph{data} and mean of all $x_i$ (\emph{mean}),  store as \emph{deviations}
+\item Create a new vector, where each entry is the square of the entry in \emph{deviations}, store as \emph{squares}
+\item Sum all values in \emph{squares}, store as \emph{sumsquares}
+\item Divide \emph{sumsquares} by one less than \emph{length}, store as \emph{variance}
+\end{enumerate*}
+We can then write that algorithm in $\mathbb{R}$:
+<<algorithm2>>=
+dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
+sum=sum(dice)
+length=length(dice)
+mean=sum/length
+deviations=dice-mean
+squares=deviations^2
+sumsquares=sum(squares)
+variance=sumsquares/(length-1)
+variance
+sqrt(variance)
+@
 
+As we can see, our mathematical equation for variance is easily converted to an algorithm that we can then write in $\mathbb{R}$ code. While the \verb|var()| command is short and simple, it reflects all of this underlying code. While we can rely on these built-in functions, it is important to keep in mind what is happening behind the scenes. Thinking like a computer programmer rather than a math student will greatly facilitate your transition to $\mathbb{R}$.
 
-Two important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O$\mathbb{R}$ we can simply take the square root of the variance directly).
+Two additional important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O$\mathbb{R}$ we can simply take the square root of the variance directly).
 <<vector3.5>>=
 <<vector3,echo=FALSE>>
 round(mean(dice),2)
@@ -276,7 +314,7 @@ Just as it is helpful to save your $\mathbb{R}$ code in an outside file, it is a
 \section{Working with Real Data}\label{sec:data}
 Now that we've worked with some of the basic manipulations of data and the type of objects that $\mathbb{R}$ understands (constants, vectors, matrices, and dataframes), we can proceed forward by working with actual data. It is rare that we'll have to enter our own data manually into $\mathbb{R}$. Instead, we'll likely have to import it from an outside file of various types. To this, we have to start by telling $\mathbb{R}$ where to find the data. You can either do this visually by selecting \verb|File > change dir|, or you can use the \verb|setwd()| command.\footnote{The file path you use will depend on your operating system and the folder where you have saved the data file on your computer. See the $\mathbb{R}$ help files for how to do this. You can access the help file by typing \textbf{? setwd()} into $\mathbb{R}$. You can use that question mark syntax to get help on any $\mathbb{R}$ command.} This sets the working directory for your current $\mathbb{R}$ session. You can change it later as needed, but you'll need to set it each time you work with $\mathbb{R}$.
 <<setwd>>=
-setwd("C:/Users/Thomas/Documents/NU-Teaching/Introduction2R/")
+setwd("C:\\Users\\Thomas\\Documents\\Dropbox\\Professional Development\\Syllabi\\Introduction2R\\")
 @
 You can check what your working directory is by using the corresponding \textbf{getwd()} command.
 
@@ -400,7 +438,7 @@ One of the very convenient sets of functionality in $\mathbb{R}$ is its ability 
 \item Chi-squared: \verb|rchisq()|
 \item Student's t: \verb|rt()|
 \item Uniform: \verb|runif()|
-\end{itmeize*}
+\end{itemize*}
 
 Each of these (and the other) distributions also have built-in functions for producing density functions, quantiles, and p-values using commands of the form \verb|dnorm()|, \verb|qnorm()|, and \verb|pnorm()|, respectively. True random numbers and sequences can also be obtained using the \verb|random| package, which makes calls to the random number generates at \url{http://www.random.org} instead of the built-in R pseudo-random number generators. Random integers can be extracted using the \verb|random| package or by rounding the output of one of the \verb|runif()|-type functions.
 
@@ -575,10 +613,10 @@ This saves us a bit of time because it simplifies what we have to type, but it's
 celsius=sapply(temps,FUN=ftoc)
 celsius
 @
-We can also use \verb|apply()| built-in functions to matrices, vectors, and dataframes. This can be helpful if you want to calculate summary statistics for a number of different subgroups of observations within your dataset.
+We can also use \verb|apply()| built-in functions to matrices, vectors, and dataframes. This can be helpful if you want to calculate summary statistics for a number of different subgroups of observations within your dataset. Apply can also be used to do a lot of other things (including some cool and interesting things), but I won't go into the details here.
 
 \subsection{Loops}
-The last important piece of $\mathbb{R}$ programming that you should know about is looping. Like \verb|apply()|, loops allow you to perform an otherwise tedious task a number of times on the same or different data. This is what really sets $\mathbb{R}$ apart from its competitors like SPSS, SAS, and Stata. There are several different types of loops that can be used, which are describe in detail at \url{http://cran.r-project.org/doc/manuals/R-lang.html#Looping}. The simplest loop can be used to perform the same temperature conversion we used above.
+The last important piece of $\mathbb{R}$ programming that you should know about is looping. Like \verb|apply()|, loops allow you to perform an otherwise tedious task a number of times on the same or different data, similar to using \verb|apply()|. Loops and \verb|apply()| are what really sets $\mathbb{R}$ apart from its competitors like SPSS, SAS, and Stata. There are several different types of loops that can be used, which are describe in detail at \url{http://cran.r-project.org/doc/manuals/R-lang.html#Looping}. The simplest loop can be used to perform the same temperature conversion we used above.
 <<temp4>>=
 <<temp3,echo=false>>
 celsius=NA
@@ -610,9 +648,9 @@ So now you've learned the basic information you need to know to use $\mathbb{R}$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\singlespacing
+%\singlespacing
 %\bibliographystyle{apsa-leeper}
-%\bibliography{references}%,essay1,essay2,essay3}
+%\bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
