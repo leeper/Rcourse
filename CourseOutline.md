@@ -26,7 +26,7 @@ Last updated 2013-08-22
 * installing packages
 * Why scripting?
   * Moving from console to scripting
-  * Analog to do-files
+  * Analogue to do-files
   * Reproducibility
 * working directory
 * Getting help
