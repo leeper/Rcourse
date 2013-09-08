@@ -171,11 +171,7 @@ To do statistical analysis, we need to have data. \textbf{R} has various objects
 \begin{alltt}
 \hlstd{a} \hlkwb{<-} \hlnum{4}
 \hlstd{a} \hlkwb{=} \hlnum{4}
-\hlnum{4} \hlkwb{<-} \hlstd{a}
-\end{alltt}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: invalid (do\_set) left-hand side to assignment}}\begin{alltt}
+\hlcom{# 4->a # this works, too}
 \hlstd{a}
 \end{alltt}
 \begin{verbatim}
@@ -899,11 +895,9 @@ Now that we've worked with some of the basic manipulations of data and the type 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{setwd}\hlstd{(}\hlstr{"C:\textbackslash{}\textbackslash{}Users\textbackslash{}\textbackslash{}Thomas\textbackslash{}\textbackslash{}Documents\textbackslash{}\textbackslash{}Dropbox\textbackslash{}\textbackslash{}Professional Development\textbackslash{}\textbackslash{}Syllabi\textbackslash{}\textbackslash{}Introduction2R\textbackslash{}\textbackslash{}"}\hlstd{)}
+\hlkwd{setwd}\hlstd{(}\hlstr{"C:/Users/Thomas/Documents/Dropbox/Courses/"}\hlstd{)}
 \end{alltt}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: cannot change working directory}}\end{kframe}
+\end{kframe}
 \end{knitrout}
 
 You can check what your working directory is by using the corresponding \textbf{getwd()} command.
@@ -1219,19 +1213,19 @@ Besides generating random numbers, \textbf{R} also provides the ability to sampl
 \hlkwd{sample}\hlstd{(set,} \hlnum{5}\hlstd{,} \hlkwc{replace} \hlstd{=} \hlnum{FALSE}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 1 3 4 2 5
+## [1] 5 2 3 4 1
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sample}\hlstd{(set,} \hlnum{5}\hlstd{,} \hlkwc{replace} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-## [1] 4 4 5 3 3
+## [1] 2 1 1 1 2
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sample}\hlstd{(set,} \hlnum{10}\hlstd{,} \hlkwc{replace} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
-##  [1] 3 5 3 3 1 2 3 4 5 5
+##  [1] 4 3 3 1 1 3 1 5 3 2
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -1257,6 +1251,7 @@ All plots can be modified using a common set of parameters described in detail a
 \item \verb|ylab|: Y-axis label
 \item \verb|xlim|: X-axis minimum and maximum
 \item \verb|ylim|: Y-axis minimum and maximum
+\item \verb|bty|: "Box" type around the plot
 \item \verb|pch|: Bullet style
 \item \verb|lty|: Line type
 \item \verb|lwd|: Line thickness
@@ -1270,8 +1265,7 @@ plot(dice1,dice2,			#Data to plot
 	xlab="Set 1",		#X-axis label
 	ylab="Set 2",		#Y-axis label
 	xlim=c(2,12),		#X-axis dimensions
-	ylim=c(2,12),		#Y-axis dimensions
-	pch=21			#Solid points
+	ylim=c(2,12)		#Y-axis dimensions
 	)
 \end{verbatim}
 

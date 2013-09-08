@@ -86,7 +86,7 @@ To do statistical analysis, we need to have data. \textbf{R} has various objects
 <<constant>>=
 a<-4
 a=4
-4->a
+# 4->a # this works, too
 a
 @
 Here, we've created a constant called \verb|a|, which has the value 4. \textbf{R} doesn't automatically display the value of \verb|a| when we assign a value to it. To see the value of \verb|a|, you need to simply type \verb|a| and hit <enter>. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
@@ -307,8 +307,8 @@ Just as it is helpful to save your \textbf{R} code in an outside file, it is als
 
 \section{Working with Real Data}\label{sec:data}
 Now that we've worked with some of the basic manipulations of data and the type of objects that \textbf{R} understands (constants, vectors, matrices, and dataframes), we can proceed forward by working with actual data. It is rare that we'll have to enter our own data manually into \textbf{R}. Instead, we'll likely have to import it from an outside file of various types. To this, we have to start by telling \textbf{R} where to find the data. You can either do this visually by selecting \verb|File > change dir|, or you can use the \verb|setwd()| command.\footnote{The file path you use will depend on your operating system and the folder where you have saved the data file on your computer. See the \textbf{R} help files for how to do this. You can access the help file by typing \textbf{? setwd()} into \textbf{R}. You can use that question mark syntax to get help on any \textbf{R} command.} This sets the working directory for your current \textbf{R} session. You can change it later as needed, but you'll need to set it each time you work with \textbf{R}.
-<<setwd>>=
-setwd("C:\\Users\\Thomas\\Documents\\Dropbox\\Professional Development\\Syllabi\\Introduction2R\\")
+<<setwd,eval=FALSE>>=
+setwd("C:/Users/Thomas/Documents/Dropbox/Courses/")
 @
 You can check what your working directory is by using the corresponding \textbf{getwd()} command.
 
@@ -464,6 +464,7 @@ All plots can be modified using a common set of parameters described in detail a
 \item \verb|ylab|: Y-axis label
 \item \verb|xlim|: X-axis minimum and maximum
 \item \verb|ylim|: Y-axis minimum and maximum
+\item \verb|bty|: "Box" type around the plot
 \item \verb|pch|: Bullet style
 \item \verb|lty|: Line type
 \item \verb|lwd|: Line thickness
@@ -477,8 +478,7 @@ plot(dice1,dice2,			#Data to plot
 	xlab="Set 1",		#X-axis label
 	ylab="Set 2",		#Y-axis label
 	xlim=c(2,12),		#X-axis dimensions
-	ylim=c(2,12),		#Y-axis dimensions
-	pch=21			#Solid points
+	ylim=c(2,12)		#Y-axis dimensions
 	)
 \end{verbatim}
 
@@ -497,7 +497,8 @@ plot(dice1,dice2,
 	ylab="Set 2",
 	xlim=c(2,12),
 	ylim=c(2,12),
-	pch=21
+	bty="l",            #"box" type
+	pch=15,			    #Sqaure points
 	)
 @
 \end{minipage}
