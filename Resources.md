@@ -60,6 +60,10 @@ Internal to R there are also several options, including my own package [*rite*](
 * And, ultimately, Google is your friend. I find that queries of the form "R CRAN [insert issue here]" generally give the best results rather than searching just "R [insert issue here]" given that "R" is [one of the ten most frequent letters in the English language](http://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language) and many other European languages.
 
 
+## R Packages ##
+There are literally thousands of R packages on CRAN and maybe dozens or hundreds more floating around the internet on places like [GitHub](https://github.com/), [R-Forge](http://r-forge.r-project.org/), (RForge.net)[http://www.rforge.net/], and (OmegaHat)[http://www.omegahat.org/]. It can sometimes be hard to find the right packages but Googling and use of the [Task Views](http://cran.r-project.org/web/views/) usually get you what you need. That said, beginners, in particular, may find John Fox's [*car*](http://cran.r-project.org/web/packages/car/index.html) package helpful for doing a bunch of regression-type analyses beyond what's provided in base R. Gary King (et al.)'s [*Zelig*](http://gking.harvard.edu/zelig) software also provides a somewhat more consistent interface than base R to a bunch of R modelling functions (especially those written by King and coauthors, not surpisingly). *Zelig* also provides the functionality of *Clarify*, familiar to many Stata users.
+
+
 ## R Graphics ##
 R basically offers three completely incompatible graphics approaches.
 * Base R, which encompasses all of the graphics functionality provided with the default R packages and add-ons to those approaches
