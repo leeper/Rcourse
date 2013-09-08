@@ -1,0 +1,1234 @@
+\documentclass[12pt]{article}
+\usepackage{titlesec}
+\usepackage{graphicx,setspace,hyperref,fullpage,amsmath,amsfonts,times,multirow,ccaption,tabularx,verbatim,booktabs,mdwlist}
+\setlength{\marginparwidth}{.5in}
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,} %set in-line reference punctuation
+\setlength{\bibsep}{0.1in} %set spacing between references
+\setlength{\bibhang}{.5in} %set hanging indent for references
+\setlength{\parindent}{0.5in}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+NA
+NA
+NA
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Introduction to R},    % title
+    pdfauthor={Thomas J. Leeper},     % author
+    pdfsubject={Political Science},   % subject of the document
+%    pdfkeywords={politics} {public opinion} {information acquisition} {media exposure} {time}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    %colorlinks=false,       % false: boxed links; true: colored links
+    %linkcolor=red,          % color of internal links
+    %citecolor=green,        % color of links to bibliography
+    %filecolor=magenta,      % color of file links
+    %urlcolor=cyan           % color of external links
+    pdfborder={0 0 0}
+}
+
+\title{Really Introductory Introduction to $\mathbb{R}$ (Fall 2011)}
+\author{Thomas J. Leeper\\
+Department of Political Science,\\
+Northwestern University}
+
+
+
+\usepackage{Sweave}
+\begin{document}
+
+\maketitle
+
+\abstract{The purpose of this document is to provide a brief introduction to $\mathbb{R}$, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning $\mathbb{R}$ and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of undergraduate Northwestern students, who have --- in past versions of this course --- expressed frustration with the technical aspects of the course. My aim in this document is to make learning $\mathbb{R}$ relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to $\mathbb{R}$'' Short Course.}}
+
+\section{Why R?}\label{sec:intro}
+$\mathbb{R}$ refers to a statistical computing environment and the programming language used therein. We use $\mathbb{R}$ in this course because it is free, open source, well-documented, involves a large community of active users, and, most importantly, because it provides nearly unlimited functionality that far exceeds that of all other statistical packages.
+
+The major drawback of using $\mathbb{R}$ is that it is difficult for new users to learn. If you have no background in programming, the learning curve can be very steep. Prior experience with statistical theory is often not terribly helpful for actually implementing that theory in $\mathbb{R}$. Prior experience with other statistical packages (Stata, SAS, SPSS, Matlab) is somewhat helpful and several texts have been written to help users of those packages transition to $\mathbb{R}$. If you have prior experience with programming in other languages, learning $\mathbb{R}$ will be relatively straightforward; BASIC, C\#, PHP, Python, Javascript, etc. all share certain similarities with $\mathbb{R}$.
+
+A second challenge is that not a lot of effort has been put into making $\mathbb{R}$ user-friendly for those with no programming experience. It is a command-based program. There is almost nothing to ``point-and-click'' anywhere in $\mathbb{R}$. You need to learn to program in order to even use $\mathbb{R}$. When you do something wrong in $\mathbb{R}$, it will give you an error message. These errors are typically cryptic and unhelpful. Trial-and-error, use of the online help files, and use of Google will all be necessary. Your instructor and TA should not be your first resources for problems with $\mathbb{R}$. There is a wealth of information on the internet about $\mathbb{R}$ and you should plan on using your classmates as resources for troubleshooting. I am here to help you when you have exhausted these other resources. \textbf{I expect you to spend at least 20 minutes trying to solve a problem and have thoroughly read the relevant help files before emailing me.}
+
+So why use $\mathbb{R}$ if it is so difficult to learn and so different other statistical packages that are also widely used and with which you might already be familiar? The payoff of learning can be substantial. Because $\mathbb{R}$ is a programming language, it allows you an incredible amount of flexibility for the manipulation of data, the creation of unique functions for analyzing and describing those data, and unparalleled functionality for the tabular and graphical presentation of data. For these reasons, $\mathbb{R}$ can actually be fun, once you get to know it. Being competent in $\mathbb{R}$ will make learning other programming languages and other statistical packages much easier --- skills that may prove useful and/or necessary in your future careers. And, once you know how to program and do statistical analysis, people will think you're really intelligent even if you aren't, which has its advantages on the job market.
+
+So, let's get started with $\mathbb{R}$.
+
+\section{Getting Started}
+The first step is downloading and installing $\mathbb{R}$. This is straightforward and instructions can be found on the $\mathbb{R}$ homepage \url{http://www.r-project.org}. $\mathbb{R}$ runs on all major operating systems in effectively the exact same fashion (yet another advantage of $\mathbb{R}$!). Once you have $\mathbb{R}$ installed, you can open it and you'll be presented with a command line. This is where you tell $\mathbb{R}$ what you want to do. Because you don't know how to program any $\mathbb{R}$ code yet, try using $\mathbb{R}$ as a calculator. The standard mathematical operators all work, and follow the `order of operations.' Here are some simple examples: 
+\begin{Schunk}
+\begin{Sinput}
+> 2+2
+\end{Sinput}
+\begin{Soutput}
+[1] 4
+\end{Soutput}
+\begin{Sinput}
+> 51-38
+\end{Sinput}
+\begin{Soutput}
+[1] 13
+\end{Soutput}
+\begin{Sinput}
+> (2+4)*6
+\end{Sinput}
+\begin{Soutput}
+[1] 36
+\end{Soutput}
+\begin{Sinput}
+> 20/4
+\end{Sinput}
+\begin{Soutput}
+[1] 5
+\end{Soutput}
+\begin{Sinput}
+> 2^3
+\end{Sinput}
+\begin{Soutput}
+[1] 8
+\end{Soutput}
+\begin{Sinput}
+> sqrt(4)
+\end{Sinput}
+\begin{Soutput}
+[1] 2
+\end{Soutput}
+\end{Schunk}
+
+But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R (what I use), Emacs, or RStudio.\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
+\begin{itemize*}
+\item Simple text editors: Notepad, TextPad, TextEdit, Wordpad (usually one or more of these is built-in with your computer's operating system)
+\item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}
+\item Advanced front-ends for $\mathbb{R}$: \textbf{\href{http://rstudio.org/}{RStudio}, \href{http://www.revolutionanalytics.com/products/revolution-enterprise.php}{Revolution R}, \href{http://rforge.net/JGR/}{JGR}, \href{http://www.deducer.org/pmwiki/pmwiki.php}{Deducer}}
+\item Graphical User Interface for $\mathbb{R}$: \textbf{\href{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}{Rcmdr}, \href{http://rkward.sourceforge.net/}{RKWard}}
+\end{itemize*}
+
+If you save all of your code in one of these programs with a \verb|.R| file extension, you should be able to completely replicate your analysis simply by opening this file with $\mathbb{R}$ or copying and pasting the entirety of the code into $\mathbb{R}$. This is helpful if you ask someone for help with your code because they can run all of your code and see where it may have had problems.
+
+\subsection{Some General Notes Before Getting Started}
+\begin{itemize*}
+\item $\mathbb{R}$ is case-sensitive. You need to type commands and variable names correctly or they will not work.
+\item Arrow up and Arrow down on your keyboard cycle through previous commands you have entered. They do not scroll the screen up and down. Use your mouse scrollpad, Page Up and Page Down, or the scrollbar instead.
+\item If you forget to put closing brackets on your commands, $\mathbb{R}$ will get confused and give you a \verb|+| symbol instead of the usual \verb|>| prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that $\mathbb{R}$ doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and $\mathbb{R}$ will have no problem with this, as long as you put the appropriate closing bracket at the end.
+\end{itemize*}
+
+\subsection{Creating constants, vectors, matrices, and dataframes}
+To do statistical analysis, we need to have data. $\mathbb{R}$ has various objects for storing different types of data. The simplest way to store data is in a \emph{constant}. A constant, to $\mathbb{R}$, is just a number that is given a name. We use the \verb|<-| to store something into a particular labeled object; we can also use \verb|=| to do this; or \verb|->| by reversing the argument:
+\begin{Schunk}
+\begin{Sinput}
+> a<-4
+> a=4
+> 4->a
+> a
+\end{Sinput}
+\begin{Soutput}
+[1] 4
+\end{Soutput}
+\end{Schunk}
+Here, we've created a constant called \verb|a|, which has the value 4. $\mathbb{R}$ doesn't automatically display the value of \verb|a| when we assign a value to it. To see the value of \verb|a|, you need to simply type \verb|a| and hit <enter>. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
+\begin{Schunk}
+\begin{Sinput}
+> a=4
+> a=6
+> a
+\end{Sinput}
+\begin{Soutput}
+[1] 6
+\end{Soutput}
+\begin{Sinput}
+> b=3
+> b+2
+\end{Sinput}
+\begin{Soutput}
+[1] 5
+\end{Soutput}
+\begin{Sinput}
+> b*a
+\end{Sinput}
+\begin{Soutput}
+[1] 18
+\end{Soutput}
+\end{Schunk}
+Note that $b*a=18$ in the code above, even though we calculated \verb|b+2| in the line directly above that calculation. You have to store a result as a constant to be able to use that result later.
+
+Storing all of our data as individual constants, isn't very efficient, though. Let's say we want to collect a piece of data for a number of units (e.g., people in this class). We can store a set of data points as a \emph{vector} in $\mathbb{R}$ using the \verb|c()| command. Vectors can have any length and we can perform mathematical operations on vectors.
+
+\begin{Schunk}
+\begin{Sinput}
+> a=c(1,2,3,4,5,6,7,8,9,10)
+> a
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\begin{Sinput}
+> a*2
+\end{Sinput}
+\begin{Soutput}
+ [1]  2  4  6  8 10 12 14 16 18 20
+\end{Soutput}
+\begin{Sinput}
+> b=a
+> b
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\end{Schunk}
+
+You can also create a sequence of numbers using \verb|seq()| or just the \verb|:|.
+\begin{Schunk}
+\begin{Sinput}
+> a=seq(1:10)
+> a
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\begin{Sinput}
+> b=1:10
+> b
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\end{Schunk}
+
+This is especially helpful if we want to calculate any basic statistics on a particular vector of data (what we might, in social science language, call a variable). Let's imagine for instance that we collect a number of 2-dice rolls and record the sum in a vector called dice. We can then find out a number of pieces of information about this set of rolls.
+
+\begin{Schunk}
+\begin{Sinput}
+> dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
+> table(dice) #a simple tabulation of how many of each value are in the vector
+\end{Sinput}
+\begin{Soutput}
+dice
+ 2  3  4  5  6  7  8  9 10 11 
+ 2  1  2  5  2  4  1  1  1  1 
+\end{Soutput}
+\begin{Sinput}
+> fivenum(dice) #the five number summary (min, Q1, median, Q3, max) for the vector
+\end{Sinput}
+\begin{Soutput}
+[1]  2.0  4.5  5.5  7.0 11.0
+\end{Soutput}
+\begin{Sinput}
+> quantile(dice, c(0.1,0.2,0.6,0.8)) #arbitrary quantiles
+\end{Sinput}
+\begin{Soutput}
+10% 20% 60% 80% 
+2.9 4.0 6.4 7.2 
+\end{Soutput}
+\begin{Sinput}
+> summary(dice) #a set of basic univariate statistics for the vector
+\end{Sinput}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.75    5.50    5.90    7.00   11.00 
+\end{Soutput}
+\end{Schunk}
+
+Note we can also obtain these summary values individually.
+\begin{Schunk}
+\begin{Sinput}
+> dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
+> length(dice) #how many observations are there?
+\end{Sinput}
+\begin{Soutput}
+[1] 20
+\end{Soutput}
+\begin{Sinput}
+> min(dice) #minimum
+\end{Sinput}
+\begin{Soutput}
+[1] 2
+\end{Soutput}
+\begin{Sinput}
+> median(dice) #median
+\end{Sinput}
+\begin{Soutput}
+[1] 5.5
+\end{Soutput}
+\begin{Sinput}
+> max(dice) #maximum
+\end{Sinput}
+\begin{Soutput}
+[1] 11
+\end{Soutput}
+\begin{Sinput}
+> max(dice)-min(dice) #range
+\end{Sinput}
+\begin{Soutput}
+[1] 9
+\end{Soutput}
+\begin{Sinput}
+> sum(dice)
+\end{Sinput}
+\begin{Soutput}
+[1] 118
+\end{Soutput}
+\begin{Sinput}
+> sum(dice)/length(dice)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.9
+\end{Soutput}
+\begin{Sinput}
+> mean(dice) #mean
+\end{Sinput}
+\begin{Soutput}
+[1] 5.9
+\end{Soutput}
+\begin{Sinput}
+> v=var(dice) #variance
+> v
+\end{Sinput}
+\begin{Soutput}
+[1] 5.884211
+\end{Soutput}
+\begin{Sinput}
+> sqrt(v) #standard deviation
+\end{Sinput}
+\begin{Soutput}
+[1] 2.425739
+\end{Soutput}
+\begin{Sinput}
+> sd(dice) #easier way of getting standard deviation
+\end{Sinput}
+\begin{Soutput}
+[1] 2.425739
+\end{Soutput}
+\end{Schunk}
+
+Two important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O$\mathbb{R}$ we can simply take the square root of the variance directly).
+\begin{Schunk}
+\begin{Sinput}
+> round(mean(dice),2)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.9
+\end{Soutput}
+\begin{Sinput}
+> round(sqrt(var(dice)),2)
+\end{Sinput}
+\begin{Soutput}
+[1] 2.43
+\end{Soutput}
+\end{Schunk}
+
+We can also extract one or more observations from a vector. For instance, if we wanted to know the value of the 1st through 3rd rolls, or just the value of the 7th roll:
+\begin{Schunk}
+\begin{Sinput}
+> dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
+> dice[1:3]
+\end{Sinput}
+\begin{Soutput}
+[1] 2 2 3
+\end{Soutput}
+\begin{Sinput}
+> dice[7]
+\end{Sinput}
+\begin{Soutput}
+[1] 5
+\end{Soutput}
+\end{Schunk}
+We'll discuss more about extracting particular observations in a moment. Clearly, though, conducting simple analyses in $\mathbb{R}$ is pretty straightfoward. Most of the commands are semantic --- that is, the command to obtain a particular statistic is intuitive. This is generally the case, but can get confusing once we move into more advanced statistics. Using comments in your $\mathbb{R}$ programming will therefore be vital to you and I both understanding what you're trying to do with a given piece of code. The pound sign (\#) can be used to create comments in the code, which can be helpful when you have to do complex things in your code and you want to remind yourself (or me) what you're trying to do with each bit of code. They can be included at the end of a line of code or simply on their own. Just start the line with a pound sign and then continue with code on the next line.
+
+Now let's work with two variables. Let's try comparing two sets of dice rolls, by looking at their means, variances, and the correlation between the two sets of rolls.
+\begin{Schunk}
+\begin{Sinput}
+> dice1=c(7,7,4,5,3,6,8,2,12,10)
+> dice2=c(8,4,7,7,7,7,6,6,3,4)
+> mean(dice1)
+\end{Sinput}
+\begin{Soutput}
+[1] 6.4
+\end{Soutput}
+\begin{Sinput}
+> sd(dice1)
+\end{Sinput}
+\begin{Soutput}
+[1] 3.098387
+\end{Soutput}
+\begin{Sinput}
+> mean(dice2)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.9
+\end{Soutput}
+\begin{Sinput}
+> sd(dice2)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.66333
+\end{Soutput}
+\begin{Sinput}
+> cor(dice1,dice2)
+\end{Sinput}
+\begin{Soutput}
+[1] -0.6812877
+\end{Soutput}
+\end{Schunk}
+
+We could also represent these data a different way. Rather than having two vectors, we could ``column bind'' them (using the \verb|cbind()| command) into a \emph{matrix}, which we can also call whatever we want.
+\begin{Schunk}
+\begin{Sinput}
+> dice1=c(7,7,4,5,3,6,8,2,12,10)
+> dice2=c(8,4,7,7,7,7,6,6,3,4)
+> dice=c(dice1,dice2)
+> set=c(1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2)
+> dice.mat=cbind(set,dice)
+> dice.mat
+\end{Sinput}
+\begin{Soutput}
+      set dice
+ [1,]   1    7
+ [2,]   1    7
+ [3,]   1    4
+ [4,]   1    5
+ [5,]   1    3
+ [6,]   1    6
+ [7,]   1    8
+ [8,]   1    2
+ [9,]   1   12
+[10,]   1   10
+[11,]   2    8
+[12,]   2    4
+[13,]   2    7
+[14,]   2    7
+[15,]   2    7
+[16,]   2    7
+[17,]   2    6
+[18,]   2    6
+[19,]   2    3
+[20,]   2    4
+\end{Soutput}
+\end{Schunk}
+
+We can also use the corresponding \verb|rbind()| to ``row bind'' two or more vectors, which has the same effect as \verb|cbind()|, but treats each vector as a row/observation. The \verb|t()| command transposes a matrix. If we apply this function to our original matrix (that we constructed using \verb|cbind()|), we will obtain the second matrix we constructed (using \verb|rbind()|).
+\begin{Schunk}
+\begin{Sinput}
+> rbind(set,dice)
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+set     1    1    1    1    1    1    1    1    1     1     2     2     2     2
+dice    7    7    4    5    3    6    8    2   12    10     8     4     7     7
+     [,15] [,16] [,17] [,18] [,19] [,20]
+set      2     2     2     2     2     2
+dice     7     7     6     6     3     4
+\end{Soutput}
+\begin{Sinput}
+> t(dice.mat)
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+set     1    1    1    1    1    1    1    1    1     1     2     2     2     2
+dice    7    7    4    5    3    6    8    2   12    10     8     4     7     7
+     [,15] [,16] [,17] [,18] [,19] [,20]
+set      2     2     2     2     2     2
+dice     7     7     6     6     3     4
+\end{Soutput}
+\end{Schunk}
+
+Here, we created our vectors from above, but then combined them into a single vector using the \verb|c()| command. We then created a separate vector called \verb|set| into which we stored the identifier for whether the observation came from our first or second set of rolls. We then bound these two vectors together into a matrix called \verb|dice.mat|, which has dimensions 20 x 2. Now this is starting to look like a traditional rectangular dataset where each observation is represented as a row and each variable is a column. We can look at the dimensions of the new matrix, including its number of columns and number of rows and use that information to extract particular values (or sets of values) from the matrix. We can extract a particular observation (e.g., observation 5), a particular variable (e.g., the second variable), or the observation for a given variable (e.g., the value of the roll for our fifth roll) just as we did with vectors, but now our syntax reflects that row and column position, as follows:
+\begin{Schunk}
+\begin{Sinput}
+> ncol(dice.mat)
+\end{Sinput}
+\begin{Soutput}
+[1] 2
+\end{Soutput}
+\begin{Sinput}
+> nrow(dice.mat)
+\end{Sinput}
+\begin{Soutput}
+[1] 20
+\end{Soutput}
+\begin{Sinput}
+> dim(dice.mat) #obtain both dimensions
+\end{Sinput}
+\begin{Soutput}
+[1] 20  2
+\end{Soutput}
+\begin{Sinput}
+> dice.mat[5,]
+\end{Sinput}
+\begin{Soutput}
+ set dice 
+   1    3 
+\end{Soutput}
+\begin{Sinput}
+> dice.mat[,2]
+\end{Sinput}
+\begin{Soutput}
+ [1]  7  7  4  5  3  6  8  2 12 10  8  4  7  7  7  7  6  6  3  4
+\end{Soutput}
+\begin{Sinput}
+> dice.mat[5,2]
+\end{Sinput}
+\begin{Soutput}
+dice 
+   3 
+\end{Soutput}
+\end{Schunk}
+
+We could continue to bind vectors to this matrix. For example, we could bind a vector to the matrix that identifies the color the dice we rolled. Here we'll be dealing with a vector of \emph{strings}, which we cannot perform statistical or mathematical operations, but that we often find in real world data.
+\begin{Schunk}
+\begin{Sinput}
+> color=c("red","red","blue","yellow","blue","red","red","blue","yellow","blue","red","red","blue","yellow","blue","red","red","blue","yellow","blue")
+> dice.mat2=cbind(dice.mat,color)
+> dice.mat2
+\end{Sinput}
+\begin{Soutput}
+      set dice color   
+ [1,] "1" "7"  "red"   
+ [2,] "1" "7"  "red"   
+ [3,] "1" "4"  "blue"  
+ [4,] "1" "5"  "yellow"
+ [5,] "1" "3"  "blue"  
+ [6,] "1" "6"  "red"   
+ [7,] "1" "8"  "red"   
+ [8,] "1" "2"  "blue"  
+ [9,] "1" "12" "yellow"
+[10,] "1" "10" "blue"  
+[11,] "2" "8"  "red"   
+[12,] "2" "4"  "red"   
+[13,] "2" "7"  "blue"  
+[14,] "2" "7"  "yellow"
+[15,] "2" "7"  "blue"  
+[16,] "2" "7"  "red"   
+[17,] "2" "6"  "red"   
+[18,] "2" "6"  "blue"  
+[19,] "2" "3"  "yellow"
+[20,] "2" "4"  "blue"  
+\end{Soutput}
+\end{Schunk}
+
+We can also transform this matrix into a different type of $\mathbb{R}$ object called a \emph{dataframe}. Matrices and dataframes have some similar properties, but also differences that you will learn over the course of this course. Importantly, most data that we read in from an outside file (as opposed to typing in ourselves) will be in the form of a dataframe. But, we can also transform our matrix into a dataframe. If you want to know whether something is a matrix or a dataframe, you can also test it using an \verb|is.matrix()| or \verb|is.data.frame()| command.
+\begin{Schunk}
+\begin{Sinput}
+> dataframe=as.data.frame(dice.mat2)
+> is.data.frame(dataframe)
+\end{Sinput}
+\begin{Soutput}
+[1] TRUE
+\end{Soutput}
+\begin{Sinput}
+> is.matrix(dataframe)
+\end{Sinput}
+\begin{Soutput}
+[1] FALSE
+\end{Soutput}
+\begin{Sinput}
+> is.data.frame(dice.mat2)
+\end{Sinput}
+\begin{Soutput}
+[1] FALSE
+\end{Soutput}
+\begin{Sinput}
+> is.matrix(dice.mat2)
+\end{Sinput}
+\begin{Soutput}
+[1] TRUE
+\end{Soutput}
+\end{Schunk}
+
+One of the key advantages of dataframes is that we can refer to columns of the dataframe by their variable names, as opposed to their position number (as we have to do with matrices). We can find these names using the \verb|names()| command and isolate a particular column of the matrix by using the dollar sign operator. Note that this produces the same result as using the brackets to identify the particular column (as we did above with our matrix).
+\begin{Schunk}
+\begin{Sinput}
+> names(dataframe)
+\end{Sinput}
+\begin{Soutput}
+[1] "set"   "dice"  "color"
+\end{Soutput}
+\begin{Sinput}
+> dataframe$color
+\end{Sinput}
+\begin{Soutput}
+ [1] red    red    blue   yellow blue   red    red    blue   yellow blue  
+[11] red    red    blue   yellow blue   red    red    blue   yellow blue  
+Levels: blue red yellow
+\end{Soutput}
+\begin{Sinput}
+> dataframe[,3]
+\end{Sinput}
+\begin{Soutput}
+ [1] red    red    blue   yellow blue   red    red    blue   yellow blue  
+[11] red    red    blue   yellow blue   red    red    blue   yellow blue  
+Levels: blue red yellow
+\end{Soutput}
+\end{Schunk}
+
+We can also extract a column or row from a dataframe and turn it into a vector. We might want to do this if we plan on transforming the data in some way and saving that transformed data for later use. We could also add that new vector back into the dataframe under a new name. The vector and column in the dataframe will have the same properties, but changing one has no effect on the other. This aspect can sometimes get confusing, especially once you start working with data that contains many variables. You can have a column in a dataframe and a separate vector that have the same name. To work with the vector simply use the name, to use the column in the dataframe, you have to use the \verb|$| operator.
+\begin{Schunk}
+\begin{Sinput}
+> df=as.data.frame(dice.mat)
+> df$dice
+\end{Sinput}
+\begin{Soutput}
+ [1]  7  7  4  5  3  6  8  2 12 10  8  4  7  7  7  7  6  6  3  4
+\end{Soutput}
+\begin{Sinput}
+> half=df$dice+1
+> df$half=half
+> summary(half)
+\end{Sinput}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.50    7.15    8.00   13.00 
+\end{Soutput}
+\begin{Sinput}
+> summary(df$half)
+\end{Sinput}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.50    7.15    8.00   13.00 
+\end{Soutput}
+\begin{Sinput}
+> half=half+1
+> summary(half)
+\end{Sinput}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   4.00    6.00    8.50    8.15    9.00   14.00 
+\end{Soutput}
+\begin{Sinput}
+> summary(df$half)
+\end{Sinput}
+\begin{Soutput}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   3.00    5.00    7.50    7.15    8.00   13.00 
+\end{Soutput}
+\end{Schunk}
+
+Be careful here, because you can also accidentally change a vector by giving something else the same name. For example, we can eliminate the vector entirely by assigning a constant value to it or by giving it the missing value code \verb|NA|.
+\begin{Schunk}
+\begin{Sinput}
+> half
+\end{Sinput}
+\begin{Soutput}
+ [1]  9  9  6  7  5  8 10  4 14 12 10  6  9  9  9  9  8  8  5  6
+\end{Soutput}
+\begin{Sinput}
+> half=1
+> half
+\end{Sinput}
+\begin{Soutput}
+[1] 1
+\end{Soutput}
+\begin{Sinput}
+> half=NA
+> half
+\end{Sinput}
+\begin{Soutput}
+[1] NA
+\end{Soutput}
+\end{Schunk}
+
+We can apply the same \verb|summary()| and \verb|table()| commands that we used on vectors to matrices and dataframes. We can also use \verb|table()| on two variables to construct crosstabs.
+\begin{Schunk}
+\begin{Sinput}
+> summary(df)
+\end{Sinput}
+\begin{Soutput}
+      set           dice            half      
+ Min.   :1.0   Min.   : 2.00   Min.   : 3.00  
+ 1st Qu.:1.0   1st Qu.: 4.00   1st Qu.: 5.00  
+ Median :1.5   Median : 6.50   Median : 7.50  
+ Mean   :1.5   Mean   : 6.15   Mean   : 7.15  
+ 3rd Qu.:2.0   3rd Qu.: 7.00   3rd Qu.: 8.00  
+ Max.   :2.0   Max.   :12.00   Max.   :13.00  
+\end{Soutput}
+\begin{Sinput}
+> table(df$dice,df$set) #crosstab
+\end{Sinput}
+\begin{Soutput}
+     1 2
+  2  1 0
+  3  1 1
+  4  1 2
+  5  1 0
+  6  1 2
+  7  2 4
+  8  1 1
+  10 1 0
+  12 1 0
+\end{Soutput}
+\begin{Sinput}
+> with(df,table(dice,set)) #an alternative method for getting crosstabs
+\end{Sinput}
+\begin{Soutput}
+    set
+dice 1 2
+  2  1 0
+  3  1 1
+  4  1 2
+  5  1 0
+  6  1 2
+  7  2 4
+  8  1 1
+  10 1 0
+  12 1 0
+\end{Soutput}
+\begin{Sinput}
+> prop.table(table(df$dice,df$set)) #convert cell counts to proportions
+\end{Sinput}
+\begin{Soutput}
+        1    2
+  2  0.05 0.00
+  3  0.05 0.05
+  4  0.05 0.10
+  5  0.05 0.00
+  6  0.05 0.10
+  7  0.10 0.20
+  8  0.05 0.05
+  10 0.05 0.00
+  12 0.05 0.00
+\end{Soutput}
+\end{Schunk}
+
+Sometimes you want to know all the objects you have created. To see these, use the \verb|ls()| command.
+\begin{Schunk}
+\begin{Sinput}
+> ls()
+\end{Sinput}
+\begin{Soutput}
+ [1] "a"         "b"         "color"     "dataframe" "df"        "dice"     
+ [7] "dice.mat"  "dice.mat2" "dice1"     "dice2"     "filename"  "filenames"
+[13] "half"      "set"       "v"         "wd"       
+\end{Soutput}
+\end{Schunk}
+You can also use \verb|rm(list=ls(all=TRUE))| to clear all objects; this effectively starts a new $\mathbb{R}$ instance because you will lose all of your work.
+
+\subsection{$\mathbb{R}$ Output}
+Just as it is helpful to save your $\mathbb{R}$ code in an outside file, it is also sometimes helpful to send the output of $\mathbb{R}$ to an outside file so that you can retrieve it later. $\mathbb{R}$ provides the \verb|sink()| command to allow you to put all of the output it produces into an outside .txt file in addition to (or instead of) sending the output to the $\mathbb{R}$ console. This can be helpful when you start performing a large number of analyses. (You need to enter the \verb|sink()| command, complete with all its arguments before conducting your analyses.)
+
+\section{Working with Real Data}\label{sec:data}
+Now that we've worked with some of the basic manipulations of data and the type of objects that $\mathbb{R}$ understands (constants, vectors, matrices, and dataframes), we can proceed forward by working with actual data. It is rare that we'll have to enter our own data manually into $\mathbb{R}$. Instead, we'll likely have to import it from an outside file of various types. To this, we have to start by telling $\mathbb{R}$ where to find the data. You can either do this visually by selecting \verb|File > change dir|, or you can use the \verb|setwd()| command.\footnote{The file path you use will depend on your operating system and the folder where you have saved the data file on your computer. See the $\mathbb{R}$ help files for how to do this. You can access the help file by typing \textbf{? setwd()} into $\mathbb{R}$. You can use that question mark syntax to get help on any $\mathbb{R}$ command.} This sets the working directory for your current $\mathbb{R}$ session. You can change it later as needed, but you'll need to set it each time you work with $\mathbb{R}$.
+\begin{Schunk}
+\begin{Sinput}
+> setwd("C:/Users/Thomas/Documents/NU-Teaching/Introduction2R/")
+\end{Sinput}
+\end{Schunk}
+You can check what your working directory is by using the corresponding \textbf{getwd()} command.
+
+After your working directory is set, you can read data into $\mathbb{R}$.  How you do this will depend on the type of data file you are working with:
+\begin{itemize*}
+\item Comma-Separated Variable (.csv) data: use \verb|read.csv()|
+\item Table-Delimited Data (.tab): use \verb|read.delim()|
+\item Fixed-width format data (file extensions vary): use \verb|read.fwf()| or \verb|read.table()|
+\item Stata (.dta) data: use \verb|read.dta()| in the \verb|foreign| package
+\item SPSS (.sav, .por) data: use \verb|read.spss()| in the \verb|foreign| package
+\end{itemize*}
+Sometimes you'll encounter data in other formats, but these are the most common. The first three formats can be read using commands that are built-in to $\mathbb{R}$. The latter two, for Stata and SPSS filetypes, require an outside package called \verb|foreign|.
+
+\subsection{Packages}
+Installing packages is straightforward. You can do this in many ways, but I'll describe two of them quickly. The first method involves finding the package on the $\mathbb{R}$ website (\url{http://www.r-project.org}, downloading the compressed (.zip) folder for the package (usually there are different versions for each operating system), unpacking that folder, and saving it into the ``library'' folder in $\mathbb{R}$'s system files. This can be confusing if you're not used to saving things in your system folders. The second, easier, way is to select \verb|Packages > Install package(s)| from within $\mathbb{R}$. You will then be prompted to select a ``CRAN mirror''; you can select any of these. You will next be prompted to select the package you want to install. Selecting it from the list and clicking OK will download, unpack, and install the package. It is now ready to use.
+
+The first method is usually foolproof, but the second can sometimes fail inexplicably. Often this has to do with file permission settings or internet access on your computer. For example, in Windows, you will likely have to run $\mathbb{R}$ ``as an administrator'' in order for the package to download and install correctly.
+
+To actually use a package (once it is installed on your computer, using the above instructions), you can call the package using the \verb|library()| command in $\mathbb{R}$.
+\begin{Schunk}
+\begin{Sinput}
+> library(foreign)
+\end{Sinput}
+\end{Schunk}
+The package is now ready to use. Now, let's try reading in some data.
+
+\subsection{Reading in (and Writing Out) Data}
+Here's an example dataset that includes six variables describing four patients who entered a hospital for treatment.
+\begin{quote}
+patient,dob,entry,discharge,fee,sex\\
+001,10/21/1946,12/12/2004,12/14/2004,8000,1\\
+002,05/01/1980,07/08/2004,08/08/2004,12000,2\\
+003,01/01/1960,01/01/2004,01/04/2004,9000,2\\
+004,06/23/1998,11/11/2004,12/25/2004,15123,1\\
+\end{quote}
+We can read this data into $\mathbb{R}$ from an outside ``patient.csv'' file and display the resulting dataframe.
+\begin{Schunk}
+\begin{Sinput}
+> data=read.csv("patient.csv")
+> dim(data)
+\end{Sinput}
+\begin{Soutput}
+[1] 4 6
+\end{Soutput}
+\begin{Sinput}
+> data
+\end{Sinput}
+\begin{Soutput}
+  patient        dob      entry  discharge   fee sex
+1       1 10/21/1946 12/12/2004 12/14/2004  8000   1
+2       2 05/01/1980 07/08/2004 08/08/2004 12000   2
+3       3 01/01/1960 01/01/2004 01/04/2004  9000   2
+4       4 06/23/1998 11/11/2004 12/25/2004 15123   1
+\end{Soutput}
+\end{Schunk}
+Note that this creates a dataframe called \textbf{data} that has a row for each patient and a column for each variable.\footnote{You can call your data anything, but you need to store it as something. I always call my dataframes \textbf{data} or some variant thereof for simplicity, but you can use anything you want.} You can now proceed with analysis on this dataframe as you would any other, just as we did with the dataframes we created above.
+
+When we have created a dataframe (and potentially manipulated it in a number of ways) and want to save our new creation, we can use the \verb|write.csv()| command to store the dataframe as a .csv file in our working directory.
+
+\subsection{Data Manipulation and Subsetting}
+Often, we want to work with some smaller part of a dataset rather than the entire dataset --- for example, we may only be interested in looking at a subset of observations or looking only at some variables. $\mathbb{R}$ has a number of functions for manipulating and subsetting dataframes that can help us with these tasks. Recall that for dataframes, we can use the \verb|$| symbol to identify specific variables or use the \verb|[,]| brackets to index specific observations, specific variables, or both. We will also make use of the \verb|!| symbol and the \verb|-| symbol, which serve as ``not'' commands. We also will use the \verb|subset()| command to isolate types of observations and variables. We'll use the patient data we just read in to demonstrate the results of using these commands in various combinations.
+\begin{Schunk}
+\begin{Sinput}
+> data$patient
+\end{Sinput}
+\begin{Soutput}
+[1] 1 2 3 4
+\end{Soutput}
+\begin{Sinput}
+> data[,1]
+\end{Sinput}
+\begin{Soutput}
+[1] 1 2 3 4
+\end{Soutput}
+\begin{Sinput}
+> subset(data,select=c(patient))
+\end{Sinput}
+\begin{Soutput}
+  patient
+1       1
+2       2
+3       3
+4       4
+\end{Soutput}
+\begin{Sinput}
+> subset(data,select=-c(patient))
+\end{Sinput}
+\begin{Soutput}
+         dob      entry  discharge   fee sex
+1 10/21/1946 12/12/2004 12/14/2004  8000   1
+2 05/01/1980 07/08/2004 08/08/2004 12000   2
+3 01/01/1960 01/01/2004 01/04/2004  9000   2
+4 06/23/1998 11/11/2004 12/25/2004 15123   1
+\end{Soutput}
+\begin{Sinput}
+> data[1,]
+\end{Sinput}
+\begin{Soutput}
+  patient        dob      entry  discharge  fee sex
+1       1 10/21/1946 12/12/2004 12/14/2004 8000   1
+\end{Soutput}
+\begin{Sinput}
+> subset(data,patient==001)
+\end{Sinput}
+\begin{Soutput}
+  patient        dob      entry  discharge  fee sex
+1       1 10/21/1946 12/12/2004 12/14/2004 8000   1
+\end{Soutput}
+\begin{Sinput}
+> subset(data,sex==2)
+\end{Sinput}
+\begin{Soutput}
+  patient        dob      entry  discharge   fee sex
+2       2 05/01/1980 07/08/2004 08/08/2004 12000   2
+3       3 01/01/1960 01/01/2004 01/04/2004  9000   2
+\end{Soutput}
+\begin{Sinput}
+> subset(data,!sex==1)
+\end{Sinput}
+\begin{Soutput}
+  patient        dob      entry  discharge   fee sex
+2       2 05/01/1980 07/08/2004 08/08/2004 12000   2
+3       3 01/01/1960 01/01/2004 01/04/2004  9000   2
+\end{Soutput}
+\begin{Sinput}
+> subset(data,sex==2,select=c(dob))
+\end{Sinput}
+\begin{Soutput}
+         dob
+2 05/01/1980
+3 01/01/1960
+\end{Soutput}
+\end{Schunk}
+
+The \verb|subset()| command is incredibly powerful. Note, however, that none of these subsets were stored, they were simply displayed. If you want to further use a subset of a dataframe, it is necessary to store that subset (of observations and/or variables) as a new object:
+\begin{Schunk}
+\begin{Sinput}
+> data.females=subset(data,sex==2)
+\end{Sinput}
+\end{Schunk}
+
+It is also possible to temporarily use a subset of data using the \verb|with()| command:
+\begin{Schunk}
+\begin{Sinput}
+> with(data, mean(fee))
+\end{Sinput}
+\begin{Soutput}
+[1] 11030.75
+\end{Soutput}
+\begin{Sinput}
+> with(subset(data,sex==1), mean(fee))
+\end{Sinput}
+\begin{Soutput}
+[1] 11561.5
+\end{Soutput}
+\begin{Sinput}
+> with(subset(data,sex==2), mean(fee))
+\end{Sinput}
+\begin{Soutput}
+[1] 10500
+\end{Soutput}
+\end{Schunk}
+Note that here, you don't need to use the \verb|$| operator or \verb|[,]| indexing brackets because the \verb|with()| command tells $\mathbb{R}$ which dataframe to use when we call the \verb|fee| variable.
+
+\subsubsection{Missing Data}
+Missing data, represented in $\mathbb{R}$ using \verb|NA|, will inevitably create problems for you at some point during this course. Whereas some statistical packages, like SPSS, SAS, and Stata, will automatically drop missing values from many types of analysis (leaving the original dataframe or matrix intact), $\mathbb{R}$ will often choke when you have missing values. This typically causes confusing errors about the length of vectors or dimensions of matrices. It is also good statistical practice to be fully aware of the amount and locations of missing data in your dataset because the standard practice of dropping observations with missing values can often create worse inferential problems (like selection bias, misleading results, etc.) than using a number of other strategies for addressing missing data.
+
+Perhaps most confusing is that mathematical operations involving missing values all produce missing values, even if you might expect them to treat the \verb|NA| as a 0:
+\begin{Schunk}
+\begin{Sinput}
+> missing=NA
+> value1=2
+> value2=3
+> value1+value2+missing
+\end{Sinput}
+\begin{Soutput}
+[1] NA
+\end{Soutput}
+\end{Schunk}
+
+Something similar happens with vectors, matrices, and dataframes. Take, for instance, a vector (\verb|v1|) and let's remove two values and see the effect on various functions:
+\begin{Schunk}
+\begin{Sinput}
+> v1=c(1,2,3,4,5,6,7,8,9,10)
+> length(v1)
+\end{Sinput}
+\begin{Soutput}
+[1] 10
+\end{Soutput}
+\begin{Sinput}
+> sum(v1)
+\end{Sinput}
+\begin{Soutput}
+[1] 55
+\end{Soutput}
+\begin{Sinput}
+> mean(v1)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.5
+\end{Soutput}
+\begin{Sinput}
+> v2=c(1,2,3,4,NA,6,7,8,9,NA)
+> length(v2)
+\end{Sinput}
+\begin{Soutput}
+[1] 10
+\end{Soutput}
+\begin{Sinput}
+> sum(v2)
+\end{Sinput}
+\begin{Soutput}
+[1] NA
+\end{Soutput}
+\begin{Sinput}
+> mean(v2)
+\end{Sinput}
+\begin{Soutput}
+[1] NA
+\end{Soutput}
+\end{Schunk}
+
+You can also identify which values in a vector, matrix, or dataframe are missing using the logical function \verb|is.na()|. You can also nest this command inside other commands. The resulting vector of \verb|TRUE| and \verb|FALSE| logicals can also be treated mathematically, such as using \verb|sum()| to count the number of missing values in the vector.
+\begin{Schunk}
+\begin{Sinput}
+> is.na(v2)
+\end{Sinput}
+\begin{Soutput}
+ [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
+\end{Soutput}
+\begin{Sinput}
+> sum(is.na(v2))
+\end{Sinput}
+\begin{Soutput}
+[1] 2
+\end{Soutput}
+\end{Schunk}
+
+We could simply remove the missing values for the purposes of performing the calculation. For most functions, this can be accomplished by adding a \verb|na.rm=TRUE| argument within the function. Or, we could create a subset of the original data that omits the missing values using the \verb|na.omit()| function.
+\begin{Schunk}
+\begin{Sinput}
+> v3=na.omit(v2)
+> length(v3)
+\end{Sinput}
+\begin{Soutput}
+[1] 8
+\end{Soutput}
+\begin{Sinput}
+> sum(v3)
+\end{Sinput}
+\begin{Soutput}
+[1] 40
+\end{Soutput}
+\begin{Sinput}
+> mean(v3)
+\end{Sinput}
+\begin{Soutput}
+[1] 5
+\end{Soutput}
+\end{Schunk}
+
+Using the \verb|na.omit()| function changes the length of the original vector. So, while \verb|cor(v1,v2)| will give us a resulting correlation between our original two vectors of \verb|NA|, if we attempt to calculate the correlations of \verb|cor(v1,v3)| or \verb|cor(v2,v3)| $\mathbb{R}$ will produce an \verb|incompatible dimensions| error because \verb|v3| has a length of 8, while both \verb|v1| and \verb|v2| have length 10. In practice, you may want to consider imputing missing values rather than simply removing missing values to avoid these technical errors and larger inferential problems. That, however, is the subject for another discussion.
+
+\section{Plots}\label{sec:plots}
+The real power of $\mathbb{R}$ is its sophisticated graphical functionality. $\mathbb{R}$ comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. Let's discuss a couple of the basic $\mathbb{R}$ plots; these should be familiar to you from your previous statistics and mathematics training.
+\begin{itemize*}
+\item \verb|barplot()|
+\item \verb|hist()|
+\item \verb|pie()|
+\item \verb|plot()|
+\item \verb|boxplot()|
+\end{itemize*}
+
+\subsection{Plotting Parameters}
+All plots can be modified using a common set of parameters described in detail at \url{http://stat.ethz.ch/R-manual/R-patched/library/graphics/html/par.html}. Some of the key parameters are:
+\begin{itemize*}
+\item \verb|main|: Graphic title
+\item \verb|xlab|: X-axis label
+\item \verb|ylab|: Y-axis label
+\item \verb|xlim|: X-axis minimum and maximum
+\item \verb|ylim|: Y-axis minimum and maximum
+\item \verb|pch|: Bullet style
+\item \verb|lty|: Line type
+\item \verb|lwd|: Line thickness
+\item \verb|col|: Color
+\end{itemize*}
+
+Going back to our dice rolling data, we can create a simple scatterplot of the two sets of dice rolls and then modify that plot using the the graphical parameters just described. The parameter arguments can either be comma-separated on the same line, or comma-separated on separate lines for ease of read. Let's compare the basic scatterplot \verb|plot(dice1,dice2)| to a plot with various plotting arguments specified:
+\begin{verbatim}
+plot(dice1,dice2,			#Data to plot
+	main="Dice Rolls",	#Title
+	xlab="Set 1",		#X-axis label
+	ylab="Set 2",		#Y-axis label
+	xlim=c(2,12),		#X-axis dimensions
+	ylim=c(2,12),		#Y-axis dimensions
+	pch=21			#Solid points
+	)
+\end{verbatim}
+
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics{Intro2R20110708-plot2a}
+\end{minipage}
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics{Intro2R20110708-plot2b}
+\end{minipage}
+
+This is a fairly simple set of changes, but it is also possible to change the size, color, and appearance of almost any feature of the plots, as well as design a matrix of plots as a single image output using the \verb|par()| and/or \verb|layout()| commands.
+
+One particularly neat feature of $\mathbb{R}$ is that plots can be modified and combined to create informative presentations of multiple types of data. After you have created a plot, it is possible to add additional data to the plot using one of a number of commands:
+\begin{itemize*}
+\item \verb|lines()|: Add a line to a plot using starting and end points
+\item \verb|abline()|: Add a horizontal, vertical, or slope-intercept line to a plot
+\item \verb|points()|: Add point(s) to a plot
+\item \verb|text()|: Add text to a plot
+\end{itemize*}
+
+\subsection{Saving Plots}
+Once you have created a plot, you will likely want to save it outside of $\mathbb{R}$ (for example, to include in your problem set). The easiest way is to simply copy and paste the graph from $\mathbb{R}$ into some other program. A more flexible way is to sandwich the \verb|plot()| command between two lines of code, like so:
+\begin{verbatim}
+pdf("hist1.pdf")
+hist(dice)
+dev.off()
+\end{verbatim}
+This saves your plot as a PDF file, with the name you specify, in your working directory. You can also use analogous commands --- \verb|jpeg()| and \verb|png()| --- to save your plot in other image formats.
+
+\section{Basic Programming Tools: Logics, etc.}\label{sec:programming}
+As I've stated above, R is a programming language. Thus, it will be helpful to understand some basic programming to help you move beyond the relatively simple tasks we've learned about so far. I will focus on four areas:
+\begin{enumerate*}
+\item Logicals
+\item Functions
+\item Apply
+\item Loops
+\end{enumerate*}
+
+\subsection{Logicals}
+Logicals allow you to test the equivalence of different $\mathbb{R}$ objects in any typical mathematical fashion:
+\begin{itemize*}
+\item Equal to: \verb|==| \footnote{Note the double-plus (==), not to be confused with the single-plus (=), which is used to store a value.}
+\item Greater than: \verb|>|
+\item Less than: \verb|<|
+\item Greater than or equal to: \verb|>=|
+\item Less than or equal to: \verb|<=|
+\item Not: \verb|!|
+\end{itemize*}
+So, we can use these to produce \verb|TRUE| or \verb|FALSE| results from $\mathbb{R}$, which is helpful when building complex programs. Generally it is not terribly helpful to test a simple logical like \verb|2>1|, so instead these logical statements are often used as conditions for performing further operations inside an \verb|if()| statement.
+
+\subsubsection{IF-THEN, ELSE}
+Logicals on their own, are not that helpful. Rather, they are helpful for building complex programs with subroutines that are only run under particular conditions. We could, for instance, set the value of one variable depending on the value of another, or only conduct an operation on an object if it is non-missing. While some programming languages require you to type ``then'' in order to actually execute the second part of an if-statement, $\mathbb{R}$ does not require this. Take a look at the following simple examples:
+\begin{Schunk}
+\begin{Sinput}
+> x=2
+> if (x==1) q="FAIL"
+> if (x==2) q="SUCCESS"
+> q
+\end{Sinput}
+\begin{Soutput}
+[1] "SUCCESS"
+\end{Soutput}
+\begin{Sinput}
+> if (is.na(x)) q="FAIL"
+> if (!is.na(x)) q="SUCCESS"
+> q
+\end{Sinput}
+\begin{Soutput}
+[1] "SUCCESS"
+\end{Soutput}
+\end{Schunk}
+
+These logicals can also be combined with the AND \verb|&| or OR \verb`|` operators to produce logicals that meet more than one criterion.
+\begin{Schunk}
+\begin{Sinput}
+> x=2
+> q=NA
+> if (!is.na(x) & x>2) q="SUCCESS"
+> q
+\end{Sinput}
+\begin{Soutput}
+[1] NA
+\end{Soutput}
+\begin{Sinput}
+> if (!is.na(x) | x>2) q="SUCCESS"
+> q
+\end{Sinput}
+\begin{Soutput}
+[1] "SUCCESS"
+\end{Soutput}
+\end{Schunk}
+Here we can see \verb|q| is not set to equal \verb|SUCCESS| under the first statement because while x is non-missing, x is not greater than 2. Under the second statement, however, where we use the OR operator \verb|q| is set to \verb|SUCCCESS| because x is non-missing, so it does not matter what the value of x is --- only one of the two logicals in parentheses needs to be true.
+
+While we can string an infinitely long string of \verb|if()| statements in a row, sometimes we do not need $\mathbb{R}$ to evaluate all of the statements --- for example, we may want to stop evaluating the \verb|if()| statements once one of them is satisfied. We can use the \verb|else if ()| and \verb|else| commands in these instances.
+\begin{Schunk}
+\begin{Sinput}
+> a=4
+> if (a==1) x="Stopped at 1" else
++ if (a==2) x="Stopped at 2" else
++ if (a==3) x="Stopped at 3" else
++ if (a==4) x="Stopped at 4" else
++ if (a==5) x="Stopped at 5" else
++ if (a==6) x="Stopped at 6 or larger"
+> x
+\end{Sinput}
+\begin{Soutput}
+[1] "Stopped at 4"
+\end{Soutput}
+\end{Schunk}
+You can see here that even though we had two lines of code after the:
+\begin{verbatim}
+if (a==4) x="Stopped at 4" else
+\end{verbatim}
+command, those lines were not evaluated because \verb|a| was set to 4. Thus, we don't have to spend computing time and power to produce a logical \verb|TRUE| or \verb|FALSE| for each if-statement, only for the relevant if-statement.
+
+\subsection{Functions}
+While $\mathbb{R}$ and its supplemental packages provide an enormous amount of functionality, you sometimes feel compelled to write additional functionality to serve a particular need. In this case, you'll need to use the \verb|function()| command. Let's say, for instance, that we had calculated daily high temperatures for a week in Fahrenheit, but needed them in Celsius. We could perform the conversion manually on each score:
+\begin{Schunk}
+\begin{Sinput}
+> temp1.f=65
+> temp1.c=((65-35)*5)/9
+> temp1.c
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667
+\end{Soutput}
+\end{Schunk}
+
+Or we write a function to conduct the conversion without having to retype the math for each score:
+\begin{Schunk}
+\begin{Sinput}
+> temps=c(65,68,72,76,69,78,68)
+> ftoc=function(f) {
++ 	c <- ((f-35)*5)/9
++ 	print(c)
++ }
+> ftoc(temps[1])
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667
+\end{Soutput}
+\end{Schunk}
+
+\subsubsection{Apply}
+This saves us a bit of time because it simplifies what we have to type, but it's still not very efficient. If we wanted to speed up the process even further, we could use $\mathbb{R}$'s \verb|apply()| functions to automatically perform the function on every element in our \verb|temps| vector.
+\begin{Schunk}
+\begin{Sinput}
+> celsius=sapply(temps,FUN=ftoc)
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667
+[1] 18.33333
+[1] 20.55556
+[1] 22.77778
+[1] 18.88889
+[1] 23.88889
+[1] 18.33333
+\end{Soutput}
+\begin{Sinput}
+> celsius
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667 18.33333 20.55556 22.77778 18.88889 23.88889 18.33333
+\end{Soutput}
+\end{Schunk}
+We can also use \verb|apply()| built-in functions to matrices, vectors, and dataframes. This can be helpful if you want to calculate summary statistics for a number of different subgroups of observations within your dataset.
+
+\subsection{Loops}
+The last important piece of $\mathbb{R}$ programming that you should know about is looping. Like \verb|apply()|, loops allow you to perform an otherwise tedious task a number of times on the same or different data. This is what really sets $\mathbb{R}$ apart from its competitors like SPSS, SAS, and Stata. There are several different types of loops that can be used, which are describe in detail at \url{http://cran.r-project.org/doc/manuals/R-lang.html#Looping}. The simplest loop can be used to perform the same temperature conversion we used above.
+\begin{Schunk}
+\begin{Sinput}
+> celsius=NA
+> for (i in 1:length(temps)) {
++ 	celsius[i]=((temps[i]-35)*5)/9
++ }
+> celsius
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667 18.33333 20.55556 22.77778 18.88889 23.88889 18.33333
+\end{Soutput}
+\end{Schunk}
+Here, we tell $\mathbb{R}$ that we want to conduct a task for $i$ number of times, specified by 1 to the length of our \verb|temps| vector. For each iteration of the loop, we take the $i^{th}$ element of the \verb|temps| vector, perform the temperature conversion calculation and store the resulting value in the $i^{th}$ element of the \verb|celsius| vector. When the loop completes, $\mathbb{R}$ displays nothing, so we have to call the \verb|celsius| vector. If we didn't need to store each converted value, we could also use the \verb|print()| command to simply display the resulting calculations like so:
+\begin{Schunk}
+\begin{Sinput}
+> for (i in 1:length(temps)) {
++ 	print(((temps[i]-35)*5)/9)
++ }
+\end{Sinput}
+\begin{Soutput}
+[1] 16.66667
+[1] 18.33333
+[1] 20.55556
+[1] 22.77778
+[1] 18.88889
+[1] 23.88889
+[1] 18.33333
+\end{Soutput}
+\end{Schunk}
+The \verb|print()| function will be helpful if you run very large or complicated loops.
+
+But now we've seen multiple ways to apply functions to objects. Which should we use in which situation? Given that we have nearly unlimited computing power and time, the distinctions between these methods are fairly small. \verb|apply()| functions tend to be faster than loops, but that only matters if the task you're performing is very complicated. Loops are more versatile because you can perform multiple tasks within a single iteration of a loop, as well as nest loops inside one another. For example, if you needed to perform a task on each element of an $i$-by-$j$ matrix, you could nest a loop indexed by $j$ within a loop indexed by $i$, or vice versa. The final choice of how to program depends on the needs of the particular task you're aiming to complete. Often there many, many ways to accomplish the same task, which makes $\mathbb{R}$ uniquely versatile among statistical packages.
+
+\section{Conclusion}\label{sec:conclusion}
+So now you've learned the basic information you need to know to use $\mathbb{R}$ for this class. Hopefully this tutorial has helped you be less intimidated by and frustrated with the language and this course as a whole. Best of luck and let me know if you have questions!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\singlespacing
+%\bibliographystyle{apsa-leeper}
+%\bibliography{references}%,essay1,essay2,essay3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%In-line sweave 3
+
+%Don't include <<d,echo=FALSE>>=
+
+%Figure: <<z,fig=TRUE>>=
+
+%xtable: <<e,results=tex>>=
+%library(xtable)
+%table=summary(lm(y~x))
+%print(xtable(table,caption="Regression %Results",label="tab:results1",digits=c(2,2,2,2,2)),caption.placement="top")
+%@ 
+
+
+\end{document}
