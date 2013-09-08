@@ -1,6 +1,9 @@
 # Introduction to R
+
 Created 2013-08-12
+
 Last updated 2013-08-22
+
 
 ## Pre-Session (30 minutes)
 * Installing R
