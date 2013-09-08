@@ -46,7 +46,7 @@ The following editors provide basic features like R syntax highlighting and some
 * [WinEdt](http://www.winedt.com/)
 * [JGR](http://rforge.net/JGR/)
 * [Deducer](http://www.deducer.org/pmwiki/pmwiki.php)
-* [Vim-R](http://www.vim.org/scripts/script.php?script_id=2628) - plugin for [Vim](http://en.wikipedia.org/wiki/Vim_(text_editor))
+* [Vim-R](http://www.vim.org/scripts/script.php?script_id=2628) - a plugin for [Vim](http://en.wikipedia.org/wiki/Vim_(text_editor)
 
 Internal to R there are also several options, including my own package [*rite*](http://cran.r-project.org/web/packages/rite/), which provides a basic script editor and [Rcmdr](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/), which provides a heavier but more fully featured GUI.
 
