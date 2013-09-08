@@ -26,39 +26,33 @@
     pdfkeywords={R}, 		% list of keywords
     pdfnewwindow=true,      % links in new window
     colorlinks=false,       % false: boxed links; true: colored links
-    %linkcolor=red,          % color of internal links
-    %citecolor=green,        % color of links to bibliography
-    %filecolor=magenta,      % color of file links
-    %urlcolor=cyan,           % color of external links
     pdfborder={0 0 0}
 }
 
-\title{Really Introductory Introduction to $\mathbb{R}$}
+\title{Really Introductory Introduction to R}
 \author{Thomas J. Leeper\\
-Department of Political Science\\
-Northwestern University}
-
-\SweaveOpts{echo=true,keep.source=TRUE}
+Department of Political Science and Government\\
+Aarhus University}
 
 \begin{document}
 
 \maketitle
 
-{\abstract The purpose of this document is to provide a brief introduction to $\mathbb{R}$, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning $\mathbb{R}$ and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of students who are learning $\mathbb{R}$ for the first time in the context of a course that provides little technical instruction in programming. My aim in this document is to make learning $\mathbb{R}$ relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to $\mathbb{R}$'' Short Course. It is released without copyright, but citation is always appreciated.}}
+{\abstract The purpose of this document is to provide a brief introduction to \textbf{R}, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning \textbf{R} and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of students who are learning \textbf{R} for the first time in the context of a course that provides little technical instruction in programming. My aim in this document is to make learning \textbf{R} relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to \textbf{R}'' Short Course. It is released without copyright, but citation is always appreciated.}}
 
 \section{Why R?}\label{sec:intro}
-$\mathbb{R}$ refers to a statistical computing environment and the programming language used therein. We use $\mathbb{R}$ in this course because it is free, open source, well-documented, involves a large community of active users, and, most importantly, because it provides nearly unlimited functionality that far exceeds that of all other statistical packages.
+\textbf{R} refers to a statistical computing environment and the programming language used therein. We use \textbf{R} in this course because it is free, open source, well-documented, involves a large community of active users, and, most importantly, because it provides nearly unlimited functionality that far exceeds that of all other statistical packages.
 
-The major drawback of using $\mathbb{R}$ is that it is difficult for new users to learn. If you have no background in programming, the learning curve can be very steep. Prior experience with statistical theory is often not terribly helpful for actually implementing that theory in $\mathbb{R}$. Prior experience with other statistical packages (Stata, SAS, SPSS, Matlab) is somewhat helpful and several texts have been written to help users of those packages transition to $\mathbb{R}$. If you have prior experience with programming in other languages, learning $\mathbb{R}$ will be relatively straightforward; BASIC, C\#, PHP, Python, Javascript, etc. all share certain similarities with $\mathbb{R}$.
+The major drawback of using \textbf{R} is that it is difficult for new users to learn. If you have no background in programming, the learning curve can be very steep. Prior experience with statistical theory is often not terribly helpful for actually implementing that theory in \textbf{R}. Prior experience with other statistical packages (Stata, SAS, SPSS, Matlab) is somewhat helpful and several texts have been written to help users of those packages transition to \textbf{R}. If you have prior experience with programming in other languages, learning \textbf{R} will be relatively straightforward; BASIC, C\#, PHP, Python, Javascript, etc. all share certain similarities with \textbf{R}.
 
-A second challenge is that not a lot of effort has been put into making $\mathbb{R}$ user-friendly for those with no programming experience. It is a command-based program. There is almost nothing to ``point-and-click'' anywhere in $\mathbb{R}$. You need to learn to program in order to even use $\mathbb{R}$. When you do something wrong in $\mathbb{R}$, it will give you an error message. These errors are typically cryptic and unhelpful. Trial-and-error, use of the online help files, and use of Google will all be necessary. Your instructor and TA should not be your first resources for problems with $\mathbb{R}$. There is a wealth of information on the internet about $\mathbb{R}$ and you should plan on using your classmates as resources for troubleshooting. I am here to help you when you have exhausted these other resources. \textbf{I expect you to spend at least 20 minutes trying to solve a problem and have thoroughly read the relevant help files before emailing me.}
+A second challenge is that not a lot of effort has been put into making \textbf{R} user-friendly for those with no programming experience. It is a command-based program. There is almost nothing to ``point-and-click'' anywhere in \textbf{R}. You need to learn to program in order to even use \textbf{R}. When you do something wrong in \textbf{R}, it will give you an error message. These errors are typically cryptic and unhelpful. Trial-and-error, use of the online help files, and use of Google will all be necessary. Your instructor and TA should not be your first resources for problems with \textbf{R}. There is a wealth of information on the internet about \textbf{R} and you should plan on using your classmates as resources for troubleshooting. I am here to help you when you have exhausted these other resources. \textbf{I expect you to spend at least 20 minutes trying to solve a problem and have thoroughly read the relevant help files before emailing me.}
 
-So why use $\mathbb{R}$ if it is so difficult to learn and so different other statistical packages that are also widely used and with which you might already be familiar? The payoff of learning can be substantial. Because $\mathbb{R}$ is a programming language, it allows you an incredible amount of flexibility for the manipulation of data, the creation of unique functions for analyzing and describing those data, and unparalleled functionality for the tabular and graphical presentation of data. For these reasons, $\mathbb{R}$ can actually be fun, once you get to know it. Being competent in $\mathbb{R}$ will make learning other programming languages and other statistical packages much easier --- skills that may prove useful and/or necessary in your future careers. And, once you know how to program and do statistical analysis, people will think you're really intelligent even if you aren't, which has its advantages on the job market.
+So why use \textbf{R} if it is so difficult to learn and so different other statistical packages that are also widely used and with which you might already be familiar? The payoff of learning can be substantial. Because \textbf{R} is a programming language, it allows you an incredible amount of flexibility for the manipulation of data, the creation of unique functions for analyzing and describing those data, and unparalleled functionality for the tabular and graphical presentation of data. For these reasons, \textbf{R} can actually be fun, once you get to know it. Being competent in \textbf{R} will make learning other programming languages and other statistical packages much easier --- skills that may prove useful and/or necessary in your future careers. And, once you know how to program and do statistical analysis, people will think you're really intelligent even if you aren't, which has its advantages on the job market.
 
-So, let's get started with $\mathbb{R}$.
+So, let's get started with \textbf{R}.
 
 \section{Getting Started}
-The first step is downloading and installing $\mathbb{R}$. This is straightforward and instructions can be found on the $\mathbb{R}$ homepage \url{http://www.r-project.org}. $\mathbb{R}$ runs on all major operating systems in effectively the exact same fashion (yet another advantage of $\mathbb{R}$!). Once you have $\mathbb{R}$ installed, you can open it and you'll be presented with a command line. This is where you tell $\mathbb{R}$ what you want to do. Because you don't know how to program any $\mathbb{R}$ code yet, try using $\mathbb{R}$ as a calculator. The standard mathematical operators all work, and follow the `order of operations.' Here are some simple examples: 
+The first step is downloading and installing \textbf{R}. This is straightforward and instructions can be found on the \textbf{R} homepage \url{http://www.r-project.org}. \textbf{R} runs on all major operating systems in effectively the exact same fashion (yet another advantage of \textbf{R}!). Once you have \textbf{R} installed, you can open it and you'll be presented with a command line. This is where you tell \textbf{R} what you want to do. Because you don't know how to program any \textbf{R} code yet, try using \textbf{R} as a calculator. The standard mathematical operators all work, and follow the `order of operations.' Here are some simple examples: 
 <<simplemath>>=
 2+2
 51-38
@@ -68,34 +62,34 @@ The first step is downloading and installing $\mathbb{R}$. This is straightforwa
 sqrt(4)
 @
 
-But, $\mathbb{R}$ is more than just a calculator (obviously!). To move away from using $\mathbb{R}$ as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into $\mathbb{R}$ and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in $\mathbb{R}$ and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. $\mathbb{R}$ doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.%\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
+But, \textbf{R} is more than just a calculator (obviously!). To move away from using \textbf{R} as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into \textbf{R} and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in \textbf{R} and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. \textbf{R} doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.%\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
 \begin{itemize*}
 \item Simple text editors: Notepad, TextPad, TextEdit, Wordpad (usually one or more of these is built-in with your computer's operating system)
 \item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}, \href{http://notepad-plus-plus.org/}{Notepad++}
-\item Advanced front-ends for $\mathbb{R}$: \textbf{\href{http://rstudio.org/}{RStudio}, \href{http://www.revolutionanalytics.com/products/revolution-enterprise.php}{Revolution R}, \href{http://rforge.net/JGR/}{JGR}, \href{http://www.deducer.org/pmwiki/pmwiki.php}{Deducer}}
-\item Graphical User Interface for $\mathbb{R}$: \textbf{\href{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}{Rcmdr}, \href{http://rkward.sourceforge.net/}{RKWard}}
+\item Advanced front-ends for \textbf{R}: \textbf{\href{http://rstudio.org/}{RStudio}, \href{http://www.revolutionanalytics.com/products/revolution-enterprise.php}{Revolution R}, \href{http://rforge.net/JGR/}{JGR}, \href{http://www.deducer.org/pmwiki/pmwiki.php}{Deducer}}
+\item Graphical User Interface for \textbf{R}: \textbf{\href{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}{Rcmdr}, \href{http://rkward.sourceforge.net/}{RKWard}}
 \end{itemize*}
 
-If you save all of your code in one of these programs with a \verb|.R| file extension, you should be able to completely replicate your analysis simply by opening this file with $\mathbb{R}$ or copying and pasting the entirety of the code into $\mathbb{R}$. This is helpful if you ask someone for help with your code because they can run all of your code and see where it may have had problems.
+If you save all of your code in one of these programs with a \verb|.R| file extension, you should be able to completely replicate your analysis simply by opening this file with \textbf{R} or copying and pasting the entirety of the code into \textbf{R}. This is helpful if you ask someone for help with your code because they can run all of your code and see where it may have had problems.
 
 \subsection{Some General Notes Before Getting Started}
 \begin{itemize*}
-\item $\mathbb{R}$ is an object-oriented programming language. That means when we talk about particular statistics or procedures, we have to write code that tells $\mathbb{R}$ how to perform that statistical \emph{procedure} on a \emph{data object}. Usually, this looks something like \verb|mean(x)|, where \verb|mean()| is a procedure and \verb|x| is an object (specifically, a vector of data points). At first, it can be hard to distinguish what text is a procedure from what text is the label for a data object, but over time this will get easier. If you use a text editor with syntax recognition, the text editor will highlight procedures making the process of reading and writing code even easier.
-\item $\mathbb{R}$ is case-sensitive. You need to type commands and variable names correctly or they will not work. As an example, \verb|Mean()| does not mean \verb|mean()|.
+\item \textbf{R} is basically a functional programming language with certain object-oriented capabilities. That means when we talk about particular statistics or procedures, we have to write code that tells \textbf{R} how to perform that statistical \emph{procedure} on a \emph{data object} and the function will generally return some new object. Usually, this looks something like \verb|mean(x)|, where \verb|mean()| is a procedure and \verb|x| is an object (specifically, a vector of data points) and the result is a new object, which we can print to the console, save for later reuse, or simply abandon. When you first start working with R code, it can be hard to distinguish what text is a procedure from what text is the label for a data object, but over time this will get easier. If you use a text editor with syntax recognition, the text editor will highlight procedures (and sometimes objects) making the process of reading and writing code even easier.
+\item \textbf{R} is case-sensitive. You need to type commands and variable names correctly or they will not work. As an example, \verb|Mean()| does not mean \verb|mean()|.
 \item Arrow up and Arrow down on your keyboard cycle through previous commands you have entered. They do not scroll the screen up and down. Use your mouse scrollpad, Page Up and Page Down, or the scrollbar instead.
-\item If you forget to put closing brackets on your commands, $\mathbb{R}$ will get confused and give you a \verb|+| symbol instead of the usual \verb|>| prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that $\mathbb{R}$ doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and $\mathbb{R}$ will have no problem with this, as long as you put the appropriate closing bracket at the end. If you use Mac OS or Linux OS, or some of the fancier text editors, closing brackets are often put in automatically as you type. If you're a Windows user like me, you're out of luck and need to be really careful with brackets.
-\item Sometimes $\mathbb{R}$ does weird stuff that doesn't make any sense. When this happens, double check your brackets and capitalization. Then, trying Googling it. If that doesn't work, you can always just restart the program.
+\item If you forget to put closing brackets on your commands, \textbf{R} will get confused and give you a \verb|+| symbol instead of the usual \verb|>| prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that \textbf{R} doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and \textbf{R} will have no problem with this, as long as you put the appropriate closing bracket at the end. If you use Mac OS or Linux OS, or some of the fancier text editors, closing brackets are often put in automatically as you type. If you're a Windows user like me, you're out of luck and need to be really careful with brackets.
+\item Sometimes \textbf{R} does weird stuff that doesn't make any sense. When this happens, double check your brackets and capitalization. Then, trying Googling it. If that doesn't work, you can always just restart the program.
 \end{itemize*}
 
 \subsection{Creating constants, vectors, matrices, and dataframes}
-To do statistical analysis, we need to have data. $\mathbb{R}$ has various objects for storing different types of data. The simplest way to store data is in a \emph{constant}. A constant, to $\mathbb{R}$, is just a number that is given a name. We use the \verb|<-| to store something into a particular labeled object; we can also use \verb|=| to do this; or \verb|->| by reversing the argument:
+To do statistical analysis, we need to have data. \textbf{R} has various objects for storing different types of data. The simplest way to store data is in a \emph{constant}. A constant, to \textbf{R}, is just a number that is given a name. We use the \verb|<-| to store something into a particular labeled object; we can also use \verb|=| to do this; or \verb|->| by reversing the argument:
 <<constant>>=
 a<-4
 a=4
 4->a
 a
 @
-Here, we've created a constant called \verb|a|, which has the value 4. $\mathbb{R}$ doesn't automatically display the value of \verb|a| when we assign a value to it. To see the value of \verb|a|, you need to simply type \verb|a| and hit <enter>. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
+Here, we've created a constant called \verb|a|, which has the value 4. \textbf{R} doesn't automatically display the value of \verb|a| when we assign a value to it. To see the value of \verb|a|, you need to simply type \verb|a| and hit <enter>. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
 <<constants>>=
 a=4
 a=6
@@ -106,7 +100,7 @@ b*a
 @
 Note that $b*a=18$ in the code above, even though we calculated \verb|b+2| in the line directly above that calculation. You have to store a result as a constant to be able to use that result later.
 
-Storing all of our data as individual constants, isn't very efficient, though. Let's say we want to collect a piece of data for a number of units (e.g., people in this class). We can store a set of data points as a \emph{vector} in $\mathbb{R}$ using the \verb|c()| command. Vectors can have any length and we can perform mathematical operations on vectors.
+Storing all of our data as individual constants, isn't very efficient, though. Let's say we want to collect a piece of data for a number of units (e.g., people in this class). We can store a set of data points as a \emph{vector} in \textbf{R} using the \verb|c()| command. Vectors can have any length and we can perform mathematical operations on vectors.
 
 <<vector>>=
 a=c(1,2,3,4,5,6,7,8,9,10)
@@ -151,7 +145,7 @@ sqrt(v) #standard deviation
 sd(dice) #easier way of getting standard deviation
 @
 
-One thing that can be initially confusing for new users of $\mathbb{R}$ is exactly what is happening when you type in a given command. $\mathbb{R}$ does not solve mathematical equations. Instead, like any programming language, it performs a set of procedures in a specific order on a particular data object (i.e., it performs an algorithm). What does an algorithm look like and why does it matter? To use $\mathbb{R}$ effectively, one needs to understand what it is doing and how to think in algorithms rather than equations. Think about the formula for the mean of a set of data (like our dice roll data). The mathematical equation is $\bar{x}=\Sigma x_{i} / n$. This translates into an $\mathbb{R}$ algorithm like the following:
+One thing that can be initially confusing for new users of \textbf{R} is exactly what is happening when you type in a given command. \textbf{R} does not solve mathematical equations. Instead, like any programming language, it performs a set of procedures in a specific order on a particular data object (i.e., it performs an algorithm). What does an algorithm look like and why does it matter? To use \textbf{R} effectively, one needs to understand what it is doing and how to think in algorithms rather than equations. Think about the formula for the mean of a set of data (like our dice roll data). The mathematical equation is $\bar{x}=\Sigma x_{i} / n$. This translates into an \textbf{R} algorithm like the following:
 <<algorithm>>=
 dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
 sum=2+2+3+4+4+5+5+5+5+5+6+6+7+7+7+7+8+9+10+11
@@ -162,7 +156,7 @@ mean=sum/length
 mean
 @
 
-As we can see, the result is the same as using $\mathbb{R}$'s built-in \verb|mean()| function. We could attempt something similar by converting the equation for variance ($Var[x]=\Sigma (x_{i} - \bar{x})^2 / (n-1)$) into an algorithm (the first four steps of which are the same as calculating the mean):
+As we can see, the result is the same as using \textbf{R}'s built-in \verb|mean()| function. We could attempt something similar by converting the equation for variance ($Var[x]=\Sigma (x_{i} - \bar{x})^2 / (n-1)$) into an algorithm (the first four steps of which are the same as calculating the mean):
 \begin{enumerate*}
 \item Load the vector of all $x_i$, called \emph{data}
 \item Sum all $x_i$, store this result as \emph{sum}
@@ -173,7 +167,7 @@ As we can see, the result is the same as using $\mathbb{R}$'s built-in \verb|mea
 \item Sum all values in \emph{squares}, store as \emph{sumsquares}
 \item Divide \emph{sumsquares} by one less than \emph{length}, store as \emph{variance}
 \end{enumerate*}
-We can then write that algorithm in $\mathbb{R}$:
+We can then write that algorithm in \textbf{R}:
 <<algorithm2>>=
 dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
 sum=sum(dice)
@@ -187,9 +181,9 @@ variance
 sqrt(variance)
 @
 
-As we can see, our mathematical equation for variance is easily converted to an algorithm that we can then write in $\mathbb{R}$ code. While the \verb|var()| command is short and simple, it reflects all of this underlying code. While we can rely on these built-in functions, it is important to keep in mind what is happening behind the scenes. Thinking like a computer programmer rather than a math student will greatly facilitate your transition to $\mathbb{R}$.
+As we can see, our mathematical equation for variance is easily converted to an algorithm that we can then write in \textbf{R} code. While the \verb|var()| command is short and simple, it reflects all of this underlying code. While we can rely on these built-in functions, it is important to keep in mind what is happening behind the scenes. Thinking like a computer programmer rather than a math student will greatly facilitate your transition to \textbf{R}.
 
-Two additional important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O$\mathbb{R}$ we can simply take the square root of the variance directly).
+Two additional important tips here. First, you can use the \verb|round()| command to round a given value to a specified number of decimal places. Second, you can nest commands inside of one another rather than produce a constant that you'll only use one time (e.g., to calculate the standard deviation we can create a constant that stores the variance and take the square root thereof O\textbf{R} we can simply take the square root of the variance directly).
 <<vector3.5>>=
 <<vector3,echo=FALSE>>
 round(mean(dice),2)
@@ -202,7 +196,7 @@ dice=c(2,2,3,4,4,5,5,5,5,5,6,6,7,7,7,7,8,9,10,11)
 dice[1:3]
 dice[7]
 @
-We'll discuss more about extracting particular observations in a moment. Clearly, though, conducting simple analyses in $\mathbb{R}$ is pretty straightfoward. Most of the commands are semantic --- that is, the command to obtain a particular statistic is intuitive. This is generally the case, but can get confusing once we move into more advanced statistics. Using comments in your $\mathbb{R}$ programming will therefore be vital to you and I both understanding what you're trying to do with a given piece of code. The pound sign (\#) can be used to create comments in the code, which can be helpful when you have to do complex things in your code and you want to remind yourself (or me) what you're trying to do with each bit of code. They can be included at the end of a line of code or simply on their own. Just start the line with a pound sign and then continue with code on the next line.
+We'll discuss more about extracting particular observations in a moment. Clearly, though, conducting simple analyses in \textbf{R} is pretty straightfoward. Most of the commands are semantic --- that is, the command to obtain a particular statistic is intuitive. This is generally the case, but can get confusing once we move into more advanced statistics. Using comments in your \textbf{R} programming will therefore be vital to you and I both understanding what you're trying to do with a given piece of code. The pound sign (\#) can be used to create comments in the code, which can be helpful when you have to do complex things in your code and you want to remind yourself (or me) what you're trying to do with each bit of code. They can be included at the end of a line of code or simply on their own. Just start the line with a pound sign and then continue with code on the next line.
 
 Now let's work with two variables. Let's try comparing two sets of dice rolls, by looking at their means, variances, and the correlation between the two sets of rolls.
 <<matrices1>>=
@@ -251,7 +245,7 @@ dice.mat2=cbind(dice.mat,color)
 dice.mat2
 @
 
-We can also transform this matrix into a different type of $\mathbb{R}$ object called a \emph{dataframe}. Matrices and dataframes have some similar properties, but also differences that you will learn over the course of this course. Importantly, most data that we read in from an outside file (as opposed to typing in ourselves) will be in the form of a dataframe. But, we can also transform our matrix into a dataframe. If you want to know whether something is a matrix or a dataframe, you can also test it using an \verb|is.matrix()| or \verb|is.data.frame()| command.
+We can also transform this matrix into a different type of \textbf{R} object called a \emph{dataframe}. Matrices and dataframes have some similar properties, but also differences that you will learn over the course of this course. Importantly, most data that we read in from an outside file (as opposed to typing in ourselves) will be in the form of a dataframe. But, we can also transform our matrix into a dataframe. If you want to know whether something is a matrix or a dataframe, you can also test it using an \verb|is.matrix()| or \verb|is.data.frame()| command.
 <<dataframe>>=
 <<matrices4,echo=FALSE>>
 dataframe=as.data.frame(dice.mat2)
@@ -306,19 +300,19 @@ Sometimes you want to know all the objects you have created. To see these, use t
 <<objects>>=
 ls()
 @
-You can also use \verb|rm(list=ls(all=TRUE))| to clear all objects; this effectively starts a new $\mathbb{R}$ instance because you will lose all of your work.
+You can also use \verb|rm(list=ls(all=TRUE))| to clear all objects; this effectively starts a new \textbf{R} instance because you will lose all of your work.
 
-\subsection{$\mathbb{R}$ Output}
-Just as it is helpful to save your $\mathbb{R}$ code in an outside file, it is also sometimes helpful to send the output of $\mathbb{R}$ to an outside file so that you can retrieve it later. $\mathbb{R}$ provides the \verb|sink()| command to allow you to put all of the output it produces into an outside .txt file in addition to (or instead of) sending the output to the $\mathbb{R}$ console. This can be helpful when you start performing a large number of analyses. (You need to enter the \verb|sink()| command, complete with all its arguments before conducting your analyses.)
+\subsection{\textbf{R} Output}
+Just as it is helpful to save your \textbf{R} code in an outside file, it is also sometimes helpful to send the output of \textbf{R} to an outside file so that you can retrieve it later. \textbf{R} provides the \verb|sink()| command to allow you to put all of the output it produces into an outside .txt file in addition to (or instead of) sending the output to the \textbf{R} console. This can be helpful when you start performing a large number of analyses. (You need to enter the \verb|sink()| command, complete with all its arguments before conducting your analyses.)
 
 \section{Working with Real Data}\label{sec:data}
-Now that we've worked with some of the basic manipulations of data and the type of objects that $\mathbb{R}$ understands (constants, vectors, matrices, and dataframes), we can proceed forward by working with actual data. It is rare that we'll have to enter our own data manually into $\mathbb{R}$. Instead, we'll likely have to import it from an outside file of various types. To this, we have to start by telling $\mathbb{R}$ where to find the data. You can either do this visually by selecting \verb|File > change dir|, or you can use the \verb|setwd()| command.\footnote{The file path you use will depend on your operating system and the folder where you have saved the data file on your computer. See the $\mathbb{R}$ help files for how to do this. You can access the help file by typing \textbf{? setwd()} into $\mathbb{R}$. You can use that question mark syntax to get help on any $\mathbb{R}$ command.} This sets the working directory for your current $\mathbb{R}$ session. You can change it later as needed, but you'll need to set it each time you work with $\mathbb{R}$.
+Now that we've worked with some of the basic manipulations of data and the type of objects that \textbf{R} understands (constants, vectors, matrices, and dataframes), we can proceed forward by working with actual data. It is rare that we'll have to enter our own data manually into \textbf{R}. Instead, we'll likely have to import it from an outside file of various types. To this, we have to start by telling \textbf{R} where to find the data. You can either do this visually by selecting \verb|File > change dir|, or you can use the \verb|setwd()| command.\footnote{The file path you use will depend on your operating system and the folder where you have saved the data file on your computer. See the \textbf{R} help files for how to do this. You can access the help file by typing \textbf{? setwd()} into \textbf{R}. You can use that question mark syntax to get help on any \textbf{R} command.} This sets the working directory for your current \textbf{R} session. You can change it later as needed, but you'll need to set it each time you work with \textbf{R}.
 <<setwd>>=
 setwd("C:\\Users\\Thomas\\Documents\\Dropbox\\Professional Development\\Syllabi\\Introduction2R\\")
 @
 You can check what your working directory is by using the corresponding \textbf{getwd()} command.
 
-After your working directory is set, you can read data into $\mathbb{R}$.  How you do this will depend on the type of data file you are working with:
+After your working directory is set, you can read data into \textbf{R}.  How you do this will depend on the type of data file you are working with:
 \begin{itemize*}
 \item Comma-Separated Variable (.csv) data: use \verb|read.csv()|
 \item Table-Delimited Data (.tab): use \verb|read.delim()|
@@ -326,14 +320,14 @@ After your working directory is set, you can read data into $\mathbb{R}$.  How y
 \item Stata (.dta) data: use \verb|read.dta()| in the \verb|foreign| package
 \item SPSS (.sav, .por) data: use \verb|read.spss()| in the \verb|foreign| package
 \end{itemize*}
-Sometimes you'll encounter data in other formats, but these are the most common. The first three formats can be read using commands that are built-in to $\mathbb{R}$. The latter two, for Stata and SPSS filetypes, require an outside package called \verb|foreign|.
+Sometimes you'll encounter data in other formats, but these are the most common. The first three formats can be read using commands that are built-in to \textbf{R}. The latter two, for Stata and SPSS filetypes, require an outside package called \verb|foreign|.
 
 \subsection{Packages}
-Installing packages is straightforward. You can do this in many ways, but I'll describe two of them quickly. The first method involves finding the package on the $\mathbb{R}$ website (\url{http://www.r-project.org}, downloading the compressed (.zip) folder for the package (usually there are different versions for each operating system), unpacking that folder, and saving it into the ``library'' folder in $\mathbb{R}$'s system files. This can be confusing if you're not used to saving things in your system folders. The second, easier, way is to select \verb|Packages > Install package(s)| from within $\mathbb{R}$. You will then be prompted to select a ``CRAN mirror''; you can select any of these. You will next be prompted to select the package you want to install. Selecting it from the list and clicking OK will download, unpack, and install the package. It is now ready to use.
+Installing packages is straightforward. You can do this in many ways, but I'll describe two of them quickly. The first method involves finding the package on the \textbf{R} website (\url{http://www.r-project.org}, downloading the compressed (.zip) folder for the package (usually there are different versions for each operating system), unpacking that folder, and saving it into the ``library'' folder in \textbf{R}'s system files. This can be confusing if you're not used to saving things in your system folders. The second, easier, way is to select \verb|Packages > Install package(s)| from within \textbf{R}. You will then be prompted to select a ``CRAN mirror''; you can select any of these. You will next be prompted to select the package you want to install. Selecting it from the list and clicking OK will download, unpack, and install the package. It is now ready to use.
 
-The first method is usually foolproof, but the second can sometimes fail inexplicably. Often this has to do with file permission settings or internet access on your computer. For example, in Windows, you will likely have to run $\mathbb{R}$ ``as an administrator'' in order for the package to download and install correctly.
+The first method is usually foolproof, but the second can sometimes fail inexplicably. Often this has to do with file permission settings or internet access on your computer. For example, in Windows, you will likely have to run \textbf{R} ``as an administrator'' in order for the package to download and install correctly.
 
-To actually use a package (once it is installed on your computer, using the above instructions), you can call the package using the \verb|library()| command in $\mathbb{R}$.
+To actually use a package (once it is installed on your computer, using the above instructions), you can call the package using the \verb|library()| command in \textbf{R}.
 <<foreign>>=
 library(foreign)
 @
@@ -348,7 +342,7 @@ patient,dob,entry,discharge,fee,sex\\
 003,01/01/1960,01/01/2004,01/04/2004,9000,2\\
 004,06/23/1998,11/11/2004,12/25/2004,15123,1\\
 \end{quote}
-We can read this data into $\mathbb{R}$ from an outside ``patient.csv'' file and display the resulting dataframe.
+We can read this data into \textbf{R} from an outside ``patient.csv'' file and display the resulting dataframe.
 <<readdata>>=
 <<setwd,echo=FALSE>>
 data=read.csv("patient.csv")
@@ -360,7 +354,7 @@ Note that this creates a dataframe called \textbf{data} that has a row for each 
 When we have created a dataframe (and potentially manipulated it in a number of ways) and want to save our new creation, we can use the \verb|write.csv()| command to store the dataframe as a .csv file in our working directory.
 
 \subsection{Data Manipulation and Subsetting}
-Often, we want to work with some smaller part of a dataset rather than the entire dataset --- for example, we may only be interested in looking at a subset of observations or looking only at some variables. $\mathbb{R}$ has a number of functions for manipulating and subsetting dataframes that can help us with these tasks. Recall that for dataframes, we can use the \verb|$| symbol to identify specific variables or use the \verb|[,]| brackets to index specific observations, specific variables, or both. We will also make use of the \verb|!| symbol and the \verb|-| symbol, which serve as ``not'' commands. We also will use the \verb|subset()| command to isolate types of observations and variables. We'll use the patient data we just read in to demonstrate the results of using these commands in various combinations.
+Often, we want to work with some smaller part of a dataset rather than the entire dataset --- for example, we may only be interested in looking at a subset of observations or looking only at some variables. \textbf{R} has a number of functions for manipulating and subsetting dataframes that can help us with these tasks. Recall that for dataframes, we can use the \verb|$| symbol to identify specific variables or use the \verb|[,]| brackets to index specific observations, specific variables, or both. We will also make use of the \verb|!| symbol and the \verb|-| symbol, which serve as ``not'' commands. We also will use the \verb|subset()| command to isolate types of observations and variables. We'll use the patient data we just read in to demonstrate the results of using these commands in various combinations.
 <<subset1>>=
 <<readdata,echo=false>>
 data$patient
@@ -387,10 +381,10 @@ with(data, mean(fee))
 with(subset(data,sex==1), mean(fee))
 with(subset(data,sex==2), mean(fee))
 @
-Note that here, you don't need to use the \verb|$| operator or \verb|[,]| indexing brackets because the \verb|with()| command tells $\mathbb{R}$ which dataframe to use when we call the \verb|fee| variable.
+Note that here, you don't need to use the \verb|$| operator or \verb|[,]| indexing brackets because the \verb|with()| command tells \textbf{R} which dataframe to use when we call the \verb|fee| variable.
 
 \subsubsection{Missing Data}
-Missing data, represented in $\mathbb{R}$ using \verb|NA|, will inevitably create problems for you at some point during this course. Whereas some statistical packages, like SPSS, SAS, and Stata, will automatically drop missing values from many types of analysis (leaving the original dataframe or matrix intact), $\mathbb{R}$ will often choke when you have missing values. This typically causes confusing errors about the length of vectors or dimensions of matrices. It is also good statistical practice to be fully aware of the amount and locations of missing data in your dataset because the standard practice of dropping observations with missing values can often create worse inferential problems (like selection bias, misleading results, etc.) than using a number of other strategies for addressing missing data.
+Missing data, represented in \textbf{R} using \verb|NA|, will inevitably create problems for you at some point during this course. Whereas some statistical packages, like SPSS, SAS, and Stata, will automatically drop missing values from many types of analysis (leaving the original dataframe or matrix intact), \textbf{R} will often choke when you have missing values. This typically causes confusing errors about the length of vectors or dimensions of matrices. It is also good statistical practice to be fully aware of the amount and locations of missing data in your dataset because the standard practice of dropping observations with missing values can often create worse inferential problems (like selection bias, misleading results, etc.) than using a number of other strategies for addressing missing data.
 
 Perhaps most confusing is that mathematical operations involving missing values all produce missing values, even if you might expect them to treat the \verb|NA| as a 0:
 <<na1>>=
@@ -428,11 +422,11 @@ sum(v3)
 mean(v3)
 @
 
-Using the \verb|na.omit()| function changes the length of the original vector. So, while \verb|cor(v1,v2)| will give us a resulting correlation between our original two vectors of \verb|NA|, if we attempt to calculate the correlations of \verb|cor(v1,v3)| or \verb|cor(v2,v3)| $\mathbb{R}$ will produce an \verb|incompatible dimensions| error because \verb|v3| has a length of 8, while both \verb|v1| and \verb|v2| have length 10. In practice, you may want to consider imputing missing values rather than simply removing missing values to avoid these technical errors and larger inferential problems. That, however, is the subject for another discussion.
+Using the \verb|na.omit()| function changes the length of the original vector. So, while \verb|cor(v1,v2)| will give us a resulting correlation between our original two vectors of \verb|NA|, if we attempt to calculate the correlations of \verb|cor(v1,v3)| or \verb|cor(v2,v3)| \textbf{R} will produce an \verb|incompatible dimensions| error because \verb|v3| has a length of 8, while both \verb|v1| and \verb|v2| have length 10. In practice, you may want to consider imputing missing values rather than simply removing missing values to avoid these technical errors and larger inferential problems. That, however, is the subject for another discussion.
 
 \section{Randomness}\label{sec:random}
 
-One of the very convenient sets of functionality in $\mathbb{R}$ is its ability to generate (pseudo-)random numbers and to conduct sampling. Details about the different random number generates can be found here: \url{http://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html}. Random numbers can be generated according to a number of different distributions including (using the attendant command):
+One of the very convenient sets of functionality in \textbf{R} is its ability to generate (pseudo-)random numbers and to conduct sampling. Details about the different random number generates can be found here: \url{http://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html}. Random numbers can be generated according to a number of different distributions including (using the attendant command):
 \begin{itemize*}
 \item Normal/Gaussian: \verb|rnorm()|
 \item Chi-squared: \verb|rchisq()|
@@ -442,7 +436,7 @@ One of the very convenient sets of functionality in $\mathbb{R}$ is its ability 
 
 Each of these (and the other) distributions also have built-in functions for producing density functions, quantiles, and p-values using commands of the form \verb|dnorm()|, \verb|qnorm()|, and \verb|pnorm()|, respectively. True random numbers and sequences can also be obtained using the \verb|random| package, which makes calls to the random number generates at \url{http://www.random.org} instead of the built-in R pseudo-random number generators. Random integers can be extracted using the \verb|random| package or by rounding the output of one of the \verb|runif()|-type functions.
 
-Besides generating random numbers, $\mathbb{R}$ also provides the ability to sample values from a vector or observations from a dataframe using the \verb|sample()| command. Sampling can be conducted with or without replacement and involve samples of any size:
+Besides generating random numbers, \textbf{R} also provides the ability to sample values from a vector or observations from a dataframe using the \verb|sample()| command. Sampling can be conducted with or without replacement and involve samples of any size:
 <<random>>=
 set = c(1,2,3,4,5)
 sample(set,5,replace=FALSE)
@@ -453,7 +447,7 @@ sample(set,10,replace=TRUE)
 Sampling commands could be used to conduct simulations, including bootstrapping and permutation procedures, as well as Monte Carlo simulations (the latter, in combination with the random number generation functions).
 
 \section{Plots}\label{sec:plots}
-The real power of $\mathbb{R}$ is its sophisticated graphical functionality. $\mathbb{R}$ comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. Let's discuss a couple of the basic $\mathbb{R}$ plots; these should be familiar to you from your previous statistics and mathematics training.
+The real power of \textbf{R} is its sophisticated graphical functionality. \textbf{R} comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. Let's discuss a couple of the basic \textbf{R} plots; these should be familiar to you from your previous statistics and mathematics training.
 \begin{itemize*}
 \item \verb|barplot()|
 \item \verb|hist()|
@@ -489,13 +483,13 @@ plot(dice1,dice2,			#Data to plot
 \end{verbatim}
 
 \begin{minipage}[b]{0.5\linewidth}
-<<plot2a,fig=TRUE,echo=false>>=
+<<plot2a,echo=FALSE>>=
 <<matrices2,echo=false>>
 plot(dice1,dice2)
 @
 \end{minipage}
 \begin{minipage}[b]{0.5\linewidth}
-<<plot2b,fig=TRUE,echo=false>>=
+<<plot2b,echo=FALSE>>=
 <<matrices2,echo=false>>
 plot(dice1,dice2,
 	main="Dice Rolls",
@@ -510,7 +504,7 @@ plot(dice1,dice2,
 
 This is a fairly simple set of changes, but it is also possible to change the size, color, and appearance of almost any feature of the plots, as well as design a matrix of plots as a single image output using the \verb|par()| and/or \verb|layout()| commands.
 
-One particularly neat feature of $\mathbb{R}$ is that plots can be modified and combined to create informative presentations of multiple types of data. After you have created a plot, it is possible to add additional data to the plot using one of a number of commands:
+One particularly neat feature of \textbf{R} is that plots can be modified and combined to create informative presentations of multiple types of data. After you have created a plot, it is possible to add additional data to the plot using one of a number of commands:
 \begin{itemize*}
 \item \verb|lines()|: Add a line to a plot using starting and end points
 \item \verb|abline()|: Add a horizontal, vertical, or slope-intercept line to a plot
@@ -519,7 +513,7 @@ One particularly neat feature of $\mathbb{R}$ is that plots can be modified and 
 \end{itemize*}
 
 \subsection{Saving Plots}
-Once you have created a plot, you will likely want to save it outside of $\mathbb{R}$ (for example, to include in your problem set). The easiest way is to simply copy and paste the graph from $\mathbb{R}$ into some other program. A more flexible way is to sandwich the \verb|plot()| command between two lines of code, like so:
+Once you have created a plot, you will likely want to save it outside of \textbf{R} (for example, to include in your problem set). The easiest way is to simply copy and paste the graph from \textbf{R} into some other program. A more flexible way is to sandwich the \verb|plot()| command between two lines of code, like so:
 \begin{verbatim}
 pdf("hist1.pdf")
 hist(dice)
@@ -537,7 +531,7 @@ As I've stated above, R is a programming language. Thus, it will be helpful to u
 \end{enumerate*}
 
 \subsection{Logicals}
-Logicals allow you to test the equivalence of different $\mathbb{R}$ objects in any typical mathematical fashion:
+Logicals allow you to test the equivalence of different \textbf{R} objects in any typical mathematical fashion:
 \begin{itemize*}
 \item Equal to: \verb|==| \footnote{Note the double-plus (==), not to be confused with the single-plus (=), which is used to store a value.}
 \item Greater than: \verb|>|
@@ -546,10 +540,10 @@ Logicals allow you to test the equivalence of different $\mathbb{R}$ objects in 
 \item Less than or equal to: \verb|<=|
 \item Not: \verb|!|
 \end{itemize*}
-So, we can use these to produce \verb|TRUE| or \verb|FALSE| results from $\mathbb{R}$, which is helpful when building complex programs. Generally it is not terribly helpful to test a simple logical like \verb|2>1|, so instead these logical statements are often used as conditions for performing further operations inside an \verb|if()| statement.
+So, we can use these to produce \verb|TRUE| or \verb|FALSE| results from \textbf{R}, which is helpful when building complex programs. Generally it is not terribly helpful to test a simple logical like \verb|2>1|, so instead these logical statements are often used as conditions for performing further operations inside an \verb|if()| statement.
 
 \subsubsection{IF-THEN, ELSE}
-Logicals on their own, are not that helpful. Rather, they are helpful for building complex programs with subroutines that are only run under particular conditions. We could, for instance, set the value of one variable depending on the value of another, or only conduct an operation on an object if it is non-missing. While some programming languages require you to type ``then'' in order to actually execute the second part of an if-statement, $\mathbb{R}$ does not require this. Take a look at the following simple examples:
+Logicals on their own, are not that helpful. Rather, they are helpful for building complex programs with subroutines that are only run under particular conditions. We could, for instance, set the value of one variable depending on the value of another, or only conduct an operation on an object if it is non-missing. While some programming languages require you to type ``then'' in order to actually execute the second part of an if-statement, \textbf{R} does not require this. Take a look at the following simple examples:
 <<if1>>=
 x=2
 if (x==1) q="FAIL"
@@ -571,7 +565,7 @@ q
 @
 Here we can see \verb|q| is not set to equal \verb|SUCCESS| under the first statement because while x is non-missing, x is not greater than 2. Under the second statement, however, where we use the OR operator \verb|q| is set to \verb|SUCCCESS| because x is non-missing, so it does not matter what the value of x is --- only one of the two logicals in parentheses needs to be true.
 
-While we can string an infinitely long string of \verb|if()| statements in a row, sometimes we do not need $\mathbb{R}$ to evaluate all of the statements --- for example, we may want to stop evaluating the \verb|if()| statements once one of them is satisfied. We can use the \verb|else if ()| and \verb|else| commands in these instances.
+While we can string an infinitely long string of \verb|if()| statements in a row, sometimes we do not need \textbf{R} to evaluate all of the statements --- for example, we may want to stop evaluating the \verb|if()| statements once one of them is satisfied. We can use the \verb|else if ()| and \verb|else| commands in these instances.
 <<if3>>=
 a=4
 if (a==1) x="Stopped at 1" else
@@ -589,7 +583,7 @@ if (a==4) x="Stopped at 4" else
 command, those lines were not evaluated because \verb|a| was set to 4. Thus, we don't have to spend computing time and power to produce a logical \verb|TRUE| or \verb|FALSE| for each if-statement, only for the relevant if-statement.
 
 \subsection{Functions}
-While $\mathbb{R}$ and its supplemental packages provide an enormous amount of functionality, you sometimes feel compelled to write additional functionality to serve a particular need. In this case, you'll need to use the \verb|function()| command. Let's say, for instance, that we had calculated daily high temperatures for a week in Fahrenheit, but needed them in Celsius. We could perform the conversion manually on each score:
+While \textbf{R} and its supplemental packages provide an enormous amount of functionality, you sometimes feel compelled to write additional functionality to serve a particular need. In this case, you'll need to use the \verb|function()| command. Let's say, for instance, that we had calculated daily high temperatures for a week in Fahrenheit, but needed them in Celsius. We could perform the conversion manually on each score:
 <<temp1>>=
 temp1.f=65
 temp1.c=((65-35)*5)/9
@@ -607,7 +601,7 @@ ftoc(temps[1])
 @
 
 \subsubsection{Apply}
-This saves us a bit of time because it simplifies what we have to type, but it's still not very efficient. If we wanted to speed up the process even further, we could use $\mathbb{R}$'s \verb|apply()| functions to automatically perform the function on every element in our \verb|temps| vector.
+This saves us a bit of time because it simplifies what we have to type, but it's still not very efficient. If we wanted to speed up the process even further, we could use \textbf{R}'s \verb|apply()| functions to automatically perform the function on every element in our \verb|temps| vector.
 <<temp3>>=
 <<temp2,echo=false>>
 celsius=sapply(temps,FUN=ftoc)
@@ -616,7 +610,7 @@ celsius
 We can also use \verb|apply()| built-in functions to matrices, vectors, and dataframes. This can be helpful if you want to calculate summary statistics for a number of different subgroups of observations within your dataset. Apply can also be used to do a lot of other things (including some cool and interesting things), but I won't go into the details here.
 
 \subsection{Loops}
-The last important piece of $\mathbb{R}$ programming that you should know about is looping. Like \verb|apply()|, loops allow you to perform an otherwise tedious task a number of times on the same or different data, similar to using \verb|apply()|. Loops and \verb|apply()| are what really sets $\mathbb{R}$ apart from its competitors like SPSS, SAS, and Stata. There are several different types of loops that can be used, which are describe in detail at \url{http://cran.r-project.org/doc/manuals/R-lang.html#Looping}. The simplest loop can be used to perform the same temperature conversion we used above.
+The last important piece of \textbf{R} programming that you should know about is looping. Like \verb|apply()|, loops allow you to perform an otherwise tedious task a number of times on the same or different data, similar to using \verb|apply()|. Loops and \verb|apply()| are what really sets \textbf{R} apart from its competitors like SPSS, SAS, and Stata. There are several different types of loops that can be used, which are describe in detail at \url{http://cran.r-project.org/doc/manuals/R-lang.html#Looping}. The simplest loop can be used to perform the same temperature conversion we used above.
 <<temp4>>=
 <<temp3,echo=false>>
 celsius=NA
@@ -625,7 +619,7 @@ for (i in 1:length(temps)) {
 }
 celsius
 @
-Here, we tell $\mathbb{R}$ that we want to conduct a task for $i$ number of times, specified by 1 to the length of our \verb|temps| vector. For each iteration of the loop, we take the $i^{th}$ element of the \verb|temps| vector, perform the temperature conversion calculation and store the resulting value in the $i^{th}$ element of the \verb|celsius| vector. When the loop completes, $\mathbb{R}$ displays nothing, so we have to call the \verb|celsius| vector. If we didn't need to store each converted value, we could also use the \verb|print()| command to simply display the resulting calculations like so:
+Here, we tell \textbf{R} that we want to conduct a task for $i$ number of times, specified by 1 to the length of our \verb|temps| vector. For each iteration of the loop, we take the $i^{th}$ element of the \verb|temps| vector, perform the temperature conversion calculation and store the resulting value in the $i^{th}$ element of the \verb|celsius| vector. When the loop completes, \textbf{R} displays nothing, so we have to call the \verb|celsius| vector. If we didn't need to store each converted value, we could also use the \verb|print()| command to simply display the resulting calculations like so:
 <<temp5>>=
 <<temp4,echo=false>>
 for (i in 1:length(temps)) {
@@ -634,10 +628,10 @@ for (i in 1:length(temps)) {
 @
 The \verb|print()| function will be helpful if you run very large or complicated loops.
 
-But now we've seen multiple ways to apply functions to objects. Which should we use in which situation? Given that we have nearly unlimited computing power and time, the distinctions between these methods are fairly small. \verb|apply()| functions tend to be faster than loops, but that only matters if the task you're performing is very complicated. Loops are more versatile because you can perform multiple tasks within a single iteration of a loop, as well as nest loops inside one another. For example, if you needed to perform a task on each element of an $i$-by-$j$ matrix, you could nest a loop indexed by $j$ within a loop indexed by $i$, or vice versa. The final choice of how to program depends on the needs of the particular task you're aiming to complete. Often there many, many ways to accomplish the same task, which makes $\mathbb{R}$ uniquely versatile among statistical packages.
+But now we've seen multiple ways to apply functions to objects. Which should we use in which situation? Given that we have nearly unlimited computing power and time, the distinctions between these methods are fairly small. \verb|apply()| functions tend to be faster than loops, but that only matters if the task you're performing is very complicated. Loops are more versatile because you can perform multiple tasks within a single iteration of a loop, as well as nest loops inside one another. For example, if you needed to perform a task on each element of an $i$-by-$j$ matrix, you could nest a loop indexed by $j$ within a loop indexed by $i$, or vice versa. The final choice of how to program depends on the needs of the particular task you're aiming to complete. Often there many, many ways to accomplish the same task, which makes \textbf{R} uniquely versatile among statistical packages.
 
 \section{Conclusion}\label{sec:conclusion}
-So now you've learned the basic information you need to know to use $\mathbb{R}$ for this class. Hopefully this tutorial has helped you be less intimidated by and frustrated with the language and this course as a whole. Best of luck and let me know if you have questions!
+So now you've learned the basic information you need to know to use \textbf{R} for this class. Hopefully this tutorial has helped you be less intimidated by and frustrated with the language and this course as a whole. Best of luck and let me know if you have questions!
 
 
 %INCLUDE AN APPENDIX WITH FULL CODE PROGRAMS
@@ -645,26 +639,10 @@ So now you've learned the basic information you need to know to use $\mathbb{R}$
 %%SHOW DIFFERENT COMMENTING STYLES
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\singlespacing
 %\bibliographystyle{apsa-leeper}
 %\bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%In-line sweave \Sexpr{sqrt(9)}
-
-%Don't include <<d,echo=FALSE>>=
-
-%Figure: <<z,fig=TRUE>>=
-
-%xtable: <<e,results=tex>>=
-%library(xtable)
-%table=summary(lm(y~x))
-%print(xtable(table,caption="Regression %Results",label="tab:results1",digits=c(2,2,2,2,2)),caption.placement="top")
-%@ 
-
 
 \end{document}
