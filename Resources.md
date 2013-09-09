@@ -16,7 +16,7 @@ CRAN provides [a number of manuals and other resources for R](http://cran.r-proj
 * [PDF](http://cran.r-project.org/doc/manuals/R-admin.pdf) [HTML](http://cran.r-project.org/doc/manuals/R-admin.html) _R Installation_, an installation guide (from R source code).
 * [PDF](http://cran.r-project.org/doc/manuals/R-ints.pdf) [HTML](http://cran.r-project.org/doc/manuals/R-ints.html) _R Internals_, internal structures and coding guidelines.
 * [Contributed Documentation](http://cran.r-project.org/other-docs.html), from a number of authors
-  * One such resource is [a Danish-language introduction](http://cran.r-project.org/doc/contrib/Larsen+Sestof-noter-om-R.pdf) from Morten Larsen and Peter Sestoft of K�benhavns Universitet
+  * One such resource is [a Danish-language introduction](http://cran.r-project.org/doc/contrib/Larsen+Sestof-noter-om-R.pdf) from Morten Larsen and Peter Sestoft of Københavns Universitet
   * The [Reference Card](http://cran.r-project.org/doc/contrib/refcard.pdf) and [Reference Card v2](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) are helpful for quickly finding functions and operators
 * [Task Views](http://cran.r-project.org/web/views/) provide summaries of useful R packages by subject area
 
