@@ -16,7 +16,7 @@ CRAN provides [a number of manuals and other resources for R](http://cran.r-proj
 * [PDF](http://cran.r-project.org/doc/manuals/R-admin.pdf) [HTML](http://cran.r-project.org/doc/manuals/R-admin.html) _R Installation_, an installation guide (from R source code).
 * [PDF](http://cran.r-project.org/doc/manuals/R-ints.pdf) [HTML](http://cran.r-project.org/doc/manuals/R-ints.html) _R Internals_, internal structures and coding guidelines.
 * [Contributed Documentation](http://cran.r-project.org/other-docs.html), from a number of authors
-  * One such resource is [a Danish-language introduction](http://cran.r-project.org/doc/contrib/Larsen+Sestof-noter-om-R.pdf) from Morten Larsen and Peter Sestoft of Københavns Universitet
+  * One such resource is [a Danish-language introduction](http://cran.r-project.org/doc/contrib/Larsen+Sestof-noter-om-R.pdf) from Morten Larsen and Peter Sestoft of Kï¿½benhavns Universitet
   * The [Reference Card](http://cran.r-project.org/doc/contrib/refcard.pdf) and [Reference Card v2](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) are helpful for quickly finding functions and operators
 * [Task Views](http://cran.r-project.org/web/views/) provide summaries of useful R packages by subject area
 
@@ -24,7 +24,7 @@ Other non-CRAN resources include:
 * [PDF](http://lib.stat.cmu.edu/S/Spoetry/Tutor/R_inferno.pdf) *The R Inferno* by Patrick Burns provides some insight into common challenges beginners (and advanced users) face with R.
 * [Quick-R](http://www.statmethods.net/) provides some simple tutorials about an array of methods.
 * [R-bloggers](http://www.r-bloggers.com/) aggregates blog posts about R from all over the web.
-* I've written [a short R introduction](/Intro2R.pdf) for undergraduates that may be helpful.
+* I've written [a short R introduction](/Intro2R/Intro2R.pdf) for undergraduates that may be helpful.
 * [Teppei Yamamoto](http://web.mit.edu/teppei/www/teaching.html) has some simple handouts for Princeton's "Statistical Software Camp".
 * Christopher Green's somewhat old [R Primer](http://www.stat.washington.edu/cggreen/rprimer/) provides still useful information.
 
