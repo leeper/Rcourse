@@ -29,10 +29,13 @@ Other non-CRAN resources include:
 * Christopher Green's somewhat old [R Primer](http://www.stat.washington.edu/cggreen/rprimer/) provides still useful information.
 
 ## R Books ##
-You can always find the latest R books on Amazon or wherever, but a couple that are useful (depending on your background):
-* [R for SAS and SPSS Users](http://www.amazon.com/SAS-SPSS-Users-Statistics-Computing/dp/1461406846)
-* [R for Stata Users](http://www.amazon.com/R-Stata-Users-Statistics-Computing/dp/1461425964)
+You can always find the latest R books [on Amazon](http://www.amazon.com/s/ref=sr_nr_n_1?rh=n%3A271582011%2Ck%3Ar&keywords=r&ie=UTF8&qid=1379429658&rnid=2941120011) or wherever, but a couple that are useful (depending on your background):
+* [R for SAS and SPSS Users](http://books.google.dk/books?id=9kMy0CBTegYC&dq=r+for+stata+users&source=gbs_navlinks_s)
+* [R for Stata Users](http://books.google.dk/books?id=Altdh0pTQ2oC&dq=r+for+stata+users&source=gbs_navlinks_s)
 
+For getting started with the reproducible research process, I might recommend:
+* [Dynamic Documents with R and knitr](http://books.google.dk/books?id=QZwAAAAAQBAJ&dq=yihui+xie&source=gbs_navlinks_s)
+* [Reproducible Research with R and RStudio](http://books.google.dk/books?id=u-nuzKGvoZwC&dq=reproducible+research+with+r&source=gbs_navlinks_s)
 
 ## Text editors for R ##
 The following editors provide basic features like R syntax highlighting and some (like RStudio) provide more advanced features for R scripting and package development.
@@ -61,7 +64,7 @@ Internal to R there are also several options, including my own package [*rite*](
 
 
 ## R Packages ##
-There are literally thousands of R packages on CRAN and maybe dozens or hundreds more floating around the internet on places like [GitHub](https://github.com/), [R-Forge](http://r-forge.r-project.org/), [RForge.net](http://www.rforge.net/), and [OmegaHat](http://www.omegahat.org/). It can sometimes be hard to find the right packages but Googling and use of the [Task Views](http://cran.r-project.org/web/views/) usually get you what you need. That said, beginners, in particular, may find John Fox's [*car*](http://cran.r-project.org/web/packages/car/index.html) package helpful for doing a bunch of regression-type analyses beyond what's provided in base R. Gary King (et al.)'s [*Zelig*](http://gking.harvard.edu/zelig) software also provides a somewhat more consistent interface than base R to a bunch of R modelling functions (especially those written by King and coauthors, not surpisingly). *Zelig* also provides the functionality of [*Clarify*](http://gking.harvard.edu/clarify), familiar to many Stata users for its predicted probability functionality.
+There are literally [thousands of R packages on CRAN](http://cran.r-project.org/web/packages/) and maybe dozens or hundreds more floating around the internet on places like [GitHub](https://github.com/), [R-Forge](http://r-forge.r-project.org/), [RForge.net](http://www.rforge.net/), and [OmegaHat](http://www.omegahat.org/). It can sometimes be hard to find the right packages but Googling and use of the [Task Views](http://cran.r-project.org/web/views/) usually get you what you need. That said, beginners, in particular, may find John Fox's [*car*](http://cran.r-project.org/web/packages/car/index.html) package helpful for doing a bunch of regression-type analyses beyond what's provided in base R. Gary King (et al.)'s [*Zelig*](http://gking.harvard.edu/zelig) software also provides a somewhat more consistent interface than base R to a bunch of R modelling functions (especially those written by King and coauthors, not surpisingly). *Zelig* also provides the functionality of [*Clarify*](http://gking.harvard.edu/clarify), familiar to many Stata users for its predicted probability functionality.
 
 
 ## R Graphics ##
