@@ -41,18 +41,18 @@ Last updated 2013-08-22
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
 
 ## The R language
-* operators
+* [Basic math](Scripts/basicmath.r)
+* [Vectors](Scripts/vectors.r)
+* [Vector indexing](Scripts/vectorindexing.r)
+* assignment
   * `<-`, `=` and `->`
-* basic math (`+`, `-`, `/`, `*`, `log`, `exp`, `^`, and `sqrt`)
 * comments
   * `#`
   * `if(FALSE){}`
-* `c()` and sequences with `:` and `seq`
 * classes: numeric/character/factor
 * data structures (vector, matrix, dataframe, list)
 * `dim` and `length`
 * `rbind` and `cbind`
-* name and positional indexing with `[`
 
 ## Data as dataframes
 * Reading in data
