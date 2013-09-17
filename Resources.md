@@ -55,6 +55,7 @@ Internal to R there are also several options, including my own package [*rite*](
 
 
 ## Resources for getting help ##
+* From within R, `help` and `?` provide access to help files.
 * [R mailing lists](http://www.r-project.org/mail.html), especially the [R-help list](https://stat.ethz.ch/mailman/listinfo/r-help)
 * [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html), the official list of FAQs on CRAN
 * [StackOverflow](http://stackoverflow.com/questions/tagged/r), a question/answer site with a large R community
