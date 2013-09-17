@@ -30,14 +30,6 @@ Last updated 2013-08-22
   * Reproducibility
 * working directory
 * Getting help
-  * Introduction to R: http://www.cran.r-project.org/doc/manuals/R-intro.pdf
-  * R language definition: http://cran.r-project.org/doc/manuals/R-lang.pdf
-  * R Inferno: http://www.burns-stat.com/documents/books/the-r-inferno/
-  * Quick R: http://www.statmethods.net/
-  * R Task Views: http://cran.r-project.org/web/views/
-  * `help` and `?` from within R
-  * StackOverflow: http://stackoverflow.com/questions/tagged/r
-  * R-help listserv: https://stat.ethz.ch/mailman/listinfo/r-help (and archives: http://tolstoy.newcastle.edu.au/R/)
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
 
 ## The R language
