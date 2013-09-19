@@ -1,0 +1,8 @@
+# Variables
+
+# <-
+# =
+# ->
+# `assign`
+# NULL
+# `rm`
