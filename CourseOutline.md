@@ -41,7 +41,9 @@ Last updated 2013-08-22
 * comments
   * `#`
   * `if(FALSE){}`
-* classes: numeric/character/factor
+* Object [classes](Scripts/classes.R), also:
+ * [Factors](factors.R)
+ * [Logicals](logicals.R)
 * data structures (vector, matrix, dataframe, list)
 * `dim` and `length`
 * `rbind` and `cbind`
