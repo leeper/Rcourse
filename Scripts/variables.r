@@ -30,6 +30,15 @@ b
 # We may decide we don't need a variable any more and it is possible to remove that variable from the R environment using `rm`:
 rm(a)
 
+# Sometimes we forget what we've done and want to see what variables we have floating around in our R environment. We can see them with `ls`:
+ls()
+# This returns a character vector containing all of the names for all named objects currently in our R environment.
+
+# It is also possible to remove ALL variables in our current R session. You can do that with the following:
+rm(list=ls(all=TRUE))
+# Note: This is usually an option on the RGui dropdown menus and should only be done if you really want to remove everything.
+
+
 # Sometimes you can also see an expression like:
 b <- NULL
 # This expression does not remove the object, but instead makes its value NULL.
