@@ -2,7 +2,7 @@
 
 Created 2013-08-12
 
-Last updated 2013-08-22
+Last updated 2013-09-19
 
 
 ## Pre-Session (30 minutes)
@@ -45,6 +45,8 @@ Last updated 2013-08-22
  * [Factors](factors.r)
  * [Logicals](logicals.r)
 
+Solve Problem Set
+
 ## Data as dataframes
 * Reading in data
   * `read.csv`, `read.table`, `scan`
@@ -55,6 +57,10 @@ Last updated 2013-08-22
 * `names` and `str`
 * `head` and `tail`
 * `write.csv`
+
+Solve Problem Set
+
+## Data processing
 * handling missing data
   * Global: `na.omit`
   * Command-specific options: `na.rm=...`
@@ -72,12 +78,16 @@ Last updated 2013-08-22
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 * `subset` and `sample` and `order
 
+Solve Problem Set
+
 ## Data summaries
 * `summary`
 * `IQR`, `fivenum`, `median`, `quantile`
 * `table`, `xtabs` and `ftable`, `prop.table`
 * `mean`, `sd`, `var`
 * `cor`
+
+Solve Problem Set
 
 ## Plotting as data summary
 * `hist`
@@ -86,6 +96,8 @@ Last updated 2013-08-22
 * add ons: `lines`, `points`, `abline`, `text`, `legend`
 * saving plots (`pdf`, `jpeg`, `png`, `tiff`, `bmp`)
 ### Note: ggplot2
+
+Solve Problem Set
 
 ## Statistics
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`
@@ -99,6 +111,7 @@ Last updated 2013-08-22
   * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
   * Also look at uniform, binomial, and t distributions
 
+Solve Problem Set
 
 ## Regression
 * bivariate OLS
@@ -110,12 +123,15 @@ Last updated 2013-08-22
   * factors versus continuous entry of variables continuous
   * intercepts
 
+Solve Problem Set
+
 ## Regression plotting
 * Default plots from `plot(lm)`
 * residual plots
 * scatterplots
 * coefs and standard errors
 
+Solve Problem Set
 
 ## GLM
 * models, again
@@ -123,6 +139,8 @@ Last updated 2013-08-22
 * prediction
 * plotting data
 * plotting predicted probabilities
+
+Solve Problem Set
 
 ## Reproducible research
 * Using `source`
