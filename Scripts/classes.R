@@ -30,6 +30,13 @@ as.numeric("United States")
 class(c(1,"test"))
 # You can see that the `1` is coerced to character:
 c(1,"test")
+# We can also coerce a numeric vector to character simply by changing its class:
+a <- 1:4
+class(a)
+class(a) <- "character"
+class(a)
+a
+
 
 
 # Factor
