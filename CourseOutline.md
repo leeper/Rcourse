@@ -28,6 +28,7 @@ Last updated 2013-08-22
   * Moving from console to scripting
   * Analogue to do-files
   * Reproducibility
+  * Commenting ("Advice to help your future self"): # and `if(FALSE){}`
 * working directory
 * Getting help
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
@@ -40,9 +41,6 @@ Last updated 2013-08-22
   * [Matrices](Scripts/matrices.r)
   * [Dataframes](Scripts/dataframes.r)
   * [Lists](Scripts/lists.r)
-* comments
-  * `#`
-  * `if(FALSE){}`
 * Object [classes](Scripts/classes.R), plus more information on:
  * [Factors](factors.R)
  * [Logicals](logicals.R)
