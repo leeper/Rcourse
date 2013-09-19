@@ -91,3 +91,4 @@ levels(c)
 c
 
 # As you can see, factors are a potentially useful way for storing different kinds of data and R uses them alot!
+

@@ -42,8 +42,8 @@ Last updated 2013-08-22
   * [Dataframes](Scripts/dataframes.r)
   * [Lists](Scripts/lists.r)
 * Object [classes](Scripts/classes.R), plus more information on:
- * [Factors](factors.R)
- * [Logicals](logicals.R)
+ * [Factors](factors.r)
+ * [Logicals](logicals.r)
 
 ## Data as dataframes
 * Reading in data
