@@ -34,8 +34,11 @@ Last updated 2013-08-22
 
 ## The R language
 * [Basic math](Scripts/basicmath.r)
-* [Vectors](Scripts/vectors.r)
-* [Vector indexing](Scripts/vectorindexing.r)
+* Data structures:
+  * [Vectors](Scripts/vectors.r) and [Vector indexing](Scripts/vectorindexing.r)
+  * [Matrices](Scripts/matrices.r)
+  * [Dataframes](Scripts/dataframes.r)
+  * [Lists](Scripts/lists.r)
 * assignment
   * `<-`, `=` and `->`
 * comments
@@ -44,7 +47,6 @@ Last updated 2013-08-22
 * Object [classes](Scripts/classes.R), also:
  * [Factors](factors.R)
  * [Logicals](logicals.R)
-* data structures (vector, matrix, dataframe, list)
 * `dim` and `length`
 * `rbind` and `cbind`
 
