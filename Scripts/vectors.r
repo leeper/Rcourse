@@ -37,6 +37,17 @@ seq_along(c(1,4,5))
 length(c(1,4,5))
 seq(1,length(c(1,4,5)))
 
+# It's also possible to create repeated sequences using `rep`:
+rep(1,times=5)
+# This also allows us to repeat shorter vectors into longer vectors:
+rep(c(1,2),times=4)
+# If we use an `each` parameter instead of a `times` parameter, we can get a different result:
+rep(c(1,2),each=4)
+# Finally, we might want to repeat a vector into a vector that is not a multiple of the original vector length.
+# For example, we might want to alternate 1 and 2 for five values. We can use the `length.out` parameter:
+rep(c(1,2),length.out=5)
+# These repetitions can be helpful when we need to categorize data into groups.
+
 
 # The above vectors are numeric, but vectors can be other classes, like character:
 c("a","b")
