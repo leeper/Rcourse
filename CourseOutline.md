@@ -76,11 +76,10 @@ Solve Problem Set
 Solve Problem Set
 
 ## Data summaries
-* `summary`
-* `IQR`, `fivenum`, `median`, `quantile`
-* `table`, `xtabs` and `ftable`, `prop.table`
-* `mean`, `sd`, `var`
+* [Univariate data summaries](Scripts/univariate.r) (including `summary`)
+* [Data tables and crosstables](Scripts/tables.r)
 * `cor`
+* Printing numerics
 
 Solve Problem Set
 
