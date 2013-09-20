@@ -28,7 +28,7 @@ Last updated 2013-09-19
   * Moving from console to scripting
   * Analogue to do-files
   * Reproducibility
-  * Commenting ("Advice to help your future self"): `#` and `if(FALSE){}`
+  * Commenting ("Advice to help your future self"), see [Comments](Scripts/comments.r)
 * working directory
 * Getting help
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
