@@ -53,3 +53,28 @@ c(1,2,NA)
 assign("x",3)
 x
 # This is not common in interactive use of R but can be helpful at more advanced levels.
+
+
+
+# Variable naming rules
+# R has some relatively simple rules governing how objects can be named:
+# (1) R object names are case sensitive, so `a` is not the same as `A`. This applies to objects and functions.
+# (2) R object names (generally) must start with a letter or a period.
+# (3) R object names can contain letters, numbers, periods (`.`), and underscores (`_`).
+# (4) The names of R objects can be just about any length, but anything over about 10 characters gets annoying to type.
+
+# CAUTION: We can violate some of these restrictions by naming things with backticks, but this can be confusing:
+f <- 2
+f
+`f` <- 3
+f
+# That makes sense and can allow us to name variables that start with a number:
+`1f` <- 3
+# To call objects with these noncompliant names, we need to use the backticks:
+`1f`
+# If we just called 1f, we would get an error.
+# But this also means we can name objects with just a number as a name:
+`4` <- 5
+4
+`4`
+# Which is kind of weird. It is best avoided.
