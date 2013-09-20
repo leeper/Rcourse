@@ -62,17 +62,11 @@ Solve Problem Set
 Solve Problem Set
 
 ## Data processing
-* recoding
-  * positional recoding
-    * `[` for vectors, matrices, dataframes, and lists
-  * logical recoding
-    * Introduce more operators: `==`, `<`, `>`, `<=`, `>=`, `!`
-	* Difference between vectorized logicals (e.g. with `ifelse`) and `if`-`else` constructions
-  * `recode` from `library(car)`
-  * scale construction (additive, multiplicative, logical)
-    * vector addition with `+`
-	* `rowSums` and `colSums`
-	* `rowMeans` and `colMeans`
+* [Recoding vectors](recoding.r)
+* scale construction (additive, multiplicative, logical)
+  * vector addition with `+`
+    * `rowSums` and `colSums`
+    * `rowMeans` and `colMeans`
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 * handling missing data
   * Global: `na.omit`
