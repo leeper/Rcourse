@@ -113,3 +113,14 @@ as.logical(c(1,1,0))
 d[c(TRUE,TRUE,FALSE)]
 d[as.logical(c(1,1,0))]
 
+
+
+# Blank index
+# Note: A blank index like `e[]` is treated specially in R.
+# It refers to all elements in a vector.
+e <- 1:10
+e[]
+# This is of course redundant to just saying `e`, but might produce unexpected results during assignment:
+e[] <- 0
+e
+# This replaces all values of `e` with 0, which may or may not be intended.
