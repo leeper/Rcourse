@@ -39,8 +39,8 @@ Last updated 2013-09-19
 * Data structures:
   * [Vectors](Scripts/vectors.r) and [Vector indexing](Scripts/vectorindexing.r)
   * [Matrices](Scripts/matrices.r)
-  * [Dataframes](Scripts/dataframes.r)
   * [Lists](Scripts/lists.r)
+  * [Dataframes](Scripts/dataframes.r)
 * Object [classes](Scripts/classes.R), plus more information on:
  * [Factors](factors.r)
  * [Logicals](logicals.r)
