@@ -41,7 +41,7 @@ Last updated 2013-09-19
   * [Matrices](Scripts/matrices.r)
   * [Lists](Scripts/lists.r)
   * [Dataframes](Scripts/dataframes.r)
-* Object [classes](Scripts/classes.R), plus more information on:
+* Object [classes](Scripts/classes.r), plus more information on:
  * [Factors](Scripts/factors.r)
  * [Logicals](Scripts/logicals.r)
 
