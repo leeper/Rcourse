@@ -42,8 +42,8 @@ Last updated 2013-09-19
   * [Lists](Scripts/lists.r)
   * [Dataframes](Scripts/dataframes.r)
 * Object [classes](Scripts/classes.R), plus more information on:
- * [Factors](factors.r)
- * [Logicals](logicals.r)
+ * [Factors](Scripts/factors.r)
+ * [Logicals](Scripts/logicals.r)
 
 Solve Problem Set
 
