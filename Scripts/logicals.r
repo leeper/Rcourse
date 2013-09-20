@@ -52,6 +52,10 @@ a > 4 & a < 9
 a > 7 | a==2
 # Complex conditions can also be combined with parentheses to build a logical:
 (a > 5 & a < 8) | (a < 3)
+# There is also a `xor` function to enforce strict OR (but not AND) logic:
+xor(TRUE,FALSE)
+xor(TRUE,TRUE)
+xor(FALSE,FALSE)
 
 # This becomes helpful, for example, if we want to create a new vector based on values of an old vector:
 b <- a
