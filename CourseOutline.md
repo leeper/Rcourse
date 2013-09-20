@@ -62,7 +62,7 @@ Solve Problem Set
 Solve Problem Set
 
 ## Data processing
-* [Recoding vectors](recoding.r)
+* [Recoding vectors](Scripts/recoding.r)
 * scale construction (additive, multiplicative, logical)
   * vector addition with `+`
     * `rowSums` and `colSums`
