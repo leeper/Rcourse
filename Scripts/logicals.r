@@ -58,6 +58,14 @@ b <- a
 b[b>5] <- 1
 b
 
+# It is also possible to convert a logical vector into a positional vector using `which`:
+a > 5
+which(a > 5)
+# Of course, this is only helful in some contexts because:
+a[a>5]
+a[which(a>5)]
+# produce the same result.
+
 # We can also invert a logical (turn TRUE into FALSE, and vice versa) using the exclamaation point (`!`):
 !TRUE
 !FALSE
@@ -72,6 +80,17 @@ ifelse(a > 5, 1, a)
 # We could modify this slightly to instead return 2 rather than the original value when an element fails the condition:
 ifelse(a > 5, 1, 2)
 # This gives us an indicator vector.
+
+
+
+# Set membership
+# An especially helpful logical comparator checks of a vector in another vector:
+d <- 1:5
+e <- 4:7
+d %in% e
+e %in% d
+# R has several other functions related to sets (e.g., `union`, `intersection`) but these produce numeric, not logical output.
+
 
 
 # Vectorization
