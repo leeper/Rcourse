@@ -52,7 +52,10 @@ a[-c(2,3)]
 # Named indexing
 # A second approach to indexing that is not particularly common for vectors is named indexing
 # Vector elements can assigned names, such that each element has a value but also a name attached to it:
-b <- c('x'=1,'y'=2,z='4')
+b <- c('x'=1,'y'=2,'z'='4')
+b
+# This is the same as:
+b <- c(x=1,y=2,z='4')
 b
 # In this type of vector we can still use positional indexing:
 b[1]
@@ -63,6 +66,11 @@ b[c('x','z')]
 # But, it's not possible to use the `-` indexing that we used with element positions.
 # For example, `b[-'x']` would return an error.
 # If a vector has names, this provides a way to extract elements without knowing their relative position in the order of vector elements.
+# If you want to know which name is in which position, we can also get just the names of the vector elements:
+names(b)
+# And we can use positional indexing on the `names(b)` vector, e.g. to get the first element's name:
+names(b)[1]
+
 
 
 # Logical indexing
