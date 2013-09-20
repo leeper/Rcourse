@@ -28,7 +28,7 @@ Last updated 2013-09-19
   * Moving from console to scripting
   * Analogue to do-files
   * Reproducibility
-  * Commenting ("Advice to help your future self"): # and `if(FALSE){}`
+  * Commenting ("Advice to help your future self"): `#` and `if(FALSE){}`
 * working directory
 * Getting help
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
@@ -42,8 +42,9 @@ Last updated 2013-09-19
   * [Lists](Scripts/lists.r)
   * [Dataframes](Scripts/dataframes.r)
 * Object [classes](Scripts/classes.r), plus more information on:
- * [Factors](Scripts/factors.r)
- * [Logicals](Scripts/logicals.r)
+  * [Factors](Scripts/factors.r)
+  * [Logicals](Scripts/logicals.r)
+* [Missing values](Scripts/NA.r)
 
 Solve Problem Set
 
@@ -61,9 +62,6 @@ Solve Problem Set
 Solve Problem Set
 
 ## Data processing
-* handling missing data
-  * Global: `na.omit`
-  * Command-specific options: `na.rm=...`
 * recoding
   * positional recoding
     * `[` for vectors, matrices, dataframes, and lists
@@ -76,6 +74,9 @@ Solve Problem Set
 	* `rowSums` and `colSums`
 	* `rowMeans` and `colMeans`
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
+* handling missing data
+  * Global: `na.omit`
+  * Command-specific options: `na.rm=...`
 * `subset` and `sample` and `order
 
 Solve Problem Set
