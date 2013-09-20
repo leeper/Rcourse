@@ -18,6 +18,9 @@ c(1:2,4:5,6)
 # And colon-built sequences can be in any direction:
 4:1
 10:2
+# And we can also reverse the order of a vector using `rev`:
+1:10
+rev(1:10)
 
 # Arbitrary numeric sequences can also be built with `seq`:
 seq(from=1,to=10)
