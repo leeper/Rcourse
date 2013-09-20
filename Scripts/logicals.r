@@ -24,7 +24,7 @@
 1 > = 2
 # produces an error!
 
-# The results of these comparisons is a logical vector that have values TRUE, FALSE, or NA:
+# The results of these comparisons is a logical vector that has values TRUE, FALSE, or NA:
 is.logical(TRUE)    # valid logical
 is.logical(FALSE)   # valid logical
 is.logical(NA)      # valid logical
@@ -57,6 +57,13 @@ a > 7 | a==2
 b <- a
 b[b>5] <- 1
 b
+
+# We can also invert a logical (turn TRUE into FALSE, and vice versa) using the exclamaation point (`!`):
+!TRUE
+!FALSE
+b==3
+!b==3
+
 
 # We can also use an if-else construction to define a new vector conditional on an old vector:
 # For example, we could produce our `b` vector from above using the `ifelse` function:
