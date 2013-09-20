@@ -52,6 +52,7 @@ rep(c(1,2),length.out=5)
 # These repetitions can be helpful when we need to categorize data into groups.
 
 
+# Vector classses
 # The above vectors are numeric, but vectors can be other classes, like character:
 c("a","b")
 
@@ -63,3 +64,24 @@ seq(as.Date("1999/1/1"), as.Date("1999/3/5"), "day")
 c(1,2,"c")
 # produces a character vector
 
+
+
+# Empty vectors
+# We can create vectors of different classes using the appropriate functions:
+# (1) The function `numeric` produces numeric vectors:
+numeric()
+# The result is an empty numeric vector. If we supply a `length` parameter:
+numeric(length=10)
+# The result is a vector of zeroes.
+# (2) The function `character` produces an empty character vector:
+character()
+# We can again supply a `length` argument to produce a vector of empty chracter strings:
+character(length=10)
+# (3) The function `logical` produces an empty logical vector:
+logical()
+# Or, with a `length` parameter, a vector of FALSE values:
+logical(length=10)
+
+# These functions may seem kind of pointless right now. But they are useful in large projects.
+# Filling in the values of a vector "initialized" (e.g., with `numeric`, `character`, or `logical`) is much faster than building a vector with `c()`.
+# This is hard to observe at this scale (a few elements) but matters with bigger data.
