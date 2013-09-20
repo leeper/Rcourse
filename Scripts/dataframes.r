@@ -98,3 +98,59 @@ d2 <- d[,-1]
 d
 # And gives us a new object reflecting the modified dataframe:
 d2
+
+
+
+# Combining dataframes
+# Another similarly between dataframes and matrices is that we can bind them columnwise:
+e1 <- data.frame(1:3,4:6)
+e2 <- data.frame(7:9,10:12)
+cbind(e1,e2)
+# To bind them rowwise, however, the two dataframes need to have matching `names`:
+names(e1) <- names(e2) <- c("Var1","Var2")
+rbind(e1,e2)
+
+# Dataframes can also be combined using the `merge` function.
+# `merge` is powerful, but can also be confusing.
+# Let's imagine that our two dataframes contain observations for the same three individuals, but in different orders:
+e1$id <- 1:3
+e2$id <- c(2,1,3)
+# We should also rename the variables in `e2` to show that these are unique variables:
+names(e2)[1:2] <- c("Var3","Var4")
+# If we use `cbind` to combine the data, variables from observations in the two dataframes will be mismatched:
+cbind(e1,e2)
+# This is where merge comes in handy because we can specify a `by` parameter:
+e3 <- merge(e1,e2,by='id')
+# The result is a single dataframe, with a single `id` variable and observations from the two dataframes are matched appropriately.
+
+# That was a simple example, but what if our dataframes have different (but overlapping) sets of observations.
+e4 <- data.frame(Var5=10:1,Var6=c(5:1,1:5),id=c(1:2,4:11))
+e4
+# This new dataframe `e4` has two observations common to the previous dataframes (1 and 2) but no observation for 3.
+
+# If we merge `e3` and `e4`, what do we get?
+merge(e3,e4,by='id')
+# The result is all variables (columns) for the two common observations (1 and 2).
+# If we want to include observation 3, we can use:
+merge(e3,e4,by='id',all.x=TRUE)
+# Note: The `all.x` argument refers to which observations from the first dataframe (`e3`) we want to preserve.
+
+# If we want to include observations 4 to 11, we can use:
+merge(e3,e4,by='id',all.y=TRUE)
+# Note: The `all.y` argument refers to which observations from the second dataframe (`e4`) we want to preserve.
+
+# Of course, we can preserve both with either:
+merge(e3,e4,by='id',all.x=TRUE,all.y=TRUE)
+merge(e3,e4,by='id',all=TRUE)
+# These two R statements are equivalent.
+
+# Note: If we set `by=NULL`, we get a potentially unexpected result:
+merge(e3,e4,by=NULL)
+# If we leave by blank, the default is to merge based on the common variable names in both dataframes.
+# We can also separately specify `by` for each dataframe:
+merge(e3,e4,by.x='id',by.y='id')
+# This would be helpful if the identifier variable had a different name in each dataframe.
+
+# Note: `merge` only works with two dataframes. So, if multiple dataframes need to be merged, it must be done sequentially:
+merge(merge(e1,e2),e4)
+
