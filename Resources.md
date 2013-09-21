@@ -33,6 +33,8 @@ You can always find the latest R books [on Amazon](http://www.amazon.com/s/ref=s
 * [R for SAS and SPSS Users](http://books.google.dk/books?id=9kMy0CBTegYC&dq=r+for+stata+users&source=gbs_navlinks_s)
 * [R for Stata Users](http://books.google.dk/books?id=Altdh0pTQ2oC&dq=r+for+stata+users&source=gbs_navlinks_s)
 
+The R Project also supplies a complete (?) list of [R-related books](http://www.r-project.org/doc/bib/R-books.html).
+
 For getting started with the reproducible research process, I might recommend:
 * [Dynamic Documents with R and knitr](http://books.google.dk/books?id=QZwAAAAAQBAJ&dq=yihui+xie&source=gbs_navlinks_s)
 * [Reproducible Research with R and RStudio](http://books.google.dk/books?id=u-nuzKGvoZwC&dq=reproducible+research+with+r&source=gbs_navlinks_s)
