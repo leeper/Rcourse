@@ -20,14 +20,30 @@ sort(a,decreasing=TRUE)[1]
 # To calculate the central tendency, we have several options.
 # mean
 mean(a)
+# This is of course equivalent to:
+sum(a)/length(a)
+
 # median
 median(a)
+# In a vector with an even number of elements, this is equivalent to:
+(sort(a)[length(a)/2]+sort(a)[length(a)/2+1])/2
+# In a vector with an odd number of elements, this is equivalent to:
+a2 <- a[-1] # drop first observation of `a`
+sort(a2)[length(a2)/2+1]
 
 # We can also obtain measures of dispersion:
 # Variance
 var(a)
+# This is equivalent to:
+sum((a-mean(a))^2)/(length(a)-1)
+
 # Standard deviation
 sd(a)
+# Which is equivalent to:
+sqrt(var(a))
+# Or:
+sqrt(sum((a-mean(a))^2)/(length(a)-1))
+
 
 # There are also some convenience functions that provide multiple statistics.
 # The `fivenum` function provides the five-number summary (minimum, Q1, median, Q3, and maximum):
@@ -37,6 +53,7 @@ fivenum(a)
 quantile(a,.1)  # 10% quantile
 # You can also specify a vector of quantiles:
 quantile(a,c(.025,0.975))
+quantile(a,seq(0,1,by=.1))
 
 
 
