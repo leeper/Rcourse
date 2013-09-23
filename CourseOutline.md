@@ -120,10 +120,12 @@ Solve Problem Set
 Solve Problem Set
 
 ## Regression plotting
-* Default plots from `plot(lm)`
-* residual plots
-* scatterplots
-* coefs and standard errors
+* [Plots for regression diagnostics](Scripts/olsplots.r)
+  * Default plots from `plot(lm)`
+  * Residual plots
+  * Scatterplots
+* [Plots for regression summaries](Scripts/olsresultplots.r)
+  * Plotting slopes and regression results
 
 Solve Problem Set
 
