@@ -126,6 +126,9 @@ Solve Problem Set
   * Scatterplots
 * [Plots for regression summaries](Scripts/olsresultplots.r)
   * Plotting slopes and regression results
+* [Plots for linear interaction effects](Scripts/olsinteractionplots.r)
+  * Predicted outcomes
+  * Marginal effects
 
 Solve Problem Set
 
