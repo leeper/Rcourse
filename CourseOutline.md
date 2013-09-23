@@ -84,12 +84,15 @@ Solve Problem Set
 Solve Problem Set
 
 ## Plotting as data summary
-* `hist`
-* `barplot`
-* `plot` for scatter and line plots
-* add ons: `lines`, `points`, `abline`, `text`, `legend`
-* saving plots (`pdf`, `jpeg`, `png`, `tiff`, `bmp`)
-### Note: ggplot2
+* [Summary plots](Scripts/summaryplots.r)
+  * `hist`
+  * `barplot`
+  * `plot` for scatter and line plots
+  * add ons: `lines`, `points`, `abline`, `text`, `legend`
+* [Graphical parameters](Scripts/graphicalparameters.r)
+* [Saving plots](Scripts/savingplots.r)
+  * `pdf`, `jpeg`, `png`, `tiff`, `bmp`
+* Note: ggplot2, lattice, and grid
 
 Solve Problem Set
 
