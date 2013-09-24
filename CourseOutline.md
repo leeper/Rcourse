@@ -84,14 +84,15 @@ Solve Problem Set
 Solve Problem Set
 
 ## Plotting as data summary
-* [Summary plots](Scripts/summaryplots.r)
-  * `hist`
-  * `barplot`
-  * `plot` for scatter and line plots
-  * add ons: `lines`, `points`, `abline`, `text`, `legend`
-* [Graphical parameters](Scripts/graphicalparameters.r)
-* [Saving plots](Scripts/savingplots.r)
+* [Data summary plots](Scripts/summaryplots.r)
+  * `jitter` for scatterplots
+  * `plot` for line plots
+  * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
+* [Graphical parameters](Scripts/graphicalparameters.r) TODO
+* [Plotting Colors](Scripts/plotcolors.r) TODO
+* [Saving plots](Scripts/savingplots.r) TODO
   * `pdf`, `jpeg`, `png`, `tiff`, `bmp`
+* [Plotting functions with `curve`](Scripts/curve.r) TODO
 * Note: ggplot2, lattice, and grid
 
 Solve Problem Set
