@@ -78,7 +78,7 @@ Solve Problem Set
 ## Data summaries
 * [Univariate data summaries](Scripts/univariate.r) (including `summary`)
 * [Data tables and crosstables](Scripts/tables.r)
-* `cor`
+* [Correlations and partial correlations](Scripts/correlation.r)
 * Printing numerics
 
 Solve Problem Set
@@ -115,7 +115,8 @@ Solve Problem Set
 * bivariate OLS
 * `summary`
 * model output (coef, etc.)
-* `predict`
+* [Standardized coefficients](Scripts/standardizedcoefficients.r)
+* Model predicted values (`predict`)
 * model formulae
   * interactions
   * factors versus continuous entry of variables continuous
