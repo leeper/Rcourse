@@ -86,6 +86,7 @@ Solve Problem Set
 
 ## Plotting as data summary
 * [Data summary plots](Scripts/summaryplots.r)
+  * [Rugs: Marginal distributions for scaterrplots](Scripts/rugs.r)
   * `jitter` for scatterplots
   * `plot` for line plots
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
