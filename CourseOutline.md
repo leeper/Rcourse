@@ -36,6 +36,7 @@ Last updated 2013-09-19
 ## The R language
 * [Basic math](Scripts/basicmath.r)
 * [Variables and assignment](Scripts/variables.r)
+* [Matrix algebra](Scripts/matrixalgebra.r) TODO
 * Data structures:
   * [Vectors](Scripts/vectors.r) and [Vector indexing](Scripts/vectorindexing.r)
   * [Matrices](Scripts/matrices.r)
@@ -98,7 +99,7 @@ Solve Problem Set
 Solve Problem Set
 
 ## Statistics
-* `chisq.test`, `t.test`, `cor.test`, `prop.test`
+* `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * `aov`
 * other significance tests (nonparametrics and library(coin))
   * `t.test` versus `wilcox_test` versus `coin::independence_test`
@@ -112,10 +113,12 @@ Solve Problem Set
 Solve Problem Set
 
 ## Regression
-* bivariate OLS
+* [bivariate OLS](Scripts/olsbivariate.r) TODO
+* multivariate OLS
 * `summary`
 * model output (coef, etc.)
 * [Standardized coefficients](Scripts/standardizedcoefficients.r)
+* [Regression in matrix form](Scripts/matrixols.r)
 * Model predicted values (`predict`)
 * model formulae
   * interactions
