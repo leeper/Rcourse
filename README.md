@@ -4,7 +4,7 @@ This repository will hold materials for teaching R (principally to beginners). I
 
 Currently you'll find an up-to-date list of [resources](Resources.md) that will be useful for getting started with and becoming more sophisticated with R.
 
-I've also been adding links to scripts, as I write, to the [Course Outline](CourseOutline.md). These scripts are fully executable, meaning they can be copied into the R console, run through a script editor (like [rite](https://github.com/leeper/rite)) or IDE (like [RStudio](http://www.rstudio.com)), or executed on the command line using [RScript](http://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html).
+I've also been adding links to scripts, as I write, to the [Course Outline](CourseOutline.md). These scripts are fully executable, meaning they can be copied into the R console, run through a script editor (like [rite](https://github.com/leeper/rite)) or IDE (like [RStudio](http://www.rstudio.com)), or executed on the command line using [RScript](http://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html). They are also written in roxygen-style so that they can be directly converted to Rmarkdown and HTML using [`knitr::spin`](http://yihui.name/knitr/demo/stitch/).
 
 These scripts will be complemented by slides for short lectures, to be added soon.
 
