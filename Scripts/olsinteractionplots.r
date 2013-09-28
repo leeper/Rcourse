@@ -57,10 +57,10 @@ fit1 <- predict(ols1, newdata, se.fit=TRUE, type="response")
 #' Then do the same for our full model with the interaction:
 fit2 <- predict(ols2, newdata, se.fit=TRUE, type="response")
 
-#' Now let's plot the original data, again:
+#' Now let's plot the original data, again.
+#' Then we'll overlay it with the predicted values for the two groups.
 plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
 points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
-#' Then we'll overlay it with the predicted values for the two groups:
 points(xseq, fit1$fit[1:100], type='l', col='red')
 points(xseq, fit1$fit[101:200], type='l', col='blue')
 #' The result is a plot that differentiates the absolute levels of `y` in the two groups, but forces them to have equivalent slopes.
@@ -72,7 +72,11 @@ points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
 points(xseq, fit2$fit[1:100], type='l', col='red')
 points(xseq, fit2$fit[101:200], type='l', col='blue')
 #' This looks better. The fitted values lines correspond nicely to the varying slopes in our two groups.
-#' But, we still need to add uncertainty. Luckily, we have the necessarily informaiton in `fit2$se.fit`.
+#' But, we still need to add uncertainty. Luckily, we have the necessarily information in `fit2$se.fit`.
+plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
+points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
+points(xseq, fit2$fit[1:100], type='l', col='red')
+points(xseq, fit2$fit[101:200], type='l', col='blue')
 points(xseq, fit2$fit[1:100]-fit2$se.fit[1:100], type='l', col='red', lty=2)
 points(xseq, fit2$fit[1:100]+fit2$se.fit[1:100], type='l', col='red', lty=2)
 points(xseq, fit2$fit[101:200]-fit2$se.fit[101:200], type='l', col='blue', lty=2)
@@ -129,7 +133,7 @@ plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min
 points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
 points(xseq, fit3$fit[1:100], type='l', col='red')
 points(xseq, fit3$fit[101:200], type='l', col='blue')
-#' We can compare these lines to those from the full model:
+# We can compare these lines to those from the full model:
 points(xseq, fit2$fit[1:100], type='l', col='red', lwd=2)
 points(xseq, fit2$fit[101:200], type='l', col='blue', lwd=2)
 #' By leaving out a term, we misestimate the effect of `x1` in both groups.

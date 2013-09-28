@@ -41,10 +41,10 @@ new1 <- data.frame(x1=seq(-3,3,length.out=100))
 pred1 <- predict(ols1, newdata=new1, se.fit=TRUE, type="response")
 #' We can then plot our data:
 plot(y1 ~ x1, col='gray')
-#' Add the predicted line of best (i.e., the regression line:
+# Add the predicted line of best (i.e., the regression line:
 points(pred1$fit ~ new1$x1, type="l", col='blue')
-#' Note: This is equivalent to `abline(coef(ols1)[1] ~ coef(ols1)[2], col='red')` over the range (-3,3).
-#' Then we add our confidence intervals:
+# Note: This is equivalent to `abline(coef(ols1)[1] ~ coef(ols1)[2], col='red')` over the range (-3,3).
+# Then we add our confidence intervals:
 lines(new1$x1, pred1$fit + (1.96*pred1$se.fit), lty=2, col='blue')
 lines(new1$x1, pred1$fit - (1.96*pred1$se.fit), lty=2, col='blue')
 #' Note: The `lty` parameter means "line type." We've requested a dotted line.
@@ -65,23 +65,23 @@ polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             col=rgb(0,0,1,.5), border=NA)
 #' Alternatively, we might want to show different confidence intervals with this kind of polygon:
 plot(y1 ~ x1, col='gray')
-#' 67% CI
-#' To draw the polygon, we have to specify the x positions of the points from our predictions.
-#' We do this first left to right (for the lower CI limit) and then right to left (for the upper CI limit).
-#' Then we specify the y positions, which are just the outputs from the `predict` function.
+# 67% CI
+# To draw the polygon, we have to specify the x positions of the points from our predictions.
+# We do this first left to right (for the lower CI limit) and then right to left (for the upper CI limit).
+# Then we specify the y positions, which are just the outputs from the `predict` function.
 polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             c(pred1$fit - (qnorm(.835)*pred1$se.fit),rev(pred1$fit + (qnorm(.835)*pred1$se.fit))),
             col=rgb(0,0,1,.2), border=NA)
-#' Note: The `qnorm` function tells us how much to multiple our SEs by to get Gaussian CIs.
-#' 95% CI
+# Note: The `qnorm` function tells us how much to multiple our SEs by to get Gaussian CIs.
+# 95% CI
 polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             c(pred1$fit - (qnorm(.975)*pred1$se.fit),rev(pred1$fit + (qnorm(.975)*pred1$se.fit))),
             col=rgb(0,0,1,.2), border=NA)
-#' 99% CI
+# 99% CI
 polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             c(pred1$fit - (qnorm(.995)*pred1$se.fit),rev(pred1$fit + (qnorm(.995)*pred1$se.fit))),
             col=rgb(0,0,1,.2), border=NA)
-#' 99.9% CI
+# 99.9% CI
 polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             c(pred1$fit - (qnorm(.9995)*pred1$se.fit),rev(pred1$fit + (qnorm(.9995)*pred1$se.fit))),
             col=rgb(0,0,1,.2), border=NA)
@@ -113,19 +113,19 @@ ses <- coef(summary(ols2))[c('x1','x2','x3'),2]     #' SEs
 
 #' We'll start with a blank plot (like a blank canvas):
 plot(NA, xlim=c(-3,3), ylim=c(0,4), xlab='Slope', ylab='', yaxt='n')
-#' We can add a title:
+# We can add a title:
 title('Regression Results')
-#' We'll add a y-axis labelling our variables:
+# We'll add a y-axis labelling our variables:
 axis(2, 1:3, c('x1','x2','x3'), las=2)
-#' We'll add a vertical line for zero:
+# We'll add a vertical line for zero:
 abline(v=0, col='gray')
-#' Then we'll draw our slopes as points (`pch` tells us what type of point):
+# Then we'll draw our slopes as points (`pch` tells us what type of point):
 points(slopes,1:3, pch=23, col='black', bg='black')
-#' Then we'll add thick line segments for each 1 SE:
+# Then we'll add thick line segments for each 1 SE:
 segments((slopes-ses)[1], 1, (slopes+ses)[1], 1, col='black', lwd=2)
 segments((slopes-ses)[2], 2, (slopes+ses)[2], 2, col='black', lwd=2)
 segments((slopes-ses)[3], 3, (slopes+ses)[3], 3, col='black', lwd=2)
-#' Then we'll add thin line segments for the 2 SEs:
+# Then we'll add thin line segments for the 2 SEs:
 segments((slopes-(2*ses))[1], 1, (slopes+(2*ses))[1], 1, col='black', lwd=1)
 segments((slopes-(2*ses))[2], 2, (slopes+(2*ses))[2], 2, col='black', lwd=1)
 segments((slopes-(2*ses))[3], 3, (slopes+(2*ses))[3], 3, col='black', lwd=1)
@@ -137,16 +137,16 @@ title('Regression Results')
 axis(2, 1:3, c('x1','x2','x3'), las=2)
 abline(v=0, col='gray')
 points(slopes,1:3, pch=23, col='black', bg='black')
-#' Then we'll add thick line segments for each 67% CI:
-#' Note: The `qnorm` function tells us how much to multiple our SEs by to get Gaussian CIs.
+# Then we'll add thick line segments for each 67% CI:
+# Note: The `qnorm` function tells us how much to multiple our SEs by to get Gaussian CIs.
 segments((slopes-(qnorm(.835)*ses))[1], 1, (slopes+(qnorm(.835)*ses))[1], 1, col='black', lwd=3)
 segments((slopes-(qnorm(.835)*ses))[2], 2, (slopes+(qnorm(.835)*ses))[2], 2, col='black', lwd=3)
 segments((slopes-(qnorm(.835)*ses))[3], 3, (slopes+(qnorm(.835)*ses))[3], 3, col='black', lwd=3)
-#' Then we'll add medium line segments for the 95%:
+# Then we'll add medium line segments for the 95%:
 segments((slopes-(qnorm(.975)*ses))[1], 1, (slopes+(qnorm(.975)*ses))[1], 1, col='black', lwd=2)
 segments((slopes-(qnorm(.975)*ses))[2], 2, (slopes+(qnorm(.975)*ses))[2], 2, col='black', lwd=2)
 segments((slopes-(qnorm(.975)*ses))[3], 3, (slopes+(qnorm(.975)*ses))[3], 3, col='black', lwd=2)
-#' Then we'll add thin line segments for the 99%:
+# Then we'll add thin line segments for the 99%:
 segments((slopes-(qnorm(.995)*ses))[1], 1, (slopes+(qnorm(.995)*ses))[1], 1, col='black', lwd=1)
 segments((slopes-(qnorm(.995)*ses))[2], 2, (slopes+(qnorm(.995)*ses))[2], 2, col='black', lwd=1)
 segments((slopes-(qnorm(.995)*ses))[3], 3, (slopes+(qnorm(.995)*ses))[3], 3, col='black', lwd=1)

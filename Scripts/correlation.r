@@ -26,17 +26,19 @@ plot(b~a)
 #' Yet the correlation between the two variables is low:
 cor(a,b)
 cor.test(a,b)
-#' If we can identify the functional form of the relationship, however, we can figure out what the relationship really is:
-plot(b~a, col='gray')
+#' If we can identify the functional form of the relationship, however, we can figure out what the relationship really is.
 #' Clearly a linear relationship is inappropriate:
+plot(b~a, col='gray')
 curve((x), col='red', add=TRUE)
-#' But what about `y ~ x^2` (of course, we know this is correct:
+#' But what about `y ~ x^2` (of course, we know this is correct):
+plot(b~a, col='gray')
 curve((x^2), col='blue', add=TRUE)
 #' The correlation between `b` and `a`^2 is thus much higher:
 cor(a^2,b)
 #' We can see this visually by plotting `b` against the transformed `a` variable:
 plot(b ~ I(a^2), col='gray')
-#' If we now overlay a linear relationship, we see how well the tranformed data are represented by a line:
+#' If we now overlay a linear relationship, we see how well the transformed data are represented by a line:
+plot(b ~ I(a^2), col='gray')
 curve((x), col='blue', add=TRUE)
 #' Now let's see this side-by-side to see how the transform works:
 layout(matrix(1:2,nrow=1))

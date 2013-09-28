@@ -11,12 +11,13 @@ x <- rnorm(1000)
 y <- 1 + x + rnorm(1000)
 ols1 <- lm(y~x)
 
-#' The easiest plot we can draw is the relationship between y and x:
+#' The easiest plot we can draw is the relationship between y and x.
 plot(y~x)
 #' We can also add a line representing this relationship to the plot.
 #' To get the coefficients from the model, we can use `coef`:
 coef(ols1)
 #' We can then use those coefficients in the line-plotting function `abline`:
+plot(y~x)
 abline(a=coef(ols1)[1], b=coef(ols1)[2])
 
 #' We can specify "graphical parameters" in both `plot` and `abline` to change the look.
