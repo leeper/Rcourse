@@ -52,7 +52,7 @@ f[is.na(f)] <- 0
 f
 #' Alternatively, there may be situations where we want convert NA values to NULL values, and thus shorten our vector:
 g1 <- c(1,2,NA,NA,NA,6,7)
-g2 <- na.omit(g)
+g2 <- na.omit(g1)
 g2
 #' We now have shorter vector:
 length(g1)
