@@ -1,10 +1,11 @@
-#' Basic Univariate Statistics
+#' # Basic Univariate Statistics #
 #'
 #' R is obviously a statistical programming language and environment, so we can use it to do statistics.
 #' With any vector, we can calculate a number of statistics, including:
 set.seed(1)
 a <- rnorm(100)
 
+#' ## Simple statistics ##
 #' mininum
 min(a)
 #' maximum
