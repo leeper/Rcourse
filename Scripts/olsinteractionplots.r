@@ -97,13 +97,13 @@ apply(bootcoefs,2,function(coefvec) {
     points(xseq, coefvec[1] + (xseq*(coefvec[2]+coefvec[4])) + coefvec[3], type='l', col=rgb(0,0,1,.01))
     
 })
-#' If we overlay our previous lines of top of this, we see that they produce the same result:
 points(xseq, fit2$fit[1:100], type='l')
 points(xseq, fit2$fit[101:200], type='l')
 points(xseq, fit2$fit[1:100]-fit2$se.fit[1:100], type='l', lty=2)
 points(xseq, fit2$fit[1:100]+fit2$se.fit[1:100], type='l', lty=2)
 points(xseq, fit2$fit[101:200]-fit2$se.fit[101:200], type='l', lty=2)
 points(xseq, fit2$fit[101:200]+fit2$se.fit[101:200], type='l', lty=2)
+#' If we overlay our previous lines of top of this, we see that they produce the same result, above.
 
 
 
@@ -126,7 +126,7 @@ points(xseq, fit2$fit[101:200]+qnorm(.975)*fit2$se.fit[101:200], type='l', lty=2
 #' Recall that our model is defined as:
 ols2 <- lm(y ~ x1 + x2 + x1:x2)
 #' We can compare this to a model with only one term and the interaction:
-ols3a <- lm(y ~ x1 + x1:x2)
+ols3 <- lm(y ~ x1 + x1:x2)
 fit3 <- predict(ols3, newdata, se.fit=TRUE, type="response")
 #' And plot its results:
 plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
