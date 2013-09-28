@@ -1,12 +1,12 @@
-# Bivariate Regression
+#' # Bivariate Regression #
+#'
 
 
+#' ## Regression on a binary covariate ##
+#' Comparability to a two-sample t-test
 
-# Regression on a binary covariate
-# Comparability to a two-sample t-test
 
-
-# Regression on a continuous covariate
+#' ## Regression on a continuous covariate ##
 x <- runif(1000,0,10)
 y <- 3*x + rnorm(1000,0,5)
 
@@ -28,10 +28,10 @@ points(9+d4$y*10, d5$x, type='l', col='black')
 
 
 
-# Regression on a discrete covariate
-# as factor
+#' ## Regression on a discrete covariate ##
+#' as factor
 
 
 
-# Variable transformations
+#' ##Variable transformations ##
 

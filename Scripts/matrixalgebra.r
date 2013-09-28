@@ -1,12 +1,12 @@
-# Matrix algebra
+#' # Matrix algebra #
+#'
+#' scalar addition/subtraction
+#' scalar multiplication/division
 
-# scalar addition/subtraction
-# scalar multiplication/division
 
+#' ## Matrix Multiplication ##
 
-# Matrix Multiplication
-
-# A function to demonstrate how matrix multiplication works:
+#' A function to demonstrate how matrix multiplication works:
 mmdemo <- function(A,B){
     m <- nrow(A)
     n <- ncol(B)
@@ -19,7 +19,7 @@ mmdemo <- function(A,B){
     print(C, quote=FALSE)
 }
 
-# Now let's generate two matrices, multiply them and see how it worked:
+#' Now let's generate two matrices, multiply them and see how it worked:
 amat <- matrix(1:4,ncol=2)
 bmat <- matrix(1:6,nrow=2)
 amat
@@ -29,7 +29,7 @@ mmdemo(amat,bmat)
 
 
 
-# cross-product (see OLS in matrix form)
+#' cross-product (see OLS in matrix form)
 
 
-# row/column means/sums
+#' row/column means/sums
