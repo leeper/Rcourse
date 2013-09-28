@@ -20,8 +20,8 @@
 #' Spacing between the numbers and operators is not important:
 1==2
 1 == 2
-#' But, spacing between multiple operators is!
-1 > = 2
+#' But, spacing between multiple operators is! The following:
+# 1 > = 2
 #' produces an error!
 
 #' The results of these comparisons is a logical vector that has values TRUE, FALSE, or NA:
