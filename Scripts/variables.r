@@ -69,9 +69,9 @@ f <- 2
 f
 `f` <- 3
 f
-#' That makes sense and can allow us to name variables that start with a number:
+#' That makes sense and can allow us to name variables that start with a number.
+#' Then to call objects with these noncompliant names, we need to use the backticks:
 `1f` <- 3
-#' To call objects with these noncompliant names, we need to use the backticks:
 `1f`
 #' If we just called 1f, we would get an error.
 #' But this also means we can name objects with just a number as a name:
