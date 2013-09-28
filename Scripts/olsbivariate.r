@@ -1,12 +1,29 @@
 #' # Bivariate Regression #
 #'
-
-
 #' ## Regression on a binary covariate ##
-#' Comparability to a two-sample t-test
+#' The easiest way to understand bivariate regression is to view it as equivalent to a two-sample t-test.
+#' Imagine we have a binary variable (like male/female or treatment/control):
+bin <- rbinom(1000,1,.5)
+#' Then we have an outcome that is influenced by that group:
+out <- 2*bin + rnorm(1000)
+#' We can use `by` to calculate the treatment group means:
+by(out, bin, mean)
+#' This translates to a difference of:
+diff(by(out, bin, mean))
+#' A two-sample t-test shows us whether there is a significant difference between the two groups:
+t.test(out~bin)
+#' If we run a linear regression, we find that the mean-difference is the same as the regression slope:
+lm(out~bin)
+#' And t-statistic (and its significance) for the regression slope matches that from the t.test:
+summary(lm(out~bin))$coef[2,]
+#' It becomes quite easy to see this visually in a plot of the regression:
+plot(out~bin, col='gray')
+points(0:1,by(out,bin,mean),col='blue',bg='blue',pch=23)
+abline(coef(lm(out~bin)), col='blue')
 
 
 #' ## Regression on a continuous covariate ##
+#'
 x <- runif(1000,0,10)
 y <- 3*x + rnorm(1000,0,5)
 
