@@ -119,6 +119,7 @@ Solve Problem Set
 * multivariate OLS
 * `summary`
 * model output (coef, etc.)
+* Heteroskedasticity-consistent SEs with `sandwich::vcovHC`
 * [Standardized coefficients](Scripts/standardizedcoefficients.r)
 * [Regression in matrix form](Scripts/matrixols.r)
 * Model predicted values (`predict`)
