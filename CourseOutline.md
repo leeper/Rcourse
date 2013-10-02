@@ -36,7 +36,7 @@ Last updated 2013-09-19
 ## The R language
 * [Basic math](Scripts/basicmath.r)
 * [Variables and assignment](Scripts/variables.r)
-* [Matrix algebra](Scripts/matrixalgebra.r) TODO
+* [Matrix algebra](Scripts/matrixalgebra.r)
 * Data structures:
   * [Vectors](Scripts/vectors.r) and [Vector indexing](Scripts/vectorindexing.r)
   * [Matrices](Scripts/matrices.r)
@@ -68,6 +68,7 @@ Solve Problem Set
   * vector addition with `+`
     * `rowSums` and `colSums`
     * `rowMeans` and `colMeans`
+    * See also: [Matrix algebra](Scripts/matrixalgebra.r)
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 * handling missing data
   * Global: `na.omit`
@@ -89,14 +90,15 @@ Solve Problem Set
   * [Rugs: Marginal distributions for scatterplots](Scripts/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots](Scripts/localregression.r) TODO
   * [`jitter` for scatterplots of categorical data](Scripts/jitter.r) TODO
-  * `plot` for line plots
+  * `plot` for [Line plots](Scripts/lineplots.r) TODO
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
 * [Graphical parameters](Scripts/graphicalparameters.r) TODO
 * [Plotting Colors](Scripts/plotcolors.r) TODO
+  * `gray`, `rgb`, `rainbow`, `heat.colors`
 * [Saving plots](Scripts/savingplots.r) TODO
   * `pdf`, `jpeg`, `png`, `tiff`, `bmp`
 * [Plotting functions with `curve`](Scripts/curve.r) TODO
-* Note: ggplot2, lattice, and grid
+* Note: **ggplot2**, **lattice**, and **grid**
 
 Solve Problem Set
 
@@ -170,5 +172,5 @@ Solve Problem Set
 * bootstrapping/permutations
 * time-series
 * multi-level models/panel data
-* Bayes: MCMCpack, RJags, RBugs, RStan
+* Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
