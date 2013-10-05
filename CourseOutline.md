@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Course Outline
 ---
 
 # Introduction to R
