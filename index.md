@@ -9,3 +9,5 @@ subtitle: Teaching materials for R
 This is a test for a course website.
 
 More soon...
+
+{% gist 5555251 %}
