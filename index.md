@@ -34,7 +34,6 @@ Last updated 2013-10-06
   * Moving from console to scripting
   * Analogue to do-files
   * Reproducibility
-  * Commenting ("Advice to help your future self"), see [Comments](Scripts/comments.r)
 * working directory
 * Getting help
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
