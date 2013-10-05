@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Introduction to R
 
 Created 2013-08-12
