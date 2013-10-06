@@ -7,8 +7,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 # Introduction to R #
 
-Created 2013-08-12
-Last updated 2013-09-19
+Created 2013-08-12 and last updated 2013-10-06
 
 ## Pre-Session (30 minutes) ##
 * Installing R
@@ -22,21 +21,20 @@ Last updated 2013-09-19
 
 ## Introduction to R (10 minutes) ##
 * Goals for this course
-* The system/history/principles
 * Why R?
 * Principles of reproducible scientific workflow
   * Software available in perpetuity
   * Constructing and sharing data and code
-  * Simplifying the move from analysis to publication
-* installing packages
+  * Simplifying the move from analysis to publication/presentation
+* Interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
+* Installing packages
 * Why scripting?
   * Moving from console to scripting
   * Analogue to do-files
   * Reproducibility
   * Commenting ("Advice to help your future self"), see [Comments]({{ page.ghurl }}/comments.r)
-* working directory
+* Working directory
 * Getting help
-* interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
 
 ## The R language ##
 * [Basic math]({{ page.ghurl }}/basicmath.r)
@@ -165,17 +163,23 @@ Solve Problem Set
 * knitr `stitch`
 * Integration with LaTeX reports
   * `knit`
-  * `xtable`
+  * `xtable` (also `hmisc::Latex`, **apsrtable**, and **stargazer**)
 * Presentations with beamer
 * Web publishing with Rmarkdown
+  * Slidify
+* **dvn** data deposit
 
 ## Briefly on advanced topics ##
-* loops
+* loops (`for`, `while`)
 * user-defined functions
-* apply family
 * scope/environments
-* bootstrapping/permutations
+* apply family
+* Aggregation functions (`ave`, `aggregate`, etc.)
+* bootstrapping/permutations (`replicate`)
+* text processing
+  * `strsplit`, `paste`, and regex
 * time-series
-* multi-level models/panel data
+* multi-level models/panel data/mixed effects
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
+* Web services: **twitteR**, **MTurkR**
