@@ -1,20 +1,12 @@
 # Course materials for teaching R #
 
-This repository will hold materials for teaching R (principally to beginners). I'm teaching an initial version of this course as a one-day seminar at Aarhus University on November 14, 2013 for faculty and PhD students of the Department of Political Science and Government. I'm gradually adding material as the course approaches.
+This repository will hold materials for teaching R (principally to beginners), which can be found at http://www.thomasleeper.com/Rcourse. I'm teaching an initial version of this course as a one-day seminar at Aarhus University on November 14, 2013 for faculty and PhD students of the Department of Political Science and Government. I'm gradually adding material as the course approaches.
 
-Currently you'll find an up-to-date list of [resources](Resources.md) that will be useful for getting started with and becoming more sophisticated with R.
-
-I've also been adding links to scripts, as I write, to the [Course Outline](CourseOutline.md). These scripts are fully executable, meaning they can be copied into the R console, run through a script editor (like [rite](https://github.com/leeper/rite)) or IDE (like [RStudio](http://www.rstudio.com)), or executed on the command line using [RScript](http://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html). They are also written in roxygen-style so that they can be directly converted to Rmarkdown and HTML using [`knitr::spin`](http://yihui.name/knitr/demo/stitch/).
-
-Specifically, the following code (run from the root directory of this repository) will convert all of the scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
+The following code (run from the root directory of this repository) will convert all of the enclosed scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
 ```
 lapply(dir('./Scripts', pattern='.r'), knitr::spin)
 ```
-
-These scripts will be complemented by slides for short lectures, to be added soon.
-
-After working through a lecture and set of related scripts, course participants can also complete short problem sets to test their learning. These will be added soon, too.
 
 ## Why produce original materials? ##
 
