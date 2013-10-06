@@ -51,6 +51,14 @@ p {
 	margin-left:0em;
 	font-size:16px;
 }
+.thomas {
+    color:#4c4c4c; 
+    text-align:left; 
+	font-weight:bold; 
+	font-family:Garamond,Times,serif;
+	font-size:32px;
+	margin-left:24pt;
+}
 .body {	
     margin-bottom: 0.08in;
 	color:#4c4c4c;
