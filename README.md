@@ -1,6 +1,6 @@
 # Course materials for teaching R #
 
-This repository will hold materials for teaching R (principally to beginners), which can be found at http://www.thomasleeper.com/Rcourse. I'm teaching an initial version of this course as a one-day seminar at Aarhus University on November 14, 2013 for faculty and PhD students of the Department of Political Science and Government. I'm gradually adding material as the course approaches.
+This repository will hold materials for teaching R (principally to beginners), which can be found at http://www.thomasleeper.com/Rcourse.
 
 The following code (run from the root directory of this repository) will convert all of the enclosed scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
