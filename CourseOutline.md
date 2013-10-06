@@ -38,3 +38,20 @@ Last updated 2013-09-19
 * working directory
 * Getting help
 * interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
+
+## The R language ##
+* [Basic math](Scripts/basicmath.r)
+* [Variables and assignment](Scripts/variables.r)
+* [Matrix algebra](Scripts/matrixalgebra.r)
+* Data structures:
+  * [Vectors](Scripts/vectors.r) and [Vector indexing](Scripts/vectorindexing.r)
+  * [Matrices](Scripts/matrices.r)
+  * [Lists](Scripts/lists.r)
+  * [Dataframes](Scripts/dataframes.r)
+* Object [classes](Scripts/classes.r), plus more information on:
+  * [Factors](Scripts/factors.r)
+  * [Logicals](Scripts/logicals.r)
+* [Missing values](Scripts/NA.r)
+
+Solve Problem Set
+
