@@ -78,8 +78,8 @@ Solve Problem Set
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 * handling missing data
   * Global: `na.omit`
-  * Command-specific options: `na.rm=`
-* `subset` and `sample` and `order
+  * Command-specific options: `na.rm=...`
+* `subset` and `sample` and `order`
 
 Solve Problem Set
 
