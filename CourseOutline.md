@@ -1,3 +1,8 @@
+---
+layout: default
+title: R Course Outline
+---
+
 # Introduction to R
 
 Created 2013-08-12
