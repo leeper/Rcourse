@@ -182,4 +182,5 @@ Solve Problem Set
 * multi-level models/panel data/mixed effects
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
+* Mapping
 * Web services: **twitteR**, **MTurkR**
