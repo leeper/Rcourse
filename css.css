@@ -84,6 +84,13 @@ a:hover {
   text-decoration:underline;
 } 
 
+/* CODE */
+code {
+  color:black;
+  background-color:#d3d3d3;
+  font-size:.8em;
+}
+
 
 /* LISTS */
 
