@@ -72,9 +72,9 @@ Solve Problem Set
 * [Recoding vectors](Scripts/recoding.r)
 * scale construction (additive, multiplicative, logical)
   * vector addition with `+`
-    * `rowSums` and `colSums`
-    * `rowMeans` and `colMeans`
-    * See also: [Matrix algebra](Scripts/matrixalgebra.r)
+  * `rowSums` and `colSums`
+  * `rowMeans` and `colMeans`
+  * See also: [Matrix algebra](Scripts/matrixalgebra.r)
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 * handling missing data
   * Global: `na.omit`
