@@ -67,18 +67,3 @@ Solve Problem Set
 * `write.csv`
 
 Solve Problem Set
-
-## Data processing ##
-* [Recoding vectors](Scripts/recoding.r)
-* scale construction (additive, multiplicative, logical)
-  * vector addition with `+`
-    * `rowSums` and `colSums`
-    * `rowMeans` and `colMeans`
-    * See also: [Matrix algebra](Scripts/matrixalgebra.r)
-  * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
-* handling missing data
-  * Global: `na.omit`
-  * Command-specific options: `na.rm=...`
-* `subset` and `sample` and `order
-
-Solve Problem Set
