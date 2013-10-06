@@ -15,14 +15,13 @@ h1 {
     color:#4c4c4c; 
     text-align:left; 
 	font-weight:bold; 
-	font-family:Garamond,Times,serif;
-	font-size:32px;
-	margin-left:24pt;
+	font-family:Garamond,Georgia,Palatino,serif;
+	font-size:28px;
 }
 h2 {
     background-color:#4c4c4c;
 	color:#e6e6e6;
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	text-align:center;
 	font-size:16px;
 }
@@ -30,7 +29,7 @@ h3 {
     color:#4c4c4c; 
 	text-align:left; 
 	font-weight:bold; 
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	font-size:20px;
 }
 
@@ -47,7 +46,7 @@ p {
     margin-bottom: 0.08in;
 	color:#4c4c4c;
 	text-align:justify;
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	margin-left:0em;
 	font-size:16px;
 }
@@ -55,7 +54,7 @@ p {
     color:#4c4c4c; 
     text-align:left; 
 	font-weight:bold; 
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	font-size:32px;
 	margin-left:24pt;
 }
@@ -64,7 +63,7 @@ p {
 	color:#4c4c4c;
 	text-align:center;
     margin-left: 0in;
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	font-size:16px;
 }
 .small {
@@ -72,12 +71,12 @@ p {
 	color:#4c4c4c;
     margin-left: 0in;
 	text-align:center;
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	font-size:14px;
 }
 .name {	
     color:#4c4c4c;
-	font-family:Garamond,Times,serif;
+	font-family:Garamond,Georgia,Palatino,serif;
 	font-style:italic;
 	text-align:center;
 	font-size:12px;
