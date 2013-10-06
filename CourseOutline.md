@@ -83,3 +83,100 @@ Solve Problem Set
 
 Solve Problem Set
 
+## Data summaries ##
+* [Univariate data summaries](Scripts/univariate.r) (including `summary`)
+* [Data tables and crosstables](Scripts/tables.r)
+* [Correlations and partial correlations](Scripts/correlation.r)
+* Printing numerics
+
+Solve Problem Set
+
+## Plotting as data summary ##
+* [Data summary plots](Scripts/summaryplots.r)
+  * [Rugs: Marginal distributions for scatterplots](Scripts/rugs.r)
+  * [Local regression (LOWESS/LOESS) for scatterplots](Scripts/localregression.r) TODO
+  * [`jitter` for scatterplots of categorical data](Scripts/jitter.r) TODO
+  * `plot` for [Line plots](Scripts/lineplots.r) TODO
+  * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
+* [Graphical parameters](Scripts/graphicalparameters.r) TODO
+* [Plotting Colors](Scripts/plotcolors.r) TODO
+  * `gray`, `rgb`, `rainbow`, `heat.colors`
+* [Saving plots](Scripts/savingplots.r) TODO
+  * `pdf`, `jpeg`, `png`, `tiff`, `bmp`
+* [Plotting functions with `curve`](Scripts/curve.r) TODO
+* Note: **ggplot2**, **lattice**, and **grid**
+
+Solve Problem Set
+
+## Statistics ##
+* `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
+* `aov`
+* other significance tests (nonparametrics and library(coin))
+  * `t.test` versus `wilcox_test` versus `coin::independence_test`
+  * `aov` versus `kruskal.test`
+  * Variance tests: `var.test`, `fligner.test`, `bartlett.test`
+* `by`
+* Distributions
+  * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
+  * Also look at uniform, binomial, and t distributions
+
+Solve Problem Set
+
+## Regression ##
+* [bivariate OLS](Scripts/olsbivariate.r) TODO
+* multivariate OLS
+* `summary`
+* model output (coef, etc.)
+* Heteroskedasticity-consistent SEs with `sandwich::vcovHC`
+* [Standardized coefficients](Scripts/standardizedcoefficients.r)
+* [Regression in matrix form](Scripts/matrixols.r)
+* Model predicted values (`predict`)
+* model formulae
+  * interactions
+  * factors versus continuous entry of variables continuous
+  * intercepts
+
+Solve Problem Set
+
+## Regression plotting ##
+* [Plots for regression diagnostics](Scripts/olsplots.r)
+  * Default plots from `plot(lm)`
+  * Residual plots
+  * Scatterplots
+* [Plots for regression summaries](Scripts/olsresultplots.r)
+  * Plotting slopes and regression results
+* [Plots for linear interaction effects](Scripts/olsinteractionplots.r)
+  * Predicted outcomes
+  * Marginal effects
+
+Solve Problem Set
+
+## GLM ##
+* models, again
+* Revisit distributions and link functions
+* prediction
+* plotting data
+* plotting predicted probabilities
+
+Solve Problem Set
+
+## Reproducible research ##
+* Using `source`
+* comments, again
+* knitr `stitch`
+* Integration with LaTeX reports
+  * `knit`
+  * `xtable`
+* Presentations with beamer
+* Web publishing with Rmarkdown
+
+## Briefly on advanced topics ##
+* loops
+* user-defined functions
+* apply family
+* scope/environments
+* bootstrapping/permutations
+* time-series
+* multi-level models/panel data
+* Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
+* Big data: data.table, parallel computing
