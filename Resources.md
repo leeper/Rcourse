@@ -1,4 +1,10 @@
-# R Resources
+---
+layout: default
+title: R Course
+subtitle: R Resources
+---
+
+# R Resources #
 
 This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. I welcome [pull requests](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
 
