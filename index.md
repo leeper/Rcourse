@@ -14,3 +14,4 @@ More soon...
 
 [test](fork.html)
 
+[Basic math](Scripts/basicmath.r)
