@@ -55,3 +55,30 @@ Last updated 2013-09-19
 
 Solve Problem Set
 
+## Data as dataframes ##
+* Reading in data
+  * `read.csv`, `read.table`, `scan`
+  * `load`
+  * `library(foreign)`: `read.spss`, `read.dta`, etc.
+  * Rarer cases: `readLines` and `read.fwf`
+* `fix`
+* `names` and `str`
+* `head` and `tail`
+* `write.csv`
+
+Solve Problem Set
+
+## Data processing ##
+* [Recoding vectors](Scripts/recoding.r)
+* scale construction (additive, multiplicative, logical)
+  * vector addition with `+`
+    * `rowSums` and `colSums`
+    * `rowMeans` and `colMeans`
+    * See also: [Matrix algebra](Scripts/matrixalgebra.r)
+  * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
+* handling missing data
+  * Global: `na.omit`
+  * Command-specific options: `na.rm=...`
+* `subset` and `sample` and `order
+
+Solve Problem Set
