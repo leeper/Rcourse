@@ -16,5 +16,4 @@ More soon...
 
 [Basic math](Scripts/basicmath.r)
 
-* Commenting ("Advice to help your future self"), see [Comments](Scripts/comments.r)
 
