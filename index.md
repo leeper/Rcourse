@@ -11,3 +11,6 @@ This is a test for a course website.
 More soon...
 
 [test](fork.md)
+
+[test](fork.html)
+
