@@ -7,7 +7,7 @@ mds <- gsub('.html','.md',htmls)
 titles <- sapply(mds, function(x) readLines(x,n=1))
 titles <- gsub('#','',titles)
 tmp <- data.frame(html=htmls,title=titles)
-tmp <- tmp[order(tmp$titles),]
+tmp <- tmp[order(tmp$title),]
 cat(paste('* [',tmp$title,'](',tmp$html,')',sep=''),sep='\n',file='index.md',append=TRUE)
 library(markdown)
 markdownToHTML('index.md',output='index.html')
