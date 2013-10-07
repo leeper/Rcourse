@@ -5,7 +5,8 @@ This repository will hold materials for teaching R (principally to beginners), w
 The following code (run from the root directory of this repository) will convert all of the enclosed scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
 ```
-lapply(paste('./Scripts',dir('./Scripts', pattern='.r'),sep='/'), knitr::spin)
+setwd('./Scripts')
+lapply(dir(pattern='.r'), knitr::spin)
 ```
 
 ## Why produce original materials? ##
