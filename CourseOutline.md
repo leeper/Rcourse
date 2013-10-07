@@ -99,7 +99,8 @@ Solve Problem Set
 * [Plotting Colors]({{ page.ghurl }}/plotcolors.r) TODO
   * `gray`, `rgb`, `rainbow`, `heat.colors`
 * [Saving plots]({{ page.ghurl }}/savingplots.r) TODO
-  * `pdf`, `jpeg`, `png`, `tiff`, `bmp`
+  * `pdf`, `jpeg`, `png`, `tiff`, `bmp`, `svg`
+  * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
 * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 * Note: **ggplot2**, **lattice**, and **grid**
 
