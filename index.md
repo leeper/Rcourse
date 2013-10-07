@@ -18,7 +18,7 @@ Specifically, the following code (run from the root directory of this repository
 
 ```
 setwd('./Scripts')
-lapply(dir(pattern='.r'), knitr::spin)
+lapply(dir(pattern='.r$'), knitr::spin)
 ```
 
 These scripts will be complemented by slides for short lectures, to be added soon.
