@@ -17,7 +17,8 @@ I've also been adding links to scripts, as I write, to the [Course Outline](Cour
 Specifically, the following code (run from the root directory of this repository, which you can [download as a .zip](https://github.com/leeper/Rcourse/archive/gh-pages.zip)) will convert all of the scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
 ```
-lapply(paste('./Scripts',dir('./Scripts', pattern='.r'),sep='/'), knitr::spin)
+setwd('./Scripts')
+lapply(dir(pattern='.r'), knitr::spin)
 ```
 
 These scripts will be complemented by slides for short lectures, to be added soon.
