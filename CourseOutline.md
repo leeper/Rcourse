@@ -22,6 +22,7 @@ Created 2013-08-12 and last updated 2013-10-06
 ## Introduction to R (10 minutes) ##
 * Goals for this course
 * Why R?
+  * [Popularity of various software packages](http://r4stats.com/articles/popularity/)
 * Principles of reproducible scientific workflow
   * Software available in perpetuity
   * Constructing and sharing data and code
