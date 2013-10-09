@@ -8,6 +8,7 @@ subtitle: Teaching materials for R
 
 This repository will hold materials for teaching R (principally to beginners). I'm teaching an initial version of this course as a one-day seminar at Aarhus University on November 14, 2013 for faculty and PhD students of the Department of Political Science and Government. I'm gradually adding material as the course approaches.
 
+---
 ## Contents ##
 
 Currently you'll find an up-to-date list of [resources](Resources.html) that will be useful for getting started with and becoming more sophisticated with R.
@@ -25,6 +26,7 @@ These scripts will be complemented by slides for short lectures, to be added soo
 
 After working through a lecture and set of related scripts, course participants can also complete short problem sets to test their learning. These will be added soon, too.
 
+---
 ## Why GitHub? ##
 
 Read more about why this course is on GitHub [here](fork.html). You can access [the GitHub repository here](https://github.com/leeper/Rcourse).
