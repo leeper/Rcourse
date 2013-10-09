@@ -18,6 +18,7 @@ Specifically, the following code (run from the root directory of this repository
 
 ```
 setwd('./Scripts')
+
 lapply(dir(pattern='.r$'), knitr::spin)
 ```
 
