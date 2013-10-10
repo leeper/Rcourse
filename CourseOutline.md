@@ -49,6 +49,7 @@ Created 2013-08-12 and last updated 2013-10-06
 * Object [classes]({{ page.ghurl }}/classes.r), plus more information on:
   * [Factors]({{ page.ghurl }}/factors.r)
   * [Logicals]({{ page.ghurl }}/logicals.r)
+* Looking at objects with `str`, `print`, and `summary`
 * [Missing values]({{ page.ghurl }}/NA.r)
 
 Solve Problem Set
@@ -160,7 +161,7 @@ Solve Problem Set
 Solve Problem Set
 
 ## Experiments ##
-* [Power and minimum detectable effects](power.r)
+* [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
 * Clustering
 * Analysis of noncompliance/LATEs
 
