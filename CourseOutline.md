@@ -159,6 +159,13 @@ Solve Problem Set
 
 Solve Problem Set
 
+## Experiments ##
+* [Power and minimum detectable effects](power.r)
+* Clustering
+* Analysis of noncompliance/LATEs
+
+Solve Problem Set
+
 ## Reproducible research ##
 * Using `source`
 * comments, again
