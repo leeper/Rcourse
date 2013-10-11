@@ -25,7 +25,7 @@ Created 2013-08-12 and last updated 2013-10-06
   * [Popularity of various software packages](http://r4stats.com/articles/popularity/)
 * Principles of reproducible scientific workflow
   * Software available in perpetuity
-  * Constructing and sharing data and code
+  * Constructing and sharing data and code (see **dvn**)
   * Simplifying the move from analysis to publication/presentation
 * Interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
 * Installing packages
@@ -126,15 +126,16 @@ Solve Problem Set
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
 * multivariate OLS
 * `summary`
-* model output (coef, etc.)
+* model output (`coef`, etc.)
 * Heteroskedasticity-consistent SEs with `sandwich::vcovHC`
 * [Standardized coefficients]({{ page.ghurl }}/standardizedcoefficients.r)
 * [Regression in matrix form]({{ page.ghurl }}/matrixols.r)
 * Model predicted values (`predict`)
 * model formulae
-  * interactions
-  * factors versus continuous entry of variables continuous
+  * interactions using `*` and `:`
+  * factors versus continuous entry of variables
   * intercepts
+  * offset
 
 Solve Problem Set
 
@@ -179,17 +180,32 @@ Solve Problem Set
   * Slidify
 * **dvn** data deposit
 
-## Briefly on advanced topics ##
+## Repeated tasks ##
 * loops (`for`, `while`)
-* user-defined functions
-* scope/environments
-* apply family
+* `apply` and `*apply` family
+* Split-Apply-Combine (`by`, `split`)
+* Bootstrapping/permutations (`sample` and `replicate`)
 * Aggregation functions (`ave`, `aggregate`, etc.)
-* bootstrapping/permutations (`replicate`)
-* text processing
-  * `strsplit`, `paste`, and regex
-* time-series
-* multi-level models/panel data/mixed effects
+
+## User-Defined functions ##
+* Variable scope and environments
+* Return values (`return` and `invisible`)
+* Custom classes
+* Default arguments
+* `print` and `summary` S3 methods
+
+## Over-time data ##
+* Time-series (`ts` class)
+* Panel data (`plm`)
+* Mixed effects
+* Multi-level models
+
+## Text processing ##
+* `paste`
+* `strsplit`, `nchar`, etc.
+* Regular expressions
+
+## Briefly on advanced topics ##
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
 * Mapping
