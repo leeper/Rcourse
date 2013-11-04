@@ -36,12 +36,18 @@ Created 2013-08-12 and last updated 2013-11-04
  * Working directory
  * Getting help
 * The R Language (first session)
+  * Problem set <!--Something on mismatched types, recycling, basic math-->
 * Simple data manipulation (second session)
+  * Problem set <!--Reading in data, character/factor, save/write.csv-->
 * Lunch break
 * Simple statistics and data export (third session)
+  * Problem set <!--Work with real data, export results-->
 * Regression (fourth session)
+  * Problem set <!--Regression assumptions, specification, predictions-->
 * Plotting (fifth session)
+  * Problem set <!--Descriptive plotting and regression plotting-->
 * Conclusion and preview to reproducible research
+  * Additional tutorials online
 
 ## The R language ##
 * [Basic math]({{ page.ghurl }}/basicmath.r)
@@ -55,10 +61,8 @@ Created 2013-08-12 and last updated 2013-11-04
 * Object [classes]({{ page.ghurl }}/classes.r), plus more information on:
   * [Factors]({{ page.ghurl }}/factors.r)
   * [Logicals]({{ page.ghurl }}/logicals.r)
-* [Looking at objects]({{ page.ghurl }}/logicals.r)
+* [Looking at objects]({{ page.ghurl }}/objects.r)
 * [Missing values]({{ page.ghurl }}/NA.r)
-
-Solve Problem Set
 
 ## Data as dataframes ##
 * Reading in data
@@ -68,8 +72,6 @@ Solve Problem Set
   * Rarer cases: `readLines` and `read.fwf`
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
 * `save` and `write.csv`
-
-Solve Problem Set
 
 ## Data processing ##
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
@@ -84,15 +86,11 @@ Solve Problem Set
   * Command-specific options: `na.rm=...`
 * `subset` and `sample` and `order`
 
-Solve Problem Set
-
 ## Data summaries ##
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
-
-Solve Problem Set
 
 ## Plotting as data summary ##
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
@@ -110,8 +108,6 @@ Solve Problem Set
 * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 * Note: **ggplot2**, **lattice**, and **grid**
 
-Solve Problem Set
-
 ## Statistics ##
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * `aov`
@@ -123,8 +119,6 @@ Solve Problem Set
 * Distributions
   * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
   * Also look at uniform, binomial, and t distributions
-
-Solve Problem Set
 
 ## Regression ##
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
@@ -141,8 +135,6 @@ Solve Problem Set
   * intercepts
   * offset
 
-Solve Problem Set
-
 ## Regression plotting ##
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
@@ -154,8 +146,6 @@ Solve Problem Set
   * Predicted outcomes
   * Marginal effects
 
-Solve Problem Set
-
 ## GLM ##
 * models, again
 * Revisit distributions and link functions
@@ -163,14 +153,11 @@ Solve Problem Set
 * plotting data
 * plotting predicted probabilities
 
-Solve Problem Set
-
 ## Experiments ##
+* ANOVA
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
 * Clustering
 * Analysis of noncompliance/LATEs
-
-Solve Problem Set
 
 ## Reproducible research ##
 * Using `source`
@@ -209,7 +196,7 @@ Solve Problem Set
 * `strsplit`, `nchar`, etc.
 * Regular expressions
 
-## Briefly on advanced topics ##
+## Other advanced topics ##
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
 * Mapping
