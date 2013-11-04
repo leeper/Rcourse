@@ -30,4 +30,8 @@ options('dvn.user'='username', 'dvn.pwd'='password')
 #' If everything looks good, you can then release the study publicly:
 # dvReleaseStudy(created$objectid)
 #' The dvn package also allows you to modify the metadata and delete files, but the above constitutes a complete workflow to making your data publicly available. See the package documentation for more details.
-
+#'
+#' ## Searching for data using dvn ##
+#' dvn additionally allows you to search for study data directly from R. For example, you can find all of my publicly available data using:
+search <- dvSearch(list(authorName="leeper"))
+#' Thus archiving your data on The Dataverse Network makes it readily accessible to R users everywhere, forever.
