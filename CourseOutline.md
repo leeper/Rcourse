@@ -84,7 +84,7 @@ Solve Problem Set
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
-* Printing numerics
+* [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
 Solve Problem Set
 
