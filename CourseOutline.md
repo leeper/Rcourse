@@ -60,10 +60,8 @@ Solve Problem Set
   * `load`
   * `library(foreign)`: `read.spss`, `read.dta`, etc.
   * Rarer cases: `readLines` and `read.fwf`
-* `fix`
-* `names` and `str`
-* `head` and `tail`
-* `write.csv`
+* [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
+* `save` and `write.csv`
 
 Solve Problem Set
 
