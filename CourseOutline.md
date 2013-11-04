@@ -176,7 +176,7 @@ Solve Problem Set
 * Presentations with beamer
 * Web publishing with Rmarkdown
   * Slidify
-* **dvn** data deposit
+* [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
 
 ## Repeated tasks ##
 * loops (`for`, `while`)
