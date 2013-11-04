@@ -7,7 +7,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 # Introduction to R #
 
-Created 2013-08-12 and last updated 2013-10-06
+Created 2013-08-12 and last updated 2013-11-04
 
 ## Pre-Session (30 minutes) ##
 * Installing R
@@ -49,7 +49,7 @@ Created 2013-08-12 and last updated 2013-10-06
 * Object [classes]({{ page.ghurl }}/classes.r), plus more information on:
   * [Factors]({{ page.ghurl }}/factors.r)
   * [Logicals]({{ page.ghurl }}/logicals.r)
-* Looking at objects with `str`, `print`, and `summary`
+* [Looking at objects]({{ page.ghurl }}/logicals.r)
 * [Missing values]({{ page.ghurl }}/NA.r)
 
 Solve Problem Set
