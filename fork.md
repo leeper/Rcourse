@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Fork R Course
+title: Fork
 ---
 
 # Fork This Syllabus #
