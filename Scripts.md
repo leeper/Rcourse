@@ -8,6 +8,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 Below you will find links to a number of fully executible R scripts (written in Roxygen) that walk through various aspects of R programming.
 
+---
 ## The R language ##
 
 * [Basic math]({{ page.ghurl }}/basicmath.r)
@@ -25,6 +26,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Missing values]({{ page.ghurl }}/NA.r)
 
 
+---
 ## Data as dataframes ##
 
 * Reading in data
@@ -36,6 +38,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * `save` and `write.csv`
 
 
+---
 ## Data processing ##
 
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
@@ -51,6 +54,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * `subset` and `sample` and `order`
 
 
+---
 ## Data summaries ##
 
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
@@ -59,6 +63,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
 
+---
 ## Plotting as data summary ##
 
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
@@ -77,6 +82,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Note: **ggplot2**, **lattice**, and **grid**
 
 
+---
 ## Statistics ##
 
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
@@ -91,6 +97,7 @@ Below you will find links to a number of fully executible R scripts (written in 
   * Also look at uniform, binomial, and t distributions
 
 
+---
 ## Regression ##
 
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
@@ -108,6 +115,7 @@ Below you will find links to a number of fully executible R scripts (written in 
   * offset
 
 
+---
 ## Regression plotting ##
 
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
@@ -121,6 +129,7 @@ Below you will find links to a number of fully executible R scripts (written in 
   * Marginal effects
 
 
+---
 ## GLM ##
 
 * models, again
@@ -130,6 +139,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * plotting predicted probabilities
 
 
+---
 ## Experiments ##
 
 * ANOVA
@@ -138,6 +148,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Analysis of noncompliance/LATEs
 
 
+---
 ## Reproducible research ##
 
 * Using `source`
@@ -152,6 +163,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
 
 
+---
 ## Repeated tasks ##
 
 * loops (`for`, `while`)
@@ -161,6 +173,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Aggregation functions (`ave`, `aggregate`, etc.)
 
 
+---
 ## User-Defined functions ##
 
 * Variable scope and environments
@@ -170,6 +183,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * `print` and `summary` S3 methods
 
 
+---
 ## Over-time data ##
 
 * Time-series (`ts` class)
@@ -178,6 +192,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Multi-level models
 
 
+---
 ## Text processing ##
 
 * `paste`
@@ -185,6 +200,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Regular expressions
 
 
+---
 ## Other advanced topics ##
 
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
