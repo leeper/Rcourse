@@ -1,6 +1,6 @@
 # Course materials for teaching R #
 
-This repository will hold materials for teaching R (principally to beginners), which can be found at http://www.thomasleeper.com/Rcourse.
+This repository will hold materials for teaching R (principally to beginners), which can be found [here](http://www.thomasleeper.com/Rcourse).
 
 The following code (run from the root directory of this repository) will convert all of the enclosed scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
