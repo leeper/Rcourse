@@ -1,7 +1,6 @@
 ---
 layout: default
-title: R Course
-subtitle: R Resources
+title: Resources
 ---
 
 # R Resources #
