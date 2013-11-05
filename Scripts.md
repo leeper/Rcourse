@@ -10,7 +10,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## The R language ##
-
 * [Basic math]({{ page.ghurl }}/basicmath.r)
 * [Variables and assignment]({{ page.ghurl }}/variables.r)
 * [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
@@ -28,7 +27,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Data as dataframes ##
-
 * Reading in data
   * `read.csv`, `read.table`, `scan`
   * `load`
@@ -40,7 +38,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Data processing ##
-
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
 * scale construction (additive, multiplicative, logical)
   * vector addition with `+`
@@ -56,7 +53,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Data summaries ##
-
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
@@ -65,7 +61,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Plotting as data summary ##
-
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots]({{ page.ghurl }}/localregression.r) TODO
@@ -84,7 +79,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Statistics ##
-
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * `aov`
 * other significance tests (nonparametrics and library(coin))
@@ -99,7 +93,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Regression ##
-
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
 * multivariate OLS
 * `summary`
@@ -117,7 +110,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Regression plotting ##
-
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
   * Residual plots
@@ -131,7 +123,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## GLM ##
-
 * models, again
 * Revisit distributions and link functions
 * prediction
@@ -141,7 +132,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Experiments ##
-
 * ANOVA
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
 * Clustering
@@ -150,7 +140,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Reproducible research ##
-
 * Using `source`
 * comments, again
 * knitr `stitch`
@@ -165,7 +154,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Repeated tasks ##
-
 * loops (`for`, `while`)
 * `apply` and `*apply` family
 * Split-Apply-Combine (`by`, `split`)
@@ -175,7 +163,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## User-Defined functions ##
-
 * Variable scope and environments
 * Return values (`return` and `invisible`)
 * Custom classes
@@ -185,7 +172,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Over-time data ##
-
 * Time-series (`ts` class)
 * Panel data (`plm`)
 * Mixed effects
@@ -194,7 +180,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Text processing ##
-
 * `paste`
 * `strsplit`, `nchar`, etc.
 * Regular expressions
@@ -202,7 +187,6 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Other advanced topics ##
-
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
 * Mapping
