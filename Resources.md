@@ -5,7 +5,7 @@ title: Resources
 
 # R Resources #
 
-This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. I welcome [pull requests](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
+This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. You are welcome to [edit this page](https://github.com/leeper/Rcourse/edit/gh-pages/Resources.md) in order to initiate a [pull request](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
 
 ---
 ## Get R ##
