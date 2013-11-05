@@ -11,14 +11,14 @@ Created 2013-08-12 and last updated 2013-11-04
 
 ### Schedule for the class ###
 
- * Pre-session (30 minutes)
+ *Pre-session (30 minutes)
   * Installing R
- * Introductions (20 minutes)
-  * Names
-  * Backgrounds
-  * Typical research software and workflow
-  * Likes and wishes with current software and workflow
-  * Problems you had learning your current software
+ *Introductions (20 minutes)
+  *Names
+  *Backgrounds
+  *Typical research software and workflow
+  *Likes and wishes with current software and workflow
+  *Problems you had learning your current software
  * Introduction to R (15 minutes)
   * Goals for this course
   * Why R?
