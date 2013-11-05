@@ -1,10 +1,12 @@
 ---
 layout: default
-title: Outline
+title: Scripts
 ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 ---
 
 # Tutorial Scripts #
+
+Below you will find links to a number of fully executible R scripts (written in Roxygen) that walk through various aspects of R programming.
 
 ## The R language ##
 
