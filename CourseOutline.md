@@ -1,6 +1,6 @@
 ---
 layout: default
-title: R Course
+title: Outline
 subtitle: Teaching materials for R
 ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 ---
