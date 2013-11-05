@@ -10,6 +10,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 Created 2013-08-12 and last updated 2013-11-04
 
 ### Schedule for the class ###
+
 * Pre-session (30 minutes)
  * Installing R
 * Introductions (20 minutes)
@@ -49,7 +50,9 @@ Created 2013-08-12 and last updated 2013-11-04
 * Conclusion and preview to reproducible research
   * Additional tutorials online
 
+
 ## The R language ##
+
 * [Basic math]({{ page.ghurl }}/basicmath.r)
 * [Variables and assignment]({{ page.ghurl }}/variables.r)
 * [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
@@ -64,7 +67,9 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Looking at objects]({{ page.ghurl }}/objects.r)
 * [Missing values]({{ page.ghurl }}/NA.r)
 
+
 ## Data as dataframes ##
+
 * Reading in data
   * `read.csv`, `read.table`, `scan`
   * `load`
@@ -73,7 +78,9 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
 * `save` and `write.csv`
 
+
 ## Data processing ##
+
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
 * scale construction (additive, multiplicative, logical)
   * vector addition with `+`
@@ -86,13 +93,17 @@ Created 2013-08-12 and last updated 2013-11-04
   * Command-specific options: `na.rm=...`
 * `subset` and `sample` and `order`
 
+
 ## Data summaries ##
+
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
+
 ## Plotting as data summary ##
+
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots]({{ page.ghurl }}/localregression.r) TODO
@@ -108,7 +119,9 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 * Note: **ggplot2**, **lattice**, and **grid**
 
+
 ## Statistics ##
+
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * `aov`
 * other significance tests (nonparametrics and library(coin))
@@ -120,7 +133,9 @@ Created 2013-08-12 and last updated 2013-11-04
   * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
   * Also look at uniform, binomial, and t distributions
 
+
 ## Regression ##
+
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
 * multivariate OLS
 * `summary`
@@ -135,7 +150,9 @@ Created 2013-08-12 and last updated 2013-11-04
   * intercepts
   * offset
 
+
 ## Regression plotting ##
+
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
   * Residual plots
@@ -146,20 +163,26 @@ Created 2013-08-12 and last updated 2013-11-04
   * Predicted outcomes
   * Marginal effects
 
+
 ## GLM ##
+
 * models, again
 * Revisit distributions and link functions
 * prediction
 * plotting data
 * plotting predicted probabilities
 
+
 ## Experiments ##
+
 * ANOVA
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
 * Clustering
 * Analysis of noncompliance/LATEs
 
+
 ## Reproducible research ##
+
 * Using `source`
 * comments, again
 * knitr `stitch`
@@ -171,32 +194,42 @@ Created 2013-08-12 and last updated 2013-11-04
   * Slidify
 * [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
 
+
 ## Repeated tasks ##
+
 * loops (`for`, `while`)
 * `apply` and `*apply` family
 * Split-Apply-Combine (`by`, `split`)
 * Bootstrapping/permutations (`sample` and `replicate`)
 * Aggregation functions (`ave`, `aggregate`, etc.)
 
+
 ## User-Defined functions ##
+
 * Variable scope and environments
 * Return values (`return` and `invisible`)
 * Custom classes
 * Default arguments
 * `print` and `summary` S3 methods
 
+
 ## Over-time data ##
+
 * Time-series (`ts` class)
 * Panel data (`plm`)
 * Mixed effects
 * Multi-level models
 
+
 ## Text processing ##
+
 * `paste`
 * `strsplit`, `nchar`, etc.
 * Regular expressions
 
+
 ## Other advanced topics ##
+
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
 * Mapping
