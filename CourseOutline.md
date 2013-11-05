@@ -9,7 +9,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 Created 2013-08-12 and last updated 2013-11-04
 
-### Schedule for the class ###
+## Schedule for the class ##
 
 * Pre-session (30 minutes)
 
@@ -43,7 +43,7 @@ Created 2013-08-12 and last updated 2013-11-04
   * Getting help
 
 * The R Language (first session)
-
+ 
   * Problem set <!--Something on mismatched types, recycling, basic math-->
 
 * Simple data manipulation (second session)
@@ -68,8 +68,10 @@ Created 2013-08-12 and last updated 2013-11-04
 
   * Additional tutorials online
 
+---
+## Tutorial Scripts ##
 
-## The R language ##
+### The R language ###
 
 * [Basic math]({{ page.ghurl }}/basicmath.r)
 * [Variables and assignment]({{ page.ghurl }}/variables.r)
@@ -86,7 +88,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Missing values]({{ page.ghurl }}/NA.r)
 
 
-## Data as dataframes ##
+### Data as dataframes ###
 
 * Reading in data
   * `read.csv`, `read.table`, `scan`
@@ -97,7 +99,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * `save` and `write.csv`
 
 
-## Data processing ##
+### Data processing ###
 
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
 * scale construction (additive, multiplicative, logical)
@@ -112,7 +114,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * `subset` and `sample` and `order`
 
 
-## Data summaries ##
+### Data summaries ###
 
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
@@ -120,7 +122,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
 
-## Plotting as data summary ##
+### Plotting as data summary ###
 
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
@@ -138,7 +140,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * Note: **ggplot2**, **lattice**, and **grid**
 
 
-## Statistics ##
+### Statistics ###
 
 * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * `aov`
@@ -152,7 +154,7 @@ Created 2013-08-12 and last updated 2013-11-04
   * Also look at uniform, binomial, and t distributions
 
 
-## Regression ##
+### Regression ###
 
 * [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
 * multivariate OLS
@@ -169,7 +171,7 @@ Created 2013-08-12 and last updated 2013-11-04
   * offset
 
 
-## Regression plotting ##
+### Regression plotting ##
 
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
@@ -182,7 +184,7 @@ Created 2013-08-12 and last updated 2013-11-04
   * Marginal effects
 
 
-## GLM ##
+### GLM ###
 
 * models, again
 * Revisit distributions and link functions
@@ -191,7 +193,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * plotting predicted probabilities
 
 
-## Experiments ##
+### Experiments ###
 
 * ANOVA
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
@@ -199,7 +201,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * Analysis of noncompliance/LATEs
 
 
-## Reproducible research ##
+### Reproducible research ###
 
 * Using `source`
 * comments, again
@@ -213,7 +215,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
 
 
-## Repeated tasks ##
+### Repeated tasks ###
 
 * loops (`for`, `while`)
 * `apply` and `*apply` family
@@ -222,7 +224,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * Aggregation functions (`ave`, `aggregate`, etc.)
 
 
-## User-Defined functions ##
+### User-Defined functions ###
 
 * Variable scope and environments
 * Return values (`return` and `invisible`)
@@ -231,7 +233,7 @@ Created 2013-08-12 and last updated 2013-11-04
 * `print` and `summary` S3 methods
 
 
-## Over-time data ##
+### Over-time data ###
 
 * Time-series (`ts` class)
 * Panel data (`plm`)
@@ -239,14 +241,14 @@ Created 2013-08-12 and last updated 2013-11-04
 * Multi-level models
 
 
-## Text processing ##
+### Text processing ###
 
 * `paste`
 * `strsplit`, `nchar`, etc.
 * Regular expressions
 
 
-## Other advanced topics ##
+### Other advanced topics ###
 
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
