@@ -8,7 +8,8 @@ title: Resources
 This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. I welcome [pull requests](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
 
 ## Get R ##
-* You can get R at [CRAN (the Comprehensive R Archive Network)](http://cran.r-project.org/) for any of the usual operating systems
+
+You can get R at [CRAN (the Comprehensive R Archive Network)](http://cran.r-project.org/) for any of the usual operating systems
 
 ---
 ## Manuals and Introductions ##
