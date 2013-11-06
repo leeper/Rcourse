@@ -180,10 +180,9 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Text processing ##
-* `paste`
-* `strsplit`, `nchar`, etc.
+* [String manipulation](stringmanipulation.r)
 * Regular expressions
-
+* Reading and writing to console, files, and connections
 
 ---
 ## Other advanced topics ##
