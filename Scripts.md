@@ -6,7 +6,7 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 # Tutorial Scripts #
 
-Below you will find links to a number of fully executible R scripts (written in Roxygen) that walk through various aspects of R programming.
+Below you will find links to a number of fully executible R scripts (written in [roxygen comments](https://github.com/yihui/knitr/blob/master/inst/examples/knitr-spin.R)) that walk through various aspects of R programming.
 
 ---
 ## The R language ##
@@ -32,30 +32,37 @@ Below you will find links to a number of fully executible R scripts (written in 
   * `load`
   * `library(foreign)`: `read.spss`, `read.dta`, etc.
   * Rarer cases: `readLines` and `read.fwf`
+  * Interactive use: `file.choose`
+
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
+
 * `save` and `write.csv`
 
+* `order`, `subset`, and `sample`
 
 ---
 ## Data processing ##
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
-* scale construction (additive, multiplicative, logical)
-  * vector addition with `+`
+
+* [Scale construction (scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/scales.r) TODO
+  * vector arithmetic with `+`, `-`, `/`, and `*`
   * `rowSums` and `colSums`
   * `rowMeans` and `colMeans`
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
   * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
-* handling missing data
+
+* [Handling missing data]({{ page.ghurl }}/NAhandling.r)
   * Global: `na.omit`
   * Command-specific options: `na.rm=...`
-* `subset` and `sample` and `order`
-
 
 ---
 ## Data summaries ##
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
+
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
+
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
+
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
 
@@ -67,41 +74,62 @@ Below you will find links to a number of fully executible R scripts (written in 
   * [`jitter` for scatterplots of categorical data]({{ page.ghurl }}/jitter.r) TODO
   * `plot` for [Line plots]({{ page.ghurl }}/lineplots.r) TODO
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
+
 * [Graphical parameters]({{ page.ghurl }}/graphicalparameters.r) TODO
+
 * [Plotting Colors]({{ page.ghurl }}/plotcolors.r) TODO
   * `gray`, `rgb`, `rainbow`, `heat.colors`
+
 * [Saving plots]({{ page.ghurl }}/savingplots.r) TODO
   * `pdf`, `jpeg`, `png`, `tiff`, `bmp`, `svg`
   * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
+
 * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 * Note: **ggplot2**, **lattice**, and **grid**
 
 
 ---
 ## Statistics ##
-* `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
-* `aov`
-* other significance tests (nonparametrics and library(coin))
-  * `t.test` versus `wilcox_test` versus `coin::independence_test`
-  * `aov` versus `kruskal.test`
-  * Variance tests: `var.test`, `fligner.test`, `bartlett.test`
-* `by`
+* [Basic parametric statistical tests]({{ page.ghurl }}/basicparametrictests.r) TODO
+ * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
+* [ANOVA (`aov`)]({{ page.ghurl }}/anova.r) TODO
+
+* Nonparametric statistical tests
+ * `t.test` versus `wilcox_test` 
+ * `aov` versus `kruskal.test`
+
+* Variance tests: `var.test`, `fligner.test`, `bartlett.test`, `ansari.test`
+
+* [Permutation tests]({{ page.ghurl }}/permutationtests.r) TODO
+ * hand-built permutations
+ * `library(coin)`
+ * `coin::independence_test`
+
+* `by` and `*apply`
+
 * Distributions
   * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
   * Also look at uniform, binomial, and t distributions
 
 
 ---
-## Regression ##
-* [bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
-* multivariate OLS
-* `summary`
-* model output (`coef`, etc.)
+## Linear Regression (OLS) ##
+* [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
+* [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
+* model output (`summary`, `fitted`, `coef`, etc.)
+
+* [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r) TODO
+ * Regression tests (**lmtest**)
+
 * [Heteroskedasticity-consistent SEs]({{ page.ghurl }}/olsrobustSEs.r)
+
 * [Standardized coefficients]({{ page.ghurl }}/standardizedcoefficients.r)
+
 * [Regression in matrix form]({{ page.ghurl }}/matrixols.r)
+
 * Model predicted values (`predict`)
-* model formulae
+
+* Model formulae
   * interactions using `*` and `:`
   * factors versus continuous entry of variables
   * intercepts
@@ -112,13 +140,14 @@ Below you will find links to a number of fully executible R scripts (written in 
 ## Regression plotting ##
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
-  * Residual plots
+  * Residual plots and `qqplot`
   * Scatterplots
+
 * [Plots for regression summaries]({{ page.ghurl }}/olsresultplots.r)
-  * Plotting slopes and regression results
+
 * [Plots for linear interaction effects]({{ page.ghurl }}/olsinteractionplots.r)
   * Predicted outcomes
-  * Marginal effects
+  * Marginal effects and interaction terms
 
 
 ---
@@ -132,8 +161,10 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Experiments ##
-* ANOVA
+* [ANOVA]({{ page.ghurl }}/anova.r) TODO
+* [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
+* Plotting means and effects
 * Clustering
 * Analysis of noncompliance/LATEs
 
@@ -141,23 +172,32 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## Reproducible research ##
 * Using `source`
-* comments, again
+
+* Using `sink`
+
+* [Comments]({{ page.ghurl }}/comments.r)
+
+* [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
+
 * knitr `stitch`
+
 * Integration with LaTeX reports
   * `knit`
   * `xtable` (also `hmisc::Latex`, **apsrtable**, and **stargazer**)
+
 * Presentations with beamer
+
 * Web publishing with Rmarkdown
   * Slidify
-* [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
+
 
 
 ---
 ## Repeated tasks ##
-* loops (`for`, `while`)
 * `apply` and `*apply` family
+* loops (`for`, `while`)
 * Split-Apply-Combine (`by`, `split`)
-* Bootstrapping/permutations (`sample` and `replicate`)
+* Sampling/Bootstrapping/permutations (`sample` and `replicate`)
 * Aggregation functions (`ave`, `aggregate`, etc.)
 
 
@@ -180,13 +220,15 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Text processing ##
-* `paste`
-* `strsplit`, `nchar`, etc.
-* Regular expressions
+* [String manipulation]({{ page.ghurl }}/stringmanipulation.r)
+* [Regular expressions]({{ page.ghurl }}/regex.r) TODO
+* Reading and writing to console, files, and connections
 
 
 ---
 ## Other advanced topics ##
+* File manipulation: `list.files`/`dir`, `file.create`, etc.
+* System calls: `shell`, `shell.exec`, and `system`
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
 * Mapping
