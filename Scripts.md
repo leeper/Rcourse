@@ -181,7 +181,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## Text processing ##
 * [String manipulation](stringmanipulation.r)
-* Regular expressions
+* [Regular expressions](regex.r) TODO
 * Reading and writing to console, files, and connections
 
 ---
