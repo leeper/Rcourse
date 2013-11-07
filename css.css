@@ -54,7 +54,7 @@ p {
     color:#4c4c4c; 
     text-align:left; 
 	font-weight:bold; 
-	font-family:Garamond,Georgia,Palatino,serif;
+	font-family:Garamond,Times,serif;
 	font-size:32px;
 	margin-left:24pt;
 }
@@ -63,7 +63,7 @@ p {
 	color:#4c4c4c;
 	text-align:center;
     margin-left: 0in;
-	font-family:Garamond,Georgia,Palatino,serif;
+	font-family:Garamond,Times,serif;
 	font-size:16px;
 }
 .small {
@@ -76,7 +76,7 @@ p {
 }
 .name {	
     color:#4c4c4c;
-	font-family:Garamond,Georgia,Palatino,serif;
+	font-family:Garamond,Times,serif;
 	font-style:italic;
 	text-align:center;
 	font-size:12px;
@@ -95,8 +95,7 @@ a:hover {
 /* CODE */
 code {
     color:#4c4c4c;
-    /*background-color:#f6f6f6;*/
-    font-weight:bold;
+    background-color:#f6f6f6;
     font-size:.8em;
 }
 
