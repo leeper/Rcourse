@@ -1,8 +1,5 @@
 # subdirectories to ignore #
-/Misc
-/Slides
 
 # filetypes to ignore #
-*.docx
 
 # files to ignore #
