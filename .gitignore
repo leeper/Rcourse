@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+=======
+# subdirectories to ignore #
+/Misc
+/Slides
+
+# filetypes to ignore #
+*.docx
+
+# files to ignore #
+>>>>>>> 3f8bbdb

@@ -87,3 +87,4 @@ logical(length=10)
 #' These functions may seem kind of pointless right now. But they are useful in large projects.
 #' Filling in the values of a vector "initialized" (e.g., with `numeric`, `character`, or `logical`) is much faster than building a vector with `c()`.
 #' This is hard to observe at this scale (a few elements) but matters with bigger data.
+#'
