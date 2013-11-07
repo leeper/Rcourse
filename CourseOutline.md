@@ -179,4 +179,3 @@ Solve Problem Set
 * multi-level models/panel data
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan
 * Big data: data.table, parallel computing
->>>>>>> f26f62d0
