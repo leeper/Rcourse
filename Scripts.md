@@ -141,7 +141,9 @@ Below you will find links to a number of fully executible R scripts (written in 
   * Residual plots and `qqplot`
   * Scatterplots
 
-* [Plots for regression summaries]({{ page.ghurl }}/olsresultplots.r)
+* [Regression coefficient summary plots]({{ page.ghurl }}/olscoefplot.r)
+
+* [Plots for OLS linear effects]({{ page.ghurl }}/olsresultplots.r)
 
 * [Plots for linear interaction effects]({{ page.ghurl }}/olsinteractionplots.r)
   * Predicted outcomes
