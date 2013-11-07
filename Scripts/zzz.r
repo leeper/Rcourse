@@ -16,4 +16,5 @@ unlink('zzz.md') # delete this md
 unlink('zzz.Rmd') # delete this Rmd
 unlink('*.md') # delete-all md
 unlink('*.Rmd') # delete-all Rmd
+# NEED to move everything to a new "Documentation" directory then, from there:
 browseURL('index.html')
