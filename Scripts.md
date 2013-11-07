@@ -44,14 +44,11 @@ Below you will find links to a number of fully executible R scripts (written in 
 ## Data processing ##
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
 
-* [Scale construction (scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/scales.r) TODO
-  * vector arithmetic with `+`, `-`, `/`, and `*`
-  * `rowSums` and `colSums`
-  * `rowMeans` and `colMeans`
+* [Scale construction (scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/basicscales.r)
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
-  * Note also other more advanced tools: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
+  * Note, R has many advanced tools for scale construction, like: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 
-* [Handling missing data]({{ page.ghurl }}/NAhandling.r)
+* [Handling missing data]({{ page.ghurl }}/NAhandling.r) TODO
   * Global: `na.omit`
   * Command-specific options: `na.rm=...`
 
@@ -112,9 +109,12 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Linear Regression (OLS) ##
+* [Model formulae]({{ page.ghurl }}/formulae.r)
+
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
+
 * [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
-* model output (`summary`, `fitted`, `coef`, etc.)
+ * model output (`summary`, `fitted`, `coef`, etc.)
 
 * [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r) TODO
  * Regression tests (**lmtest**)
@@ -125,13 +125,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 * [Regression in matrix form]({{ page.ghurl }}/matrixols.r)
 
-* Model predicted values (`predict`)
-
-* Model formulae
-  * interactions using `*` and `:`
-  * factors versus continuous entry of variables
-  * intercepts
-  * offset
+* Model predicted values (`fitted` and `predict`)
 
 
 ---
@@ -152,11 +146,17 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## GLM ##
-* models, again
-* Revisit distributions and link functions
-* prediction
-* plotting data
-* plotting predicted probabilities
+* Binary outcome models (and link functions) 
+* Ordered outcome models
+* Count outcome models
+* Multinomial outcome models
+* Predicted values
+* Plotting GLMs
+ * [Binary outcome plots (Predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
+ * [Binary outcome interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
+ * [Ordered outcome plots]({{ page.ghurl }}/countglmplots.r) TODO
+ * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
+ * [Multinomial outcome plots]({{ page.ghurl }}/countglmplots.r) TODO
 
 
 ---
