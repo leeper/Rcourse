@@ -49,3 +49,4 @@ tail(mydf$e)
 #'
 #' `edit` and `fix` can seem like a good idea. And if they are used simply to look at data, they're a great additional tool (along with `summary`, `str`, `head`, `tail`, and indexing).
 #' But (!!!!) using `edit` and `fix` are non-reproducible ways of conducting data analysis. If we want to replace values in a dataframe, it is better (from the perspective of reproducible science) to write out the code to perform those replacements so that you or someone else can use them in the future to achieve the same results. So, in short, use `edit` and `fix`, but don't abuse them.
+#'

@@ -14,14 +14,14 @@ sum(a)
 0+NA
 #' This can cause some confusion because many statistical packages omit missing values by default.
 #' The R approach is better because it forces you to be conscious about where data are missing.
-
+#'
 #' Another point of confusion is that some things look like missing data but are not.
 #' For example, the `NULL` value is not missing. Note the difference between `a` and `b`:
 a
 b <- c(1,2,NULL,4,5)
 b
 #' `b` has only four elements. NULL is not missing, it is simply dropped.
-
+#'
 #' This can be especially confusing when a vector is of character class.
 #' For example, compare `c` to `d`:
 c <- c("do","re",NA,"fa")
@@ -42,8 +42,8 @@ e <- c("do","re","","fa")
 e
 is.na(c)
 is.na(e)
-
-
+#'
+#'
 #' There may be situations in which we want to change missing NA values or remove them entirely.
 #' For example, to change all NA values in a vector to 0, we could use logical indexing:
 f <- c(1,2,NA,NA,NA,6,7)
@@ -59,10 +59,11 @@ length(g1)
 length(g2)
 #' But that vector has been given an additional attribute: a vector of positions of omitted missing values:
 attributes(g2)$na.action
-
+#'
 #' Many functions also provide the ability to exclude missing values from a calculation.
 #' For example, to calculate the sum of `g1` we could either use the `na.omit` function or an `na.rm` parameter in `sum`:
 sum(na.omit(g1))
 sum(g1, na.rm=TRUE)
 #' Both provide the same answer.
 #' Many functions in R allow an `na.rm` parameter (or something similarly).
+#'

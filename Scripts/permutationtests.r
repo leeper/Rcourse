@@ -39,3 +39,4 @@ independence_test(y~tr, alternative='greater') # one-tailed
 independence_test(y~tr) # two-tailed
 #' Clearly, our approximate permutation distribution provided the same inference and a nearly identical p-value.
 #' **coin** provides other permutation tests for different kinds of comparisons, as well. Almost anything that you can address in a parametric framework can also be done in a permutation framework (if substantively appropriate). and anything that **coin** doesn't provide, you can build by hand with the basic permutation logic of resampling.
+#'

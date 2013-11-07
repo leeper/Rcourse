@@ -68,3 +68,4 @@ newvar[mydf$x1==1] <- with(mydf[mydf$x1==1,], x2+x3)
 newvar[mydf$x1==0] <- with(mydf[mydf$x1==0,], x3+x4+x5)
 #' The key to making that work is using the same index on the new variable as on the original data. Doing otherwise would produce a warning about mismatched lengths:
 newvar[mydf$x1==1] <- with(mydf, x2+x3)
+#'

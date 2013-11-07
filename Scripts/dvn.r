@@ -35,3 +35,4 @@ options('dvn.user'='username', 'dvn.pwd'='password')
 #' dvn additionally allows you to search for study data directly from R. For example, you can find all of my publicly available data using:
 search <- dvSearch(list(authorName="leeper"))
 #' Thus archiving your data on The Dataverse Network makes it readily accessible to R users everywhere, forever.
+#'

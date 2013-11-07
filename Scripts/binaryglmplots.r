@@ -79,3 +79,4 @@ plot(exp(logodds) ~ newdf$x, type='l', lwd=2)
 lines(exp(logodds_upper) ~ newdf$x, type='l', lty=2)
 lines(exp(logodds_lower) ~ newdf$x, type='l', lty=2)
 #' This plot shows that when `x` is low, the OR is between 0 and 1, but when `x` is high, the odds-ratio is quite large. At `x==1`, the OR is significantly larger than 1 and possibly higher than 6, suggesting that when `x==`, the odds are 6 times higher for a unit having a value of `y==1` than a value of `y==0`.
+#'

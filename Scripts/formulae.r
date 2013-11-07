@@ -93,4 +93,4 @@ update(myformula, '~.+d+e+f')
 update(myformula, 'z~.')
 #' We can also drop terms using `update`:
 update(myformula,'~.-a')
-
+#'
