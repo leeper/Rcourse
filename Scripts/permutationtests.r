@@ -30,4 +30,12 @@ abline(v=diff(by(y,tr,mean)), col='blue', lwd=2)
 sum(dist>diff(by(y,tr,mean)))/2000 # one-tailed test
 sum(abs(dist)>abs(diff(by(y,tr,mean))))/2000 # two-tailed test
 #' Using either the one-tailed test or the two-tailed test, our difference is unlikely to be due to chance variation observable in a world where the outcome is independent of treatment assignment.
-
+#'
+#' ## library(coin) ##
+#' We don't always need to build our own permutation distributions (though it is good to know how to do it). R provides a package to conduct permutation tests called **coin**.
+#' We can compare our p-value (and associated inference) from above with the result from **coin**:
+library(coin)
+independence_test(y~tr, alternative='greater') # one-tailed
+independence_test(y~tr) # two-tailed
+#' Clearly, our approximate permutation distribution provided the same inference and a nearly identical p-value.
+#' **coin** provides other permutation tests for different kinds of comparisons, as well. Almost anything that you can address in a parametric framework can also be done in a permutation framework (if substantively appropriate). and anything that **coin** doesn't provide, you can build by hand with the basic permutation logic of resampling.
