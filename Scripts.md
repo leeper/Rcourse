@@ -85,7 +85,8 @@ Below you will find links to a number of fully executible R scripts (written in 
   * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
 
 * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
-* Note: **ggplot2**, **lattice**, and **grid**
+
+* Note: There are several other graphics packages (including **ggplot2**, **lattice**, and **grid**). My personal preference is to rely on the flexibility of base graphics, but these alternative approaches are preferred by some.
 
 
 ---
@@ -100,10 +101,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 * Variance tests: `var.test`, `fligner.test`, `bartlett.test`, `ansari.test`
 
-* [Permutation tests]({{ page.ghurl }}/permutationtests.r) TODO
- * hand-built permutations
- * `library(coin)`
- * `coin::independence_test`
+* [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 
 * `by` and `*apply`
 
