@@ -53,6 +53,10 @@ with(newdf, lines(plower_probit ~ x, type='l', lty=2, col='blue'))
 #' Clearly, the model does an adequate job predicting `y` for high and low values of `x`, but offers a less accurate prediction for middling values.
 #' Note: You can see the influence of the logistic distribution's heavier tails in its higher predicted probabilities for `y` at low values of `x` (compared to the probit model) and the reverse at high values of `x`.
 #'
+#' Plotting is therefore superior to looking at coefficients in order to compare models. This is especially apparent when we compare the substantively identical plots to the values of the coefficients from each model, which seem (on face value) quite different:
+summary(m1)$coef[,1:2]
+summary(m2)$coef[,1:2]
+#'
 #' ## Log-odds predictions for logit models ##
 #' As stated above, when dealing with `logit` models, we can also directly interpet the log-odds predictions from `predict`.
 #' Let's take a look at these using the default `type='link'` argument in `predict`:
