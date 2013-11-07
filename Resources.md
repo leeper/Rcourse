@@ -1,17 +1,18 @@
 ---
 layout: default
-title: R Course
-subtitle: R Resources
+title: Resources
 ---
 
 # R Resources #
 
-This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. I welcome [pull requests](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
+This page provides some resources for getting and using R. There are lots of these kinds of lists on the internet, so this one will show my own personal biases in terms of what is important. You are welcome to [edit this page](https://github.com/leeper/Rcourse/edit/gh-pages/Resources.md) in order to initiate a [pull request](https://github.com/leeper/Rcourse/pulls) for any additions/deletions/edits.
 
+---
 ## Get R ##
-* You can get R at [CRAN (the Comprehensive R Archive Network)](http://cran.r-project.org/) for any of the usual operating systems
 
+You can get R at [CRAN (the Comprehensive R Archive Network)](http://cran.r-project.org/) for any of the usual operating systems
 
+---
 ## Manuals and Introductions ##
 CRAN provides [a number of manuals and other resources for R](http://cran.r-project.org/manuals.html), including:
 * [PDF](http://cran.r-project.org/doc/manuals/R-intro.pdf)
@@ -34,6 +35,7 @@ Other non-CRAN resources include:
 * [Teppei Yamamoto](http://web.mit.edu/teppei/www/teaching.html) has some simple handouts for Princeton's "Statistical Software Camp".
 * Christopher Green's somewhat old [R Primer](http://www.stat.washington.edu/cggreen/rprimer/) provides still useful information.
 
+---
 ## R Books ##
 You can always find the latest R books [on Amazon](http://www.amazon.com/s/ref=sr_nr_n_1?rh=n%3A271582011%2Ck%3Ar&keywords=r&ie=UTF8&qid=1379429658&rnid=2941120011) or wherever, but a couple that are useful (depending on your background):
 * [R for SAS and SPSS Users](http://books.google.dk/books?id=9kMy0CBTegYC&dq=r+for+stata+users&source=gbs_navlinks_s)
@@ -45,6 +47,7 @@ For getting started with the reproducible research process, I might recommend:
 * [Dynamic Documents with R and knitr](http://books.google.dk/books?id=QZwAAAAAQBAJ&dq=yihui+xie&source=gbs_navlinks_s)
 * [Reproducible Research with R and RStudio](http://books.google.dk/books?id=u-nuzKGvoZwC&dq=reproducible+research+with+r&source=gbs_navlinks_s)
 
+---
 ## Text editors for R ##
 The following editors provide basic features like R syntax highlighting and some (like RStudio) provide more advanced features for R scripting and package development.
 * [ESS (Emacs Speaks Statistics)](http://ess.r-project.org/) - package for [Emacs](https://www.gnu.org/software/emacs/)
@@ -62,6 +65,7 @@ The following editors provide basic features like R syntax highlighting and some
 Internal to R there are also several options, including my own package [*rite*](http://cran.r-project.org/web/packages/rite/), which provides a basic script editor and [Rcmdr](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/), which provides a heavier but more fully featured GUI.
 
 
+---
 ## Resources for getting help ##
 * From within R, `help` and `?` provide access to help files.
 * [R mailing lists](http://www.r-project.org/mail.html), especially the [R-help list](https://stat.ethz.ch/mailman/listinfo/r-help)
@@ -72,10 +76,12 @@ Internal to R there are also several options, including my own package [*rite*](
 * And, ultimately, Google is your friend. I find that queries of the form "R CRAN [insert issue here]" generally give the best results rather than searching just "R [insert issue here]" given that "R" is [one of the ten most frequent letters in the English language](http://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language) and many other European languages.
 
 
+---
 ## R Packages ##
 There are literally [thousands of R packages on CRAN](http://cran.r-project.org/web/packages/) and maybe dozens or hundreds more floating around the internet on places like [GitHub](https://github.com/), [R-Forge](http://r-forge.r-project.org/), [RForge.net](http://www.rforge.net/), and [OmegaHat](http://www.omegahat.org/). It can sometimes be hard to find the right packages but Googling and use of the [Task Views](http://cran.r-project.org/web/views/) usually get you what you need. That said, beginners, in particular, may find John Fox's [*car*](http://cran.r-project.org/web/packages/car/index.html) package helpful for doing a bunch of regression-type analyses beyond what's provided in base R. Gary King (et al.)'s [*Zelig*](http://gking.harvard.edu/zelig) software also provides a somewhat more consistent interface than base R to a bunch of R modelling functions (especially those written by King and coauthors, not surpisingly). *Zelig* also provides the functionality of [*Clarify*](http://gking.harvard.edu/clarify), familiar to many Stata users for its predicted probability functionality.
 
 
+---
 ## R Graphics ##
 R basically offers three completely incompatible graphics approaches.
 * Base R, which encompasses all of the graphics functionality provided with the default R packages and add-ons to those approaches
@@ -84,6 +90,7 @@ R basically offers three completely incompatible graphics approaches.
 
 The choice among these alternatives approaches depends largely on what you want to do and how you think about graphics. I am a dedicated base R graphics user, but I occasionally see advantages to *ggplot2* (especially in the area of GIS).
 
+---
 ## Some more advanced resources ##
 * CRAN's [Writing R Extensions](http://cran.r-project.org/doc/manuals/r-release/R-exts.pdf), for package development
 * Friedrich Leisch's [Creating R Packages: A Tutorial](http://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf)
