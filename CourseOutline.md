@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ---
 layout: default
 title: R Course
