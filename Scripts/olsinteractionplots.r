@@ -2,15 +2,14 @@
 #'
 #' Interactions are important, but they're hard to understand without visualization.
 #' This script works through how to visualize interactions in linear regression models.
-
-
+#'
 #' ## Plots for identifying interactions ##
 #'
 set.seed(1)
 x1 <- rnorm(200)
 x2 <- rbinom(200,1,.5)
 y <- x1 + x2 + (2*x1*x2) + rnorm(200)
-
+#'
 #' Interactions (at least in fake data) tend to produce weird plots:
 plot(y~x1)
 plot(y~x2)
@@ -29,9 +28,8 @@ summary(lm(y ~ x1*x2))
 summary(lm(y ~ x1:x2))
 #' produces an incomplete (and thus invalid) model.
 #' Now let's figure out how to visualize this interaction based upon the complete/correct model.
-
-
-
+#'
+#'
 #' ## Start with the raw data ##
 #'
 #' Our example data are particularly simple. There are two groups (defined by `x2`) and one covariate (`x1`).
@@ -41,9 +39,7 @@ plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min
 points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
 #' It is already clear that there is an interaction.
 #' Let's see if we plot the estimated effects.
-
-
-
+#'
 #' ## Predicted outcomes ##
 #'
 #' The easiest way of examining interactions is with predicted outcomes plots.
@@ -56,7 +52,7 @@ newdata <- expand.grid(x1=xseq,x2=c(0,1))
 fit1 <- predict(ols1, newdata, se.fit=TRUE, type="response")
 #' Then do the same for our full model with the interaction:
 fit2 <- predict(ols2, newdata, se.fit=TRUE, type="response")
-
+#'
 #' Now let's plot the original data, again.
 #' Then we'll overlay it with the predicted values for the two groups.
 plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
@@ -65,7 +61,7 @@ points(xseq, fit1$fit[1:100], type='l', col='red')
 points(xseq, fit1$fit[101:200], type='l', col='blue')
 #' The result is a plot that differentiates the absolute levels of `y` in the two groups, but forces them to have equivalent slopes.
 #' We know this is wrong.
-
+#'
 #' Now let's try to plot the data with the correct fitted values, accounting for the interaction:
 plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
 points(x1[x2==1], y[x2==1], col=rgb(0,0,1,.5))
@@ -81,8 +77,8 @@ points(xseq, fit2$fit[1:100]-fit2$se.fit[1:100], type='l', col='red', lty=2)
 points(xseq, fit2$fit[1:100]+fit2$se.fit[1:100], type='l', col='red', lty=2)
 points(xseq, fit2$fit[101:200]-fit2$se.fit[101:200], type='l', col='blue', lty=2)
 points(xseq, fit2$fit[101:200]+fit2$se.fit[101:200], type='l', col='blue', lty=2)
-
-
+#'
+#'
 #' We can also produce the same plot through bootstrapping.
 tmpdata <- data.frame(x1=x1,x2=x2,y=y)
 myboot <- function(){
@@ -104,9 +100,8 @@ points(xseq, fit2$fit[1:100]+fit2$se.fit[1:100], type='l', lty=2)
 points(xseq, fit2$fit[101:200]-fit2$se.fit[101:200], type='l', lty=2)
 points(xseq, fit2$fit[101:200]+fit2$se.fit[101:200], type='l', lty=2)
 #' If we overlay our previous lines of top of this, we see that they produce the same result, above.
-
-
-
+#'
+#'
 #' Of course, we may want to show confidence intervals rather than SEs. And this is simple.
 #' We can reproduce the graph with 95% confidence intervals, using `qnorm` to determine how much to multiple our SEs by.
 plot(x1[x2==0], y[x2==0], col=rgb(1,0,0,.5), xlim=c(min(x1),max(x1)), ylim=c(min(y),max(y)))
@@ -117,9 +112,8 @@ points(xseq, fit2$fit[1:100]-qnorm(.975)*fit2$se.fit[1:100], type='l', lty=2, co
 points(xseq, fit2$fit[1:100]+qnorm(.975)*fit2$se.fit[1:100], type='l', lty=2, col='red')
 points(xseq, fit2$fit[101:200]-qnorm(.975)*fit2$se.fit[101:200], type='l', lty=2, col='blue')
 points(xseq, fit2$fit[101:200]+qnorm(.975)*fit2$se.fit[101:200], type='l', lty=2, col='blue')
-
-
-
+#'
+#'
 #' ## Incorrect models (without constituent terms) ##
 #'
 #' We can also use plots to visualize why we need to include constitutive terms in our interaction models.
@@ -137,3 +131,4 @@ points(xseq, fit3$fit[101:200], type='l', col='blue')
 points(xseq, fit2$fit[1:100], type='l', col='red', lwd=2)
 points(xseq, fit2$fit[101:200], type='l', col='blue', lwd=2)
 #' By leaving out a term, we misestimate the effect of `x1` in both groups.
+#'

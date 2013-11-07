@@ -120,3 +120,4 @@ myttest$p.value
 myttest2$p.value
 myttest3$p.value
 #' This is much easier than having to copy and paste the p-value from each of the outputs and because these objects are stored in memory, we can access them at any point later in this session.
+#'

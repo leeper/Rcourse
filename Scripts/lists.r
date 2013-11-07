@@ -1,5 +1,5 @@
 #' # Lists #
-
+#'
 #' Lists are a very helpful data structure, especially for large projects.
 #' Lists allow us to store other types of R objects together inside another object.
 #' For example, instead of having two vectors `a` and `b`, we could put those vectors in a list:
@@ -11,8 +11,8 @@ x
 #' We can also build lists without defining the list elements beforehand:
 x <- list(1:5,6:10)
 x
-
-
+#'
+#'
 #' ## Positional indexing of lists ##
 #'
 #' Positional indexing of lists is similar to positional indexing of vectors, with a few important differences.
@@ -25,18 +25,17 @@ x[0]
 #' And if we try to index with a value larger than `length(x)`, we get a list with a NULL element:
 length(x)
 x[length(x)+1]
-
+#'
 #' Lists also allow us to use a different kind of positional indexing involving two brackets (e.g., `[[]]`):
 x[[1]]
 #' Rather than returning a list, this returns the vector that is stored in list element 1.
 #' We aren't allowed to index like `x[[1:2]]` because R doesn't know we want the first and second vectors combined.
-
+#'
 #' The double bracket indexing also lets us index elements of the vector stored in a list element.
 #' For example, if we want to get the third element of the second list item, we can use two sets of indices:
 x[[2]][3]
-
-
-
+#'
+#'
 #' ## Named indexing of lists ##
 #'
 #' Just like vectors, list elements can have names.
@@ -55,7 +54,7 @@ y[c('first','third')]
 y[['second']]
 #' We can then combine this named indexing of the list with the numeric indexing of one of the list's vectors:
 y[['second']][3]
-
+#'
 #' Named indexing also allows us to use a new operator, the dollar sign (`$`).
 #' The `$` sign is equivalent to named indexing:
 y[['first']]
@@ -63,9 +62,8 @@ y$first
 #' And, just with named indexing in double brackets, we can combine `$` indexing with vector positional indexing:
 y[['first']][2]
 y$first[2]
-
-
-
+#'
+#'
 #' ## Modifying list elements ##
 #'
 #' We can easily modify the elements of a list using positional or named indexing.
@@ -89,9 +87,8 @@ w
 names(w) <- c('do','re','mi','fa')
 names(w)
 w
-
-
-
+#'
+#'
 #' Lists are flexible and therefore important!
 #' The above exercises also showed that lists can contain different kinds of elements.
 #' Not every element in a list has to be the same length or the same class.
@@ -100,9 +97,8 @@ m <- list(a=1,b=1:5,c="hello",d=factor(1:3))
 m
 #' This is important because many of the functions we will use to do analysis in R return lists with different kinds of information.
 #' To really use R effectively, we need to be able to extract information from those resulting lists.
-
-
-
+#'
+#'
 #' ## Converting a list to a vector (and back) ##
 #'
 #' It may at some point be helpful to have our list in the form of a vector.
@@ -117,3 +113,4 @@ z2
 #' We can see that the names of the vector are the same as the names of the list:
 names(z1)
 names(z2)
+#'

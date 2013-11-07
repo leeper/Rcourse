@@ -2,8 +2,7 @@
 #'
 #' The `olsplots.r` script walked through plotting regression diagnostics.
 #' Here we focus on plotting regression results.
-
-
+#'
 #' ## Plotting regression slopes ##
 #'
 #' Because the other script described plotting slopes to some extent, we'll start there.
@@ -17,7 +16,7 @@ plot(y1~x1, col='gray')
 abline(coef(ols1)[1], coef(ols1)['x1'], col='red')
 #' This is a nice plot, but it doesn't show uncertainty.
 #' To add uncertainty about our effect, let's try bootstrapping our standard errors.
-
+#'
 #' To bootstrap, we resample or original data, reestimate the model and redraw our line.
 #' We're going to do some functional programming to make this happen.
 myboot <- function(){
@@ -32,7 +31,7 @@ plot(y1~x1, col='gray')
 apply(bootcoefs,2,abline,col=rgb(1,0,0,.01))
 #' The darkest parts of this plot show where we have the most certainty about the our expected values.
 #' At the tails of the plot, because of the uncertainty about our slope, the range of plausible predicted values is greater.
-
+#'
 #' We can also get a similar looking plot using mathematically calculated SEs.
 #' The `predict` function will help us determine the predicted values from a regression models at different inputs.
 #' To use it, we generate some new data representing the range of observed values of our data:
@@ -48,7 +47,7 @@ points(pred1$fit ~ new1$x1, type="l", col='blue')
 lines(new1$x1, pred1$fit + (1.96*pred1$se.fit), lty=2, col='blue')
 lines(new1$x1, pred1$fit - (1.96*pred1$se.fit), lty=2, col='blue')
 #' Note: The `lty` parameter means "line type." We've requested a dotted line.
-
+#'
 #' We can then compare the two approaches by plotting them together:
 plot(y1 ~ x1, col='gray')
 apply(bootcoefs,2,abline,col=rgb(1,0,0,.01))
@@ -56,7 +55,7 @@ points(pred1$fit ~ new1$x1, type="l", col='blue')
 lines(new1$x1, pred1$fit + (1.96*pred1$se.fit), lty=2, col='blue')
 lines(new1$x1, pred1$fit - (1.96*pred1$se.fit), lty=2, col='blue')
 #' As should be clear, both give us essentially the same representation of uncertainty, but in sylistically different ways.
-
+#'
 #' It is also possible to draw a shaded region rather than the blue lines in the above example.
 #' To do this we use the `polygon` function, which we have to feed some x and y positions of points:
 plot(y1 ~ x1, col='gray')
@@ -85,3 +84,4 @@ polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
 polygon(    c(seq(-3,3,length.out=100),rev(seq(-3,3,length.out=100))),
             c(pred1$fit - (qnorm(.9995)*pred1$se.fit),rev(pred1$fit + (qnorm(.9995)*pred1$se.fit))),
             col=rgb(0,0,1,.2), border=NA)
+#'

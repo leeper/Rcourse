@@ -48,3 +48,4 @@ s
 s$coefficients[,2] <- sqrt(diag(vcovHC(ols)))
 s
 #' The summary output now reflects the correct SEs. But remember, if we call `summary(ols)`, again, we'll see the original SEs. We need to call our `s` object to see the updated version.
+#'

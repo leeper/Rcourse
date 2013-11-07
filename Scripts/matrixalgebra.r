@@ -11,7 +11,7 @@ a - 2
 #' Scalar multiplication and division also work with the standard operators (`*` and `/`).
 a * 2
 a / 2
-
+#'
 #' ## Matrix comparators, logicals, and assignment ##
 #' As with a vector, it is possible to apply comparators to an entire matrix:
 a > 2
@@ -21,8 +21,8 @@ a[a>2]
 #' If we use the same statement to assign, however, the result is a matrix:
 a[a>2] <- 99
 a
-
-
+#'
+#'
 #' ## Matrix Multiplication ##
 #' In statistics, an important operation is matrix multiplication.
 #' Unlike scalar multiplication, this procedure involves the multiplication of two matrices by one another.
@@ -39,7 +39,7 @@ mmdemo <- function(A,B){
     }
     print(C, quote=FALSE)
 }
-
+#'
 #' Now let's generate two matrices, multiply them and see how it worked:
 amat <- matrix(1:4,ncol=2)
 bmat <- matrix(1:6,nrow=2)
@@ -55,12 +55,13 @@ bmat
 amat %*% bmat
 mmdemo(amat,bmat)
 #' Note: matrix multiplication is noncommutative, so the order of matrices matters in a statement!
-
+#'
+#'
 #' ## Cross-product ##
 #' Another important operation is the crossproduct.
 #' See also: OLS in matrix form.
-
-
+#'
+#'
 #' ## Row/column means and sums ##
 #' Sometimes we want to calculate a sum or mean for each row or column of a matrix.
 #' R provides built-in functions for each of these operations:
@@ -71,4 +72,4 @@ colSums(cmat)
 rowMeans(cmat)
 colMeans(cmat)
 #' These functions can be helpful for aggregating multiple variables and performing the sum or mean with these functions is much faster than manually adding (or taking the mean) of columns using `+` and `/` operators.
-
+#'

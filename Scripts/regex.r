@@ -1,30 +1,27 @@
 #' # Regular expressions #
 
-as.character()
-toupper()
-tolower()
+#as.character()
+#toupper()
+#tolower()
+
+#match()
+#pmatch()
+
+#? regex
+#[Regular Expressions (Wikipedia)](http://en.wikipedia.org/wiki/Regular_expression)
+
+#grep()
+#grepl()
+
+#regexpr()
+#gregexpr()
+#regexec()
+
+#agrep()
 
 
-match()
-pmatch()
+#regmatches()
 
-
-? regex
-[Regular Expressions (Wikipedia)](http://en.wikipedia.org/wiki/Regular_expression)
-
-grep()
-grepl()
-
-regexpr()
-gregexpr()
-regexec()
-
-agrep()
-
-
-regmatches()
-
-
-sub()
-gsub()
+#sub()
+#gsub()
 
