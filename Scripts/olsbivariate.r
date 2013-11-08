@@ -3,6 +3,7 @@
 #' ## Regression on a binary covariate ##
 #' The easiest way to understand bivariate regression is to view it as equivalent to a two-sample t-test.
 #' Imagine we have a binary variable (like male/female or treatment/control):
+set.seed(1)
 bin <- rbinom(1000,1,.5)
 #' Then we have an outcome that is influenced by that group:
 out <- 2*bin + rnorm(1000)
