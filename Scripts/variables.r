@@ -35,7 +35,7 @@ ls()
 #' This returns a character vector containing all of the names for all named objects currently in our R environment.
 
 #' It is also possible to remove ALL variables in our current R session. You can do that with the following:
-rm(list=ls(all=TRUE))
+rm(list=ls())
 #' Note: This is usually an option on the RGui dropdown menus and should only be done if you really want to remove everything.
 
 
