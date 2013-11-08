@@ -6,7 +6,7 @@
 #'
 #' ## Listing objects ##
 #' Let's start by clearing our workspace:
-rm(list=ls(all=TRUE))
+rm(list=ls())
 #' This option should be available in RGui under menu Miscellaneous > Remove all objects.
 #' Then create some R objects:
 set.seed(1)
