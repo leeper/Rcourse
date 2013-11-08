@@ -111,7 +111,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 ## Linear Regression (OLS) ##
 * [Model formulae]({{ page.ghurl }}/formulae.r)
 
-* [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r) TODO
+* [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
 
 * [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
  * model output (`summary`, `fitted`, `coef`, etc.)
