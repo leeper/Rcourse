@@ -89,12 +89,12 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## Statistics ##
 * [Basic parametric statistical tests]({{ page.ghurl }}/basicparametrictests.r) TODO
- * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
+  * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
 * [ANOVA (`aov`)]({{ page.ghurl }}/anova.r) TODO
 
 * Nonparametric statistical tests
- * `t.test` versus `wilcox_test` 
- * `aov` versus `kruskal.test`
+  * `t.test` versus `wilcox_test` 
+  * `aov` versus `kruskal.test`
 
 * Variance tests: `var.test`, `fligner.test`, `bartlett.test`, `ansari.test`
 
@@ -112,13 +112,13 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Model formulae]({{ page.ghurl }}/formulae.r)
 
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
- * [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
+  * [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
 
 * [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
- * model output (`summary`, `fitted`, `coef`, etc.)
+  * model output (`summary`, `fitted`, `coef`, etc.)
 
 * [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r)
- * Regression tests (**lmtest**) TODO
+  * Regression tests (**lmtest**) TODO
 
 * [Heteroskedasticity-consistent SEs]({{ page.ghurl }}/olsrobustSEs.r)
 
