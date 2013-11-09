@@ -2,10 +2,8 @@
 #' 
 #' One important, but sometimes problematic, class of regression models deals with nominal or multinomial outcomes (i.e., outcomes that are not continuous or even ordered). Estimating these models is not possible with `glm`, but can be estimated using the *nnet* add-on package, which is recommended and therefore simply needs to be loaded.
 #' Let's start by loading the package, or installing then loading it if it isn't already on our system:
-if(!library(nnet)){
-    install.packages('nnet',repos='http://cran.r-project.org')
-    library(nnet)
-}
+install.packages('nnet',repos='http://cran.r-project.org')
+library(nnet)
 #' Then let's create some simple bivariate data where the outcome `y` takes three values
 set.seed(100)
 y <- sort(sample(1:3,600,TRUE))
