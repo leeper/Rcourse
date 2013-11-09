@@ -27,7 +27,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Data as dataframes ##
-* Reading in data
+* Reading data into R
   * `read.csv`, `read.table`, `scan`
   * `load`
   * `library(foreign)`: `read.spss`, `read.dta`, etc.
@@ -36,7 +36,11 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
 
-* `save` and `write.csv`
+* [Saving R data]({{ page.ghurl }}/savingdata.r)
+  * `save`/`load`
+  * `dput`/`dget`
+  * `dump`/`source`
+  * `write.csv` and `write.table`
 
 * `order`, `subset`, and `sample`
 
