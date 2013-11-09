@@ -148,21 +148,23 @@ Below you will find links to a number of fully executible R scripts (written in 
 ## GLM ##
 * [Binary outcome models (and link functions) ]{{ page.ghurl }}/binaryglm.r) TODO
 
-* [Ordered outcome models]({{ page.ghurl }}/orderedglm.r) TODO: MASS::polr
+* [Ordered outcome models]({{ page.ghurl }}/orderedglm.r)
+  * Estimation, predicted probabilities, and plots
 
 * [Count outcome models]({{ page.ghurl }}/countglm.r) TODO
 
 * [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r)
+  * Estimation, predicted probabilities, and plots
 
 * Predicted values (Address this in each tutorial)
 
 * Plotting GLMs
  * [Binary outcome plots (Predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
  * [Binary outcome interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
- * [Ordered outcome plots]({{ page.ghurl }}/countglmplots.r) TODO
  * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
 
-
+* Note: Gary King's **[Zelig](http://projects.iq.harvard.edu/zelig)** set of packages provides a slightly more unified interface for GLMs, but it is basically just a convenient wrapper for the functions described in the above tutorials.
+ 
 ---
 ## Experiments ##
 * [ANOVA]({{ page.ghurl }}/anova.r) TODO
