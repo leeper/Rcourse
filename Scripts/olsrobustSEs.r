@@ -5,8 +5,10 @@
 #' This assumption requires that the error term have constant variance across all values of the independent variable(s).
 #' When this assumption fails, the standard errors from our OLS regression estimates are inconsistent. But, we can calculate heteroskedasticity-consistent standard errors, relatively easily.
 #' Unlike in Stata, where this is simply an option for regular OLS regression, in R, these SEs are not built into the base package, but instead come in an add-on package called **sandwich**, which we need to install and load:
-install.packages('sandwich',repos='http://cran.r-project.org')
-library(sandwich)
+if(!library(sandwich))
+    install.packages('sandwich',repos='http://cran.r-project.org')
+    library(sandwich)
+}
 #'
 #' To see the **sandwich** package in action, let's generate some heteroskedastic data:
 set.seed(1)
