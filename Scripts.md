@@ -112,12 +112,13 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Model formulae]({{ page.ghurl }}/formulae.r)
 
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
+ * [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
 
 * [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
  * model output (`summary`, `fitted`, `coef`, etc.)
 
-* [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r) TODO
- * Regression tests (**lmtest**)
+* [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r)
+ * Regression tests (**lmtest**) TODO
 
 * [Heteroskedasticity-consistent SEs]({{ page.ghurl }}/olsrobustSEs.r)
 
@@ -146,22 +147,19 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## GLM ##
-* [Binary outcome models (and link functions) ]{{ page.ghurl }}/binaryglm.r) TODO
-
+* [Binary outcome models (and link functions) ]{{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
+  * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
+  * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO
+  * [Interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
+  
 * [Ordered outcome models]({{ page.ghurl }}/orderedglm.r)
   * Estimation, predicted probabilities, and plots
 
 * [Count outcome models]({{ page.ghurl }}/countglm.r) TODO
+  * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
 
 * [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r)
   * Estimation, predicted probabilities, and plots
-
-* Predicted values (Address this in each tutorial)
-
-* Plotting GLMs
- * [Binary outcome plots (Predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
- * [Binary outcome interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
- * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
 
 * Note: Gary King's **[Zelig](http://projects.iq.harvard.edu/zelig)** set of packages provides a slightly more unified interface for GLMs, but it is basically just a convenient wrapper for the functions described in the above tutorials.
  

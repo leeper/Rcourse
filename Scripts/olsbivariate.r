@@ -38,7 +38,13 @@ d4 <- density(y[x1==4])
 d5 <- density(y[x1==5])
 #' We'll then use those values to show how the regression models the mean of `y` conditional on `x`. Let's start with the model:
 m1 <- lm(y~x)
-#' And then plot:
+#' It is also worth highlighting that, in a bivariate regression model, the regression slope is simply a weighted version of the correlation coefficient. We can see this by calculating the correlation between `x` and `y` and then weighting that by the ratio of the covariances of each. You'll see that this is exactly the slope coefficient reported by R:
+cor(y,x)
+slope <- cor(y,x) * sqrt( cov(y,y) / cov(x,x) ) # manually calculate coefficient as weighted correlation
+coef(m1)[2] # coefficient on x
+slope
+#'
+#' But let's plot the data to get a better understanding of what it looks like:
 plot(x,y, col='gray')
 # add the regression equation:
 abline(coef(m1), col='blue')
