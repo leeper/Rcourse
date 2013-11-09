@@ -59,6 +59,21 @@ segments((slopes-(qnorm(.975)*ses)), 1:3, (slopes+(qnorm(.975)*ses)), 1:3, col='
 segments((slopes-(qnorm(.995)*ses)), 1:3, (slopes+(qnorm(.995)*ses)), 1:3, col='black', lwd=1)
 #'
 #' Both of these plots are similar, but show how the size, relative size, and significance of regression slopes can easily be summarized visually.
+#' 
+#' Note: We can also extract confidence intervals for our model terms directly using the `confint` function applied to our modle object and then plot those CIs using `segments`:
+ci67 <- confint(ols2, c('x1','x2','x3'), level=.67)
+ci95 <- confint(ols2, c('x1','x2','x3'), level=.95)
+ci99 <- confint(ols2, c('x1','x2','x3'), level=.99)
+#' Now draw the plot:
+plot(NA, xlim=c(-3,3), ylim=c(0,4), xlab='Slope', ylab='', yaxt='n')
+title('Regression Results')
+axis(2, 1:3, c('x1','x2','x3'), las=2)
+abline(v=0, col='gray')
+points(slopes,1:3, pch=23, col='black', bg='black')
+# add the confidence intervals:
+segments(ci67[,1], 1:3, ci67[,2], 1:3, col='black', lwd=3)
+segments(ci95[,1], 1:3, ci95[,2], 1:3, col='black', lwd=2)
+segments(ci99[,1], 1:3, ci99[,2], 1:3, col='black', lwd=1)
 #'
 #' ## Comparable effect sizes ##
 #' One of the major problems (noted above) with these kinds of plots is that in order for them to make visual sense, the underlying covariates have to be inherently comparable. By showing slopes, the plot shows the effect of a unit change in each covariate on the outcome, but unit changes may not be comparable across variables. We could probably come up with an infinite number of ways of presenting the results, but let's focus on two here: plotting standard deviation changes in covariates and plotting minimum to maximum changes in scale of covariates.
