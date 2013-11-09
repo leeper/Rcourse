@@ -147,16 +147,20 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## GLM ##
 * [Binary outcome models (and link functions) ]{{ page.ghurl }}/binaryglm.r) TODO
+
 * [Ordered outcome models]({{ page.ghurl }}/orderedglm.r) TODO: MASS::polr
+
 * [Count outcome models]({{ page.ghurl }}/countglm.r) TODO
-* [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r) TODO
+
+* [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r)
+
 * Predicted values (Address this in each tutorial)
+
 * Plotting GLMs
  * [Binary outcome plots (Predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
  * [Binary outcome interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
  * [Ordered outcome plots]({{ page.ghurl }}/countglmplots.r) TODO
  * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
- * [Multinomial outcome plots]({{ page.ghurl }}/nominalglmplots.r) TODO
 
 
 ---
