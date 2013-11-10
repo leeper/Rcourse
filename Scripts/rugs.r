@@ -22,12 +22,21 @@ rug(x1[x2==0], side=1, line=.5, col='royalblue1', tck=.01)
 # y-axis rugs for each group
 rug(y[x2==1], side=2, line=0, col='tomato1', tck=.01)
 rug(y[x2==0], side=2, line=.5, col='royalblue1', tck=.01)
-#' Note: The `tck` parameter specifies how tall the rug is. A shorter rug uses less ink to communicate the same information.
-#' Then we can add some axes a little farther out than they normally would be on the plots:
+# Note: The `tck` parameter specifies how tall the rug is. A shorter rug uses less ink to communicate the same information.
 axis(1, line=1)
 axis(2, line=1)
+#' The last two lines add some axes a little farther out than they normally would be on the plots.
 #'
-#' We might also want to add some more descriptives to the plot. For example, the marginal means for each group:
+#' We might also want to add some more descriptives to the plot. For example, the marginal means for each group as a small black line of the rugs:
+plot(x1[x2==1], y[x2==1], col='tomato3',
+    xaxt='n', yaxt='n', xlab='', ylab='', bty='n')
+points(y[x2==0]~x1[x2==0], col='royalblue3')
+rug(x1[x2==1], side=1, line=0, col='tomato1', tck=.01)
+rug(x1[x2==0], side=1, line=.5, col='royalblue1', tck=.01)
+rug(y[x2==1], side=2, line=0, col='tomato1', tck=.01)
+rug(y[x2==0], side=2, line=.5, col='royalblue1', tck=.01)
+axis(1, line=1)
+axis(2, line=1)
 # means(on x-axis rugs)
 Axis(at=mean(x1[x2==1]),side=1, line=0, labels='', col='black', lwd.ticks=3, tck=0.01)
 Axis(at=mean(x1[x2==0]),side=1, line=.5, labels='', col='black', lwd.ticks=3, tck=0.01)
