@@ -27,27 +27,25 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## Data as dataframes ##
-* Reading data into R
+* Reading data into R   TODO
   * `read.csv`, `read.table`, `scan`
   * `load`
   * `library(foreign)`: `read.spss`, `read.dta`, etc.
   * Rarer cases: `readLines` and `read.fwf`
   * Interactive use: `file.choose`
-
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
-
 * [Saving R data]({{ page.ghurl }}/savingdata.r)
   * `save`/`load`
   * `dput`/`dget`
   * `dump`/`source`
   * `write.csv` and `write.table`
-
 * [Dataframe rearrangement]({{ page.ghurl }}/dataframe-arrangement.r)
   * `order`
   * `subset`
   * `split`
   * `sample`
 
+  
 ---
 ## Data processing ##
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
@@ -58,14 +56,12 @@ Below you will find links to a number of fully executible R scripts (written in 
 * [Handling missing data]({{ page.ghurl }}/NAhandling.r)
 * [Multiple imputation of missing data]({{ page.ghurl }}/mi.r)
 
+
 ---
 ## Data summaries ##
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
-
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
-
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
-
 * [Printing numerics]({{ page.ghurl }}/numeric-printing.r)
 
 
@@ -95,15 +91,20 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## Statistics ##
 * [Basic parametric statistical tests]({{ page.ghurl }}/basicparametrictests.r) TODO
-  * `chisq.test`, `t.test`, `cor.test`, `prop.test`, `binom.test`
+  * `chisq.test`
+  * `t.test`
+  * `cor.test`
+  * `prop.test`
+  * `binom.test`
 * [ANOVA (`aov`)]({{ page.ghurl }}/anova.r) TODO
-
 * Nonparametric statistical tests
   * `t.test` versus `wilcox_test` 
   * `aov` versus `kruskal.test`
-
-* Variance tests: `var.test`, `fligner.test`, `bartlett.test`, `ansari.test`
-
+* [Variance tests]({{ page.ghurl }}/variancetests.r)
+  * `var.test`
+  * `fligner.test`
+  * `bartlett.test`
+  * `ansari.test`
 * [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 
 * `by` and `*apply`
@@ -153,7 +154,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 ---
 ## GLM ##
-* [Binary outcome models (and link functions) ]{{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
+* [Binary outcome models (and link functions)]({{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
   * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
   * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO
   * [Interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
