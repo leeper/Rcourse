@@ -10,6 +10,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## The R language ##
+
 * [Basic math]({{ page.ghurl }}/basicmath.r)
 * [Variables and assignment]({{ page.ghurl }}/variables.r)
 * [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
@@ -27,17 +28,18 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Data as dataframes ##
-* Reading data into R   TODO
-  * `read.csv`, `read.table`, `scan`
-  * `load`
-  * `library(foreign)`: `read.spss`, `read.dta`, etc.
-  * Rarer cases: `readLines` and `read.fwf`
-  * Interactive use: `file.choose`
+
+* [Reading data into R]({{ page.ghurl }}/loadingdata.r)
+  * Built-in data (`data`)
+  * R data files (`load`)
+  * Tabular data (`read.csv`, `read.table`, etc.)
+  * Manual data entry and file scans (`scan` and `readLines`)
+  * Reading foreign data (`read.spss`, `read.dta`, etc.)
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
 * [Saving R data]({{ page.ghurl }}/savingdata.r)
-  * `save`/`load`
-  * `dput`/`dget`
-  * `dump`/`source`
+  * `save` and `load`
+  * `dput` and `dget`
+  * `dump` and `source`
   * `write.csv` and `write.table`
 * [Dataframe rearrangement]({{ page.ghurl }}/dataframe-arrangement.r)
   * `order`
@@ -48,6 +50,7 @@ Below you will find links to a number of fully executable R scripts (written in 
   
 ---
 ## Data processing ##
+
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
 * [Scale construction (scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/basicscales.r)
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
@@ -59,6 +62,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Data summaries ##
+
 * [Univariate data summaries]({{ page.ghurl }}/univariate.r) (including `summary`)
 * [Data tables and crosstables]({{ page.ghurl }}/tables.r)
 * [Correlations and partial correlations]({{ page.ghurl }}/correlation.r)
@@ -67,6 +71,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Plotting as data summary ##
+
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots]({{ page.ghurl }}/localregression.r) TODO
@@ -90,6 +95,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Statistics ##
+
 * [Basic parametric statistical tests]({{ page.ghurl }}/basicparametrictests.r) TODO
   * `chisq.test`
   * `t.test`
@@ -116,6 +122,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Linear Regression (OLS) ##
+
 * [Model formulae]({{ page.ghurl }}/formulae.r)
 
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
@@ -138,6 +145,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Regression plotting ##
+
 * [Plots for regression diagnostics]({{ page.ghurl }}/olsplots.r)
   * Default plots from `plot(lm)`
   * Residual plots and `qqplot`
@@ -154,6 +162,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## GLM ##
+
 * [Binary outcome models (and link functions)]({{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
   * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
   * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO
@@ -172,6 +181,7 @@ Below you will find links to a number of fully executable R scripts (written in 
  
 ---
 ## Experiments ##
+
 * [ANOVA]({{ page.ghurl }}/anova.r) TODO
 * [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
@@ -182,6 +192,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Reproducible research ##
+
 * Using `source`
 
 * Using `sink`
@@ -208,9 +219,9 @@ Below you will find links to a number of fully executable R scripts (written in 
   * Slidify
 
 
-
 ---
 ## Repeated tasks ##
+
 * `apply` and `*apply` family
 * loops (`for`, `while`)
 * Split-Apply-Combine (`by`, `split`)
@@ -220,6 +231,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## User-Defined functions ##
+
 * Variable scope and environments
 * Return values (`return` and `invisible`)
 * Custom classes
@@ -229,6 +241,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Over-time data ##
+
 * Time-series (`ts` class)
 * Panel data (`plm`)
 * Mixed effects
@@ -237,6 +250,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Text processing ##
+
 * [String manipulation]({{ page.ghurl }}/stringmanipulation.r)
 * [Regular expressions]({{ page.ghurl }}/regex.r) TODO
 * Reading and writing to console, files, and connections
@@ -244,6 +258,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 ---
 ## Other advanced topics ##
+
 * File manipulation: `list.files`/`dir`, `file.create`, etc.
 * System calls: `shell`, `shell.exec`, and `system`
 * Bayes: **MCMCpack**, **RJags**, **RBugs**, RStan

@@ -65,3 +65,6 @@ write.table(mydf, file='saveddf.tsv', sep='\t')
 unlink('savedf.csv')
 unlink('savedf.tsv')
 #'
+#' ## Writing to "foreign" file formats ##
+#' The **foreign** package, which we can use to load "foreign" file formats also includes a `write.foreign` function that can be used to write an R dataframe to a foreign, proprietary data format. Supported formats include SPSS, Stata, and SAS.
+#'
