@@ -7,8 +7,8 @@
 #' Sometimes we want to get dataframe columns in a different order from how they're read into the data. In most cases, though, we can just index the dataframe to see relevant columns rather reordering, but we can do the reordering if we want.
 #' Say we have the following 5-column dataframe:
 set.seed(50)
-mydf <- data.frame(a=rep(1:2,times=10),
-                   b=rep(1:4,each=5),
+mydf <- data.frame(a=rep(1:2,each=10),
+                   b=rep(1:4,times=5),
                    c=rnorm(20),
                    d=rnorm(20),
                    e=sample(1:20,20,FALSE))
