@@ -1,8 +1,4 @@
-Appendix A - License
-====================
-
-Attribution-Share Alike 3.0 Unported License
---------------------------------------------
+# Attribution-Share Alike 3.0 Unported License #
 
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
 
