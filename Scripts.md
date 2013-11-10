@@ -42,7 +42,11 @@ Below you will find links to a number of fully executible R scripts (written in 
   * `dump`/`source`
   * `write.csv` and `write.table`
 
-* `order`, `subset`, and `sample`
+* [Dataframe rearrangement]({{ page.ghurl }}/dataframe-arrangement.r)
+  * `order`
+  * `subset`
+  * `split`
+  * `sample`
 
 ---
 ## Data processing ##
@@ -106,7 +110,7 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 * `by` and `*apply`
 
-* Distributions
+* Statistical distributions
   * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
   * Also look at uniform, binomial, and t distributions
 
@@ -200,6 +204,8 @@ Below you will find links to a number of fully executible R scripts (written in 
 * Presentations with beamer
 
 * Web publishing with Rmarkdown
+  * knitr
+  * R2HTML
   * Slidify
 
 
