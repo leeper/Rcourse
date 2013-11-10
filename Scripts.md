@@ -51,14 +51,12 @@ Below you will find links to a number of fully executible R scripts (written in 
 ---
 ## Data processing ##
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
-
 * [Scale construction (scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/basicscales.r)
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
-  * Note, R has many advanced tools for scale construction, like: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
-
+  * Base R has many tools for scale construction, like `factanal` and `princomp`
+  * Packages for advanced scaling include **psych** and **IRToys**. Details can be found on the [Psychometrics Task View](http://cran.r-project.org/web/views/Psychometrics.html)
 * [Handling missing data]({{ page.ghurl }}/NAhandling.r)
-
-* [Multiple imputation of missing data]({{ page.ghurl }}/mi.r) TODO
+* [Multiple imputation of missing data]({{ page.ghurl }}/mi.r)
 
 ---
 ## Data summaries ##
