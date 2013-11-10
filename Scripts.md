@@ -52,9 +52,9 @@ Below you will find links to a number of fully executible R scripts (written in 
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
   * Note, R has many advanced tools for scale construction, like: `factanal`, `princomp`, `library(psych)`, and `library(IRToys)`
 
-* [Handling missing data]({{ page.ghurl }}/NAhandling.r) TODO
-  * Global: `na.omit`
-  * Command-specific options: `na.rm=...`
+* [Handling missing data]({{ page.ghurl }}/NAhandling.r)
+
+* [Multiple imputation of missing data]({{ page.ghurl }}/mi.r) TODO
 
 ---
 ## Data summaries ##
