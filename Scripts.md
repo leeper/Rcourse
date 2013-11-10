@@ -187,6 +187,10 @@ Below you will find links to a number of fully executible R scripts (written in 
 
 * [Public data archiving with **dvn**]({{ page.ghurl }}/dvn.r)
 
+* Integration with Microsoft Word
+  * [Writing output to Word]({{ page.ghurl }}/wordoutput.r)
+  * [Dynamic reports with odfSweave]({{ page.ghurl }}/odfsweave.r) TODO
+
 * knitr `stitch`
 
 * Integration with LaTeX reports
