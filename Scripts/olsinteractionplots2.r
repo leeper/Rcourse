@@ -1,6 +1,9 @@
 #' # Interaction Plots #
 #'
 #' When we have continuous-by-continuous interactions in linear regression, it is impossible to directly interpret the coefficients on the interactions. It is actually just generally difficult to interpret these kinds of models. Often, a better approach is to translate one of the continuous variables into a factor and interpet the interaction-term coefficients on each level of that variable. Another approach is to visualize graphically. Both will give us the same inference.
+#'
+#' Note: While interaction plots can help make effects interpretable, one of their major downsides is an inability to effectively convey statistical uncertainty. For this reason (and some of the other disadvantages that will become clear below), I would recommend these plots only for data summary but not for inference or prediction, or publication.
+#'
 #' Let's start with some fake data:
 set.seed(1)
 x1 <- runif(100,0,1)
@@ -74,4 +77,3 @@ filled.contour(z=z, xlab='x1', ylab='x2', main='Expected Y', col=gray(20:1/20))
 #'
 #' Thus we have several different ways to look at continuous-by-continuous interactions. All of these techniques have advantages and disadvantages, but all do a better job at clarifying the nature of the relationships between `x1`, `x2`, and `y` than does the standard regression model or even the continuous-by-factor model.
 #'
-
