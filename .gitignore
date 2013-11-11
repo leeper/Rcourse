@@ -1,5 +1,11 @@
 # subdirectories to ignore #
 
 # filetypes to ignore #
-
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
 # files to ignore #
