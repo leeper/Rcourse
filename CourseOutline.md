@@ -6,61 +6,40 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 # Outline and Schedule #
 
-Created 2013-08-12 and last updated 2013-11-04
+* 9:00 - Pre-session (Optional help installing R)
 
-* Pre-session (30 minutes)
+* 9:15 - Welcome and Introductions (15 minutes)
 
-  * Installing R
+  * [Slides](Slides/Welcome.pdf)
 
-* Introductions (20 minutes)
+* 9:30 - Introduction to R (15 minutes)
 
-  * Names
-  * Backgrounds
-  * Typical research software and workflow
-  * Likes and wishes with current software and workflow
-  * Problems you had learning your current software
+  * [Slides](Slides/Introduction.pdf)
 
-* Introduction to R (15 minutes)
+* 9:45 - The R language and data structures (45 minutes)
 
-  * Goals for this course
-  * Why R?
-    * [Popularity of various software packages](http://r4stats.com/articles/popularity/)
-  * Principles of reproducible scientific workflow
-    * Software available in perpetuity
-    * Constructing and sharing data and code (see **dvn**)
-    * Simplifying the move from analysis to publication/presentation
-  * Interfaces (RStudio, Rcmdr, rite, Revolution Analytics; etc.)
-  * Installing packages
-  * Why scripting?
-    * Moving from console to scripting
-    * Analogue to do-files
-    * Reproducibility
-    * Commenting ("Advice to help your future self"), see [Comments]({{ page.ghurl }}/comments.r)
-  * Working directory
-  * Getting help
+  * [Slides](Slides/Basics.pdf)
 
-* The R Language (first session)
- 
-  * Problem set <!--Something on mismatched types, recycling, basic math-->
+* 10:30 - Reading in data and simple data manipulation (45 minutes)
 
-* Simple data manipulation (second session)
-
+  * [Slides](Slides/Data.pdf)
   * Problem set <!--Reading in data, character/factor, save/write.csv-->
 
-* Lunch break
+* 12:00-12:30 - Lunch break
 
-* Simple statistics and data export (third session)
+* 12:35 - Regression output and plotting (30 minutes)
 
-  * Problem set <!--Work with real data, export results-->
+  * [Slides](Slides/Regression.pdf)
+  
+* 1:05 - More linear regression and GLM (45 minutes)
 
-* Regression (fourth session)
-
+  * [Slides](Slides/Regression2.pdf)
   * Problem set <!--Regression assumptions, specification, predictions-->
+  
+* 1:50 - Conclusion
 
-* Plotting (fifth session)
+  * [Slides](Slides/Conclusion.pdf)
 
-  * Problem set <!--Descriptive plotting and regression plotting-->
+* 2:00 - Optional Replication Session
 
-* Conclusion and preview to reproducible research
-
-  * Additional tutorials online
+  * Problem set <!--Replication of other results-->
