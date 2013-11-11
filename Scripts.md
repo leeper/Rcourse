@@ -161,7 +161,9 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 
 ---
-## GLM ##
+## Generalized Linear Models ##
+
+The tutorials below supply a basic introduction to many GLM techniques. A guide to all of the available packages and functions for GLMs can be found in the [Econometrics Task View](http://cran.r-project.org/web/views/Econometrics.html).
 
 * [Binary outcome models (and link functions)]({{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
   * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
@@ -176,8 +178,13 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r)
   * Estimation, predicted probabilities, and plots
+  * Multinomial logit is also available from the **mlogit** package
+  * Multinomial probit is available in the **MNP** package
+
+* Survival models from **survival** TODO
 
 * Note: Gary King's **[Zelig](http://projects.iq.harvard.edu/zelig)** set of packages provides a slightly more unified interface for GLMs, but it is basically just a convenient wrapper for the functions described in the above tutorials.
+
  
 ---
 ## Experiments ##
