@@ -11,32 +11,37 @@ Created 2013-08-12 and last updated 2013-11-11
 * 9:00 - Pre-session (Optional help installing R)
 
 * 9:15 - Welcome and Introductions (15 minutes)
+
   * [Slides](Slides/Welcome.pdf)
 
 * 9:30 - Introduction to R (15 minutes)
+
   * [Slides](Slides/Introduction.pdf)
 
 * 9:45 - The R language and data structures (45 minutes)
-  * [Slides](Slides/R_Basics.pdf)
 
-* 10:30 - Simple data manipulation (45 minutes)
+  * [Slides](Slides/Basics.pdf)
 
+* 10:30 - Reading in data and simple data manipulation (45 minutes)
+
+  * [Slides](Slides/Data.pdf)
   * Problem set <!--Reading in data, character/factor, save/write.csv-->
 
-* Lunch break
+* 12:00-12:30 - Lunch break
 
-* Regression (fourth session)
+* 12:35 - Regression output and plotting (30 minutes)
 
+  * [Slides](Slides/Regression.pdf)
+  
+* 1:05 - More linear regression and GLM (45 minutes)
+
+  * [Slides](Slides/Regression2.pdf)
   * Problem set <!--Regression assumptions, specification, predictions-->
+  
+* 1:50 - Conclusion
 
-* 12:35 - Simple statistics and data export (third session)
+  * [Slides](Slides/Conclusion.pdf)
 
-  * Problem set <!--Work with real data, export results-->
+* 2:00 - Optional Replication Session
 
-* Plotting (fifth session)
-
-  * Problem set <!--Descriptive plotting and regression plotting-->
-
-* Conclusion and preview to reproducible research
-
-  * Additional tutorials online
+  * Problem set <!--Replication of other results-->
