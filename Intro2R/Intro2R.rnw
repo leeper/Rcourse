@@ -345,7 +345,7 @@ patient,dob,entry,discharge,fee,sex\\
 We can read this data into \textbf{R} from an outside ``patient.csv'' file and display the resulting dataframe.
 <<readdata>>=
 <<setwd,echo=FALSE>>
-data=read.csv("patient.csv")
+data=read.csv("../Data/patient.csv")
 dim(data)
 data
 @
