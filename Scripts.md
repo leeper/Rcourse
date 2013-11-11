@@ -192,7 +192,7 @@ The tutorials below supply a basic introduction to many GLM techniques. A guide 
 * [Binary outcome models (and link functions)]({{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
 
   * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
-  * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO
+  * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO (started)
   * [Interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
   
 * [Ordered outcome models]({{ page.ghurl }}/orderedglm.r)
