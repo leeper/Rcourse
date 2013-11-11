@@ -2,12 +2,12 @@
 #'
 #' R enables you to do basic math, using all the usual operators:
 #' Addition
-2+2
-1+2+3+4+5
+2+2 
+1+2+3+4+5 
 #'
 #' Subtraction
-10-1
-5-6
+10-1 
+5-6 
 #'
 #' Multiplication
 2*2
@@ -57,3 +57,4 @@ factorial(10)
 choose(4,1)
 choose(6,3)
 #'
+
