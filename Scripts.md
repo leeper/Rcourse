@@ -12,16 +12,21 @@ Below you will find links to a number of fully executable R scripts (written in 
 ## The R language ##
 
 * [Basic math]({{ page.ghurl }}/basicmath.r)
+
 * [Variables and assignment]({{ page.ghurl }}/variables.r)
+
 * [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
+
 * Data structures:
   * [Vectors]({{ page.ghurl }}/vectors.r) and [Vector indexing]({{ page.ghurl }}/vectorindexing.r)
   * [Matrices]({{ page.ghurl }}/matrices.r)
   * [Lists]({{ page.ghurl }}/lists.r)
   * [Dataframes]({{ page.ghurl }}/dataframes.r)
+  
 * Object [classes]({{ page.ghurl }}/classes.r), plus more information on:
   * [Factors]({{ page.ghurl }}/factors.r)
   * [Logicals]({{ page.ghurl }}/logicals.r)
+
 * [Looking at objects]({{ page.ghurl }}/objects.r)
 * [Missing values]({{ page.ghurl }}/NA.r)
 
@@ -35,12 +40,15 @@ Below you will find links to a number of fully executable R scripts (written in 
   * Tabular data (`read.csv`, `read.table`, etc.)
   * Manual data entry and file scans (`scan` and `readLines`)
   * Reading foreign data (`read.spss`, `read.dta`, etc.)
+  
 * [Viewing dataframe structure]({{ page.ghurl }}/dataframe-structure.r)
+
 * [Saving R data]({{ page.ghurl }}/savingdata.r)
   * `save` and `load`
   * `dput` and `dget`
   * `dump` and `source`
   * `write.csv` and `write.table`
+
 * [Dataframe rearrangement]({{ page.ghurl }}/dataframe-arrangement.r)
   * `order`
   * `subset`
@@ -52,11 +60,15 @@ Below you will find links to a number of fully executable R scripts (written in 
 ## Data processing ##
 
 * [Recoding vectors]({{ page.ghurl }}/recoding.r)
+
 * [Scale construction (additive, multiplicative, logical)]({{ page.ghurl }}/basicscales.r)
+
   * See also: [Matrix algebra]({{ page.ghurl }}/matrixalgebra.r)
   * Base R has many tools for scale construction, like `factanal` and `princomp`
   * Packages for advanced scaling include **psych** and **IRToys**. Details can be found on the [Psychometrics Task View](http://cran.r-project.org/web/views/Psychometrics.html)
+  
 * [Handling missing data]({{ page.ghurl }}/NAhandling.r)
+
 * [Multiple imputation of missing data]({{ page.ghurl }}/mi.r)
 
 
@@ -73,6 +85,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 ## Plotting as data summary ##
 
 * [Data summary plots]({{ page.ghurl }}/summaryplots.r)
+
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots]({{ page.ghurl }}/localregression.r) TODO
   * [`jitter` for scatterplots of categorical data]({{ page.ghurl }}/jitter.r) TODO
@@ -82,9 +95,11 @@ Below you will find links to a number of fully executable R scripts (written in 
 * [Graphical parameters]({{ page.ghurl }}/graphicalparameters.r) TODO
 
 * [Plotting Colors]({{ page.ghurl }}/plotcolors.r) TODO
+
   * `gray`, `rgb`, `rainbow`, `heat.colors`
 
 * [Saving plots]({{ page.ghurl }}/savingplots.r) TODO
+
   * `pdf`, `jpeg`, `png`, `tiff`, `bmp`, `svg`
   * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
 
@@ -102,15 +117,19 @@ Below you will find links to a number of fully executable R scripts (written in 
   * `cor.test`
   * `prop.test`
   * `binom.test`
+
 * [ANOVA (`aov`)]({{ page.ghurl }}/anova.r) TODO
+
 * Nonparametric statistical tests
   * `t.test` versus `wilcox_test` 
   * `aov` versus `kruskal.test`
+
 * [Variance tests]({{ page.ghurl }}/variancetests.r)
   * `var.test`
   * `fligner.test`
   * `bartlett.test`
   * `ansari.test`
+
 * [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 
 * `by` and `*apply`
@@ -126,12 +145,15 @@ Below you will find links to a number of fully executable R scripts (written in 
 * [Model formulae]({{ page.ghurl }}/formulae.r)
 
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
-  * [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
 
 * [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
+  
   * model output (`summary`, `fitted`, `coef`, etc.)
 
+* Model predicted values (`fitted` and `predict`)
+
 * [Goodness of fit and model comparison]({{ page.ghurl }}/olsfit.r)
+  
   * Regression tests (**lmtest**) TODO
 
 * [Heteroskedasticity-consistent SEs]({{ page.ghurl }}/olsrobustSEs.r)
@@ -140,7 +162,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Regression in matrix form]({{ page.ghurl }}/matrixols.r)
 
-* Model predicted values (`fitted` and `predict`)
+* [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
 
 
 ---
@@ -155,10 +177,12 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Plots for OLS linear effects]({{ page.ghurl }}/olsresultplots.r)
 
-* [Plots for linear interaction effects]({{ page.ghurl }}/olsinteractionplots.r)
-  * Predicted outcomes
-  * Marginal effects and interaction terms
+* Plots for interaction effects
 
+  * [Plots for binary interactions]({{ page.ghurl }}/olsinteractionplots.r)
+  * [Plots for continuous-by-continuous interactions]({{ page.ghurl }}/olsinteractionplots2.r)
+  * Predicted outcomes
+  
 
 ---
 ## Generalized Linear Models ##
@@ -166,14 +190,17 @@ Below you will find links to a number of fully executable R scripts (written in 
 The tutorials below supply a basic introduction to many GLM techniques. A guide to all of the available packages and functions for GLMs can be found in the [Econometrics Task View](http://cran.r-project.org/web/views/Econometrics.html).
 
 * [Binary outcome models (and link functions)]({{ page.ghurl }}/binaryglm.r) TODO -> bivariate and multivariate
+
   * [Simple plots (Bivariate predicted probabilities)]({{ page.ghurl }}/binaryglmplots.r)
   * [Multivariate predicted probabilities and marginal effects]({{ page.ghurl }}/binaryglmeffects.r) TODO
   * [Interaction plots]({{ page.ghurl }}/binaryglminteractions.r) TODO
   
 * [Ordered outcome models]({{ page.ghurl }}/orderedglm.r)
+
   * Estimation, predicted probabilities, and plots
 
 * [Count outcome models]({{ page.ghurl }}/countglm.r) TODO
+
   * [Count model plots]({{ page.ghurl }}/countglmplots.r) TODO
 
 * [Multinomial outcome models]({{ page.ghurl }}/nominalglm.r)
