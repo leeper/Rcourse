@@ -6,8 +6,6 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 # Outline and Schedule #
 
-Created 2013-08-12 and last updated 2013-11-11
-
 * 9:00 - Pre-session (Optional help installing R)
 
 * 9:15 - Welcome and Introductions (15 minutes)
