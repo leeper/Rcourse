@@ -1,0 +1,136 @@
+\documentclass[12pt]{beamer} %Makes presentation
+%\documentclass[handout]{beamer} %Makes Handouts
+\input{preamble.tex}
+
+\title[]{Introduction to R}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\frame{}
+\frame{\tableofcontents}
+
+\section{The R Language}
+\frame{\tableofcontents[currentsection]}
+
+\frame{\frametitle{Try on your own}
+Use R as a calculator:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/basicmath.r}{``Basic Math''} tutorial
+}
+
+\frame{
+\frametitle{Tips}
+\begin{itemize}\itemsep1em
+\item<1-> Always know where you are with \texttt{getwd()}
+\item<2-> R is case-sensitive: \texttt{mean} is not the same as \texttt{Mean}
+\item<3-> $\Uparrow$ and $\Downarrow$ cycle through your command history
+\item<4-> Page Up and Page Down control your screen
+\item<5-> \texttt{>} prompt means R is ready for a command\\
+\texttt{+} means your last command wasn't complete
+\end{itemize}
+}
+
+\frame[label=q]{\Large Questions so far?}
+
+\frame<1>[label=basics]{
+\frametitle{R Language Basics}
+\begin{itemize}\itemsep2em
+\item<1-> Everything in R is an ``object''
+\item<2-> All objects have a ``class''
+\item<3-> We execute functions on objects
+	\begin{itemize}
+	\item<3-> Functions work differently (or not at all) on different classes
+	\end{itemize}
+\item<4-> Functions return objects \emph{and} print to the console
+\item<5-> We can then do further things with those objects
+\end{itemize}
+}
+
+\frame{\frametitle{Try on your own}
+Create variables:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/variables.r}{``Variables''} tutorial
+}
+
+\againframe{q}
+\againframe<1-3>{basics}
+
+\frame{\frametitle{Try on your own}
+Understand R data structures:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/vectors.r}{``Vectors''}
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/vectorindexing.r}{``Vector indexing''}
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/matrices.r}{``Matrices''}
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/lists.r}{``Lists''}
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/dataframes.r}{``Dataframes''}
+\end{itemize}
+}
+
+\againframe{q}
+
+\frame{\Large It's time for a five-minute break}
+
+\againframe<3-5>{basics}
+
+\frame{\frametitle{Try on your own}
+Understand objects and printing:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/objects.r}{``Objects''} tutorial
+}
+
+
+\frame{
+\frametitle{When things go wrong...}
+\only<2->{
+\begin{enumerate}\itemsep2em
+\item Don't panic
+\item Parsing errors versus syntax errors:
+	\begin{itemize}
+	\footnotesize
+	\item \texttt{Error: unexpected ')' in "lm(y \textasciitilde)"}
+	\item \texttt{Error in eval(expr, envir, enclos) : object 'y' not found}
+	\end{itemize}
+\item Google the error or warning
+\item Use \href{http://stackoverflow.com/questions/tagged/r}{StackOverflow}
+\end{enumerate}
+}
+}
+
+\frame{
+\frametitle{A script editor makes your life easier\dots}
+\begin{itemize}\itemsep2em
+\item Helps you understand code more easily
+\item Work interactively to build a script
+	\begin{itemize}
+	\item R script is like a Stata do file
+	\item File extension: \texttt{.R} or \texttt{.r }
+	\end{itemize}
+\item Write down all of your code
+\item Use comments (\texttt{\#}) liberally
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{\dots so let's install one}
+\begin{quote}
+install.packages(\symbol{34}devtools\symbol{34})\\
+library(\symbol{34}devtools\symbol{34})\\
+install\_github(\symbol{34}rite\symbol{34}, \symbol{34}leeper\symbol{34})\\
+\vspace{1em}
+library(\symbol{34}rite\symbol{34})\\
+rite()
+\end{quote}
+}
+
+\againframe{q}
+
+
+%\appendix
+
+\bgroup
+\setbeamercolor{background canvas}{bg=black}
+\setbeamertemplate{navigation symbols}{}
+\begin{frame}[plain]{}
+\end{frame}
+\egroup
+
+\end{document}
