@@ -1,8 +1,8 @@
 # Course materials for teaching R #
 
-This repository will hold materials for teaching R (principally to beginners), which can be found [here](http://www.thomasleeper.com/Rcourse).
+This repository holds materials for teaching and learning R (principally for R beginners). The front-facing version of the site can be found at [http://www.thomasleeper.com/Rcourse](http://www.thomasleeper.com/Rcourse).
 
-The following code (run from the root directory of this repository) will convert all of the enclosed scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
+The following code (run from the root directory of this repository) will convert all of the enclosed R scripts to HTML, allowing them to be viewed directly in a web browser:
 
 ```
 setwd('./Scripts')
@@ -11,7 +11,7 @@ lapply(dir(pattern='.r$'), knitr::spin)
 
 ## Why produce original materials? ##
 
-There is an ever increasing library of online tutorials, books, and other resources for learning R. So why create something new? Unlike the books or other tutorials, the idea behind this course is to create an ever-increasing library of short resources that allow students to quickly grasp one small facet of R programming. The course is therefore structured around small R scripts, which students can read and run on their own, in order to both learn R and simultaneously observe good reproducible research practice.
+There is an ever increasing library of online tutorials, books, and other resources for learning R. So why create something new? Unlike the books or other tutorials, the idea behind this repository is to create an ever-increasing library of short resources that allow students to quickly grasp one small facet of R programming. The course is therefore structured around small R scripts, which students can read and run on their own, in order to both learn R and simultaneously observe good reproducible research practice.
 
 And, building on theories of student learning, the course will supply both short lectures (as slides) and problem sets that enable students to follow along when the scripts are confusing and to directly test their learning in R.
 
