@@ -96,9 +96,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
   * For full details on graphical parameters, see [Graphical Parameters](http://stat.ethz.ch/R-manual/R-patched/library/graphics/html/par.html).
 
-* [Plotting Colors]({{ page.ghurl }}/plotcolors.r) TODO
-
-  * `gray`, `rgb`, `rainbow`, `heat.colors`
+* [Plotting Colors]({{ page.ghurl }}/plotcolors.r)
 
 * [Saving plots]({{ page.ghurl }}/savingplots.r) TODO
 
