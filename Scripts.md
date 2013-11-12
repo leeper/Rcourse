@@ -94,6 +94,8 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Graphical parameters]({{ page.ghurl }}/graphicalparameters.r) TODO
 
+  * For full details on graphical parameters, see [Graphical Parameters](http://stat.ethz.ch/R-manual/R-patched/library/graphics/html/par.html).
+
 * [Plotting Colors]({{ page.ghurl }}/plotcolors.r) TODO
 
   * `gray`, `rgb`, `rainbow`, `heat.colors`
@@ -118,7 +120,7 @@ Below you will find links to a number of fully executable R scripts (written in 
   * `prop.test`
   * `binom.test`
 
-* [ANOVA (`aov`)]({{ page.ghurl }}/anova.r) TODO
+* [ANOVA (`aov`)]({{ page.ghurl }}/anova.r)
 
 * Nonparametric statistical tests
   * `t.test` versus `wilcox_test` 
