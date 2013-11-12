@@ -17,15 +17,15 @@
 \frame{\tableofcontents[currentsection]}
 
 
-\frame{\frametitle{Try on your own}
-Understand dataframe objects:\\
-Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/loadingdata.r}{``Loading Data''} Tutorial
+\frame{
+\frametitle{Loading Data}
+\begin{itemize}\itemsep2em
+\item Typically use data in a ``dataframe''
+\item Not restricted to one dataframe at a time
+\item Functions to load data all create a dataframe
+\item Statistical functions accept vectors or dataframes
+\end{itemize}
 }
-
-
-\frame[label=q]{\Large Questions so far?}
-
-
 
 \frame{\frametitle{Try on your own}
 Understand dataframe objects:
@@ -36,22 +36,96 @@ Understand dataframe objects:
 }
 
 
+\frame[label=q]{\Large Questions so far?}
+
+
+\frame{
+\frametitle{Loading Data}
+\begin{itemize}\itemsep2em
+\item There's no ``open'' button
+\item A functions for each file format:
+	\begin{itemize}
+	\item CSV: \texttt{read.csv}
+	\item TSV: \texttt{read.delim}
+	\item Stata: \texttt{read.dta} (from \textbf{foreign})
+	\item SPSS: \texttt{read.spss} (from \textbf{foreign})
+	\end{itemize}
+\item Almost anything can be loaded
+\end{itemize}
+}
+
+\frame{\frametitle{Try on your own}
+Understand dataframe objects:\\
+Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/loadingdata.r}{``Loading Data''} Tutorial
+}
+
+\againframe{q}
+
+
 
 \section{Basic Data Summaries}
 
 
+\frame{
+\frametitle{Summary Statistics}
+\begin{itemize}\itemsep2em
+\item Lots of built-in functions to summarize data
+\item One important function: \texttt{summary}
+\end{itemize}
+}
+
+
+\frame{\frametitle{Try on your own}
+Understand basic data summaries:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/univariate.r}{``Univariate data summaries''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/correlation.r}{``Correlations''}
+\end{itemize}
+}
 
 \frame{
 \frametitle{Summary Tables}
+\begin{itemize}\itemsep2em
+\item Tabulation is easy with \texttt{table}
+\item Creates univariate tables and cross-tables
+\item Tables are objects (of class ``table''), so we can work with them like any other object
+\end{itemize}
 }
+
+
+\frame{\frametitle{Try on your own}
+Understand tabulation and cross-tabulation:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/tables.r}{``Tabulation''}
+\end{itemize}
+}
+
+
 
 
 \frame{
 \frametitle{Summary Plots}
+\begin{itemize}\itemsep2em
+\item Visualization is one of R's greatest strengths
+\item One important function: \texttt{plot}
+\item Many other functions for specific types of plots
+\item Basic plots look okay
+\item Plots can be made beautiful with a little work
+\end{itemize}
 }
 
 
+\frame{\frametitle{Try on your own}
+Understand basic plots:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/summaryplots.r}{``Summary plots''}
+\end{itemize}
+}
 
+
+% Maybe something here on graphical parameters
+
+\againframe{q}
 
 
 
@@ -59,17 +133,53 @@ Understand dataframe objects:
 \frame{\tableofcontents[currentsection]}
 
 
-
 \frame{
 \frametitle{Recoding vectors}
+\begin{itemize}\itemsep2em
+\item Recoding is all about indexing
+\item Several different ways to do it.
+\item The \textbf{car} package has a nice function: \texttt{recode}:\\
+\texttt{outvec <- recode(invec, "old1=new1; old2=new2; else=NA")}
+
+\end{itemize}
 }
+
+\frame{\frametitle{Try on your own}
+Understand recoding:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/recoding.r}{``Vector recoding''}
+\end{itemize}
+}
+
+\againframe{q}
+
 
 \frame{
 \frametitle{Scale Construction}
+\begin{itemize}\itemsep2em
+\item Vectorization makes scaling easy
+\item Use the usual operators: \texttt{+ - * / \^}
+\item Convenience functions for sums and means
+\end{itemize}
 }
+
+\frame{\frametitle{Try on your own}
+Understand scale construction:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/basicscales.r}{``Basic Scale Construction''}
+\end{itemize}
+}
+
+\againframe{q}
+
+
 
 \frame{
 \frametitle{Missing Data}
+\begin{itemize}\itemsep2em
+\item R has one missing data value: \texttt{NA}
+\item Best to handle missing data during preprocessing
+\end{itemize}
 }
 
 \frame{\frametitle{Try on your own}
@@ -81,7 +191,7 @@ Understand Missing Data:
 \end{itemize}
 }
 
-
+\againframe{q}
 
 
 %\appendix
