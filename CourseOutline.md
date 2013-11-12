@@ -23,7 +23,6 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 * 10:30 - Reading in data and simple data manipulation (45 minutes)
 
   * [Slides](Slides/Data.pdf)
-  * Problem set <!--Reading in data, character/factor, save/write.csv-->
 
 * 12:00-12:30 - Lunch break
 
@@ -34,7 +33,6 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 * 1:05 - More linear regression and GLM (45 minutes)
 
   * [Slides](Slides/Regression2.pdf)
-  * Problem set <!--Regression assumptions, specification, predictions-->
   
 * 1:50 - Conclusion
 
@@ -42,4 +40,5 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
 * 2:00 - Optional Replication Session
 
-  * Problem set <!--Replication of other results-->
+  * Work on replication of your own results
+  * Or, work on replication of published results
