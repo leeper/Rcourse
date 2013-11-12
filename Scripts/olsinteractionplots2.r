@@ -1,6 +1,6 @@
 #' # Interaction Plots #
 #'
-#' When we have continuous-by-continuous interactions in linear regression, it is impossible to directly interpret the coefficients on the interactions. It is actually just generally difficult to interpret these kinds of models. Often, a better approach is to translate one of the continuous variables into a factor and interpet the interaction-term coefficients on each level of that variable. Another approach is to visualize graphically. Both will give us the same inference.
+#' When we have continuous-by-continuous interactions in linear regression, it is impossible to directly interpret the coefficients on the interactions. In fact, it is just generally difficult to interpret these kinds of models. Often, a better approach is to translate one of the continuous variables into a factor and interpet the interaction-term coefficients on each level of that variable. Another approach is to visualize graphically. Both will give us the same inference.
 #'
 #' Note: While interaction plots can help make effects interpretable, one of their major downsides is an inability to effectively convey statistical uncertainty. For this reason (and some of the other disadvantages that will become clear below), I would recommend these plots only for data summary but not for inference or prediction, or publication.
 #'
