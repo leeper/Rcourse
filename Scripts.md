@@ -88,7 +88,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
   * [Rugs: Marginal distributions for scatterplots]({{ page.ghurl }}/rugs.r)
   * [Local regression (LOWESS/LOESS) for scatterplots]({{ page.ghurl }}/localregression.r)
-  * [`jitter` for scatterplots of categorical data]({{ page.ghurl }}/jitter.r) TODO
+  * [`jitter` for scatterplots of categorical data]({{ page.ghurl }}/jitter.r)
   * `plot` for [Line plots]({{ page.ghurl }}/lineplots.r) TODO
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
 
