@@ -124,7 +124,7 @@ Below you will find links to a number of fully executable R scripts (written in 
   * `t.test` versus `wilcox_test` 
   * `aov` versus `kruskal.test`
 
-* [Variance tests]({{ page.ghurl }}/variancetests.r)
+* [Variance tests]({{ page.ghurl }}/variancetests.r) TODO
   * `var.test`
   * `fligner.test`
   * `bartlett.test`
@@ -146,9 +146,7 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Bivariate OLS]({{ page.ghurl }}/olsbivariate.r)
 
-* [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r) TODO
-  
-  * model output (`summary`, `fitted`, `coef`, etc.)
+* [Multivariate OLS]({{ page.ghurl }}/olsmultivariate.r)
 
 * Model predicted values (`fitted` and `predict`)
 
