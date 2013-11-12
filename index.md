@@ -17,6 +17,8 @@ By breaking up learning R into a large number of small pieces, the materials her
 
 I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. It also lists the problem sets that we will be working on during the course. 
 
+Slides for each part of the course are posted on the [Course Outline](CourseOutline.html), as well.
+
 
 ---
 ## Tutorial Scripts ##
