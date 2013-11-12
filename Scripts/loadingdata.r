@@ -57,6 +57,8 @@ mydf
 mydf <- read.csv('../Data/patient.csv')
 #' Reading them in either way will produce the exact same dataframe. If the data were tab- or semicolon-separated, the call would be exactly the same except for the use of `read.delim` and `read.csv2`, respectively.
 #'
+#' Note: Any time we read data into R, we need to store it as a variable, otherwise it will simply be printed to the console and we won't be able to do anything with it. You can name dataframes whatever you want.
+#'
 #'
 #' ### `scan` and `readLines` ###
 #' Occasionally, we need to read in data as a vector of character strings rather than as delimited data to make a dataframe. For example, we might have a file that contains textual data (e.g., from a news story) and we want to read in each word or each line of the file as a separate element of a vector in order to perform some kind of text processing on it.
@@ -87,6 +89,14 @@ unlink("ex.data") # tidy up
 library(foreign)
 #' The **foreign** package can be used to import data from a variety of proprietary formats, including Stata .dta formats (using the `read.dta` function), Octave or Matlab .mat formats (using `read.octave), SPSS .sav formats (using `read.spss`), SAS permanent .sas7bdat formats (using `read.ssd`) and SAS XPORT .stx or .xpt formats (using `read.xport`), Systat .syd formats (using `read.systat`), and Minitab .tmp formats (using `read.mtp`).
 #' Note: The **foreign** package sometimes has trouble with SPSS formats, but these files can also be opened with the `spss.get` function from the **Hmisc** package or one of several functions from the **memisc** package (`spss.fixed.file`, `spss.portable.file`, and `spss.system.file`).
+#' We can try loading some "foreign" data stored in Stata format:
+englebert <- read.dta("../Data/EnglebertPRQ2000.dta")
+#' We can then look at the loaded data using any of our usual object examination functions:
+dim(englebert) # dimensions
+head(englebert) # first few rows
+names(englebert) # column/variable names
+str(englebert) # object structure
+summary(englebert) # summary
 #'
 #' If you ever encounter trouble importing foreign data formats into R, a good option is to use a piece of software called [StatTransfer](http://www.stattransfer.com/), which can convert between dozens of different file formats. Using StatTransfer to convert a file format into a CSV or R .RData format will essentially guarantee that it is readable by R.
 #'
