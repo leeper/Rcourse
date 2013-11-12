@@ -91,6 +91,7 @@ Below you will find links to a number of fully executable R scripts (written in 
   * [`jitter` for scatterplots of categorical data]({{ page.ghurl }}/jitter.r)
   * `plot` for [Line plots]({{ page.ghurl }}/lineplots.r) TODO
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
+  * [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 
 * [Graphical parameters]({{ page.ghurl }}/graphicalparameters.r) TODO
 
@@ -102,8 +103,6 @@ Below you will find links to a number of fully executable R scripts (written in 
 
   * `pdf`, `jpeg`, `png`, `tiff`, `bmp`, `svg`
   * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
-
-* [Plotting functions with `curve`]({{ page.ghurl }}/curve.r) TODO
 
 * Note: There are several other graphics packages (including **ggplot2**, **lattice**, and **grid**). My personal preference is to rely on the flexibility of base graphics, but these alternative approaches are preferred by some.
 
@@ -162,6 +161,8 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * [Regression as a curve of conditional mean outcomes]({{ page.ghurl }}/olsmeans.r)
 
+* Two-stage least squares (instrumental variables) TODO
+
 
 ---
 ## Regression plotting ##
@@ -213,7 +214,7 @@ The tutorials below supply a basic introduction to many GLM techniques. A guide 
 ---
 ## Experiments ##
 
-* [ANOVA]({{ page.ghurl }}/anova.r) TODO
+* [ANOVA]({{ page.ghurl }}/anova.r)
 * [Permutation tests]({{ page.ghurl }}/permutationtests.r)
 * [Power and minimum detectable effects]({{ page.ghurl }}/power.r)
 * Plotting means and effects

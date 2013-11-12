@@ -15,9 +15,7 @@ By breaking up learning R into a large number of small pieces, the materials her
 ---
 ## Course Outline ##
 
-I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. It also lists the problem sets that we will be working on during the course. 
-
-Slides for each part of the course are posted on the [Course Outline](CourseOutline.html), as well.
+I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. Slides for each part of the course are posted on the [Course Outline](CourseOutline.html), as well.
 
 
 ---
@@ -35,9 +33,6 @@ setwd('./Scripts');
 lapply(dir(pattern='.r$'), knitr::spin)
 ```
 
-These scripts will be complemented by slides for short lectures, to be added soon.
-
-After working through a lecture and set of related scripts, course participants can also complete short problem sets to test their learning. These will be added soon, too.
 
 ---
 ## R Resources ##
