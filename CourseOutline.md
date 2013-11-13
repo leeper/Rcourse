@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Outline
-ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 ---
 
 # Outline and Schedule #
@@ -24,13 +23,13 @@ ghurl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
 
   * [Slides](Slides/Data.pdf)
 
-* 12:00-12:30 - Lunch break
+* 12:00-12:30 - *Lunch break*
 
-* 12:35 - Regression output and plotting (30 minutes)
+* 12:35 - Regression output and plotting (55 minutes)
 
   * [Slides](Slides/Regression.pdf)
   
-* 1:05 - More linear regression and GLM (45 minutes)
+* 1:30 - More linear regression and GLM (45 minutes)
 
   * [Slides](Slides/Regression2.pdf)
   
