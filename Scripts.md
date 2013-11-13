@@ -92,7 +92,7 @@ Below you will find links to a number of fully executable R scripts (written in 
   * Local regression (LOWESS/LOESS) for scatterplots: [Script]({{ page.scripturl }}/localregression.r) and [Tutorial]({{ page.tutorialurl }}/localregression.html)
   * `jitter` for scatterplots of categorical data: [Script]({{ page.scripturl }}/jitter.r) and [Tutorial]({{ page.tutorialurl }}/jitter.html)
   * add ons: `lines`, `segments` (for error bars), `polygon`, `points`, `abline`, `text`, `legend`
-  * Plotting functions with `curve`: [Script]({{ page.scripturl }}/curve.r) and [Tutorial]({{ page.tutorialurl }}/curve.html) TODO
+  * Plotting functions with `curve`: [Script]({{ page.scripturl }}/curve.r) and [Tutorial]({{ page.tutorialurl }}/curve.html)
 
 * Graphical parameters: [Script]({{ page.scripturl }}/graphicalparameters.r) and [Tutorial]({{ page.tutorialurl }}/graphicalparameters.html) TODO
 
