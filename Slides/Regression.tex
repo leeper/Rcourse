@@ -16,52 +16,161 @@
 
 \frame{
 \frametitle{Model Formul\ae}
+\begin{itemize}\itemsep2em
+\item Express relationships as a formula
+\item Typically:\\
+\texttt{y ~ x1 + x2}
+\item Interactions:\\
+\texttt{y ~ x1 * x2}\\
+\texttt{y ~ x1 + x2 + x1:x2}
+\item Formula is an object
+\end{itemize}
 }
 
+\frame{\frametitle{Try on your own}
+Understand formulae:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/formulae.r}{``Model Formulae''}
+\end{itemize}
+}
+
+\frame[label=q]{\Large Questions so far?}
+
+\frame{
+\frametitle{Running a regression}
+\begin{itemize}\itemsep2em
+\item We already ran regressions earlier
+\item Let's understand what we did
+\end{itemize}
+}
+
+\frame[label=cis]{
+\frametitle{The regression from earlier}
+\noindent\texttt{
+lm3\_1 <- lm(thresh\textasciitilde threat + fragdum,\\ data = cis)\\
+\vspace{1em}
+lm3\_2 <- lm(thresh\textasciitilde threat + fragdum,\\ data=cis[cis\$oursmpl==1,])\\
+\vspace{1em}
+lm3\_3 <- lm(thresh\textasciitilde threat13 + fragdum,\\ data=cis[cis\$oursmpl==1,])\\
+\vspace{1em}
+lm3\_4 <- lm(thresh\textasciitilde stthroct2 + fragdum,\\ data=cis[cis\$oursmpl==1,])\\
+}
+}
+
+\frame{
+\frametitle{Running a regression}
+\begin{itemize}\itemsep2em
+\item The linear regression function is \texttt{lm}
+\item Specify a \texttt{formula} and a place to look for \texttt{data}
+\item The result is an object of class ``lm''
+\end{itemize}
+}
+
+\againframe{cis}
 
 
-
-
-\section{Output}
+\section{Objects and Output}
 \frame{\tableofcontents[currentsection]}
 
 \frame{
-\frametitle{Summaries}
+\frametitle{Printing}
+\begin{itemize}\itemsep2em
+\item<1-> When we run a regression, we get some default output:\\
+\texttt{lm(thresh\textasciitilde threat + fragdum,\\ data = cis)\\}
+
+\item<2-> This doesn't print if we store the results:\\
+\texttt{lm3\_1 <- lm(thresh\textasciitilde threat + fragdum,\\ data = cis)}
+
+\item<3-> But we can see the results again, once stored, by simply calling:\\
+\texttt{lm3\_1}
+\end{itemize}
 }
+
+
+
+\frame{
+\frametitle{Structure and summary}
+\begin{itemize}\itemsep2em
+\item Structure: \texttt{str(lm3\_1)}
+\item Names: \texttt{names(lm3\_1)}
+\item Summary: \texttt{summary(lm3\_1)}
+\end{itemize}
+}
+
 
 \frame{
 \frametitle{Coefficients}
+\begin{itemize}
+\item Coefficients:\\
+\texttt{coef(lm3\_1)}\\
+\texttt{lm3\_1\$coef}\\
+\texttt{coef(summary(lm3\_1))}\\
+\texttt{summary(lm3\_1)\$coef}
+\end{itemize}
 }
+
+\frame{\frametitle{Try on your own}
+Understand OLS coefficient plotting:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olscoefplot.r}{``OLS Coefficients''}
+\end{itemize}
+}
+
+
+\frame[label=q]{\Large Questions so far?}
+
+
+
+\frame{
+\frametitle{Fitted values and residuals}
+\begin{itemize}\itemsep2em
+\item \texttt{lm3\_1\$fitted}
+\item \texttt{lm3\_1\$resduals}
+\item \texttt{predict(lm3\_1)}
+\end{itemize}
+}
+
+\frame{\frametitle{Try on your own}
+Understand model fit:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsplots.r}{``OLS Diagnostic Plots''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsfit.r}{``Regression fit''}
+\end{itemize}
+}
+
+\frame[label=q]{\Large Questions so far?}
+
 
 \frame{
 \frametitle{Writing Output to Word}
+\begin{itemize}\itemsep2em
+\item Writing a CSV
+\item Using the \textbf{rtf} package:\\
+\texttt{install.packages(\symbol{34}rtf\symbol{34})}\\
+\texttt{library(rtf)}
+\end{itemize}
 }
 
-
-\frame{
-\frametitle{Fitted and Predicted Values}
+\frame{\frametitle{Try on your own}
+Output results to Word:
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/wordoutput.r}{``Word output''}
+\end{itemize}
 }
 
+\frame[label=q]{\Large Questions so far?}
 
 
-
-\section{Plotting}
+\section{Interactions}
 \frame{\tableofcontents[currentsection]}
 
 \frame{
-\frametitle{Coefficient Summaries}
+\frametitle{Let's work together}
+\begin{itemize}\itemsep1em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsinteractionplots.r}{``Binary interactions''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsinteractionplots2.r}{``Continuous interactions''}
+\end{itemize}
 }
-
-
-\frame{
-\frametitle{Fitted Mean Values}
-}
-
-\frame{
-\frametitle{Interaction Terms}
-}
-
-
 
 
 %\appendix
