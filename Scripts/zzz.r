@@ -16,7 +16,6 @@ markdownToHTML('index.md',output='index.html')
 
 unlink('*.md') # delete-all md
 unlink('*.Rmd') # delete-all Rmd
-unlink(dir(pattern='\\.[^rR]')) # delete-all non-.R/.r
 
 if('Tutorials' %in% dir('../'))
     unlink('../Tutorials',recursive=TRUE)
@@ -27,3 +26,5 @@ file.rename(infiles,outfiles)
 file.rename('figure','../Tutorials/figure')
 
 browseURL(file.path(getwd(),'../Tutorials/index.html'))
+
+unlink(dir(pattern='\\.[^rR]')) # delete-all non-.R/.r

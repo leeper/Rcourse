@@ -194,7 +194,7 @@ Thus we can construct a formula quite simply by just typing:</p>
 </code></pre>
 
 <pre><code>## ~x
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>Note: Spaces in formulae are not important.
@@ -218,7 +218,7 @@ class(myformula)
 </code></pre>
 
 <pre><code>## y ~ x1 + x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>If we use a minus (<code>-</code>) symbol, objects in the formula are ignored in an analysis:</p>
@@ -227,7 +227,7 @@ class(myformula)
 </code></pre>
 
 <pre><code>## y ~ x1 - x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>One particularly helpful feature when modelling with lots of variables is the <code>.</code> operator. When used in a formula, <code>.</code> refers to all other variables in the matrix not yet included in the model. So, if we plan to run a regression on a matrix (or dataframe) containing the variables <code>y</code>, <code>x1</code>, <code>z3</code>, and <code>areallylongvariablename</code>, we can simply use the formula:</p>
@@ -236,7 +236,7 @@ class(myformula)
 </code></pre>
 
 <pre><code>## y ~ .
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>and avoid having to type all of the variables.</p>
@@ -250,7 +250,7 @@ If we want to include two variables and their interaction, we use the star/aster
 </code></pre>
 
 <pre><code>## y ~ x1 * x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>If we only want their interaction, but not the variables themselves, we use the colon (<code>:</code>) symbol:</p>
@@ -259,7 +259,7 @@ If we want to include two variables and their interaction, we use the star/aster
 </code></pre>
 
 <pre><code>## y ~ x1:x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>Note: We probably don&#39;t want to do this.
@@ -269,14 +269,14 @@ This means that some formulae that look different are actually equivalent. The f
 </code></pre>
 
 <pre><code>## y ~ x1 * x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">y ~ x1 + x2 + x1:x2
 </code></pre>
 
 <pre><code>## y ~ x1 + x2 + x1:x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <h2>Regression formulae</h2>
@@ -288,14 +288,14 @@ One trick is to drop the intercept, by either including a zero (<code>0</code>) 
 </code></pre>
 
 <pre><code>## y ~ -1 + x1 * x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">y ~ 0 + x1 * x2
 </code></pre>
 
 <pre><code>## y ~ 0 + x1 * x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>We can also offset the intercept of a model using the <code>offset</code> function. The use is kind of strange and not that common, but we can increase the intercept by, e.g., 2 using:</p>
@@ -304,7 +304,7 @@ One trick is to drop the intercept, by either including a zero (<code>0</code>) 
 </code></pre>
 
 <pre><code>## y ~ x1 + offset(rep(-2, n))
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>or reduce the intercept by, e.g., 3 using:</p>
@@ -313,7 +313,7 @@ One trick is to drop the intercept, by either including a zero (<code>0</code>) 
 </code></pre>
 
 <pre><code>## y ~ x1 + offset(rep(3, n))
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>Note: The <code>n</code> here would have to be tailed to the length of the actual. It&#39;s unclear in what context this functionality is really helpful, but it does mean that models can be adjusted in fairly sophisticated ways.</p>
@@ -326,7 +326,7 @@ One trick is to drop the intercept, by either including a zero (<code>0</code>) 
 </code></pre>
 
 <pre><code>## y ~ x
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r"># to:
@@ -334,7 +334,7 @@ y ~ factor(x)
 </code></pre>
 
 <pre><code>## y ~ factor(x)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <h2>As-is variables</h2>
@@ -345,7 +345,7 @@ y ~ factor(x)
 </code></pre>
 
 <pre><code>## y ~ x + x^2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>If we attempted to estimate a regression model using this formula, R would drop the <code>x^2</code> term because it thinks it is a duplicate of <code>x</code>. We therefore have to either calculate and store all of the variables we want to include in the model in advance, or we need to use the <code>I()</code> &ldquo;as-is&rdquo; operator.
@@ -355,7 +355,7 @@ To obtain our desired two-term formula, we could use <code>I()</code> as follows
 </code></pre>
 
 <pre><code>## y ~ x + I(x^2)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>This tells R to calculate the values of <code>x^2</code> before attempting to use the formula.
@@ -365,7 +365,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 </code></pre>
 
 <pre><code>## y ~ I(2 * x)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>This formula would, in a linear regression, produce a coefficient half as large as the model for <code>y~x</code>.</p>
@@ -386,7 +386,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 </code></pre>
 
 <pre><code>## y ~ x
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">as.character(y ~ x)
@@ -401,7 +401,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 </code></pre>
 
 <pre><code>## `~`()
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">(y ~ x)[2]
@@ -448,7 +448,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 ## attr(,&quot;response&quot;)
 ## [1] 1
 ## attr(,&quot;.Environment&quot;)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">terms(y ~ 0 + x1)
@@ -470,7 +470,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 ## attr(,&quot;response&quot;)
 ## [1] 1
 ## attr(,&quot;.Environment&quot;)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">terms(~x1 + x2)
@@ -492,7 +492,7 @@ Aside from calculating powers, <code>I()</code> can also be helpful when we want
 ## attr(,&quot;response&quot;)
 ## [1] 0
 ## attr(,&quot;.Environment&quot;)
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>The output above shows the formula itself, a list of its constitutive variables, the presence of intercept, the presence of an outcome, and so forth.
@@ -510,14 +510,14 @@ If we just want to know the names of the variables in the model, we can use <cod
 </code></pre>
 
 <pre><code>## y ~ x + x2
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">update(y ~ x, z ~ .)
 </code></pre>
 
 <pre><code>## z ~ x
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>This could be used, e.g., to run a model on a &ldquo;small&rdquo; model and then a larger version:</p>
@@ -527,7 +527,7 @@ update(myformula, &quot;~.+d+e+f&quot;)
 </code></pre>
 
 <pre><code>## y ~ a + b + c + d + e + f
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>Or the same righthand variables to predict two different outcomes:</p>
@@ -536,7 +536,7 @@ update(myformula, &quot;~.+d+e+f&quot;)
 </code></pre>
 
 <pre><code>## z ~ a + b + c
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>We can also drop terms using <code>update</code>:</p>
@@ -545,7 +545,7 @@ update(myformula, &quot;~.+d+e+f&quot;)
 </code></pre>
 
 <pre><code>## y ~ b + c
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 </body>

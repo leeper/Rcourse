@@ -206,7 +206,7 @@ For example, a bivariate model might look like:</p>
 </code></pre>
 
 <pre><code>## y1 ~ x1
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>And a multivariate model would look like:</p>
@@ -215,7 +215,7 @@ For example, a bivariate model might look like:</p>
 </code></pre>
 
 <pre><code>## y1 ~ x1 + x2 + x3
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>To include the interaction we need to use the <code>*</code> operator, though we could also use <code>:</code> for the same result:</p>
@@ -224,14 +224,14 @@ For example, a bivariate model might look like:</p>
 </code></pre>
 
 <pre><code>## y1 ~ x1 * x2 + x3
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <pre><code class="r">y1 ~ x1 + x2 + x1 * x2 + x3
 </code></pre>
 
 <pre><code>## y1 ~ x1 + x2 + x1 * x2 + x3
-## &lt;environment: 0x0000000024adecd0&gt;
+## &lt;environment: 0x000000001c3d67b0&gt;
 </code></pre>
 
 <p>The order of variables in a regression formula doesn&#39;t matter. Generally, R will print out the regression results in the order that the variables are listed in the formula, but there are exception. For example, all interactions are listed after main effects, as we&#39;ll see below.</p>
@@ -361,7 +361,7 @@ m2 &lt;- lm(y1 ~ x1 * x2 + x3)
 ##   .. ..- attr(*, &quot;order&quot;)= int [1:3] 1 1 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x0000000024adecd0&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000000001c3d67b0&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(y1, x1, x2, x3)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:4] &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;y1&quot; &quot;x1&quot; &quot;x2&quot; &quot;x3&quot;
