@@ -34,6 +34,40 @@ Use R as a calculator:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-p
 
 \frame[label=q]{\Large Questions so far?}
 
+\frame{
+\frametitle{Your first analysis in R}
+\begin{itemize}
+\item Load data
+\item Estimate 4 regression models
+\item Look at coefficients
+\vspace{1em}
+\item<2-> Data from:\\Cusack, Iversen, Soskice. (2007). ``Economic Interests and the Origins of Electoral Systems'' \emph{APSR} 101(3):373--391.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Your first analysis in R}
+\begin{center}
+\includegraphics[width=\textwidth]{figure/CusackIversenSoskiceTable3.png}
+\end{center}
+}
+
+\frame{
+\frametitle{Your first analysis in R}
+\noindent\texttt{
+\alert<2>{library(\symbol{34}foreign\symbol{34})\\}
+\alert<3>{cis <- read.dta(file.choose())[cis\$smpl==1,]\\}
+\alert<4>{lm3\_1 <- lm(thresh\textasciitilde threat + fragdum,\\ data = cis)\\}
+\alert<5>{lm3\_2 <- lm(thresh\textasciitilde threat + fragdum,\\ data=cis[cis\$oursmpl==1,])\\}
+\alert<6>{lm3\_3 <- lm(thresh\textasciitilde threat13 + fragdum,\\ data=cis[cis\$oursmpl==1,])\\}
+\alert<7>{lm3\_4 <- lm(thresh\textasciitilde stthroct2 + fragdum,\\ data=cis[cis\$oursmpl==1,])\\}
+\alert<8>{lapply(ls(pattern=\symbol{34}lm\symbol{34}),\\
+    function(i) round(summary(get(i))\$coef[,1:2],2))\\}
+}
+}
+
+\againframe{q}
+
 \frame<1>[label=basics]{
 \frametitle{R Language Basics}
 \begin{itemize}\itemsep2em
@@ -53,7 +87,7 @@ Create variables:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/
 }
 
 \againframe{q}
-\againframe<1-3>{basics}
+\againframe<1-2>{basics}
 
 \frame{\frametitle{Try on your own}
 Understand R data structures:
@@ -68,9 +102,9 @@ Understand R data structures:
 
 \againframe{q}
 
-\frame{\Large It's time for a five-minute break}
+%\frame{\Large It's time for a five-minute break}
 
-\againframe<3-5>{basics}
+\againframe<2-5>{basics}
 
 \frame{\frametitle{Try on your own}
 Understand objects and printing:\\Do the \href{https://github.com/leeper/Rcourse/blob/gh-pages/Scripts/objects.r}{``Objects''} tutorial
@@ -111,14 +145,14 @@ Understand objects and printing:\\Do the \href{https://github.com/leeper/Rcourse
 
 \frame{
 \frametitle{\dots so let's install one}
-\begin{quote}
-install.packages(\symbol{34}devtools\symbol{34})\\
-library(\symbol{34}devtools\symbol{34})\\
-install\_github(\symbol{34}rite\symbol{34}, \symbol{34}leeper\symbol{34})\\
+\texttt{
+\alert<2>{install.packages(\symbol{34}devtools\symbol{34})\\}
+\alert<3>{library(\symbol{34}devtools\symbol{34})\\}
+\alert<4>{install\_github(\symbol{34}rite\symbol{34}, \symbol{34}leeper\symbol{34})\\}
 \vspace{1em}
-library(\symbol{34}rite\symbol{34})\\
-rite()
-\end{quote}
+\alert<5>{library(\symbol{34}rite\symbol{34})\\}
+\alert<6>{rite()}
+}
 }
 
 \againframe{q}
