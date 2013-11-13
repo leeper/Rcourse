@@ -16,6 +16,7 @@ markdownToHTML('index.md',output='index.html')
 
 unlink('*.md') # delete-all md
 unlink('*.Rmd') # delete-all Rmd
+unlink(dir(pattern='\\.[^rR]')) # delete-all non-.R/.r
 
 if('Tutorials' %in% dir('../'))
     unlink('../Tutorials',recursive=TRUE)
