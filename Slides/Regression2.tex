@@ -16,20 +16,31 @@
 
 
 \frame{
-\frametitle{Goodness of Fit and Model Comparison}
+\frametitle{Fitted values and residuals}
+\begin{itemize}\itemsep2em
+\item \texttt{lm3\_1\$fitted}
+\item \texttt{lm3\_1\$resduals}
+\item \texttt{predict(lm3\_1)}
+\end{itemize}
 }
 
 \frame{
 \frametitle{Regression Diagnostics}
+Let's work together
+\begin{itemize}\itemsep2em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsplots.r}{``OLS Diagnostic Plots''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsfit.r}{``Regression fit''}
+\end{itemize}
 }
 
 
 \frame{
-\frametitle{Residual plots}
+\frametitle{Regression Diagnostics}
+Let's work together
+\begin{itemize}\itemsep2em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsbivariate.r}{``OLS Bivariate Functional Form''}
+\end{itemize}
 }
-
-
-
 
 
 \section{Robust SEs}
@@ -38,8 +49,11 @@
 
 \frame{
 \frametitle{Heteroskedasticity-Consistent Standard Errors}
+Let's work together
+\begin{itemize}\itemsep2em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/olsrobustSEs.r}{``Robust SEs''}
+\end{itemize}
 }
-
 
 
 \section{GLM}
@@ -47,22 +61,38 @@
 
 \frame{
 \frametitle{Binary Outcome Models}
+\begin{itemize}\itemsep2em
+\item GLMs are estimated with \texttt{glm}
+\item Works basically the same as \texttt{lm}
+\item Additional argument: \texttt{family}
+	\begin{itemize}
+	\item gaussian
+	\item binomial
+	\item poisson
+	\item Various others
+	\end{itemize}
+\end{itemize}
 }
 
 \frame{
-\frametitle{Count Outcome Models}
+\frametitle{Note on other GLMs}
+\begin{itemize}\itemsep2em
+\item Ordered models: \textbf{library(MASS)}
+\item Multinomial logit: \textbf{library(nnet)} and \textbf{library(mlogit)}
+\item The \textbf{Zelig} package provides additional models
+\end{itemize}
 }
 
 \frame{
-\frametitle{Ordered Outcome Models}
+\frametitle{Binary GLMs}
+Let's work together
+\begin{itemize}\itemsep2em
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/binaryglmplots.r}{``Binary GLM Plots''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/binaryglmeffects.r}{``Binary GLM Effect Plots''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/orderedglm.r}{``Ordered Outcome Models''}
+\item \href{https://github.com/leeper/Rcourse/tree/gh-pages/Scripts/nominalglm.r}{``Multinomial Logit''}
+\end{itemize}
 }
-
-\frame{
-\frametitle{Multinomial Outcome Models}
-}
-
-
-
 
 
 %\appendix
