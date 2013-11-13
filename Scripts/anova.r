@@ -15,8 +15,13 @@ y[tr==4] <- rnorm(30,1,2)
 #' ANOVA models can be expressed as formulae (like in regression, since the techniques are analogous):
 aov(y~tr)
 #' The default output of the `aov` function is surprisingly uninformative and we should instead use `summary` to see a more meaningful output:
-summary(aov(y~tr))
+summary(aov(y~factor(tr)))
 #' This output is precisely what we would expect. It shows the "within" and "between" sum of squares, the F-statistic, and the p-value associated with that statistic. If significant (which it is in this case), we also see some stars to the right-hand side.
+#'
+#' Another way to see basically the same output is with the `oneway.test` function. It conducts a one-way ANOVA, whereas `aov` is flexible to alternative experimental designs:
+oneway.test(y~tr)
+#' The `oneway.test` function allows us to control whether equal variances are assumed across groups with the `var.equal` argument:
+oneway.test(y~factor(tr), var.equal=TRUE)
 #'
 #' I always feel like the F-statistic is a bit of a let down. It's a lot of calculation to be reduced to a single number (the F-statistic), which really doesn't tell you much. Instead, we need to actually summary the data - with a table or figure - in order to actually see what that F-statistic means in practice.
 #' 
@@ -27,7 +32,8 @@ kruskal.test(y~tr)
 #' For more details on assumptions about distributions, look at the tutorial on variance tests.
 #' 
 #' ## Post-hoc tests ##
-#' Post-hoc comparisons are possible in R. The `TukeyHSD` function is available in the base **stats** package, but the **multicomp** add-on package offers much more. Other options include the **psych** package and the **car** package. In all, it's too much to cover in detail here.
+#' Post-hoc comparisons are possible in R. The `TukeyHSD` function is available in the base **stats** package, but the **multicomp** add-on package offers much more. Other options include the **psych** package and the **car** package. In all, it's too much to cover in detail here. We'll look at the `TukeyHSD` function, which estimate's Tukey's Honestly Significant Difference statistics (for all pairwise group comparisons in an `aov` object):
+TukeyHSD(aov(y~factor(tr)))
 #'
 #' One can always fall back on the trusty t-test (implemented with `t.test`) to compare treatment groups pairwise:
 t.test(y[tr %in% 1:2] ~ tr[tr %in% 1:2])
