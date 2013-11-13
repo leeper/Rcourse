@@ -100,10 +100,9 @@ Below you will find links to a number of fully executable R scripts (written in 
 
 * Plotting Colors: [Script]({{ page.scripturl }}/plotcolors.r) and [Tutorial]({{ page.tutorialurl }}/plotcolors.html)
 
-* Saving plots: [Script]({{ page.scripturl }}/savingplots.r) and [Tutorial]({{ page.tutorialurl }}/savingplots.html) TODO
-
-  * `pdf`, `jpeg`, `png`, `tiff`, `bmp`, `svg`
-  * `dev.print`, `dev.copy`, `dev2bitmap`, `savePlot`
+* Saving plots:
+  * In RGui, you can use point-and-click menus to save plots, but it also possible to save plots using code. The appropriate function depends on the file format you desire for the resulting plot. The main ones are: `pdf`, `jpeg`, `png`, `tiff`, `bmp`, and `svg`. PDF and PNG are good choices, though TIFF is often required for academic publishing.
+  * If building a plot in stages (e.g. overlaying different model fits), it is also possible to save the plot in different stages. This can be useful for building plots to be used in slides (e.g., to control the display the contents of a plot during the talk). Relevant functions here are: `dev.print`, `dev.copy`, `dev2bitmap`, and `savePlot`.
 
 * Note: There are several other graphics packages (including **ggplot2**, **lattice**, and **grid**). My personal preference is to rely on the flexibility of base graphics, but these alternative approaches are preferred by some.
 
@@ -118,11 +117,9 @@ Below you will find links to a number of fully executable R scripts (written in 
   * `prop.test`
   * `binom.test`
 
-* One-way ANOVA (`aov` and `oneway.test`): [Script]({{ page.scripturl }}/anova.r) and [Tutorial]({{ page.tutorialurl }}/anova.html)
+* One-way ANOVA (`aov`, `oneway.test`, and `kruskal.test`): [Script]({{ page.scripturl }}/anova.r) and [Tutorial]({{ page.tutorialurl }}/anova.html)
 
-* Nonparametric statistical tests
-  * `t.test` versus `wilcox_test` 
-  * `aov` versus `kruskal.test`
+* Nonparametric statistical tests (e.g., `t.test` versus `wilcox_test`)
 
 * Variance tests: [Script]({{ page.scripturl }}/variancetests.r) and [Tutorial]({{ page.tutorialurl }}/variancetests.html) TODO
   * `var.test`
@@ -135,8 +132,8 @@ Below you will find links to a number of fully executable R scripts (written in 
 * `by` and `*apply`
 
 * Statistical distributions
-  * Normal: `rnorm`, `pnorm`, `qnorm`, and `dnorm`
-  * Also look at uniform, binomial, and t distributions
+  * Probability density, cumulative distribution, and quantile functions: [Script]({{ page.scripturl }}/distributions.r) and [Tutorial]({{ page.tutorialurl }}/distributions.html)
+  * Random number generation
 
 
 ---
