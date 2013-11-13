@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Analysis of Variance</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Analysis of Variance</h1>
+
+<p>One of the most prominent classical statistical techniques is the Analysis of Variance (ANOVA). ANOVA is an especially important tool in experimental analysis, where it is used as an omnibus test of a null hypothesis that mean outcomes across all groups are equal (or, stated differently, that the outcome variance between groups is no larger than the outcome variance within groups).
+This tutorial walks through the basics of using ANOVA in R. We&#39;ll start with some fake data from an imaginary three-group experiment:</p>
+
+<pre><code class="r">set.seed(100)
+tr &lt;- rep(1:4, each = 30)
+y &lt;- numeric(length = 120)
+y[tr == 1] &lt;- rnorm(30, 5, 1)
+y[tr == 2] &lt;- rnorm(30, 4, 2)
+y[tr == 3] &lt;- rnorm(30, 4, 5)
+y[tr == 4] &lt;- rnorm(30, 1, 2)
+</code></pre>
+
+<h2>Omnibus test</h2>
+
+<p>The principle use of ANOVA is to partition the sum of squares from the data and test whether the variance across groups is larger than the variance within groups. The function to do this in R is <code>aov</code>. (Note: This should not be confused with the <code>anova</code> function, which is a model-comparison tool for regression models.)
+ANOVA models can be expressed as formulae (like in regression, since the techniques are analogous):</p>
+
+<pre><code class="r">aov(y ~ tr)
+</code></pre>
+
+<pre><code>## Call:
+##    aov(formula = y ~ tr)
+## 
+## Terms:
+##                     tr Residuals
+## Sum of Squares   251.2    1196.4
+## Deg. of Freedom      1       118
+## 
+## Residual standard error: 3.184
+## Estimated effects may be unbalanced
+</code></pre>
+
+<p>The default output of the <code>aov</code> function is surprisingly uninformative and we should instead use <code>summary</code> to see a more meaningful output:</p>
+
+<pre><code class="r">summary(aov(y ~ tr))
+</code></pre>
+
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## tr            1    251   251.2    24.8 2.2e-06 ***
+## Residuals   118   1196    10.1                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>This output is precisely what we would expect. It shows the &ldquo;within&rdquo; and &ldquo;between&rdquo; sum of squares, the F-statistic, and the p-value associated with that statistic. If significant (which it is in this case), we also see some stars to the right-hand side.</p>
+
+<p>I always feel like the F-statistic is a bit of a let down. It&#39;s a lot of calculation to be reduced to a single number (the F-statistic), which really doesn&#39;t tell you much. Instead, we need to actually summary the data - with a table or figure - in order to actually see what that F-statistic means in practice.</p>
+
+<p>As a non-parametric alternative to the ANOVA, which invokes a normality assumption about the residuals, one can use the Kruskal-Wallis analysis of variance test. This does not assume normality of residuals, but does assume that the treatment group outcome distributions have identical shape (other than a shift in median). To implement the Kruskal-Wallis ANOVA, we simply use <code>kruskal.test</code>:</p>
+
+<pre><code class="r">kruskal.test(y ~ tr)
+</code></pre>
+
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  y by tr
+## Kruskal-Wallis chi-squared = 36.96, df = 3, p-value = 4.702e-08
+</code></pre>
+
+<p>The output of this test is somewhat simpler than that from <code>aov</code>, presenting us with the test statistic and associated p-value immediately.</p>
+
+<p>For more details on assumptions about distributions, look at the tutorial on variance tests.</p>
+
+<h2>Post-hoc tests</h2>
+
+<p>Post-hoc comparisons are possible in R. The <code>TukeyHSD</code> function is available in the base <strong>stats</strong> package, but the <strong>multicomp</strong> add-on package offers much more. Other options include the <strong>psych</strong> package and the <strong>car</strong> package. In all, it&#39;s too much to cover in detail here.</p>
+
+<p>One can always fall back on the trusty t-test (implemented with <code>t.test</code>) to compare treatment groups pairwise:</p>
+
+<pre><code class="r">t.test(y[tr %in% 1:2] ~ tr[tr %in% 1:2])
+</code></pre>
+
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  y[tr %in% 1:2] by tr[tr %in% 1:2]
+## t = 1.896, df = 34.2, p-value = 0.06646
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.06051  1.74794
+## sample estimates:
+## mean in group 1 mean in group 2 
+##           5.029           4.185
+</code></pre>
+
+<pre><code class="r">t.test(y[tr %in% c(2, 4)] ~ tr[tr %in% c(2, 4)])
+</code></pre>
+
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  y[tr %in% c(2, 4)] by tr[tr %in% c(2, 4)]
+## t = 5.98, df = 56.41, p-value = 1.6e-07
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.218 4.452
+## sample estimates:
+## mean in group 2 mean in group 4 
+##          4.1851          0.8502
+</code></pre>
+
+<p>But the user should, of course, we aware of problems with multiple comparisons.</p>
+
+<h2>Treatment group summaries</h2>
+
+<p>The easiest way to summarize the information underlying an ANOVA procedure is to look at the treatment group means and variances (or standard deviations). Luckily R makes it very easy to calculate this statistic on each group using the <code>by</code> function. If we want the mean of <code>y</code> for each level of <code>tr</code>, we simply call:</p>
+
+<pre><code class="r">by(y, tr, FUN = mean)
+</code></pre>
+
+<pre><code>## tr: 1
+## [1] 5.029
+## -------------------------------------------------------- 
+## tr: 2
+## [1] 4.185
+## -------------------------------------------------------- 
+## tr: 3
+## [1] 3.781
+## -------------------------------------------------------- 
+## tr: 4
+## [1] 0.8502
+</code></pre>
+
+<p>The result is an output that shows the treatment level and the associated mean. We can also obtain the same information in a slightly different format using <code>tapply</code>:</p>
+
+<pre><code class="r">tapply(y, tr, FUN = mean)
+</code></pre>
+
+<pre><code>##      1      2      3      4 
+## 5.0289 4.1851 3.7806 0.8502
+</code></pre>
+
+<p>This returns an object of class &ldquo;table&rdquo;, which is perhaps easier to work with. We can do the same for the treatment group standard deviations:</p>
+
+<pre><code class="r">tapply(y, tr, FUN = sd)
+</code></pre>
+
+<pre><code>##     1     2     3     4 
+## 0.702 2.334 5.464 1.970
+</code></pre>
+
+<p>And we could even mind them together:</p>
+
+<pre><code class="r">out &lt;- cbind(tapply(y, tr, FUN = mean), tapply(y, tr, FUN = sd))
+colnames(out) &lt;- c(&quot;mean&quot;, &quot;sd&quot;)
+out
+</code></pre>
+
+<pre><code>##     mean    sd
+## 1 5.0289 0.702
+## 2 4.1851 2.334
+## 3 3.7806 5.464
+## 4 0.8502 1.970
+</code></pre>
+
+<p>The result is a nice matrix showing the mean and standard deviation for each group. If there was some other statistic we wanted to calculate for each group, we could easily use <code>by</code> or <code>tapply</code> to obtain it.</p>
+
+<h2>Treatment group plots</h2>
+
+<p>A perhaps more convenient way to see our data is to plot it. We can use <code>plot</code> to produce a simply scatterplot. And we can use our <code>out</code> matrix to highlight the treatment group means:</p>
+
+<pre><code class="r">plot(y ~ tr, col = rgb(1, 0, 0, 0.5), pch = 16)
+# highlight the means:
+points(1:4, out[, 1], col = &quot;blue&quot;, bg = &quot;blue&quot;, pch = 23, cex = 2)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-10"/> </p>
+
+<p>This nice because it shows the distribution of the data, but we can also use a boxplot summary to precisely see the locations of points on the distribution. Specifically, a boxplot will draw the five-number summary for each treatment group:</p>
+
+<pre><code class="r">tapply(y, tr, fivenum)
+</code></pre>
+
+<pre><code>## $`1`
+## [1] 3.842 4.562 5.093 5.319 7.310
+## 
+## $`2`
+## [1] -0.5439  2.9554  3.9527  6.1308  7.7949
+## 
+## $`3`
+## [1] -6.3720  0.4349  3.7029  7.1900 16.9098
+## 
+## $`4`
+## [1] -1.9160 -0.5528  0.3361  1.8270  5.8914
+</code></pre>
+
+<pre><code class="r">boxplot(y ~ tr)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-11"/> </p>
+
+<p>Another approach is to use our <code>out</code> object, containing treatment group means and standard deviations to draw a dotchart. We&#39;ll first divide our standard deviations by <code>sqrt(30)</code> to convert them to standard errors of the mean.</p>
+
+<pre><code class="r">out[, 2] &lt;- out[, 2]/sqrt(30)
+dotchart(out[, 1], xlim = c(0, 6), xlab = &quot;y&quot;, main = &quot;Treatment group means&quot;, 
+    pch = 23, bg = &quot;black&quot;)
+segments(out[, 1] - out[, 2], 1:4, out[, 1] + out[, 2], 1:4, lwd = 2)
+segments(out[, 1] - 2 * out[, 2], 1:4, out[, 1] + 2 * out[, 2], 1:4, lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAjVBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZo8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9lZjllZmVltbVltf2POQCPOTmPOWWPZgCPtY+P27WP29qP2/21ZgC1Zjm1tWW1/rW1/v2+vr7ajznatWXa/tra/v39tWX924/9/rX9/tr9/v3tvSnHAAAAL3RSTlP/////////////////////////////////////////////////////////////AFqlOPcAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAmHSURBVHic7dwPe9rWGUDxXlwPmmY4a9ribF3xNszGP33/jzdJIBnHxBG8spB8znlK4hhxEfpxr4SfpD9khuyHa++AXSfhoQkPTXhowkMTHprw0ISHJjw04aEJD014aMJDEx6a8NCEhyY8NOGhCQ9NeGjCQxMemvDQhIcmPLSBwe/uU9n4Wxs8zL47RoNNAL0z+If0XdUGmxAaGHzeZnK7yt8Ao1/TaJ4t8zdB4bjOfx/Ny7fFeJ3+cp9uFsv9PYctdvc3/075d/eblAPlX9785+52dTzWtNxykW3L7+8fUm58ctDD02ZPW24m9SN63mDh80N+u3oop/80dyp+v/3fAb4qJ6i2OCwV4yf48qsfJwXw0VjjY/jyO/mzZXviF4Menrbaclx/47pHqFHDhR/XX+6n2PauJJnlRjeLfObNtnejeb1F/oBpfk/+p2qp30zy7Zd7tnKsfOoWDzmGL23LzU8OWj1tPXh5zzAaLHzOVE3D4stirtXw4wPHaF5vUT6g4Kzhi80OwPuxinVgmWbHS/2i+M602vrFoNXT1oOXM96l/m06BV+cWr+C34MewR84Q/BfDVo97dPg5XeK4XrfoOHrlbXQKZfur+HrLV7CHy31+7HqpT7f4HAKOF7qTwxaPe3T4EXD+NgwaPjDVdbtan102TU+Nqq3OIZ/cXF3NNY4O3rIs4u7E4NWT1sPXq88/W/Y8CVBIZP/Ps2X6WKpvf3vsVG1xbPVeG+ZT+bq41w51uHjXHne/r3+OHeYxutTg1ZP+3ypH8RKP0D4Vlu/8tmrum5/n3Hh95+595duJxP+nbZ+9Yf+wtu7THhowkMTHprw0ISH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" alt="plot of chunk unnamed-chunk-12"/> </p>
+
+<p>This plot nicely shows the means and both 1- and 2-standard errors of the mean.</p>
+
+</body>
+
+</html>

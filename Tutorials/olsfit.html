@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>OLS Goodness of Fit</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>OLS Goodness of Fit</h1>
+
+<p>When building regression models, one of the biggest question relates to &ldquo;goodness-of-fit.&rdquo; How well does our model of the data (i.e., the selected predictor variables) actually &ldquo;fit&rdquo; the outcome data? In other words, how much of the variation in an outcome can we explain with a particular model?
+R provides a number of useful ways of assessing model fit, some of which are common (but not necessarily good) and some which are uncommon (but probably much better).
+To see these statistics in action, we&#39;ll build some fake data and then model using a small, bivariate model that incompletely models the data-generating process and a large, multivariate model that does so much more completely:</p>
+
+<pre><code class="r">set.seed(100)
+x1 &lt;- runif(500, 0, 10)
+x2 &lt;- rnorm(500, -2, 1)
+x3 &lt;- rbinom(500, 1, 0.5)
+y &lt;- -1 + x1 + x2 + 3 * x3 + rnorm(500)
+</code></pre>
+
+<p>Let&#39;s generate the bivariate model <code>m1</code> and store it and its output <code>sm1</code> for later:</p>
+
+<pre><code class="r">m1 &lt;- lm(y ~ x1)
+sm1 &lt;- summary(m1)
+</code></pre>
+
+<p>Then let&#39;s do the same for the multivariate model <code>m2</code> and its output <code>sm2</code>:</p>
+
+<pre><code class="r">m2 &lt;- lm(y ~ x1 + x2 + x3)
+sm2 &lt;- summary(m2)
+</code></pre>
+
+<p>Below we&#39;ll look at some different ways of assessing model fit.</p>
+
+<h2>R-Squared</h2>
+
+<p>One measure commonly used - perhaps against better wisdom - for assessing model fit is R-squared. R-squared speaks to the proportion of variance in the outcome that can be accounted for by the model.
+Looking at our simple bivariate model <code>m1</code>, we can extract R-squared as a measure of model fit in a number of ways. The easiest is simply to extract it from the <code>sm1</code> summary object:</p>
+
+<pre><code class="r">sm1$r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6223
+</code></pre>
+
+<p>But we can also calculate R-squared from our data in a number of ways:</p>
+
+<pre><code class="r">cor(y, x1)^2  # manually, as squared bivariate correlation
+</code></pre>
+
+<pre><code>## [1] 0.6223
+</code></pre>
+
+<pre><code class="r">var(m1$fitted)/var(y)  # manually, as ratio of variances
+</code></pre>
+
+<pre><code>## [1] 0.6223
+</code></pre>
+
+<pre><code class="r">(coef(m1)[2]/sqrt(cov(y, y)/cov(x1, x1)))^2  # manually, as weighted regression coefficient
+</code></pre>
+
+<pre><code>##     x1 
+## 0.6223
+</code></pre>
+
+<p>Commonly, we actually use the &ldquo;Adjusted R-squared&rdquo; because &ldquo;regular&rdquo; R-squared is sensitive to the number of independent variables in the model (i.e., as we put more variables into the model, R-squared increases even if those variables are unrelated to the outcome). Adjusted R-squared attempts to correct for this by deflating R-squared by the expect amount of increase from including irrelevant additional predictors.
+We can see this property of R-squared and Adjusted R-squared by adding two completely random variables unrelated to our other covariates or the outcome into our model and examine the impact on R-squared and Adjusted R-squared.</p>
+
+<pre><code class="r">tmp1 &lt;- rnorm(500, 0, 10)
+tmp2 &lt;- rnorm(500, 0, 10)
+tmp3 &lt;- rnorm(500, 0, 10)
+tmp4 &lt;- rnorm(500, 0, 10)
+</code></pre>
+
+<p>We can then compare the R-squared from our original bivariate model to that from the garbage dump model:</p>
+
+<pre><code class="r">sm1$r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6223
+</code></pre>
+
+<pre><code class="r">summary(lm(y ~ x1 + tmp1 + tmp2 + tmp2 + tmp4))$r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6289
+</code></pre>
+
+<p>R-squared increased some, even though these variables are unrelated to <code>y</code>. The adjusted R-squared value also changes, but less so than R-squared:</p>
+
+<pre><code class="r">sm1$adj.r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6216
+</code></pre>
+
+<pre><code class="r">summary(lm(y ~ x1 + tmp1 + tmp2 + tmp2 + tmp4))$adj.r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6259
+</code></pre>
+
+<p>So, relying on adjusted R-squared is still imperfect and, more than anything, highlights the problems of relying on R-squared (in either form) as a reliable measure of model fit.
+Of course, when we compare the R-squared and adjusted R-squared values from our bivariate model <code>m1</code> to our fuller, multivariate model <code>m2</code>, we see appropriate increases in R-squared:</p>
+
+<pre><code class="r"># R-squared
+sm1$r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6223
+</code></pre>
+
+<pre><code class="r">sm2$r.squared
+</code></pre>
+
+<pre><code>## [1] 0.9166
+</code></pre>
+
+<pre><code class="r"># adjusted R-squared
+sm1$adj.r.squared
+</code></pre>
+
+<pre><code>## [1] 0.6216
+</code></pre>
+
+<pre><code class="r">sm2$adj.r.squared
+</code></pre>
+
+<pre><code>## [1] 0.9161
+</code></pre>
+
+<p>In both cases, we see that R-squared and adjusted R-squared increase. The challenge is that because R-squared depends on factors other than model fit, it is an imperfect metric.</p>
+
+<h2>Standard Error of the Regression</h2>
+
+<p>A very nice way to assess model fit is the standard error of the regression (SER), sometimes just sigma. In R regression output, the value is labeled &ldquo;Residual standard error&rdquo; and is stored in a model summary object as <code>sigma</code>. You&#39;ll see it near the bottom of model output for the bivariate model <code>m1</code>:</p>
+
+<pre><code class="r">sm1
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x1)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -5.050 -1.634 -0.143  1.648  5.148 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -1.4499     0.1974   -7.35  8.4e-13 ***
+## x1            0.9707     0.0339   28.65  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.11 on 498 degrees of freedom
+## Multiple R-squared:  0.622,  Adjusted R-squared:  0.622 
+## F-statistic:  821 on 1 and 498 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<pre><code class="r">sm1$sigma
+</code></pre>
+
+<pre><code>## [1] 2.113
+</code></pre>
+
+<p>This value captures the sum of squared residuals, over the number of degrees of freedom in the model:</p>
+
+<pre><code class="r">sqrt(sum(residuals(m1)^2)/(m1$df.residual))
+</code></pre>
+
+<pre><code>## [1] 2.113
+</code></pre>
+
+<p>In other words, the value is proportionate to the standard deviation of the the model residuals. In large samples, it will converge on the standard deviation of the residuals:</p>
+
+<pre><code class="r">sd(residuals(m1))
+</code></pre>
+
+<pre><code>## [1] 2.111
+</code></pre>
+
+<p>We can also see it in the multivariate model <code>m2</code>:</p>
+
+<pre><code class="r">sm2$sigma
+</code></pre>
+
+<pre><code>## [1] 0.9949
+</code></pre>
+
+<pre><code class="r">sqrt(sum(residuals(m2)^2)/(m2$df.residual))
+</code></pre>
+
+<pre><code>## [1] 0.9949
+</code></pre>
+
+<p>Because sigma is a standard deviation (and not a variance), it is on the scale of the original outcome data. Thus, we can actually directly compare the standard deviation of the original outcome data <code>sd(y)</code> to the sigma of any model attepting to account for the variation in <code>y</code>. We see that our models reduce that standard deviation considerably:</p>
+
+<pre><code class="r">sd(y)
+</code></pre>
+
+<pre><code>## [1] 3.435
+</code></pre>
+
+<pre><code class="r">sm1$sigma
+</code></pre>
+
+<pre><code>## [1] 2.113
+</code></pre>
+
+<pre><code class="r">sm2$sigma
+</code></pre>
+
+<pre><code>## [1] 0.9949
+</code></pre>
+
+<p>Because of this inherent comparability of scale, sigma provides a much nicer measure of model fit than R-squared. It can be difficult to interpret how much better a given model fits compared to a baseline model when using R-squared (as we saw just above). By contrast, we can easily quantify the extra explanation done by a larger model by looking at sigma. We can, for example, see that the addition of several random, unrelated variables in our model does almost nothing to sigma:</p>
+
+<pre><code class="r">sm1$sigma
+</code></pre>
+
+<pre><code>## [1] 2.113
+</code></pre>
+
+<pre><code class="r">summary(lm(y ~ x1 + tmp1 + tmp2 + tmp2 + tmp4))$sigma
+</code></pre>
+
+<pre><code>## [1] 2.101
+</code></pre>
+
+<h2>Formal model comparison</h2>
+
+<p>While we can see in the sigma values that the multivariate model fit the outcome data better than the bivariate model, the statistics alone don&#39;t supply a formal test of that between-model comparison. Typically, such comparisons are - incorrectly - made by comparing the R-squared of different models. Such comparisons are problematic because of the sensitivity of R-squared to the number of included variables (in addition to model fit).
+We can make a formal comparison between &ldquo;nested&rdquo; models (i.e., models with a common outcome, where one contains a subset of the covariates of the other model and no additional coviariates). To do so, we conduct an F-test.
+The F-test compares the fit of the larger model to the smaller model. By definition, the larger model (i.e., the one with more predictors) will always fit the data better than the smaller model. Thus, just with R-squared, we can be tempted to add more covariates simply to increase model fit even if that increase in fit is not particurly meaningful. The F-test thus compares the residuals from the larger model to the smaller model and tests whether there is a statistically significant reduction in the sum of squared residuals. We execute the test using the <code>anova</code> function:</p>
+
+<pre><code class="r">anova(m1, m2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: y ~ x1
+## Model 2: y ~ x1 + x2 + x3
+##   Res.Df  RSS Df Sum of Sq   F Pr(&gt;F)    
+## 1    498 2224                            
+## 2    496  491  2      1733 876 &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>The output suggests that our multivariate model does a much better job of fitting the data than the bivariate model, as indicated by the much larger RSS value for <code>m1</code> (listed first) and the very large F-statistic (and associated very small, heavily-starred p-value).
+To see what&#39;s going on &ldquo;under the hood,&rdquo; we can calculate the RSS for both models, the sum of squares, and the associated F-statistic:</p>
+
+<pre><code class="r">sum(m1$residuals^2)                      # residual sum of squares for m1
+</code></pre>
+
+<pre><code>## [1] 2224
+</code></pre>
+
+<pre><code class="r">sum(m2$residuals^2)                      # residual sum of squares for m2
+</code></pre>
+
+<pre><code>## [1] 490.9
+</code></pre>
+
+<pre><code class="r">sum(m1$residuals^2)-sum(m2$residuals^2)  # sum of squares
+</code></pre>
+
+<pre><code>## [1] 1733
+</code></pre>
+
+<pre><code class="r"># the F-statistic
+f &lt;- ((sum(m1$residuals^2)-sum(m2$residuals^2))/sum(m2$residuals^2)) * # ratio of sum of squares
+    (m2$df.residual/(m1$df.residual-m2$df.residual)) # ratio of degrees of freedom
+f
+</code></pre>
+
+<pre><code>## [1] 875.5
+</code></pre>
+
+<pre><code class="r"># p-value (from the F distribution)
+pf(f, m1$df.residual-m2$df.residual, m2$df.residual, lower.tail = FALSE)
+</code></pre>
+
+<pre><code>## [1] 1.916e-163
+</code></pre>
+
+<p>Thus there are some complicated calculations being performed in order for the <code>anova</code> F-test to tell us whether the models differ in their fit. But, those calculations give us very clear inference about any improvement in model fit. Using the F-test rather than an ad-hoc comparison between (adjusted) R-squared values is a much more appropriate comparison of model fits.</p>
+
+<h2>Quantile-Quantile (QQ) plots</h2>
+
+<p>Another very nice way to assess goodness of fit is to do so visually using the QQ-plot. This plot, in general, compares the distributions of two variables. In the regression context, we can use it to compare the quantiles of the outcome distribution to the quantiles of the distribution of fitted values from the model. To do this in R, we need to extracted the fitted values from our model using the <code>fitted</code> function and the <code>qqplot</code> function to do the plotting.
+Let&#39;s compare the fit of our bivariate model to our multivariate model using two side-by-side qqplots.</p>
+
+<pre><code class="r">layout(matrix(1:2, nrow = 1))
+qqplot(y, fitted(m1), col = &quot;gray&quot;, pch = 15, ylim = c(-5, 10), main = &quot;Bivariate model&quot;)
+curve((x), col = &quot;blue&quot;, add = TRUE)
+qqplot(y, fitted(m2), col = &quot;gray&quot;, pch = 15, ylim = c(-5, 10), main = &quot;Multivariate model&quot;)
+curve((x), col = &quot;blue&quot;, add = TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAolBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOY8AZo8AZrU5AAA5ADk5AGU5OQA5OY85ZmU5ZrU5j485j9plAABlADllAGVlOY9lZjllZmVlZrVlj49ltbVltf2POQCPOTmPOWWPj2WPtY+P27WP29qP2/21ZgC1Zjm1ZmW124+1/rW1/tq1/v2+vr7ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v1ssqv2AAAANnRSTlP//////////////////////////////////////////////////////////////////////wChj04xAAAACXBIWXMAAAsSAAALEgHS3X78AAATZUlEQVR4nO3dC1vjxhUG4IhNKdt0m0I2SRtImgTapshNMUb//6/VI1mYi2WPNOc65/ueNssa+ayOX89oJGzzRYeEzBfaO4DoBPBBA/igAXzQAD5oAB80gA8awAcN4IMG8EED+KABfNAAPmgAHzSADxrABw3ggwbwQQP4oAF80AA+aAAfNIAPGsAHDeCDhgd+c9WknD9sv/pwP7nRy2/dXecX39Y9XEQtTzdNc7n9c9U3PWbYuW1nBh8FVviXD8KJ3DXO4c/+vN2r5P9252Z0JvkocMGnHUn/Tf+/ay661NRFt94+Gc5u08P0XXP2S9pouCU9YGmj7YAZW183f7xpPtyvhhvSN9KIShv+0Le829QO/HfbHdlc/eXj+cPTTf/l+cN25/7Td2bwUeCF73u/Xw9z/tntMBGkRyb98Xv/vOhv+d/Q8l0/TVz2JdbNmH7UNP0G/R37QTVuagf+54/X253++yS8sUeBdarfPq3TLm0fldtuvZsDhxvSE3vc2+cJ8fFjP1sOt663rT5+bK7TQ/X4sa+Uvth+c7Wt9LypHfhfri671Yd/v4EfOjP4KPAe43e7tNo+KYfDV/rG7jF4nhZ2z+br8emdvpdavnh+vNb9LLlqrtfDQ3X+8LypHfjbu+2QPf/vJLyxR4Fzqk999F9tdzLNaNsn8/Bs2Lc83jLVcnoUvcCvPvx2dfk4DW/rURCB7+7O/pEOWuk5n+apfcvjLftJbszLlicmuRf/knaGvfw+/ac/eF/3e/ka3tajIDLVpyd5anLdvH2uj7ekZcq4rBmaedny5LJm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" alt="plot of chunk unnamed-chunk-18"/> </p>
+
+<p>Note: The blue lines represent a <code>y=x</code> line.
+If the distribution of <code>y</code> and the distribution of the fitted values matched perfectly, then the gray dots would line up perflectly along the <code>y=x</code> line. We see, however, in the bivariate (underspecified) model (left panel) that the fitted values diverge considerably from the distribution of <code>y</code>. By contrast, the fitted values from our multivariate model (right panel) match the disribution of <code>y</code> much more closely. In both plots, however, the models clearly fail to precisely explain extreme values of <code>y</code>.
+While we cannot summarize the QQ-plot as a single numeric statistic, it provides a very rich characterization of fit that shows not only how well our model fits overall, but also where in the distribution of our outcome the model is doing a better or worse job of explaining the outcome.</p>
+
+<p>Though different from a QQ-plot, we can also plot our fitted values directly again the outcome in order to see how well the model is capturing variation in the outcome. The closer this cloud of points looks to a single, straight line, the better the model fit. Such plots can also help us capture non-linearities and other things in data. Let&#39;s compare the fit of the two models side-by-side again:</p>
+
+<pre><code class="r">layout(matrix(1:2, nrow = 1))
+plot(y, fitted(m1), col = &quot;gray&quot;, pch = 15, ylim = c(-5, 10), main = &quot;Bivariate model&quot;)
+curve((x), col = &quot;blue&quot;, add = TRUE)
+plot(y, fitted(m2), col = &quot;gray&quot;, pch = 15, ylim = c(-5, 10), main = &quot;Multivariate model&quot;)
+curve((x), col = &quot;blue&quot;, add = TRUE)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAolBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOY8AZo8AZrU5AAA5ADk5AGU5OQA5OY85ZmU5ZrU5j485j9plAABlADllAGVlOY9lZjllZmVlZrVlj49ltbVltf2POQCPOTmPOWWPj2WPtY+P27WP29qP2/21ZgC1Zjm1ZmW124+1/rW1/tq1/v2+vr7ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v1ssqv2AAAANnRSTlP//////////////////////////////////////////////////////////////////////wChj04xAAAACXBIWXMAAAsSAAALEgHS3X78AAAZuElEQVR4nO2di3rkuHGF3RpG0cSZbKTdtRNL3ngtxXamlY1aEt7/1dIkmyQuBTZIoAqXqvPZO90kulQHPwDeQPJ3SsRSv8udgCiPBDxTCXimEvBMJeCZSsAzlYBnKgHPVAKeqQQ8Uwl4phLwTCXgmUrAM5WAZyoBz1QCnqkEPFMJeKYS8Ewl4JlKwDOVgGcqAc9UAp6pcMB/PBx63b6dP3357i2kr3p5DA9+jgsHyabPp8Ph/vzv62B60pjc2VmBtYAKXq+EK3o5VA7+5l/PWfX87eQ2OKOsBSzwfSL9f/v/vxzuVG/qTp3OjeHmua+mPxxufu0LjUv6CusLnTvMZP10+Oenw5fvr+OCfkXfo/qCfxosX4qWA/4P50Q+Hv7t6+3b59Pw8fbtnNz/DM4KrAVc8IP376dxzL95HgeCvmb6f34b2sWw5P9Gyy/DMHE/hDgdJg295jAUGH44dKqpaDng//L18Zz0f3rBF1YLqEP9uVn3KZ1r5VmdLmPguKBv2FO284D4/nUYLcelp7PV96+Hx76q3r8OkfoP55Wv50hz0XLA//pwr16//N0CPzorsBZwt/GXlF7PjXLcfPUrLnUwDwuX1vw4Ne9+XW/5bq6v0zBKvh4eT2NV3b7NRcsB//xy7rK3/+sFX1gtYA71vY/h0znJfkQ7N+axNSyWpyU+y30t1gL+9cs/Hu7f/eDLqgUS8Orl5r/6jVbf5vtxarE8LVkGuUm6Zc8gp/2l3Bqz/GP/n2Hj/ThkaYIvqxZIhvq+kfcmTwe7rU9L+t2UabdmNKNb9u7WXOo2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" alt="plot of chunk unnamed-chunk-19"/> </p>
+
+<p>As above, we see that the bivariate does a particularly power job of explaining extreme cases in <code>y</code>, whereas the multivariate model does much better but remains imperfect (due to random variation in <code>y</code> from when we created the data).</p>
+
+</body>
+
+</html>

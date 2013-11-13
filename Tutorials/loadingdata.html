@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Loading Data</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Loading Data</h1>
+
+<p>In order to use R for data analysis, we need to get our data into R. Unfortunately, because R lacks a graphical user interface, loading data is not particularly intuitive for those used to working with other statistical software. This tutorial explains how to load data into R as a dataframe object.</p>
+
+<h2>General Notes</h2>
+
+<p>As a preliminary note, one of the things about R that causes a fair amount of confusion is that R reads character data, by default, as factor. In other words, when your data contain alphanumeric character strings (e.g., names of countries, free response survey questions), R will read those data in as factor variables rather than character variables. This can be changed when reading in data using almost any of the following techniques by setting a <code>stringsAsFactors=FALSE</code> argument.</p>
+
+<p>A second point of difficulty for beginners to R is that R offers no obvious visual way to load data into R. Lacking a full graphical user interface, there is no &ldquo;open&rdquo; button to read in a dataset. The closest thing to this is the <code>file.choose</code> function. If you don&#39;t know the name or location of a file you want to load, you can use <code>file.choose()</code> to open a dialog window that will let you select a file. The response, however, is just a character string containing the name and full path of the file. No action is taken with regard to that file. If, for example, you want to load a comma-separated value file (described below), you could make a call like the following:</p>
+
+<pre><code class="r"># read.csv(file.choose())
+</code></pre>
+
+<p>This will first open the file choose dialog window and, when you select a file, R will then process that file with <code>read.csv</code> and return a dataframe.
+While <code>file.choose</code> is a convenient function for interactively working with R. It is generally better to manually write filenames into your code to maximize reproducibility.</p>
+
+<h2>Built-in Data</h2>
+
+<p>One of the neat little features of R is that it comes with some built-in datasets, and many add-on packages supply additional datasets to demonstrate their functionality. We can access these datasets with the <code>data()</code> function. Here we&#39;ll just print the first few datasets:</p>
+
+<pre><code class="r">head(data()$results)
+</code></pre>
+
+<pre><code>##      Package  LibPath                              Item       
+## [1,] &quot;Amelia&quot; &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;africa&quot;   
+## [2,] &quot;Amelia&quot; &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;freetrade&quot;
+## [3,] &quot;car&quot;    &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;AMSsurvey&quot;
+## [4,] &quot;car&quot;    &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;Adler&quot;    
+## [5,] &quot;car&quot;    &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;Angell&quot;   
+## [6,] &quot;car&quot;    &quot;C:/Program Files/R/R-3.0.2/library&quot; &quot;Anscombe&quot; 
+##      Title                                                 
+## [1,] &quot;Economic and Political Indictors in 6 African States&quot;
+## [2,] &quot;Trade Policy and Democracy in 9 Asian States&quot;        
+## [3,] &quot;American Math Society Survey Data&quot;                   
+## [4,] &quot;Experimenter Expectations&quot;                           
+## [5,] &quot;Moral Integration of American Cities&quot;                
+## [6,] &quot;U. S. State Public-School Expenditures&quot;
+</code></pre>
+
+<p>Datasets in the <strong>dataset</strong> package are pre-loaded with R and can simply be called by name from the R console. For example, we can see the &ldquo;Monthly Airline Passenger Numbers 1949-1960&rdquo; dataset by simply calling:</p>
+
+<pre><code class="r">AirPassengers
+</code></pre>
+
+<pre><code>##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 1949 112 118 132 129 121 135 148 148 136 119 104 118
+## 1950 115 126 141 135 125 149 170 170 158 133 114 140
+## 1951 145 150 178 163 172 178 199 199 184 162 146 166
+## 1952 171 180 193 181 183 218 230 242 209 191 172 194
+## 1953 196 196 236 235 229 243 264 272 237 211 180 201
+## 1954 204 188 235 227 234 264 302 293 259 229 203 229
+## 1955 242 233 267 269 270 315 364 347 312 274 237 278
+## 1956 284 277 317 313 318 374 413 405 355 306 271 306
+## 1957 315 301 356 348 355 422 465 467 404 347 305 336
+## 1958 340 318 362 348 363 435 491 505 404 359 310 337
+## 1959 360 342 406 396 420 472 548 559 463 407 362 405
+## 1960 417 391 419 461 472 535 622 606 508 461 390 432
+</code></pre>
+
+<p>To obtain detailed information about the datasets, you can just access the dataset documention: <code>? AirPassengers</code>.
+We generally want to work with our own data, however, rather than some arbitrary dataset, so we&#39;ll have to load data into R.</p>
+
+<h2>Manual data entry</h2>
+
+<p>Because a dataframe is just a collection of data vectors, we can always enter data by hand into the R console. For example, let&#39;s say we have two variables (<code>height</code> and <code>weight</code>) measured on each of six observations. We can enter these simply by typing them into the console and combining them into a dataframe, like:</p>
+
+<pre><code class="r">height &lt;- c(165, 170, 163, 182, 175, 190)
+weight &lt;- c(45, 60, 70, 80, 63, 72)
+mydf &lt;- cbind.data.frame(height, weight)
+</code></pre>
+
+<p>We can then call our dataframe by name:</p>
+
+<pre><code class="r">mydf
+</code></pre>
+
+<pre><code>##   height weight
+## 1    165     45
+## 2    170     60
+## 3    163     70
+## 4    182     80
+## 5    175     63
+## 6    190     72
+</code></pre>
+
+<p>R also provides a function called <code>scan</code> that allows us to type data into a special prompt. For example, we might want to read in six values of gender for our observations above and we could do that by typing <code>mydf$gender &lt;- scan(n=6, what=&quot;numeric&quot;)</code> and entering the six values, one per line when prompted.
+But entering data manually in this fashion is inefficient and doesn&#39;t make sense if we already have data saved in an external file.</p>
+
+<h2>Loading tabular data</h2>
+
+<p>The easiest data to load into R comes in tabular file formats, like comma-separated value (CSV) or tab-separated value (TSV) files. These can easily be created using a spreadsheet editor (like Microsoft Excel), a text editor (like Notepad), or exported from many other computer programs (including all statistical packages).</p>
+
+<h3><code>read.table</code> and its variants</h3>
+
+<p>The general function for reading these kinds of data is called <code>read.table</code>. Two other functions, <code>read.csv</code> and <code>read.delim</code>, provide convenient wrappers for reading CSV and TSV files, respectively. (Note: <code>read.csv2</code> and <code>read.delim2</code> provide slightly different wrappers designed for reading data that uses a semicolon rather than comma separator and a comma rather than a period as the decimal point.)
+Reading in data that is in CSV format is easy. For example, let&#39;s read in the following file, which contains some data about patient admissions for five patients:</p>
+
+<pre><code>patient,dob,entry,discharge,fee,sex
+001,10/21/1946,12/12/2004,12/14/2004,8000,1
+002,05/01/1980,07/08/2004,08/08/2004,12000,2
+003,01/01/1960,01/01/2004,01/04/2004,9000,2
+004,06/23/1998,11/11/2004,12/25/2004,15123,1
+</code></pre>
+
+<p>We can read these data in from from the console by copying and pasting them into a command like the following:</p>
+
+<pre><code class="r">mydf &lt;- read.csv(text = &quot;\npatient,dob,entry,discharge,fee,sex\n001,10/21/1946,12/12/2004,12/14/2004,8000,1\n002,05/01/1980,07/08/2004,08/08/2004,12000,2\n003,01/01/1960,01/01/2004,01/04/2004,9000,2\n004,06/23/1998,11/11/2004,12/25/2004,15123,1&quot;)
+mydf
+</code></pre>
+
+<pre><code>##   patient        dob      entry  discharge   fee sex
+## 1       1 10/21/1946 12/12/2004 12/14/2004  8000   1
+## 2       2 05/01/1980 07/08/2004 08/08/2004 12000   2
+## 3       3 01/01/1960 01/01/2004 01/04/2004  9000   2
+## 4       4 06/23/1998 11/11/2004 12/25/2004 15123   1
+</code></pre>
+
+<p>Or, we can read them from the local file directly:</p>
+
+<pre><code class="r">mydf &lt;- read.csv(&quot;../Data/patient.csv&quot;)
+</code></pre>
+
+<p>Reading them in either way will produce the exact same dataframe. If the data were tab- or semicolon-separated, the call would be exactly the same except for the use of <code>read.delim</code> and <code>read.csv2</code>, respectively.</p>
+
+<p>Note: Any time we read data into R, we need to store it as a variable, otherwise it will simply be printed to the console and we won&#39;t be able to do anything with it. You can name dataframes whatever you want.</p>
+
+<h3><code>scan</code> and <code>readLines</code></h3>
+
+<p>Occasionally, we need to read in data as a vector of character strings rather than as delimited data to make a dataframe. For example, we might have a file that contains textual data (e.g., from a news story) and we want to read in each word or each line of the file as a separate element of a vector in order to perform some kind of text processing on it.
+To do this kind of analysis we can use one of two functions. The <code>scan</code> function we used above to manually enter data at the console can also be used to read data in from a file, as can another function called <code>readLines</code>.
+We can see how the two functions work by first writing some miscellaneous text to a file (using <code>cat</code>) and then reading in that content:</p>
+
+<pre><code class="r">cat(&quot;TITLE&quot;, &quot;A first line of text&quot;, &quot;A second line of text&quot;, &quot;The last line of text&quot;, 
+    file = &quot;ex.data&quot;, sep = &quot;\n&quot;)
+</code></pre>
+
+<p>We can use <code>scan</code> to read in the data as a vector of words:</p>
+
+<pre><code class="r">scan(&quot;ex.data&quot;, what = &quot;character&quot;)
+</code></pre>
+
+<pre><code>##  [1] &quot;TITLE&quot;  &quot;A&quot;      &quot;first&quot;  &quot;line&quot;   &quot;of&quot;     &quot;text&quot;   &quot;A&quot;     
+##  [8] &quot;second&quot; &quot;line&quot;   &quot;of&quot;     &quot;text&quot;   &quot;The&quot;    &quot;last&quot;   &quot;line&quot;  
+## [15] &quot;of&quot;     &quot;text&quot;
+</code></pre>
+
+<p>The <code>scan</code> function accepts additional arguments such <code>n</code> to specify the number of lines to read from the file and <code>sep</code> to specify how to divide the file into separate entries in the resulting vector:</p>
+
+<pre><code class="r">scan(&quot;ex.data&quot;, what = &quot;character&quot;, sep = &quot;\n&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;TITLE&quot;                 &quot;A first line of text&quot;  &quot;A second line of text&quot;
+## [4] &quot;The last line of text&quot;
+</code></pre>
+
+<pre><code class="r">scan(&quot;ex.data&quot;, what = &quot;character&quot;, n = 1, sep = &quot;\n&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;TITLE&quot;
+</code></pre>
+
+<p>We can do the same thing with <code>readLines</code>, which assumes that we want to read each line as a complete string rather than separating the file contents in some way:</p>
+
+<pre><code class="r">readLines(&quot;ex.data&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;TITLE&quot;                 &quot;A first line of text&quot;  &quot;A second line of text&quot;
+## [4] &quot;The last line of text&quot;
+</code></pre>
+
+<p>It also accepts an <code>n</code> argument:</p>
+
+<pre><code class="r">readLines(&quot;ex.data&quot;, n = 2)
+</code></pre>
+
+<pre><code>## [1] &quot;TITLE&quot;                &quot;A first line of text&quot;
+</code></pre>
+
+<p>Let&#39;s delete the file we created just to cleanup:</p>
+
+<pre><code class="r">unlink(&quot;ex.data&quot;)  # tidy up
+</code></pre>
+
+<h2>Reading .RData data</h2>
+
+<p>R has its own fill format called .RData that can be used to store data for use in R. It is fairly rare to encounter data in this format, but reading it into R is - as one might expect - very easy. You simply need to call <code>load(&#39;thefile.RData&#39;)</code> and the objects stored in the file will be loaded into memory in R.
+One context in which you might use an .RData file is when saving your R workspace. When you quite R (using <code>q()</code>), R asks if you want to save your workspace. If you select &ldquo;yes&rdquo;, R stores all of the objects currently in memory to a .RData file. This file can then be <code>load</code>ed in a subsequent R session to pick up quite literally exactly where you left off when you saved the file.</p>
+
+<h2>Loading &ldquo;Foreign&rdquo; data</h2>
+
+<p>Because many people use statistical packages like SAS, SPSS, and Stata for statistical analysis, much of the data available in the world is saved in proprietary file formats created and owned by the the companies that publish that software. This is bad because those data formats are deprecated (i.e., made irrelevant) quite often (e.g., when Stata upgraded to version 11, it introduced a new file format and its older file formats were no longer compatible with the newest version of the software). This creates problems for reproducibility because not everyone has access to Stata (or to SPSS or SAS) and storing data in these formats makes it harder to share data and ties data to specific software owned by specific companies.
+Editorializing aside, R can import data from a variety of proprietary file formats. Doing so requires one of the recommended add-on packages called <strong>foreign</strong>. Let&#39;s load it here:</p>
+
+<pre><code class="r">library(foreign)
+</code></pre>
+
+<p>The <strong>foreign</strong> package can be used to import data from a variety of proprietary formats, including Stata .dta formats (using the <code>read.dta</code> function), Octave or Matlab .mat formats (using <code>read.octave), SPSS .sav formats (using</code>read.spss<code>), SAS permanent .sas7bdat formats (using</code>read.ssd<code>) and SAS XPORT .stx or .xpt formats (using</code>read.xport<code>), Systat .syd formats (using</code>read.systat<code>), and Minitab .tmp formats (using</code>read.mtp<code>).
+Note: The **foreign** package sometimes has trouble with SPSS formats, but these files can also be opened with the</code>spss.get<code>function from the **Hmisc** package or one of several functions from the **memisc** package (</code>spss.fixed.file<code>,</code>spss.portable.file<code>, and</code>spss.system.file).
+We can try loading some &ldquo;foreign&rdquo; data stored in Stata format:</p>
+
+<pre><code class="r">englebert &lt;- read.dta(&quot;../Data/EnglebertPRQ2000.dta&quot;)
+</code></pre>
+
+<pre><code>## Warning: cannot read factor labels from Stata 5 files
+</code></pre>
+
+<p>We can then look at the loaded data using any of our usual object examination functions:</p>
+
+<pre><code class="r">dim(englebert)  # dimensions
+</code></pre>
+
+<pre><code>## [1] 50 27
+</code></pre>
+
+<pre><code class="r">head(englebert)  # first few rows
+</code></pre>
+
+<pre><code>##        country wbcode indep paris london brussels lisbon commit exprop
+## 1       ANGOLA    AGO  1975     0      0        0      1  3.820   5.36
+## 2        BENIN    BEN  1960     1      0        0      0  4.667   6.00
+## 3     BOTSWANA    BWA  1966     0      1        0      0  6.770   7.73
+## 4 BURKINA FASO    BFA  1960     1      0        0      0  5.000   4.45
+## 5      BURUNDI    BDI  1962     0      0        1      0  6.667   7.00
+## 6     CAMEROON    CMR  1960     1      0        0      0  6.140   6.45
+##   corrupt instqual buroqual goodgov ruleolaw pubadmin     growth  lcon
+## 1   5.000   2.7300    4.470   4.280    3.970     4.73 -0.0306405 6.594
+## 2   1.333   3.0000    2.667   3.533    4.556     2.00 -0.0030205 6.949
+## 3   6.590   8.3300    6.140   7.110    7.610     6.36  0.0559447 6.358
+## 4   6.060   5.3000    4.170   5.000    4.920     5.11 -0.0000589 6.122
+## 5   3.000   0.8333    4.000   4.300    4.833     3.50 -0.0036746 6.461
+## 6   4.240   4.5500    6.670   5.610    5.710     5.45  0.0147910 6.463
+##   lconsq      i     g vlegit hlegit  elf hieafvm hieafvs warciv language
+## 1  43.49  3.273 34.22      0 0.5250 0.78    1.00    0.00     24      4.2
+## 2  48.29  6.524 22.79      0 0.6746 0.62    2.67    0.47      0      5.3
+## 3  40.42 22.217 27.00      1 0.9035 0.51    2.00    0.00      0      3.1
+## 4  37.48  7.858 17.86      0 0.5735 0.68    1.25    0.97      0      4.8
+## 5  41.75  4.939 13.71      1 0.9800 0.04    3.00    0.00      8      0.6
+## 6  41.77  8.315 20.67      0 0.8565 0.89    1.50    0.76      0      8.3
+</code></pre>
+
+<pre><code class="r">names(englebert)  # column/variable names
+</code></pre>
+
+<pre><code>##  [1] &quot;country&quot;  &quot;wbcode&quot;   &quot;indep&quot;    &quot;paris&quot;    &quot;london&quot;   &quot;brussels&quot;
+##  [7] &quot;lisbon&quot;   &quot;commit&quot;   &quot;exprop&quot;   &quot;corrupt&quot;  &quot;instqual&quot; &quot;buroqual&quot;
+## [13] &quot;goodgov&quot;  &quot;ruleolaw&quot; &quot;pubadmin&quot; &quot;growth&quot;   &quot;lcon&quot;     &quot;lconsq&quot;  
+## [19] &quot;i&quot;        &quot;g&quot;        &quot;vlegit&quot;   &quot;hlegit&quot;   &quot;elf&quot;      &quot;hieafvm&quot; 
+## [25] &quot;hieafvs&quot;  &quot;warciv&quot;   &quot;language&quot;
+</code></pre>
+
+<pre><code class="r">str(englebert)  # object structure
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  27 variables:
+##  $ country : chr  &quot;ANGOLA&quot; &quot;BENIN&quot; &quot;BOTSWANA&quot; &quot;BURKINA FASO&quot; ...
+##  $ wbcode  : chr  &quot;AGO&quot; &quot;BEN&quot; &quot;BWA&quot; &quot;BFA&quot; ...
+##  $ indep   : num  1975 1960 1966 1960 1962 ...
+##  $ paris   : num  0 1 0 1 0 1 0 1 1 1 ...
+##  $ london  : num  0 0 1 0 0 0 0 0 0 0 ...
+##  $ brussels: num  0 0 0 0 1 0 0 0 0 0 ...
+##  $ lisbon  : num  1 0 0 0 0 0 1 0 0 0 ...
+##  $ commit  : num  3.82 4.67 6.77 5 6.67 ...
+##  $ exprop  : num  5.36 6 7.73 4.45 7 ...
+##  $ corrupt : num  5 1.33 6.59 6.06 3 ...
+##  $ instqual: num  2.73 3 8.33 5.3 0.833 ...
+##  $ buroqual: num  4.47 2.67 6.14 4.17 4 ...
+##  $ goodgov : num  4.28 3.53 7.11 5 4.3 ...
+##  $ ruleolaw: num  3.97 4.56 7.61 4.92 4.83 ...
+##  $ pubadmin: num  4.73 2 6.36 5.11 3.5 ...
+##  $ growth  : num  -3.06e-02 -3.02e-03 5.59e-02 -5.89e-05 -3.67e-03 ...
+##  $ lcon    : num  6.59 6.95 6.36 6.12 6.46 ...
+##  $ lconsq  : num  43.5 48.3 40.4 37.5 41.8 ...
+##  $ i       : num  3.27 6.52 22.22 7.86 4.94 ...
+##  $ g       : num  34.2 22.8 27 17.9 13.7 ...
+##  $ vlegit  : num  0 0 1 0 1 0 1 0 0 0 ...
+##  $ hlegit  : num  0.525 0.675 0.904 0.573 0.98 ...
+##  $ elf     : num  0.78 0.62 0.51 0.68 0.04 ...
+##  $ hieafvm : num  1 2.67 2 1.25 3 ...
+##  $ hieafvs : num  0 0.47 0 0.97 0 ...
+##  $ warciv  : num  24 0 0 0 8 0 0 0 29 0 ...
+##  $ language: num  4.2 5.3 3.1 4.8 0.6 ...
+##  - attr(*, &quot;datalabel&quot;)= chr &quot;&quot;
+##  - attr(*, &quot;time.stamp&quot;)= chr &quot;25 Mar 2000 18:07&quot;
+##  - attr(*, &quot;formats&quot;)= chr  &quot;%21s&quot; &quot;%9s&quot; &quot;%9.0g&quot; &quot;%9.0g&quot; ...
+##  - attr(*, &quot;types&quot;)= int  148 133 102 102 102 102 102 102 102 102 ...
+##  - attr(*, &quot;val.labels&quot;)= chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  - attr(*, &quot;var.labels&quot;)= chr  &quot;Name of country&quot; &quot;World Bank three-letter code&quot; &quot;Date of independence&quot; &quot;Colonization by France&quot; ...
+##  - attr(*, &quot;version&quot;)= int 5
+</code></pre>
+
+<pre><code class="r">summary(englebert)  # summary
+</code></pre>
+
+<pre><code>##    country             wbcode              indep          paris     
+##  Length:50          Length:50          Min.   :  -4   Min.   :0.00  
+##  Class :character   Class :character   1st Qu.:1960   1st Qu.:0.00  
+##  Mode  :character   Mode  :character   Median :1962   Median :0.00  
+##                                        Mean   :1921   Mean   :0.38  
+##                                        3rd Qu.:1968   3rd Qu.:1.00  
+##                                        Max.   :1993   Max.   :1.00  
+##                                        NA&#39;s   :2                    
+##      london        brussels        lisbon        commit         exprop    
+##  Min.   :0.00   Min.   :0.00   Min.   :0.0   Min.   :1.68   Min.   :2.00  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.0   1st Qu.:4.00   1st Qu.:4.50  
+##  Median :0.00   Median :0.00   Median :0.0   Median :5.00   Median :6.05  
+##  Mean   :0.34   Mean   :0.06   Mean   :0.1   Mean   :4.94   Mean   :5.90  
+##  3rd Qu.:1.00   3rd Qu.:0.00   3rd Qu.:0.0   3rd Qu.:6.04   3rd Qu.:6.88  
+##  Max.   :1.00   Max.   :1.00   Max.   :1.0   Max.   :8.00   Max.   :9.33  
+##                                              NA&#39;s   :7      NA&#39;s   :7     
+##     corrupt        instqual        buroqual         goodgov    
+##  Min.   :0.00   Min.   :0.833   Min.   : 0.667   Min.   :1.95  
+##  1st Qu.:3.00   1st Qu.:3.180   1st Qu.: 3.130   1st Qu.:3.99  
+##  Median :4.39   Median :3.790   Median : 3.940   Median :4.87  
+##  Mean   :4.38   Mean   :4.154   Mean   : 4.239   Mean   :4.72  
+##  3rd Qu.:5.79   3rd Qu.:5.340   3rd Qu.: 5.300   3rd Qu.:5.53  
+##  Max.   :8.71   Max.   :8.330   Max.   :10.000   Max.   :7.40  
+##  NA&#39;s   :7      NA&#39;s   :7       NA&#39;s   :7        NA&#39;s   :7     
+##     ruleolaw       pubadmin        growth            lcon     
+##  Min.   :2.33   Min.   :1.25   Min.   :-0.038   Min.   :5.53  
+##  1st Qu.:4.33   1st Qu.:3.25   1st Qu.:-0.005   1st Qu.:6.32  
+##  Median :5.02   Median :4.17   Median : 0.002   Median :6.60  
+##  Mean   :5.00   Mean   :4.31   Mean   : 0.004   Mean   :6.67  
+##  3rd Qu.:5.97   3rd Qu.:5.49   3rd Qu.: 0.013   3rd Qu.:7.01  
+##  Max.   :7.61   Max.   :9.36   Max.   : 0.056   Max.   :8.04  
+##  NA&#39;s   :7      NA&#39;s   :7      NA&#39;s   :6        NA&#39;s   :6     
+##      lconsq           i               g            vlegit     
+##  Min.   :30.6   Min.   : 1.40   Min.   :11.1   Min.   :0.000  
+##  1st Qu.:39.9   1st Qu.: 5.41   1st Qu.:18.7   1st Qu.:0.000  
+##  Median :43.5   Median : 9.86   Median :22.9   Median :0.000  
+##  Mean   :44.8   Mean   :10.25   Mean   :23.9   Mean   :0.213  
+##  3rd Qu.:49.1   3rd Qu.:14.32   3rd Qu.:27.8   3rd Qu.:0.000  
+##  Max.   :64.6   Max.   :25.62   Max.   :44.2   Max.   :1.000  
+##  NA&#39;s   :6      NA&#39;s   :6       NA&#39;s   :6      NA&#39;s   :3      
+##      hlegit           elf           hieafvm        hieafvs     
+##  Min.   :0.000   Min.   :0.040   Min.   :0.67   Min.   :0.000  
+##  1st Qu.:0.330   1st Qu.:0.620   1st Qu.:1.52   1st Qu.:0.000  
+##  Median :0.582   Median :0.715   Median :1.84   Median :0.480  
+##  Mean   :0.572   Mean   :0.651   Mean   :1.86   Mean   :0.503  
+##  3rd Qu.:0.850   3rd Qu.:0.827   3rd Qu.:2.00   3rd Qu.:0.790  
+##  Max.   :1.000   Max.   :0.930   Max.   :3.00   Max.   :1.490  
+##  NA&#39;s   :4       NA&#39;s   :12      NA&#39;s   :12     NA&#39;s   :12     
+##      warciv        language    
+##  Min.   : 0.0   Min.   : 0.10  
+##  1st Qu.: 0.0   1st Qu.: 1.90  
+##  Median : 0.0   Median : 4.00  
+##  Mean   : 6.2   Mean   : 6.53  
+##  3rd Qu.: 8.0   3rd Qu.: 8.30  
+##  Max.   :38.0   Max.   :27.70  
+##                 NA&#39;s   :9
+</code></pre>
+
+<p>If you ever encounter trouble importing foreign data formats into R, a good option is to use a piece of software called <a href="http://www.stattransfer.com/">StatTransfer</a>, which can convert between dozens of different file formats. Using StatTransfer to convert a file format into a CSV or R .RData format will essentially guarantee that it is readable by R.</p>
+
+<h2>Reading Excel files</h2>
+
+<p>Sometimes we need to read data in from Excel. In almost every situation, it is easiest to use Excel to convert this kind of file into a comma-separated CSV file first and then load it into R using <code>read.csv</code>. That said, there are several packages designed to read Excel foramts directly, but all have disadvantages.</p>
+
+<ul>
+<li><a href="http://cran.r-project.org/web/packages/XLConnect/index.html"><strong>XLConnect</strong></a> can read a variety of Excel formats, but requires you to have Java installed on your computer.</li>
+<li><a href="http://cran.r-project.org/web/packages/xlsx/index.html"><strong>xlsx</strong></a> also uses a Java library</li>
+<li><a href="http://cran.r-project.org/web/packages/gdata/index.html"><strong>gdata</strong></a>, in addition to many other things, includes a <code>read.xls</code> function that can read Excel .xls files, but requires having Perl installed on your machine</li>
+<li><a href="http://www.omegahat.org/RDCOMClient/"><strong>RDCOMClient</strong></a> can also read Excel files and interact with them dynamically, but is also not available on CRAN.</li>
+<li><a href="http://www.omegahat.org/RExcelXML/"><strong>RExcelXML</strong></a> can read post-2007 era Excel files, but is also not on CRAN.</li>
+<li><a href="http://www.swissr.org/software/xlsreadwrite"><strong>xlsReadWrite</strong></a> requires propriety software to do the file conversion and therefore isn&#39;t available on CRAN
+Thus, while there are many options for reading Excel files, none has become the recommended method for loading these files. <strong>XLConnect</strong> perhaps provides the preferred method, but - reiterating the above point - it is often just easier to convert an Excel file to CSV rather than trying to load the Excel file directly.</li>
+</ul>
+
+<h2>Notes on other data situations</h2>
+
+<p>Sometimes one encounters data in formats that are neither traditional, text-based tabular formats (like CSV or TSV) or proprietary statistical formats (like .dta, .sav, etc.). For example, you sometimes encounter data that is recorded in an XML markup format or that is saved in &ldquo;fixed-width format&rdquo;, and so forth. So long as the data is human-readable (i.e., text), you will be able to find or write R code to deal with these files and convert them to an R dataframe. Depending on the file format, this may be time consuming, but everything is possible.</p>
+
+<p>XML files can easily be read using the <strong>XML</strong> package. Indeed, its functions <code>xmlToDataFrame</code> and <code>xmlToList</code> easily convert almost any well-formed XML document into a dataframe or list, respectively.</p>
+
+<p>Fixed-width file formats are some of the hardest file formats to deal with. These files, typically built during the 20th Century, are digitized versions of data that was originally stored on punch cards. For example, much of the pre-2000 public opinion data archived at the Roper Center for Public Opinion Research&#39;s iPoll databank is stored in fixed width format. These formats store data as rows of numbers without variable names, value delimiters (like the comma or tab), and require a detailed codebook to translate them into human- or computer-readable data.
+For example, the following 14 lines represent the first two records of a public opinion data file from 1998:</p>
+
+<pre><code>000003204042898                    248 14816722  1124 13122292122224442 2 522  1
+0000032222222444444444444444144444444424424                                    2
+000003          2     1    1    2    312922 3112422222121222          42115555 3
+00000355554115           553722211212221122222222352   42       4567   4567    4
+000003108 41 52 612211                    1                229                 5
+000003                                                                         6
+000003    20                                                01.900190 0198     7
+000012212042898                    248 14828523  1113 1312212111111411142 5213 1
+0000122112221111141244412414114224444444144                                    2
+000012          1     2    1    2    11212213123112232322113          31213335 3
+00001255333115           666722222222221122222226642   72       4567   4567    4
+000012101261 511112411                    1                212                 5
+000012                                                                         6
+000012    32                                                01.630163 0170     7
+</code></pre>
+
+<p>Clearly, these data are not easily interpretable despite the fact that there is some obvious pattern to the data. As long as we have a file indicating what each number means, we can use the <code>read.fwf</code> function (from base R) to translate this file into a dataframe. The code is tedious, so there isn&#39;t space to demonstrate it here, but know that it is possible.</p>
+
+</body>
+
+</html>

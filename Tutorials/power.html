@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Power, Effect Sizes, and Minimum Detectable Effects</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Power, Effect Sizes, and Minimum Detectable Effects</h1>
+
+<p>When designing an experiment, we generally want to be able to create an experiment that adequately tests our hypothesis.
+Accomplishing this requires having sufficient &ldquo;power&rdquo; to detect any effects. Power is sometimes also called &ldquo;sensitivity.&rdquo;
+Power refers to the ability of a test (i.e., an analysis of an experiment) to detect a &ldquo;true effect&rdquo; that is different from the null hypothesis (e.g., the ability to detect a difference between treatment and control when that difference actually exists).</p>
+
+<h2>Factors influencing power</h2>
+
+<p>There are four factors that influence power: sample size, the true effect size, the variance of the effect, and the alpha-threshold (level of significance).
+The most important factor in power is sample size. Larger samples have more power than small samples, but the gain is power is non-linear. There is a declining marginal return (in terms of power) for each additional unit in the experiment. So designing an experiment trades off power with cost-like considerations.
+The alpha level (level of significance) also influences power. If we have a more liberal threshold (i.e., a higher alpha level), we have more power to detect the effect. But this higher power is due to the fact that the more liberal treshold also increases our &ldquo;false positive&rdquo; rate, where the analysis is more likely to say there is an effect when in fact there is not. So, again, there is a trade-off between detecting a true effect and avoiding false detections.</p>
+
+<h2>Power of a t-test</h2>
+
+<p>One of the simplest examples of power involves looking at a common statistical test for analyzing experiments: the t-test.
+The t-test looks at the difference in means for two groups or the difference between one group and a null hypothesis value (often zero).</p>
+
+<pre><code class="r">t.test()
+</code></pre>
+
+<pre><code>## Error: argument &quot;x&quot; is missing, with no default
+</code></pre>
+
+<pre><code class="r">power.t.test()
+</code></pre>
+
+<pre><code>## Error: exactly one of &#39;n&#39;, &#39;delta&#39;, &#39;sd&#39;, &#39;power&#39;, and &#39;sig.level&#39; must be
+## NULL
+</code></pre>
+
+<h2>Minimum detectable effect size</h2>
+
+<p>Education researcher Howard Bloom has suggested that power is a difficult concept to grasp.
+He instead suggests we rely on a measure of &ldquo;minimum detectable effect&rdquo; (MDE) to discuss experiments.
+He&#39;s probably right.
+MDE tell us what is the smallest true effect, in standard deviations of the outcome, that is detectable for a given level of power and statistical significance.
+Because the standard deviation is influenced by sample size, MDE incorporates all of the information of a power calculation but does so in a way that applies to all experiments. That is to say, as long as we can guess at the variance of our outcome, the same sample size considerations apply every time we conduct any experiment.</p>
+
+<p>For a one-tailed test:</p>
+
+<pre><code class="r">sigma &lt;- 1
+sigma * qnorm((1 - 0.05)) + sigma * qnorm(0.8)
+</code></pre>
+
+<pre><code>## [1] 2.486
+</code></pre>
+
+<p>For a two-tailed test:</p>
+
+<pre><code class="r">sigma * qnorm((1 - (0.5 * 0.05))) + sigma * qnorm(0.8)
+</code></pre>
+
+<pre><code>## [1] 2.802
+</code></pre>
+
+<p>We can envision the MDE as the threshold where, for power = .8, 80% of the sampling distribution of the observed effect would be larger than observed effect:</p>
+
+<pre><code class="r">curve(dnorm(x, 0, 1), col = &quot;gray&quot;, xlim = c(-3, 8))  # null hypothesis
+segments(0, 0, 0, dnorm(0, 0, 1), col = &quot;gray&quot;)  # mean
+curve(dnorm(x, 4, 1), col = &quot;blue&quot;, add = TRUE)  # alternative hypothesis
+segments(4, 0, 4, dnorm(4, 4, 1), col = &quot;blue&quot;)  # mean
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAflBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOY8AZrU5AAA5ADk5AGU5OWU5OY85j9plAABlADllAGVlOQBlOY9lZmVlZrVltf2POQCPOTmPOWWPZgCP29qP2/21ZgC1ZmW1/rW1/v2+vr7ajzna24/a/tra/v39tWX924/9/rX9/tr9/v0H0BUjAAAAKnRSTlP//////////////////////////////////////////////////////wAyqPBcAAAACXBIWXMAAAsSAAALEgHS3X78AAAPV0lEQVR4nO3di1rb2BWG4fGMm9BpwqTTkmkb2pg22HD/N1gMOAGsw9p7/fsgre97pjGkaMXWK1nC2OanewrZT62vALUJ+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KABHzTggwZ80IAPGvBBAz5owAcN+KB54DfUcwXhHctS6YAPGvBBAz5oGvj9r1+TR1PTvPCHy+eTxF/O6IHvOfcef7h8IGePX1yCu/rD5bv/Ar+0JMf4/cX5HT3wfcdZfdCAD5oK/vDp+5298dFgatr69vjdrs2/O9R2u219FcZaHfzuQb4T+kf2XuXd8PuLkcdv2sDvTv+1b3v6r8u88Hefrx4vb999SxxdpN2L/zVu++J/HeZ+yPb5pO7FyZ1xdIl2pz86gu9UflV7/O7Hn83lt6//6C7BY/X9HON3Z382a3v2Z2et6ax+9/KiLfz25QXwhdsNXbRpO3TRVSuC372+bAm/fX0JfNF2I5cN2o5cdtR64HdvP2gHv337AfAFO4NvJ38G36H8auB35x+1gt+efwR8sQbgW8kPwPcnD7w+4Cu2G/qwDfx26EPgCzUI30Z+EL47+ZXA74Y/Bn404NVtDR930LrhW8gDXxF+N/YJ8GMBr24Uuy954MWNWwMvbzf+WXV54IF/a92VPPDapqiBVzcBX1se+Irwu6lPgR8OeGnblE+bBrw04OdHy3pLO7kdFA74+dGygM8JeGVvZec+bxjwyoA3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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<h1>calculate power for a one-tailed test and plot:</h1>
+
+<pre><code class="r">p &lt;- qnorm((1 - 0.05), 0, 1) + qnorm(0.8, 0, 1)
+segments(p, 0, p, dnorm(p, 4, 1), lwd = 2)
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<h1>note how the MDE is larger than the smallest effect that would be considered &ldquo;significant&rdquo;:</h1>
+
+<pre><code class="r">e &lt;- qnorm((1 - 0.05), 0, 1)
+segments(e, 0, e, dnorm(e), lwd = 2)
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<p>As in standard power calculations, we still need to calculate the standard deviation of the outcome.</p>
+
+<h2>Power in cluster randomized experiments</h2>
+
+<p>FORTHCOMING</p>
+
+</body>
+
+</html>

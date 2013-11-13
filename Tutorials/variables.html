@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Variables</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Variables</h1>
+
+<p>Working with objects in R will become tedious if we don&#39;t give those objects names to refer to them in subsequent analysis.
+In R, we can &ldquo;assign&rdquo; an object a name that we can then reference subsequently.
+For example, rather than see the result of the expression <code>2+2</code>, we can store the result of this expression and look at it later:</p>
+
+<pre><code class="r">a &lt;- 2 + 2
+</code></pre>
+
+<p>To see the value of the result, we simply call our variable&#39;s name:</p>
+
+<pre><code class="r">a
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<p>Thus the <code>&lt;-</code> (less than and minus symbols together) mean assign the right-hand side to the name on the left-hand side.
+We can get the same result using <code>=</code> (an equal sign):</p>
+
+<pre><code class="r">a = 2 + 2
+a
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<p>We can also, much more uncommonly, produce the same result by reversing the order of the statement and using a different symbol:</p>
+
+<pre><code class="r">a &lt;- 2 + 2
+a
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<p>This is very uncommon, though. The <code>&lt;-</code> is the preferred assignment operator.
+When we assign an expression to a variable name, the result of the evaluated expression is saved.
+Thus, when we call <code>a</code> again later, we don&#39;t see <code>2+2</code> but instead see <code>4</code>.
+We can overwrite the value stored in a variable by simply assigning something new to that variable:</p>
+
+<pre><code class="r">a &lt;- 2 + 2
+a &lt;- 3
+a
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>We can also copy a variable into a different name:</p>
+
+<pre><code class="r">b &lt;- a
+b
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>We may decide we don&#39;t need a variable any more and it is possible to remove that variable from the R environment using <code>rm</code>:</p>
+
+<pre><code class="r">rm(a)
+</code></pre>
+
+<p>Sometimes we forget what we&#39;ve done and want to see what variables we have floating around in our R environment. We can see them with <code>ls</code>:</p>
+
+<pre><code class="r">ls()
+</code></pre>
+
+<pre><code>##   [1] &quot;a1&quot;            &quot;a2&quot;            &quot;allout&quot;        &quot;amat&quot;         
+##   [5] &quot;b&quot;             &quot;b1&quot;            &quot;betas&quot;         &quot;between&quot;      
+##   [9] &quot;bin&quot;           &quot;bmat&quot;          &quot;bootcoefs&quot;     &quot;c&quot;            
+##  [13] &quot;c1&quot;            &quot;c2&quot;            &quot;c3&quot;            &quot;change&quot;       
+##  [17] &quot;ci67&quot;          &quot;ci95&quot;          &quot;ci99&quot;          &quot;cmat&quot;         
+##  [21] &quot;coef.mi&quot;       &quot;coefs.amelia&quot;  &quot;condmeans_x&quot;   &quot;condmeans_x2&quot; 
+##  [25] &quot;condmeans_y&quot;   &quot;cumprobs&quot;      &quot;d&quot;             &quot;d1&quot;           
+##  [29] &quot;d2&quot;            &quot;d3&quot;            &quot;d4&quot;            &quot;d5&quot;           
+##  [33] &quot;df1&quot;           &quot;df2&quot;           &quot;dist&quot;          &quot;e&quot;            
+##  [37] &quot;e1&quot;            &quot;e2&quot;            &quot;e3&quot;            &quot;e4&quot;           
+##  [41] &quot;e5&quot;            &quot;englebert&quot;     &quot;f&quot;             &quot;fit1&quot;         
+##  [45] &quot;fit2&quot;          &quot;fit3&quot;          &quot;FUN&quot;           &quot;g&quot;            
+##  [49] &quot;g1&quot;            &quot;g2&quot;            &quot;grandm&quot;        &quot;grandse&quot;      
+##  [53] &quot;grandvar&quot;      &quot;h&quot;             &quot;height&quot;        &quot;i&quot;            
+##  [57] &quot;imp&quot;           &quot;imp.amelia&quot;    &quot;imp.mi&quot;        &quot;imp.mice&quot;     
+##  [61] &quot;lm&quot;            &quot;lm.amelia.out&quot; &quot;lm.mi.out&quot;     &quot;lm.mice.out&quot;  
+##  [65] &quot;lm1&quot;           &quot;lm2&quot;           &quot;lmfit&quot;         &quot;lmp&quot;          
+##  [69] &quot;localfit&quot;      &quot;localp&quot;        &quot;logodds&quot;       &quot;logodds_lower&quot;
+##  [73] &quot;logodds_se&quot;    &quot;logodds_upper&quot; &quot;m&quot;             &quot;m1&quot;           
+##  [77] &quot;m2&quot;            &quot;m2a&quot;           &quot;m2b&quot;           &quot;m3a&quot;          
+##  [81] &quot;m3b&quot;           &quot;me&quot;            &quot;me_se&quot;         &quot;means&quot;        
+##  [85] &quot;mmdemo&quot;        &quot;model1&quot;        &quot;model2&quot;        &quot;myboot&quot;       
+##  [89] &quot;mydf&quot;          &quot;mydf2&quot;         &quot;myformula&quot;     &quot;myttest&quot;      
+##  [93] &quot;myttest2&quot;      &quot;myttest3&quot;      &quot;n&quot;             &quot;n1&quot;           
+##  [97] &quot;n2&quot;            &quot;n3&quot;            &quot;new1&quot;          &quot;newdata&quot;      
+## [101] &quot;newdata1&quot;      &quot;newdata2&quot;      &quot;newdf&quot;         &quot;newvar&quot;       
+## [105] &quot;nx&quot;            &quot;ologit&quot;        &quot;ols&quot;           &quot;ols1&quot;         
+## [109] &quot;ols2&quot;          &quot;ols3&quot;          &quot;ols3b&quot;         &quot;ols4&quot;         
+## [113] &quot;ols5&quot;          &quot;ols5a&quot;         &quot;ols5b&quot;         &quot;ols6&quot;         
+## [117] &quot;ols6a&quot;         &quot;ols6b&quot;         &quot;oprobit&quot;       &quot;oprobprobs&quot;   
+## [121] &quot;out&quot;           &quot;p&quot;             &quot;p1&quot;            &quot;p2&quot;           
+## [125] &quot;p2a&quot;           &quot;p2b&quot;           &quot;p3a&quot;           &quot;p3b&quot;          
+## [129] &quot;p3b.fitted&quot;    &quot;part1&quot;         &quot;part2&quot;         &quot;plogclass&quot;    
+## [133] &quot;plogprobs&quot;     &quot;pool.mice&quot;     &quot;ppcurve&quot;       &quot;pred1&quot;        
+## [137] &quot;s&quot;             &quot;s.amelia&quot;      &quot;s.mi&quot;          &quot;s.mice&quot;       
+## [141] &quot;s.orig&quot;        &quot;s.real&quot;        &quot;s1&quot;            &quot;s2&quot;           
+## [145] &quot;s3&quot;            &quot;search&quot;        &quot;ses&quot;           &quot;ses.amelia&quot;   
+## [149] &quot;sigma&quot;         &quot;slope&quot;         &quot;slopes&quot;        &quot;sm1&quot;          
+## [153] &quot;sm2&quot;           &quot;smydf&quot;         &quot;sx&quot;            &quot;sy&quot;           
+## [157] &quot;tmp1&quot;          &quot;tmp2&quot;          &quot;tmp3&quot;          &quot;tmp4&quot;         
+## [161] &quot;tmpdata&quot;       &quot;tmpdf&quot;         &quot;tmpsplit&quot;      &quot;tmpx&quot;         
+## [165] &quot;tmpz&quot;          &quot;tr&quot;            &quot;val&quot;           &quot;valcol&quot;       
+## [169] &quot;w&quot;             &quot;weight&quot;        &quot;within&quot;        &quot;x&quot;            
+## [173] &quot;X&quot;             &quot;x1&quot;            &quot;x1cut&quot;         &quot;x1t&quot;          
+## [177] &quot;x2&quot;            &quot;X2&quot;            &quot;x2t&quot;           &quot;x3&quot;           
+## [181] &quot;x4&quot;            &quot;x5&quot;            &quot;x6&quot;            &quot;xseq&quot;         
+## [185] &quot;y&quot;             &quot;y1&quot;            &quot;y1s&quot;           &quot;y2&quot;           
+## [189] &quot;y2s&quot;           &quot;y3&quot;            &quot;y3s&quot;           &quot;y4&quot;           
+## [193] &quot;y5&quot;            &quot;y6&quot;            &quot;yt&quot;            &quot;z&quot;            
+## [197] &quot;z1&quot;            &quot;z2&quot;            &quot;z5&quot;            &quot;z6&quot;
+</code></pre>
+
+<p>This returns a character vector containing all of the names for all named objects currently in our R environment.
+It is also possible to remove ALL variables in our current R session. You can do that with the following:</p>
+
+<pre><code class="r"># rm(list=ls())
+</code></pre>
+
+<p>Note: This is usually an option on the RGui dropdown menus and should only be done if you really want to remove everything.
+Sometimes you can also see an expression like:</p>
+
+<pre><code class="r">b &lt;- NULL
+</code></pre>
+
+<p>This expression does not remove the object, but instead makes its value NULL.
+NULL is different from missing (NA) because R (generally) ignores a NULL value whenever it sees it.
+You can see this in the difference between the following two vectors:</p>
+
+<pre><code class="r">c(1, 2, NULL)
+</code></pre>
+
+<pre><code>## [1] 1 2
+</code></pre>
+
+<pre><code class="r">c(1, 2, NA)
+</code></pre>
+
+<pre><code>## [1]  1  2 NA
+</code></pre>
+
+<p>The first has two elements and the second has three.
+It is also possible to use the <code>assign</code> function to assign a value to name:</p>
+
+<pre><code class="r">assign(&quot;x&quot;, 3)
+x
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>This is not common in interactive use of R but can be helpful at more advanced levels.</p>
+
+<h2>Variable naming rules</h2>
+
+<p>R has some relatively simple rules governing how objects can be named:
+(1) R object names are case sensitive, so <code>a</code> is not the same as <code>A</code>. This applies to objects and functions.
+(2) R object names (generally) must start with a letter or a period.
+(3) R object names can contain letters, numbers, periods (<code>.</code>), and underscores (<code>_</code>).
+(4) The names of R objects can be just about any length, but anything over about 10 characters gets annoying to type.
+CAUTION: We can violate some of these restrictions by naming things with backticks, but this can be confusing:</p>
+
+<pre><code class="r">f &lt;- 2
+f
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">f &lt;- 3
+f
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<p>That makes sense and can allow us to name variables that start with a number.
+Then to call objects with these noncompliant names, we need to use the backticks:</p>
+
+<pre><code class="r">`1f` &lt;- 3
+# Then try typing `1f` (with the backticks)
+</code></pre>
+
+<p>If we just called 1f, we would get an error.
+But this also means we can name objects with just a number as a name:</p>
+
+<pre><code class="r">`4` &lt;- 5
+4
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+<pre><code class="r"># Then try typing `4` (with the backticks)
+</code></pre>
+
+<p>Which is kind of weird. It is best avoided.</p>
+
+</body>
+
+</html>

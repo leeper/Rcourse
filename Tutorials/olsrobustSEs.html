@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Heteroskedasticity-Consistent SEs for OLS</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Heteroskedasticity-Consistent SEs for OLS</h1>
+
+<p>We often need to analyze data that fails to satisfy assumptions of the statistical techniques we use.
+One common violation of assumptions in OLS regression is the assumption of homoskedasticity.
+This assumption requires that the error term have constant variance across all values of the independent variable(s).
+When this assumption fails, the standard errors from our OLS regression estimates are inconsistent. But, we can calculate heteroskedasticity-consistent standard errors, relatively easily.
+Unlike in Stata, where this is simply an option for regular OLS regression, in R, these SEs are not built into the base package, but instead come in an add-on package called <strong>sandwich</strong>, which we need to install and load:</p>
+
+<pre><code class="r">install.packages(&quot;sandwich&quot;, repos = &quot;http://cran.r-project.org&quot;)
+</code></pre>
+
+<pre><code>## Warning: package &#39;sandwich&#39; is in use and will not be installed
+</code></pre>
+
+<pre><code class="r">library(sandwich)
+</code></pre>
+
+<p>To see the <strong>sandwich</strong> package in action, let&#39;s generate some heteroskedastic data:</p>
+
+<pre><code class="r">set.seed(1)
+x &lt;- runif(500, 0, 1)
+y &lt;- 5 * rnorm(500, x, x)
+</code></pre>
+
+<p>A simple plot of <code>y</code> against <code>x</code> (and the associated regression line) will reveal any heteroskedasticity:</p>
+
+<pre><code class="r">plot(y ~ x, col = &quot;gray&quot;, pch = 19)
+abline(lm(y ~ x), col = &quot;blue&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAeFBMVEX9/v0AAAAAADkAAGUAAP8AOY8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9lZmVltf2POQCPOTmPOWWPZgCPtY+P29qP2/21ZgC1/rW1/v2+vr7ajzna/tra/v39tWX924/9/rX9/tr9/v3jHjFyAAAAKHRSTlP///////////////////////////////////////////////////8AvqouGAAAAAlwSFlzAAALEgAACxIB0t1+/AAAFjdJREFUeJztnQuX2zaSRiPbiWfW4453x57sxl7T437w///DiVoiiUcVUAWABMn67jk5lkigAOLiRUqt/DICk/zSuwKgDxBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG+UGvEXsGdWFF+RF6wNxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXiT8owDMnzEH9OhiFjHuLPCcQbBeLPDW8Xa/yZyY5rHog/ApxeiD83rF+IPze832LvEH8EKgY2C8QfAbF3eQeB+DOhmBog/kxAvFEg3ipY40EGiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXiN6f9lypKgPitkXyCxqaQdxp8vXpvCMQ3+HIl/qBid0C8VUQzvVw8nRTiD4lijecMY40/OaVfvYb4gwPxVil8LADxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvF7R/GARvMsB+Kbsc43axSPZFVPbyG+FWv8UI0uLMR3AeKFoc/GSuKxxu+efXx7VgrE743y3yVWAfE7I/krlg3NQ/zOgHijHEb80/vX/xv52+/a0IDmIGv8y5fPr/8+/vpTGRp0pVb886fv3r/y0KArGPFGqV7jnx9OscYf6+kLC37SVMlaz1s3pu+PGF8mCvL2AuIDMOIPBcSr6eB9jSIHsfrq27mH+7we7+4OJX57On9+Xz3iX758LAtt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" alt="plot of chunk unnamed-chunk-3"/> </p>
+
+<p>Clearly, the variance of <code>y</code> and thus of the error term in an OLS model of <code>y~x</code> will increase as <code>x</code> increases.</p>
+
+<p>Now let&#39;s run the OLS model and see the results:</p>
+
+<pre><code class="r">ols &lt;- lm(y ~ x)
+s &lt;- summary(ols)
+s
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -12.17  -1.27  -0.15   1.31   9.37 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    0.259      0.273    0.95     0.34    
+## x              4.241      0.479    8.86   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.03 on 498 degrees of freedom
+## Multiple R-squared:  0.136,  Adjusted R-squared:  0.134 
+## F-statistic: 78.5 on 1 and 498 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>It may be particularly helpful to look just as the coefficient matrix from the summary object:</p>
+
+<pre><code class="r">s$coef
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)   0.2592     0.2732  0.9488 3.432e-01
+## x             4.2414     0.4786  8.8615 1.402e-17
+</code></pre>
+
+<p>The second column shows the SEs.
+These SEs are themselves generated from the variance-covariance matrix for the coefficients, which we can see with:</p>
+
+<pre><code class="r">vcov(ols)
+</code></pre>
+
+<pre><code>##             (Intercept)       x
+## (Intercept)     0.07463 -0.1135
+## x              -0.11355  0.2291
+</code></pre>
+
+<p>The variance estimates for the coefficients are on the diagonal:</p>
+
+<pre><code class="r">diag(vcov(ols))
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##     0.07463     0.22909
+</code></pre>
+
+<p>To convert these to SEs, we simply take the squared roote:</p>
+
+<pre><code class="r">sqrt(diag(vcov(ols)))
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      0.2732      0.4786
+</code></pre>
+
+<p>Now that we know where the regular SEs are coming from, let&#39;s get the heteroskedasticity-consistent SEs for this model from <strong>sandwich</strong>.
+The SEs come from the <code>vcovHC</code> function and the resulting object is the variance-covariance matrix for the coefficients:</p>
+
+<pre><code class="r">vcovHC(ols)
+</code></pre>
+
+<pre><code>##             (Intercept)        x
+## (Intercept)     0.03335 -0.08751
+## x              -0.08751  0.29242
+</code></pre>
+
+<p>This is, again, a variance-covariance matrix for the coefficients. So to get SES, we take the square root of the diagonal, like we did above:</p>
+
+<pre><code class="r">sqrt(diag(vcovHC(ols)))
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      0.1826      0.5408
+</code></pre>
+
+<p>We can then compare the SE estimate from the standard formula to the heteroskedasticity-consistent formula:</p>
+
+<pre><code class="r">sqrt(diag(vcov(ols)))
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      0.2732      0.4786
+</code></pre>
+
+<pre><code class="r">sqrt(diag(vcovHC(ols)))
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      0.1826      0.5408
+</code></pre>
+
+<p>One annoying thing about not having the heteroskedasticity-consistent formula built-in is that when we call <code>summary</code> on <code>ols</code>, it prints the default SEs rather than the ones we really want.
+But, remember, everything in R is an object. So, we can overwrite the default SEs with the heteroskedasticity-consistent SEs quite easily. To do that, let&#39;s first look at the structure of our summary object <code>s</code>:</p>
+
+<pre><code class="r">str(s)
+</code></pre>
+
+<pre><code>## List of 11
+##  $ call         : language lm(formula = y ~ x)
+##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39; length 3 y ~ x
+##   .. ..- attr(*, &quot;variables&quot;)= language list(y, x)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;y&quot; &quot;x&quot;
+##   .. .. .. ..$ : chr &quot;x&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;x&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x0000000024adecd0&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(y, x)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;y&quot; &quot;x&quot;
+##  $ residuals    : Named num [1:500] 0.1231 0.7807 -0.0241 -0.6949 0.5952 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:500] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ coefficients : num [1:2, 1:4] 0.259 4.241 0.273 0.479 0.949 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x&quot;
+##   .. ..$ : chr [1:4] &quot;Estimate&quot; &quot;Std. Error&quot; &quot;t value&quot; &quot;Pr(&gt;|t|)&quot;
+##  $ aliased      : Named logi [1:2] FALSE FALSE
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;x&quot;
+##  $ sigma        : num 3.03
+##  $ df           : int [1:3] 2 498 2
+##  $ r.squared    : num 0.136
+##  $ adj.r.squared: num 0.134
+##  $ fstatistic   : Named num [1:3] 78.5 1 498
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;value&quot; &quot;numdf&quot; &quot;dendf&quot;
+##  $ cov.unscaled : num [1:2, 1:2] 0.00813 -0.01237 -0.01237 0.02497
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x&quot;
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;summary.lm&quot;
+</code></pre>
+
+<p><code>s</code> is a list, one element of which is <code>coefficients</code> (which we saw above when we first ran our OLS model). The <code>s$coefficients</code> object is a matrix, with four columns, the second of which contains the default standard errors. If we replace those standard errors with the heteroskedasticity-robust SEs, when we print <code>s</code> in the future, it will show the SEs we actually want. Let&#39;s see the effect by comparing the current output of <code>s</code> to the output after we replace the SEs:</p>
+
+<pre><code class="r">s
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -12.17  -1.27  -0.15   1.31   9.37 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    0.259      0.273    0.95     0.34    
+## x              4.241      0.479    8.86   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.03 on 498 degrees of freedom
+## Multiple R-squared:  0.136,  Adjusted R-squared:  0.134 
+## F-statistic: 78.5 on 1 and 498 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<pre><code class="r">s$coefficients[, 2] &lt;- sqrt(diag(vcovHC(ols)))
+s
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -12.17  -1.27  -0.15   1.31   9.37 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    0.259      0.183    0.95     0.34    
+## x              4.241      0.541    8.86   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.03 on 498 degrees of freedom
+## Multiple R-squared:  0.136,  Adjusted R-squared:  0.134 
+## F-statistic: 78.5 on 1 and 498 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>The summary output now reflects the correct SEs. But remember, if we call <code>summary(ols)</code>, again, we&#39;ll see the original SEs. We need to call our <code>s</code> object to see the updated version.</p>
+
+</body>
+
+</html>

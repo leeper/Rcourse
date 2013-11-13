@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Multiple imputation</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Multiple imputation</h1>
+
+<p>This tutorial covers techniques of multiple imputation. Multiple imputation is a strategy for dealing with missing data. Whereas we typically (i.e., automatically) deal with missing data through casewise deletion of any observations that have missing values on key variables, imputation attempts to replace missing values with an estimated value. In single imputation, we guess that missing value one time (perhaps based on the means of observed values, or a random sampling of those values). In multiple imputation, we instead draw multiple values for each missing value, effectively building multiple datasets, each of which replaces the missing data in a different way. There are numerous algorithms for this, each of which builds those multiple datasets in different ways. We&#39;re not going to discuss the details here, but instead focus on executing multiple imputation in R. The main challenge of multiple imputation is not the analysis (it simply proceeds as usual on each imputed dataset) but instead the aggregation of those separate analyses. The examples below discuss how to do this.</p>
+
+<p>To get a basic feel for the process, let&#39;s imagine that we&#39;re trying to calculate the mean of a vector of values that contains missing values. We can impute the missing values by drawing from the observed values, repeat the process several times, and then average across the estimated means to get an estimate of the mean with a measure of uncertainty that accounts for the uncertainty due to imputation.
+Let&#39;s create a vector of ten values, seven of which we observe and three of which are missing, and imagine that they are random draws from the population whose mean we&#39;re trying to estimate:</p>
+
+<pre><code class="r">set.seed(10)
+x &lt;- c(sample(1:10, 7, TRUE), rep(NA, 3))
+x
+</code></pre>
+
+<pre><code>##  [1]  6  4  5  7  1  3  3 NA NA NA
+</code></pre>
+
+<p>We can find the mean using case deletion:</p>
+
+<pre><code class="r">mean(x, na.rm = TRUE)
+</code></pre>
+
+<pre><code>## [1] 4.143
+</code></pre>
+
+<p>Our estimate of the sample standard error is then:</p>
+
+<pre><code class="r">sd(x, na.rm = TRUE)/sqrt(sum(!is.na(x)))
+</code></pre>
+
+<pre><code>## [1] 0.7693
+</code></pre>
+
+<p>Now let&#39;s impute several times to generate a list of imputed vectors:</p>
+
+<pre><code class="r">imp &lt;- replicate(15, c(x[!is.na(x)], sample(x[!is.na(x)], 3, TRUE)), simplify = FALSE)
+imp
+</code></pre>
+
+<pre><code>## [[1]]
+##  [1] 6 4 5 7 1 3 3 4 1 7
+## 
+## [[2]]
+##  [1] 6 4 5 7 1 3 3 1 7 6
+## 
+## [[3]]
+##  [1] 6 4 5 7 1 3 3 1 5 7
+## 
+## [[4]]
+##  [1] 6 4 5 7 1 3 3 6 4 5
+## 
+## [[5]]
+##  [1] 6 4 5 7 1 3 3 3 3 1
+## 
+## [[6]]
+##  [1] 6 4 5 7 1 3 3 3 5 5
+## 
+## [[7]]
+##  [1] 6 4 5 7 1 3 3 1 3 4
+## 
+## [[8]]
+##  [1] 6 4 5 7 1 3 3 3 5 7
+## 
+## [[9]]
+##  [1] 6 4 5 7 1 3 3 6 4 3
+## 
+## [[10]]
+##  [1] 6 4 5 7 1 3 3 5 3 3
+## 
+## [[11]]
+##  [1] 6 4 5 7 1 3 3 3 1 7
+## 
+## [[12]]
+##  [1] 6 4 5 7 1 3 3 4 4 6
+## 
+## [[13]]
+##  [1] 6 4 5 7 1 3 3 3 4 4
+## 
+## [[14]]
+##  [1] 6 4 5 7 1 3 3 6 7 6
+## 
+## [[15]]
+##  [1] 6 4 5 7 1 3 3 3 5 3
+</code></pre>
+
+<p>The result is a list of five vectors. The first seven values of each is the same as our original data, but the three missing values have been replaced with different combinations of the observed values.
+To get our new estimated maen, we simply take the mean of each vector, and then average across them:</p>
+
+<pre><code class="r">means &lt;- sapply(imp, mean)
+means
+</code></pre>
+
+<pre><code>##  [1] 4.1 4.3 4.2 4.4 3.6 4.2 3.7 4.4 4.2 4.0 4.0 4.3 4.0 4.8 4.0
+</code></pre>
+
+<pre><code class="r">grandm &lt;- mean(means)
+grandm
+</code></pre>
+
+<pre><code>## [1] 4.147
+</code></pre>
+
+<p>The result is 4.147, about the same as our original estimate.
+To get the standard error of our multiple imputation estimate, we need to combine the standard errors of each of our estimates, so that means we need to start by getting the SEs of each imputed vector:</p>
+
+<pre><code class="r">ses &lt;- sapply(imp, sd)/sqrt(10)
+</code></pre>
+
+<p>Aggregating the standard errors is a bit complicated, but basically sums the mean of the SEs (i.e., the &ldquo;within-imputation variance&rdquo;) with the variance across the different estimated means (the &ldquo;between-imputation variance&rdquo;). To calculate the within-imputation variance, we simply average the SE estimates:</p>
+
+<pre><code class="r">within &lt;- mean(ses)
+</code></pre>
+
+<p>To calculate the between-imputation variance, we calculate the sum of squared deviations of each imputed mean from the grand mean estimate:</p>
+
+<pre><code class="r">between &lt;- sum((means - grandm)^2)/(length(imp) - 1)
+</code></pre>
+
+<p>Then we sum the within- and between-imputation variances (multiply the latter by a small correction):</p>
+
+<pre><code class="r">grandvar &lt;- within + ((1 + (1/length(imp))) * between)
+grandse &lt;- sqrt(grandvar)
+grandse
+</code></pre>
+
+<pre><code>## [1] 0.8387
+</code></pre>
+
+<p>The resulting standard error is interesting because we increase the precision of our estimate by using 10 rather than 7 values (and standard errors are proportionate to sample size), but is larger than our original standard error because we have to account for uncertainty due to imputation. Thus if our missing values are truly missing at random, we can get a better estimate that is actually representative of our original population.
+Most multiple imputation algorithms are, however, applied to multivariate data rather than a single data vector and thereby use additional information about the relationship between observed values and missingness to reach even more precise estimates of target parameters.</p>
+
+<p>There are three main R packages that offer multiple imputation techniques. Several other packages - described in the <a href="http://cran.r-project.org/web/views/OfficialStatistics.html">OfficialStatistics</a> Task View - supply other imputation techniques, but packages <strong>Amelia</strong> (by Gary King and collaborators), <strong>mi</strong> (by Andrew Gelman and collaborators), and <strong>mice</strong> (by Stef van Buuren and collaborators) provide more than enough to work with.
+Let&#39;s start by installing these packages:</p>
+
+<pre><code class="r">install.packages(c(&quot;Amelia&quot;, &quot;mi&quot;, &quot;mice&quot;), repos = &quot;http://cran.r-project.org&quot;)
+</code></pre>
+
+<pre><code>## Warning: packages &#39;Amelia&#39;, &#39;mi&#39;, &#39;mice&#39; are in use and will not be
+## installed
+</code></pre>
+
+<p>Now, let&#39;s consider an imputation situation where we plan to conduct a regression analysis predicting <code>y</code> by two covariates: <code>x1</code> and <code>x2</code> but we have missing data in <code>x1</code> and <code>x2</code>. Let&#39;s start by creating the dataframe:</p>
+
+<pre><code class="r">x1 &lt;- runif(100, 0, 5)
+x2 &lt;- rnorm(100)
+y &lt;- x1 + x2 + rnorm(100)
+mydf &lt;- cbind.data.frame(x1, x2, y)
+</code></pre>
+
+<p>Now, let&#39;s randomly remove some of the observed values of the independent variables:</p>
+
+<pre><code class="r">mydf$x1[sample(1:nrow(mydf), 20, FALSE)] &lt;- NA
+mydf$x2[sample(1:nrow(mydf), 10, FALSE)] &lt;- NA
+</code></pre>
+
+<p>The result is the removal of thirty values, 20 from <code>x1</code> and 10 from <code>x2</code>:</p>
+
+<pre><code class="r">summary(mydf)
+</code></pre>
+
+<pre><code>##        x1              x2               y        
+##  Min.   :0.098   Min.   :-2.321   Min.   :-1.35  
+##  1st Qu.:1.138   1st Qu.:-0.866   1st Qu.: 1.17  
+##  Median :2.341   Median : 0.095   Median : 2.39  
+##  Mean   :2.399   Mean   :-0.038   Mean   : 2.28  
+##  3rd Qu.:3.626   3rd Qu.: 0.724   3rd Qu.: 3.69  
+##  Max.   :4.919   Max.   : 2.221   Max.   : 6.26  
+##  NA&#39;s   :20      NA&#39;s   :10
+</code></pre>
+
+<p>If we estimate the regression on these data, R will force casewise deletion of 28 cases:</p>
+
+<pre><code class="r">lm &lt;- lm(y ~ x1 + x2, data = mydf)
+summary(lm)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = mydf)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.5930 -0.7222  0.0018  0.7140  2.4878 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0259     0.2196    0.12     0.91    
+## x1            0.9483     0.0824   11.51  &lt; 2e-16 ***
+## x2            0.7487     0.1203    6.23  3.3e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.969 on 69 degrees of freedom
+##   (28 observations deleted due to missingness)
+## Multiple R-squared:  0.706,  Adjusted R-squared:  0.698 
+## F-statistic: 82.9 on 2 and 69 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>We should thus be quite skeptical of our results given taht we&#39;re discarding a substantial portion of our observations (28%, in fact).
+Let&#39;s see how the various multiple imputation packages address this and affect our inference.</p>
+
+<h2>Amelia</h2>
+
+<pre><code class="r">library(Amelia)
+</code></pre>
+
+<pre><code class="r">imp.amelia &lt;- amelia(mydf)
+</code></pre>
+
+<pre><code>## -- Imputation 1 --
+## 
+##   1  2  3  4  5  6  7  8  9
+## 
+## -- Imputation 2 --
+## 
+##   1  2  3  4  5  6  7
+## 
+## -- Imputation 3 --
+## 
+##   1  2  3  4  5  6
+## 
+## -- Imputation 4 --
+## 
+##   1  2  3  4  5  6
+## 
+## -- Imputation 5 --
+## 
+##   1  2  3  4  5  6  7
+</code></pre>
+
+<p>Once we&#39;ve run our multiple imputation, we can see where are missing data lie:</p>
+
+<pre><code class="r">missmap(imp.amelia)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAA/FBMVEX9/v0AAAAAADkAAEgAAGUAOTkAOWUAOY8AWYAAZo8AZrUgAAA4AAA4fZo5AAA5ADk5AGU5OQA5OWU5OY85ZmU5Zo85ZrU5j9pOAABiAEhiWUhinrNjAABlAABlADllAGVlOQBlOTllOY9lZjllZmVlZrVlj49ltf13AACKMkiKWWWKfYCKv7OLAACPOQCPOTmPOWWPZgCPZo+Pj2WPtY+P27WP29qP2/2vWQCvWSiv3rO1ZgC1Zjm1ZmW1tWW124+1/rW1/tq1/v3SfSjS3rPajznaj2Xa24/a/rXa/tra/v31nkj13oD13pr13rP9tWX924/9/rX9/tr9/v0DsZozAAAAVHRSTlP//////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT93LRAAAACXBIWXMAAAsSAAALEgHS3X78AAALvElEQVR4nO3dDXcbRxmG4W4wONSyGmpAhsjQ0hS5gJwCAYUqNMXGQGyiD+///y/MzK48sqQjnNoz79jPfZ1Tb6xEE+3cnt2V5VQf1ZD0kfUDgA3CiyK8KMKLIrwowosivCjCiyK8KMKLIrwowosivCjCiyK8KMKLIrwowosivCjCiyK8KMKLIrwowosivKhHFf7qpKp6bnteVbsX86Od09U/sOm27zX4XR5lGR5Z+Cc/cVF8ovtvk3Tw/B5b+C/ckp4f/bTbrvhZt6r8Im+3/rark51vmxtdw53vjnYv4i1+OVeDul6939rg9dT9wSejeumuD8xjC/+qO3BRftuGnx+5PuGwv9j68P7X1cdh7VY/7Prw7S31OPyiV6/eb8PgzW+0d32Ah4DHFv4vR736fOdtG37WbZIstm34nsu3ezHrupV63tRb3BKO5ev3Wxv8xmDuq2Bgsbt38tjCj8a77052/7284sPxuVo61LtD9Nwd4ad+jc/Dof76luDJaPV+a4PX4bfCeePUnyB6xnv+4R5d+HN32u7Nls/x/lzcbttz/Olq+Otb2vCr91sbPNxO+FL4NrPuC/9h6encuD0Qu+2N8EuH+utblk/WS/dbG9yn9vfnUF8E38ZVaM7RzTm+WZiL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" alt="plot of chunk unnamed-chunk-17"/> </p>
+
+<p>We can also run our regression model on each imputed dataset. We&#39;ll use the <code>lapply</code> function to do this quickly on each of the imputed dataframes:</p>
+
+<pre><code class="r">lm.amelia.out &lt;- lapply(imp.amelia$imputations, function(i) lm(y ~ x1 + x2, 
+    data = i))
+</code></pre>
+
+<p>If we look at <code>lm.amelia.out</code> we&#39;ll see the results of the model run on each imputed dataframe separately:</p>
+
+<pre><code class="r">lm.amelia.out
+</code></pre>
+
+<pre><code>## $imp1
+## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = i)
+## 
+## Coefficients:
+## (Intercept)           x1           x2  
+##       0.247        0.854        0.707  
+## 
+## 
+## $imp2
+## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = i)
+## 
+## Coefficients:
+## (Intercept)           x1           x2  
+##       0.164        0.931        0.723  
+## 
+## 
+## $imp3
+## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = i)
+## 
+## Coefficients:
+## (Intercept)           x1           x2  
+##      0.0708       0.9480       0.8234  
+## 
+## 
+## $imp4
+## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = i)
+## 
+## Coefficients:
+## (Intercept)           x1           x2  
+##      0.0656       0.9402       0.6446  
+## 
+## 
+## $imp5
+## 
+## Call:
+## lm(formula = y ~ x1 + x2, data = i)
+## 
+## Coefficients:
+## (Intercept)           x1           x2  
+##      -0.064        0.956        0.820
+</code></pre>
+
+<p>To aggregate across the results is a little bit tricky because we have to extract the coefficients and standard errors from each model, format them in a particular way, and then feed that structure into the <code>mi.meld</code> function:</p>
+
+<pre><code class="r">coefs.amelia &lt;- do.call(rbind, lapply(lm.amelia.out, function(i) coef(summary(i))[, 
+    1]))
+ses.amelia &lt;- do.call(rbind, lapply(lm.amelia.out, function(i) coef(summary(i))[, 
+    2]))
+mi.meld(coefs.amelia, ses.amelia)
+</code></pre>
+
+<pre><code>## $q.mi
+##      (Intercept)    x1     x2
+## [1,]     0.09683 0.926 0.7436
+## 
+## $se.mi
+##      (Intercept)      x1     x2
+## [1,]      0.2291 0.08222 0.1267
+</code></pre>
+
+<p>Now let&#39;s compare these results to those of our original model:</p>
+
+<pre><code class="r">t(do.call(rbind, mi.meld(coefs.amelia, ses.amelia)))
+</code></pre>
+
+<pre><code>##                [,1]    [,2]
+## (Intercept) 0.09683 0.22908
+## x1          0.92598 0.08222
+## x2          0.74359 0.12674
+</code></pre>
+
+<pre><code class="r">coef(summary(lm))[, 1:2]  # original results
+</code></pre>
+
+<pre><code>##             Estimate Std. Error
+## (Intercept)  0.02587    0.21957
+## x1           0.94835    0.08243
+## x2           0.74874    0.12026
+</code></pre>
+
+<h2>mi</h2>
+
+<pre><code class="r">library(mi)
+</code></pre>
+
+<p>Let&#39;s start by visualizing the missing data:</p>
+
+<pre><code class="r">mp.plot(mydf)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAilBMVEX9/v0AAAAAADkAAGUAAP8AOWUAOY8AZo8AZrU5AAA5ADk5AGU5OY85ZrU5j485j9plAABlADllAGVlOQBlOY9lZmVltbVltf2POQCPOTmPOWWPZgCPtY+P27WP2/21ZgC1Zjm1jzm1/rW1/v3ajzna/rXa/tra/v39tWX924/9/rX9/tr9/v3/AABXVWPVAAAALnRSTlP//////////////////////////////////////////////////////////wD/PKlhqgAAAAlwSFlzAAALEgAACxIB0t1+/AAABvlJREFUeJzt2I1OW9kZQNG50FLI0JrQSU3aqT0NbrCN5/1fb2xSpIS0nSiA//baAl3bCHGkxfnusX9YKdkPu16AdhP4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4py2vzu5Wi4vhZLLrlbxq4J/2AD8dxrtexyvXhZ8Pf7oZTm9nwzC+vzm9XT8fre5vhuFvV2cf15dhzX/MleEf2+iPV9OTycZ9Qw7+mJuvwde38vHy6mSyuDjf7PrFxXrnzwaj/qibD+fr+/np7f3NZquf/fvq/OEl9/hj7xP82d0GfjU7+fliBD7RF/Cf3r4Z9YW+gF8f69bcj4c78MfcF/Br6fWUf5D/i1Ffanb00k8C/9DDRzipwG/afHy36zVsOfDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18tOfAD9rnXhH+D9rfwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDH+2F4Kfj1eLyDvzh9ELw89HmC/zh9ELwy5/ufpmAP6BeCP7+/T9/ejLpwe91L3W4m717OunB73UvBb9483TSg9/rXgr+/u+34A+pF9vxf/7qJfD73AvBz06+mvTg9zqf3EUDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw18NPDRwEcDHw38cfXrtwb+uAIfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfbcvwi4thGIPfg7YLv3w7WS3eTMDvvq3BT0er2fn8fPPo6ZYHv4O2Br+8/nB9+/DgrR2/B21v1M+G0eZyfzN6+hPwO2h78J/u7curr9zB76LtwU/fnW9O9V+d6cHvpK3BLy4/vp/8V3fwu2hb8Pc349X87F/DJqf6PWh7o/5/B34HgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOCjgY8GPhr4aOAPqW/W+v2++W+B34PARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARztk+MWPt+C/twOGnw+n4L+7Q4Sfjlaz89X05Gc7/vs7RPjl9YfrDblR/4wOEX41G0Yr8M/rIOEXbybgn9lBwk/fnYN/ZocIv7j8+H4C/nkdIPz9zXg1P7sD/6wOEP7/Bf5bAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0cBHAx8NfDTw0Y4NXvvc68HrgAMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfDXw08NHARwMfrQy/+PH2s2f3N+OdrWQHgX8MfKY1/OLyH8OwBl9eDX/863hzOb1dTUer2fmuF/fa1eEvRqv52d3Ger7+B/hEvrz+cH37+79+2NXh19N+/b1cQ69H/fLtZLV5OBtGu17bqwf+8bKajteTfhhOJqvFm8mu1/bqgf98x/9nwk/fHf0tHvwD/Gf3+PUdf3H58f3Rb3nwD/D3N4+n+pPJ5n3d5sB33JXh04GPBj4a+Gjgo4GPBj4a+Gjgo4GPBj4a+Gjgo4GPBj4a+Gjgo4GP9hvmK7FtE74+vAAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-23"/> </p>
+
+<p>We can then see some summary information about the dataset and the nature of the missingness:</p>
+
+<pre><code class="r">mi.info(mydf)
+</code></pre>
+
+<pre><code>##   names include order number.mis all.mis                type collinear
+## 1    x1     Yes     1         20      No positive-continuous        No
+## 2    x2     Yes     2         10      No          continuous        No
+## 3     y     Yes    NA          0      No          continuous        No
+</code></pre>
+
+<p>With that information confirmed, it is incredibly issue to conduct our multiple imputation using the <code>mi</code> function:</p>
+
+<pre><code class="r">imp.mi &lt;- mi(mydf)
+</code></pre>
+
+<pre><code>## Beginning Multiple Imputation ( Wed Nov 13 13:59:39 2013 ):
+## Iteration 1 
+##  Chain 1 : x1*  x2*  
+##  Chain 2 : x1*  x2*  
+##  Chain 3 : x1*  x2*  
+## Iteration 2 
+##  Chain 1 : x1*  x2   
+##  Chain 2 : x1*  x2*  
+##  Chain 3 : x1*  x2*  
+## Iteration 3 
+##  Chain 1 : x1*  x2*  
+##  Chain 2 : x1*  x2   
+##  Chain 3 : x1*  x2   
+## Iteration 4 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1*  x2   
+##  Chain 3 : x1   x2   
+## Iteration 5 
+##  Chain 1 : x1*  x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2*  
+## Iteration 6 
+##  Chain 1 : x1*  x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2*  
+## Iteration 7 
+##  Chain 1 : x1   x2*  
+##  Chain 2 : x1*  x2   
+##  Chain 3 : x1   x2   
+## Iteration 8 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1*  x2   
+##  Chain 3 : x1*  x2   
+## Iteration 9 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1*  x2   
+## Iteration 10 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 11 
+##  Chain 1 : x1*  x2*  
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 12 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 13 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 14 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## mi converged ( Wed Nov 13 13:59:42 2013 )
+## Run 20 more iterations to mitigate the influence of the noise...
+## Beginning Multiple Imputation ( Wed Nov 13 13:59:42 2013 ):
+## Iteration 1 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 2 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 3 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 4 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 5 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 6 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 7 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 8 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 9 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 10 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 11 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 12 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 13 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 14 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 15 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 16 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 17 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 18 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 19 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## Iteration 20 
+##  Chain 1 : x1   x2   
+##  Chain 2 : x1   x2   
+##  Chain 3 : x1   x2   
+## mi converged ( Wed Nov 13 13:59:45 2013 )
+</code></pre>
+
+<pre><code class="r">imp.mi
+</code></pre>
+
+<pre><code>## 
+## Multiply imputed data set
+## 
+## Call:
+##  .local(object = object, n.iter = ..3, R.hat = ..4, max.minutes = ..2, 
+##     run.past.convergence = TRUE)
+## 
+## Number of multiple imputations:  3 
+## 
+## Number and proportion of missing data per column:
+##   names                type number.mis proportion
+## 1    x1 positive-continuous         20        0.2
+## 2    x2          continuous         10        0.1
+## 3     y          continuous          0        0.0
+## 
+## Total Cases: 100
+## Missing at least one item: 2
+## Complete cases: 72
+</code></pre>
+
+<p>The results above report how many imputed datasets were produced and summarizes some of the results we saw above.
+For linear regression (and several other common models), the <strong>mi</strong> package includes functions that automatically run the model on each imputed dataset and aggregate the results:</p>
+
+<pre><code class="r">lm.mi.out &lt;- lm.mi(y ~ x1 + x2, imp.mi)
+</code></pre>
+
+<p>We can extract the results using the following:</p>
+
+<pre><code class="r">coef.mi &lt;- lm.mi.out@mi.pooled
+# or see them quickly with:
+display(lm.mi.out)
+</code></pre>
+
+<pre><code>## =======================================
+## Separate Estimates for each Imputation
+## =======================================
+## 
+## ** Chain 1 **
+## lm(formula = formula, data = mi.data[[i]])
+##             coef.est coef.se
+## (Intercept) -0.01     0.18  
+## x1           0.96     0.06  
+## x2           0.75     0.09  
+## ---
+## n = 100, k = 3
+## residual sd = 0.89, R-Squared = 0.75
+## 
+## ** Chain 2 **
+## lm(formula = formula, data = mi.data[[i]])
+##             coef.est coef.se
+## (Intercept) 0.03     0.18   
+## x1          0.94     0.07   
+## x2          0.67     0.09   
+## ---
+## n = 100, k = 3
+## residual sd = 0.91, R-Squared = 0.74
+## 
+## ** Chain 3 **
+## lm(formula = formula, data = mi.data[[i]])
+##             coef.est coef.se
+## (Intercept) -0.02     0.20  
+## x1           0.96     0.07  
+## x2           0.69     0.10  
+## ---
+## n = 100, k = 3
+## residual sd = 0.96, R-Squared = 0.71
+## 
+## =======================================
+## Pooled Estimates
+## =======================================
+## lm.mi(formula = y ~ x1 + x2, mi.object = imp.mi)
+##             coef.est coef.se
+## (Intercept) 0.00     0.19   
+## x1          0.95     0.07   
+## x2          0.71     0.10   
+## ---
+</code></pre>
+
+<p>Let&#39;s compare these results to our original model:</p>
+
+<pre><code class="r">do.call(cbind, coef.mi)  # multiply imputed results
+</code></pre>
+
+<pre><code>##             coefficients      se
+## (Intercept)      0.00123 0.18878
+## x1               0.95311 0.06901
+## x2               0.70687 0.10411
+</code></pre>
+
+<pre><code class="r">coef(summary(lm))[, 1:2]  # original results
+</code></pre>
+
+<pre><code>##             Estimate Std. Error
+## (Intercept)  0.02587    0.21957
+## x1           0.94835    0.08243
+## x2           0.74874    0.12026
+</code></pre>
+
+<h2>mice</h2>
+
+<pre><code class="r">library(mice)
+</code></pre>
+
+<p>To conduct the multiple imputation, we simply need to run the <code>mice</code> function:</p>
+
+<pre><code class="r">imp.mice &lt;- mice(mydf)
+</code></pre>
+
+<pre><code>## 
+##  iter imp variable
+##   1   1  x1  x2
+##   1   2  x1  x2
+##   1   3  x1  x2
+##   1   4  x1  x2
+##   1   5  x1  x2
+##   2   1  x1  x2
+##   2   2  x1  x2
+##   2   3  x1  x2
+##   2   4  x1  x2
+##   2   5  x1  x2
+##   3   1  x1  x2
+##   3   2  x1  x2
+##   3   3  x1  x2
+##   3   4  x1  x2
+##   3   5  x1  x2
+##   4   1  x1  x2
+##   4   2  x1  x2
+##   4   3  x1  x2
+##   4   4  x1  x2
+##   4   5  x1  x2
+##   5   1  x1  x2
+##   5   2  x1  x2
+##   5   3  x1  x2
+##   5   4  x1  x2
+##   5   5  x1  x2
+</code></pre>
+
+<p>We can see some summary information about the imputation process:</p>
+
+<pre><code class="r">summary(imp.mice)
+</code></pre>
+
+<pre><code>## Multiply imputed data set
+## Call:
+## mice(data = mydf)
+## Number of multiple imputations:  5
+## Missing cells per column:
+## x1 x2  y 
+## 20 10  0 
+## Imputation methods:
+##    x1    x2     y 
+## &quot;pmm&quot; &quot;pmm&quot;    &quot;&quot; 
+## VisitSequence:
+## x1 x2 
+##  1  2 
+## PredictorMatrix:
+##    x1 x2 y
+## x1  0  1 1
+## x2  1  0 1
+## y   0  0 0
+## Random generator seed value:  NA
+</code></pre>
+
+<p>To run our regression we use the <code>lm</code> function wrapped in a <code>with</code> call, which estimates our model on each imputed dataframe:</p>
+
+<pre><code class="r">lm.mice.out &lt;- with(imp.mice, lm(y ~ x1 + x2))
+summary(lm.mice.out)
+</code></pre>
+
+<pre><code>## 
+##  ## summary of imputation 1 :
+## 
+## Call:
+## lm(formula = y ~ x1 + x2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.7893 -0.7488  0.0955  0.7205  2.3768 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0636     0.1815    0.35     0.73    
+## x1            0.9528     0.0660   14.44  &lt; 2e-16 ***
+## x2            0.6548     0.0916    7.15  1.6e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.915 on 97 degrees of freedom
+## Multiple R-squared:  0.735,  Adjusted R-squared:  0.73 
+## F-statistic:  135 on 2 and 97 DF,  p-value: &lt;2e-16
+## 
+## 
+##  ## summary of imputation 2 :
+## 
+## Call:
+## lm(formula = y ~ x1 + x2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.4456 -0.6911  0.0203  0.6839  2.6271 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.1618     0.1855    0.87     0.39    
+## x1            0.8849     0.0671   13.19  &lt; 2e-16 ***
+## x2            0.7424     0.0942    7.88  4.7e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.939 on 97 degrees of freedom
+## Multiple R-squared:  0.721,  Adjusted R-squared:  0.716 
+## F-statistic:  126 on 2 and 97 DF,  p-value: &lt;2e-16
+## 
+## 
+##  ## summary of imputation 3 :
+## 
+## Call:
+## lm(formula = y ~ x1 + x2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.5123 -0.6683  0.0049  0.6717  2.5072 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0800     0.1872    0.43     0.67    
+## x1            0.9402     0.0674   13.95  &lt; 2e-16 ***
+## x2            0.8150     0.0947    8.61  1.3e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.94 on 97 degrees of freedom
+## Multiple R-squared:  0.721,  Adjusted R-squared:  0.715 
+## F-statistic:  125 on 2 and 97 DF,  p-value: &lt;2e-16
+## 
+## 
+##  ## summary of imputation 4 :
+## 
+## Call:
+## lm(formula = y ~ x1 + x2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.5739 -0.7310  0.0152  0.6534  2.4748 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0787     0.1815    0.43     0.67    
+## x1            0.9438     0.0660   14.30  &lt; 2e-16 ***
+## x2            0.7833     0.0916    8.55  1.8e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.922 on 97 degrees of freedom
+## Multiple R-squared:  0.732,  Adjusted R-squared:  0.726 
+## F-statistic:  132 on 2 and 97 DF,  p-value: &lt;2e-16
+## 
+## 
+##  ## summary of imputation 5 :
+## 
+## Call:
+## lm(formula = y ~ x1 + x2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.6130 -0.6085  0.0085  0.6907  2.4719 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0477     0.1858    0.26      0.8    
+## x1            0.9463     0.0672   14.07  &lt; 2e-16 ***
+## x2            0.7436     0.0893    8.33  5.4e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.91 on 97 degrees of freedom
+## Multiple R-squared:  0.738,  Adjusted R-squared:  0.733 
+## F-statistic:  137 on 2 and 97 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>The results above are for each separate dataset. But, to pool them, we use <code>pool</code>:</p>
+
+<pre><code class="r">pool.mice &lt;- pool(lm.mice.out)
+</code></pre>
+
+<p>Let&#39;s compare these results to our original model:</p>
+
+<pre><code class="r">summary(pool.mice)  # multiply imputed results
+</code></pre>
+
+<pre><code>##                 est      se       t    df  Pr(&gt;|t|)   lo 95  hi 95 nmis
+## (Intercept) 0.08637 0.19056  0.4533 81.41 6.516e-01 -0.2927 0.4655   NA
+## x1          0.93361 0.07327 12.7422 50.19 0.000e+00  0.7865 1.0808   20
+## x2          0.74782 0.11340  6.5944 22.53 1.104e-06  0.5130 0.9827   10
+##                 fmi  lambda
+## (Intercept) 0.08664 0.06447
+## x1          0.20145 0.17025
+## x2          0.38954 0.33765
+</code></pre>
+
+<pre><code class="r">coef(summary(lm))[, 1:2]  # original results
+</code></pre>
+
+<pre><code>##             Estimate Std. Error
+## (Intercept)  0.02587    0.21957
+## x1           0.94835    0.08243
+## x2           0.74874    0.12026
+</code></pre>
+
+<h2>Comparing packages</h2>
+
+<p>It is useful at this point to compare the coefficients from each of our multiple imputation methods. To do so, we&#39;ll pull out the coefficients from each of the three packages&#39; results, our original observed results (with case deletion), and the results for the real data-generating process (before we introduced missingness).
+<strong>Amelia</strong> package results</p>
+
+<pre><code class="r">s.amelia &lt;- t(do.call(rbind, mi.meld(coefs.amelia, ses.amelia)))
+</code></pre>
+
+<p><strong>mi</strong> package results</p>
+
+<pre><code class="r">s.mi &lt;- do.call(cbind, coef.mi)  # multiply imputed results
+</code></pre>
+
+<p><strong>mice</strong> package results</p>
+
+<pre><code class="r">s.mice &lt;- summary(pool.mice)[, 1:2]  # multiply imputed results
+</code></pre>
+
+<p>Original results (case deletion)</p>
+
+<pre><code class="r">s.orig &lt;- coef(summary(lm))[, 1:2]  # original results
+</code></pre>
+
+<p>Real results (before missingness was introduced)</p>
+
+<pre><code class="r">s.real &lt;- summary(lm(y ~ x1 + x2))$coef[, 1:2]
+</code></pre>
+
+<p>Let&#39;s print the coefficients together to compare them:</p>
+
+<pre><code class="r">allout &lt;- cbind(s.real[, 1], s.amelia[, 1], s.mi[, 1], s.mice[, 1], s.orig[, 
+    1])
+colnames(allout) &lt;- c(&quot;Real Relationship&quot;, &quot;Amelia&quot;, &quot;MI&quot;, &quot;mice&quot;, &quot;Original&quot;)
+allout
+</code></pre>
+
+<pre><code>##             Real Relationship  Amelia      MI    mice Original
+## (Intercept)           0.04502 0.09683 0.00123 0.08637  0.02587
+## x1                    0.95317 0.92598 0.95311 0.93361  0.94835
+## x2                    0.82900 0.74359 0.70687 0.74782  0.74874
+</code></pre>
+
+<p>All three of the multiple imputation models - despite vast differences in underlying approaches to imputation in the three packages - yield strikingly similar inference. This was a relatively basic and all of the packages offer a number of options for more complicated situations than what we examined here.
+While executing multiple imputation requires choosing a package and typing some potentially tedious code, the results are almost always going to be better than doing the easier thing of deleting cases and ignoring the consequences thereof.</p>
+
+</body>
+
+</html>

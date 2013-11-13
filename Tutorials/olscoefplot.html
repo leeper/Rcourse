@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Regression coefficient plots</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Regression coefficient plots</h1>
+
+<p>A contemporary way of presenting regression results involves converting a regression table into a figure.</p>
+
+<pre><code class="r">set.seed(500)
+x1 &lt;- rnorm(100, 5, 5)
+x2 &lt;- rnorm(100, -2, 10)
+x3 &lt;- rnorm(100, 0, 20)
+y &lt;- (1 * x1) + (-2 * x2) + (3 * x3) + rnorm(100, 0, 20)
+ols2 &lt;- lm(y ~ x1 + x2 + x3)
+</code></pre>
+
+<p>Conventionally, we would present results from this regression as a table:</p>
+
+<pre><code class="r">summary(ols2)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x1 + x2 + x3)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -53.89 -12.52   2.67  11.24  46.85 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -0.0648     2.6053   -0.02    0.980    
+## x1            1.2211     0.3607    3.39    0.001 ** 
+## x2           -2.0941     0.1831  -11.44   &lt;2e-16 ***
+## x3            3.0086     0.1006   29.90   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 19.1 on 96 degrees of freedom
+## Multiple R-squared:  0.913,  Adjusted R-squared:  0.91 
+## F-statistic:  335 on 3 and 96 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>Or just:</p>
+
+<pre><code class="r">coef(summary(ols2))[, 1:2]
+</code></pre>
+
+<pre><code>##             Estimate Std. Error
+## (Intercept) -0.06483     2.6053
+## x1           1.22113     0.3607
+## x2          -2.09407     0.1831
+## x3           3.00856     0.1006
+</code></pre>
+
+<p>It might be helpful to see the size and significance of these effects as a figure.
+To do so, we have to draw the regression slopes as points and the SEs as lines.</p>
+
+<pre><code class="r">slopes &lt;- coef(summary(ols2))[c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), 1]  #&#39; slopes
+ses &lt;- coef(summary(ols2))[c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), 2]  #&#39; SEs
+</code></pre>
+
+<p>We&#39;ll draw the slopes of the three input variables.
+Note: The interpretation of the following plot depends on input variables that have comparable scales.
+Note (continued): Comparing dissimilar variables with this visualization can be misleading!</p>
+
+<h2>Plotting Standard Errors</h2>
+
+<p>Let&#39;s construct a plot that draws 1 and 2 SEs for each coefficient:</p>
+
+<p>We&#39;ll start with a blank plot (like a blank canvas):</p>
+
+<pre><code class="r">plot(NA, xlim = c(-3, 3), ylim = c(0, 4), xlab = &quot;Slope&quot;, ylab = &quot;&quot;, yaxt = &quot;n&quot;)
+# We can add a title:
+title(&quot;Regression Results&quot;)
+# We&#39;ll add a y-axis labelling our variables:
+axis(2, 1:3, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), las = 2)
+# We&#39;ll add a vertical line for zero:
+abline(v = 0, col = &quot;gray&quot;)
+# Then we&#39;ll draw our slopes as points (`pch` tells us what type of point):
+points(slopes, 1:3, pch = 23, col = &quot;black&quot;, bg = &quot;black&quot;)
+# Then we&#39;ll add thick line segments for each 1 SE:
+segments((slopes - ses)[1], 1, (slopes + ses)[1], 1, col = &quot;black&quot;, lwd = 2)
+segments((slopes - ses)[2], 2, (slopes + ses)[2], 2, col = &quot;black&quot;, lwd = 2)
+segments((slopes - ses)[3], 3, (slopes + ses)[3], 3, col = &quot;black&quot;, lwd = 2)
+# Then we&#39;ll add thin line segments for the 2 SEs:
+segments((slopes - (2 * ses))[1], 1, (slopes + (2 * ses))[1], 1, col = &quot;black&quot;, 
+    lwd = 1)
+segments((slopes - (2 * ses))[2], 2, (slopes + (2 * ses))[2], 2, col = &quot;black&quot;, 
+    lwd = 1)
+segments((slopes - (2 * ses))[3], 3, (slopes + (2 * ses))[3], 3, col = &quot;black&quot;, 
+    lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAdVBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OY85j9plAABlADllAGVlZjllZmVltbVltf2POQCPOTmPjzmPtY+P2/21ZgC1jzm1tWW1/rW1/tq1/v2+vr7ajzna/tra/v39tWX924/9/rX9/tr9/v0h5Qg1AAAAJ3RSTlP//////////////////////////////////////////////////wCDVpfZAAAACXBIWXMAAAsSAAALEgHS3X78AAAMZ0lEQVR4nO2ca1saWQIGp3XFJBgno9mB3axDBOT//8TtixjFmNieN4HiVH2wFTzVl+J0Nz4hf2ykSv7Y9wbIfjB8pRi+UgxfKYavFMNXiuErxfCVYvhKMXylGL5SDF8phq8Uw1eK4SvF8JVi+EoxfKUYvlIMXymGrxTDV4rhK8XwlWL4SjmO8OuLpuP05i1DXxr1Gukwen41fr375qjCN2e3v1nah583ht8Tw8Qbvi7aVl2Iu+vm9MvF2e3d9cmfzcns4fHV+TCL75ffBk27Maf/fZjj35PeD2p/rxt5dts++7/r9rnJg5bC0YWf97N02nVvmn+dd+H7Wbt9fJjHXbLt8mHQZBjUffOCdDvoefjtM/s9DiM4lvDNfbFVm7qfkKvzts2ij9SFfPT4UGe77MKuztszwvriZNb+7nSzbLbPfEc6PPU4/HCq3z6D4ajCtyfj5RDrZLbscq+HU/3s0eP9r/bZmodTff+77avkqv/dbtAL0u2g5+G3z2A4lvCnN+2hn74ifH8xfrTcCX8f9AXpdtDz8A9aCscTvjv0j065j071XY6np+LtfXi73DnV74TfkW4HtZeEq17+9K6edHt/ROHbEg/3Yff3dMPNXT8Pt4/3M7PpYg/LnZu73fBPpdtBDw9sR08enqFwTOGH27j5/d11e5bevp3rT8Dbx7tEwzmgX+6+ndsN/1S6Hdxd0v/anurbB4fXBOhMfyThX2JJeoP1ezna8Pf35NN9b8ehcrThh1vxyb634mA53vDyQwxfKYavFMNXiuErxfCVYvhKMXylGL5SDF8phq8Uw1eK4SvF8JVi+EoxfKUYvlIMXymGrxTDV0pJ+Oa4+GffGxDmF4YvGHuA/LPvDchi+Ndi+JCahuFD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" alt="plot of chunk unnamed-chunk-5"/> </p>
+
+<h2>Plotting Confidence Intervals</h2>
+
+<p>We can draw a similar plot with confidence intervals instead of SEs.</p>
+
+<pre><code class="r">plot(NA, xlim = c(-3, 3), ylim = c(0, 4), xlab = &quot;Slope&quot;, ylab = &quot;&quot;, yaxt = &quot;n&quot;)
+title(&quot;Regression Results&quot;)
+axis(2, 1:3, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), las = 2)
+abline(v = 0, col = &quot;gray&quot;)
+points(slopes, 1:3, pch = 23, col = &quot;black&quot;, bg = &quot;black&quot;)
+# Then we&#39;ll add thick line segments for each 67% CI: Note: The `qnorm`
+# function tells us how much to multiple our SEs by to get Gaussian CIs.
+# Note: We&#39;ll also use vectorization here to save having to retype the
+# `segments` command for each line:
+segments((slopes - (qnorm(0.835) * ses)), 1:3, (slopes + (qnorm(0.835) * ses)), 
+    1:3, col = &quot;black&quot;, lwd = 3)
+# Then we&#39;ll add medium line segments for the 95%:
+segments((slopes - (qnorm(0.975) * ses)), 1:3, (slopes + (qnorm(0.975) * ses)), 
+    1:3, col = &quot;black&quot;, lwd = 2)
+# Then we&#39;ll add thin line segments for the 99%:
+segments((slopes - (qnorm(0.995) * ses)), 1:3, (slopes + (qnorm(0.995) * ses)), 
+    1:3, col = &quot;black&quot;, lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-6"/> </p>
+
+<p>Both of these plots are similar, but show how the size, relative size, and significance of regression slopes can easily be summarized visually.</p>
+
+<p>Note: We can also extract confidence intervals for our model terms directly using the <code>confint</code> function applied to our modle object and then plot those CIs using <code>segments</code>:</p>
+
+<pre><code class="r">ci67 &lt;- confint(ols2, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), level = 0.67)
+ci95 &lt;- confint(ols2, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), level = 0.95)
+ci99 &lt;- confint(ols2, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), level = 0.99)
+</code></pre>
+
+<p>Now draw the plot:</p>
+
+<pre><code class="r">plot(NA, xlim = c(-3, 3), ylim = c(0, 4), xlab = &quot;Slope&quot;, ylab = &quot;&quot;, yaxt = &quot;n&quot;)
+title(&quot;Regression Results&quot;)
+axis(2, 1:3, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), las = 2)
+abline(v = 0, col = &quot;gray&quot;)
+points(slopes, 1:3, pch = 23, col = &quot;black&quot;, bg = &quot;black&quot;)
+# add the confidence intervals:
+segments(ci67[, 1], 1:3, ci67[, 2], 1:3, col = &quot;black&quot;, lwd = 3)
+segments(ci95[, 1], 1:3, ci95[, 2], 1:3, col = &quot;black&quot;, lwd = 2)
+segments(ci99[, 1], 1:3, ci99[, 2], 1:3, col = &quot;black&quot;, lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-8"/> </p>
+
+<h2>Comparable effect sizes</h2>
+
+<p>One of the major problems (noted above) with these kinds of plots is that in order for them to make visual sense, the underlying covariates have to be inherently comparable. By showing slopes, the plot shows the effect of a unit change in each covariate on the outcome, but unit changes may not be comparable across variables. We could probably come up with an infinite number of ways of presenting the results, but let&#39;s focus on two here: plotting standard deviation changes in covariates and plotting minimum to maximum changes in scale of covariates.</p>
+
+<h3>Standard deviation changes in X</h3>
+
+<p>Let&#39;s recall the values of our coefficients on <code>x1</code>, <code>x2</code>, and <code>x3</code>:</p>
+
+<pre><code class="r">coef(summary(ols2))[, 1:2]
+</code></pre>
+
+<pre><code>##             Estimate Std. Error
+## (Intercept) -0.06483     2.6053
+## x1           1.22113     0.3607
+## x2          -2.09407     0.1831
+## x3           3.00856     0.1006
+</code></pre>
+
+<p>On face value, <code>x3</code> has the largest effect, but what happens when we account for different standard deviations of the covariates:</p>
+
+<pre><code class="r">sd(x1)
+</code></pre>
+
+<pre><code>## [1] 5.311
+</code></pre>
+
+<pre><code class="r">sd(x2)
+</code></pre>
+
+<pre><code>## [1] 10.48
+</code></pre>
+
+<pre><code class="r">sd(x3)
+</code></pre>
+
+<pre><code>## [1] 19.07
+</code></pre>
+
+<p><code>x1</code> clearly also has the largest variance, so it may make more sense to compare a standard deviation change across the variables.
+To do that is relatively simple because we&#39;re working in a linear model, so we simply need to calculate the standard deviation of each covariate and multiply that by the respective coefficient:</p>
+
+<pre><code class="r">c1 &lt;- coef(summary(ols2))[-1, 1:2]  # drop the intercept
+c2 &lt;- numeric(length = 3)
+c2[1] &lt;- c1[1, 1] * sd(x1)
+c2[2] &lt;- c1[2, 1] * sd(x2)
+c2[3] &lt;- c1[3, 1] * sd(x3)
+</code></pre>
+
+<p>Then we&#39;ll get standard errors for those changes:</p>
+
+<pre><code class="r">s2 &lt;- numeric(length = 3)
+s2[1] &lt;- c1[1, 2] * sd(x1)
+s2[2] &lt;- c1[2, 2] * sd(x2)
+s2[3] &lt;- c1[3, 2] * sd(x3)
+</code></pre>
+
+<p>Then we can plot the results:</p>
+
+<pre><code class="r">plot(c2, 1:3, pch = 23, col = &quot;black&quot;, bg = &quot;black&quot;, xlim = c(-25, 65), ylim = c(0, 
+    4), xlab = &quot;Slope&quot;, ylab = &quot;&quot;, yaxt = &quot;n&quot;)
+title(&quot;Regression Results&quot;)
+axis(2, 1:3, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), las = 2)
+abline(v = 0, col = &quot;gray&quot;)
+# Then we&#39;ll add medium line segments for the 95%:
+segments((c2 - (qnorm(0.975) * s2)), 1:3, (c2 + (qnorm(0.975) * s2)), 1:3, col = &quot;black&quot;, 
+    lwd = 2)
+# Then we&#39;ll add thin line segments for the 99%:
+segments((c2 - (qnorm(0.995) * s2)), 1:3, (c2 + (qnorm(0.995) * s2)), 1:3, col = &quot;black&quot;, 
+    lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAhFBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OWU5OY85j9plAABlADllAGVlOQBlOY9lZjllZmVltbVltf2POQCPOTmPZgCPjzmPtY+P29qP2/21ZgC1jzm1tWW1/rW1/tq1/v2+vr7ajzna/tra/v39tWX924/9/rX9/tr9/v3fetGiAAAALHRSTlP/////////////////////////////////////////////////////////AMfWCYwAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAnCSURBVHic7dxhW9pYHkDxubqgXVF3pwvu7sBMl1II5Pt/v81NCKNYRSY3huSc86K0YP6m/MhN6CP9JTdkv3S9A9ZNwkMTHprw0ISHJjw04aEJD014aMJDEx6a8NCEhyY8NOGhCQ9NeGjCQxMemvDQhIcmPDThoQkPTXhow4Df3ofY9fKvbPrWVh8ZWm29mJ7/fbtuUPBhtP7koSX8IgjfUdWBV/26KqwixG4Wrr/dj9a72dWv4Wp+uD+7qY7i/e2fG03iNtd/HI7xnw3db1R8XdxytC4e/d+seGx8GNuXBge/KI/SSXQP4W83Eb48auv7q+M4ktW3h43G1UbxN28MrTd6DV8/0vET8fGGAh/2YllBXR6Q2U1hsyqRIuSz+yud+jbCZjfFirC9v5oXXzvJN6F+5CdDq4eew1dLff1IbxoUfLEYbyqsq/kmcm+rpX7+7P7yS0u2cFjqy68tXiXT8mvjRm8MrTd6DV8/0puGAn+9LJ76yQfgy5Pxs9sj+D3oG0PrjV7DH8b2peHAx6f+2ZL7bKmPHC+X4vo6vLg9WuqP4I+G1hsVp4RpOfzlVX2fLu8HBF9IHK7D9td01cVdeRzW95dHZojY1e3Rxd0x/Muh9UaHO+qtx4dH+tKQ4KvLuMX+6rpYpeu3c+UCXN8fiao1oLw9fjt3DP9yaL1xPKX/q17qizur10SPVvqBwL/Vpk9vsD63wcLvr8knXe/HpTZY+OpSfNz1Xlxsw4W3dxMemvDQhIcmPDThoQkPTXhowkMTHprw0ISHJjw04aEJD014aMJDEx6a8NCEh9YEPnTW9+6+dX9qEb7Bts363tl37k/CQxMemvDQhIcmPDThoQkP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" alt="plot of chunk unnamed-chunk-13"/> </p>
+
+<p>By looking at standard deviation changes (focus on the scale of the x-axis), we can see that <code>x3</code> actually has the largest effect by a much larger factor than we saw in the raw slopes. Moving the same relative amount up each covariate&#39;s distribution produces substantially different effects on the outcome.</p>
+
+<h3>Full scale changes in X</h3>
+
+<p>Another way to visualize effect sizes is to examine the effect of full scale changes in covariates. This is especially useful when deal within covariates that differ dramatically in scale (e.g., a mix of discrete and continuous variables).
+The basic calculations for these kinds of plots are the same as in the previous plot, but instead of using <code>sd</code>, we use <code>diff(range())</code>, which tells us what a full scale change is in the units of each covariate:</p>
+
+<pre><code class="r">c3 &lt;- numeric(length = 3)
+c3[1] &lt;- c1[1, 1] * diff(range(x1))
+c3[2] &lt;- c1[2, 1] * diff(range(x2))
+c3[3] &lt;- c1[3, 1] * diff(range(x3))
+</code></pre>
+
+<p>Then we&#39;ll get standard errors for those changes:</p>
+
+<pre><code class="r">s3 &lt;- numeric(length = 3)
+s3[1] &lt;- c1[1, 2] * diff(range(x1))
+s3[2] &lt;- c1[2, 2] * diff(range(x2))
+s3[3] &lt;- c1[3, 2] * diff(range(x3))
+</code></pre>
+
+<p>Then we can plot the results:</p>
+
+<pre><code class="r">plot(c3, 1:3, pch = 23, col = &quot;black&quot;, bg = &quot;black&quot;, xlim = c(-150, 300), ylim = c(0, 
+    4), xlab = &quot;Slope&quot;, ylab = &quot;&quot;, yaxt = &quot;n&quot;)
+title(&quot;Regression Results&quot;)
+axis(2, 1:3, c(&quot;x1&quot;, &quot;x2&quot;, &quot;x3&quot;), las = 2)
+abline(v = 0, col = &quot;gray&quot;)
+# Then we&#39;ll add medium line segments for the 95%:
+segments((c3 - (qnorm(0.975) * s3)), 1:3, (c3 + (qnorm(0.975) * s3)), 1:3, col = &quot;black&quot;, 
+    lwd = 2)
+# Then we&#39;ll add thin line segments for the 99%:
+segments((c3 - (qnorm(0.995) * s3)), 1:3, (c3 + (qnorm(0.995) * s3)), 1:3, col = &quot;black&quot;, 
+    lwd = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-16"/> </p>
+
+<p>Focusing on the x-axes of the last three plots, we see how differences in scaling of the covariates can lead to vastly different visual interpretations of effect sizes. Plotting the slopes directly suggested that <code>x3</code> had an effect about three times larger than the effect of <code>x1</code>. Plotting standard deviation changes suggested that <code>x3</code> had an effect about 10 times larger than the effect of <code>x1</code> and plotting full scale changes in covariates showed a similar substantive conclusion. While each showed that <code>x3</code> had the largest effect, interpreting the relative contribution of the different variables depends upon how much variance we would typically see in each variable in our data. The unit-change effect (represented by the slope) may not be the effect size that we ultimately care about for each covariate.</p>
+
+</body>
+
+</html>

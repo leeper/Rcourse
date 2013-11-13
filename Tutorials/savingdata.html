@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Saving R Data</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Saving R Data</h1>
+
+<p>We frequently need to save our data after we have worked on it for some time (e.g., because we&#39;ve created scaled or deleted variables, created a subset of our original data, modified the data in a time- or processor-intensive way, or simply need to share a subset of the data). In most statistical packages, this is done automatically: those packages open a file and &ldquo;destructively&rdquo; make changes to the original file. This can be convenient, but it is also problematic. If I change a file and don&#39;t save the original, my work is no longer reproducible from the original file. It essentially builds a step into the scientific workflow that is not explicitly recorded.
+R does things differently. When opening a data file in R, the data are read into memory and the link between those data in memory and the original file is severed. Changes made to the data are kept only in R and they are lost if R is closed without the data being saved. This is usually fine because good workflow involves writing scripts that work from the original data, make any necessary changes, and then produce output. But, for the reasons stated above, we might want to save our working data for use later on. R provides at least four ways to do this.
+Note: All of the methods overwrite the system file by default. This means that writing a file over an existing file is &ldquo;destructive,&rdquo; so it&#39;s a good idea to make sure that you&#39;re not overwriting a file by checking to make sure your filename isn&#39;t already in use using <code>list.files()</code>. By default, the file is written to your working directory (<code>getwd()</code>) but can be written elsewhere if you supply a file path rather than name. </p>
+
+<p>All of these methods work with an R dataframe, so we&#39;ll create a simple one just for the sake of demonstration:</p>
+
+<pre><code class="r">set.seed(1)
+mydf &lt;- data.frame(x = rnorm(100), y = rnorm(100), z = rnorm(100))
+</code></pre>
+
+<p>&ldquo;&rdquo; save ##
+The most flexible way to save data objects from R uses the <code>save</code> function. By default, <code>save</code> writes an R object (or multiple R objects) to an R-readable binary file that can be opened using <code>load</code>. Because <code>save</code> can store multiple objects (including one&#39;s entire current workspace), it provides a very flexible way to &ldquo;pick up where you left off.&rdquo; For example, using <code>save.image(&#39;myworkspace.RData&#39;)</code>, you could save everything about your current R workspace, and then <code>load(&#39;myworkspace.RData&#39;)</code> later and be exactly where you were before.
+But it is also a convenient way to write data to a file that you plan to use again in R. Because it saves R objects &ldquo;as-is,&rdquo; there&#39;s no need to worry about problems reading in the data or needing to change structure or variable names because the file is saved (and will load) exactly as it looks in R. The dataframe will even have the same name (i.e., in our example, the loaded object will be caleld <code>mydf</code>). The .RData file format is also very space-saving, thus taking up less room than a comparable comma-separated variable file containing the same data.
+To write our dataframe using <code>save</code>, we simply supply the name of the dataframe and the destination file:</p>
+
+<pre><code class="r">save(mydf, file = &quot;saveddf.RData&quot;)
+</code></pre>
+
+<p>Note that the file name is not important (so long as it does not overwrite another file in your working directory). If you load the file using <code>load</code>, the R object <code>mydf</code> will appear in your workspace.
+Let&#39;s remove the file just to not leave a mess:</p>
+
+<pre><code class="r">unlink(&quot;saveddf.RData&quot;)
+</code></pre>
+
+<h2>dput (and dget)</h2>
+
+<p>Sometimes we want to be able to write our data in a way that makes it exactly reproducible (like <code>save</code>), but we also want to be able to read the file. Because <code>save</code> creates a binary file, we can only open the file in R (or another piece of software that reads .RData files). If we want, for example, to be able to look at or change the file in a text editor, we need it in another format. One R-specific solution for this is <code>dput</code>.
+The <code>dput</code> function saves data as an R expression. This means that the resulting file can actually be copied and pasted into the R console. This is especially helpful if you want to share (part of) your data with someone else. Indeed, it is rquired that when you ask data-related questions on <a href="http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">StackOverflow</a>, that you supply your data using <code>dput</code> to make it easy for people to help you.
+We can also simply write the output of <code>dput</code> to the console to see what it looks like. Let&#39;s try that before writing it to a file:</p>
+
+<pre><code class="r">dput(mydf)
+</code></pre>
+
+<pre><code>## structure(list(x = c(-0.626453810742332, 0.183643324222082, -0.835628612410047, 
+## 1.59528080213779, 0.329507771815361, -0.820468384118015, 0.487429052428485, 
+## 0.738324705129217, 0.575781351653492, -0.305388387156356, 1.51178116845085, 
+## 0.389843236411431, -0.621240580541804, -2.2146998871775, 1.12493091814311, 
+## -0.0449336090152309, -0.0161902630989461, 0.943836210685299, 
+## 0.821221195098089, 0.593901321217509, 0.918977371608218, 0.782136300731067, 
+## 0.0745649833651906, -1.98935169586337, 0.61982574789471, -0.0561287395290008, 
+## -0.155795506705329, -1.47075238389927, -0.47815005510862, 0.417941560199702, 
+## 1.35867955152904, -0.102787727342996, 0.387671611559369, -0.0538050405829051, 
+## -1.37705955682861, -0.41499456329968, -0.394289953710349, -0.0593133967111857, 
+## 1.10002537198388, 0.763175748457544, -0.164523596253587, -0.253361680136508, 
+## 0.696963375404737, 0.556663198673657, -0.68875569454952, -0.70749515696212, 
+## 0.36458196213683, 0.768532924515416, -0.112346212150228, 0.881107726454215, 
+## 0.398105880367068, -0.612026393250771, 0.341119691424425, -1.12936309608079, 
+## 1.43302370170104, 1.98039989850586, -0.367221476466509, -1.04413462631653, 
+## 0.569719627442413, -0.135054603880824, 2.40161776050478, -0.0392400027331692, 
+## 0.689739362450777, 0.0280021587806661, -0.743273208882405, 0.188792299514343, 
+## -1.80495862889104, 1.46555486156289, 0.153253338211898, 2.17261167036215, 
+## 0.475509528899663, -0.709946430921815, 0.610726353489055, -0.934097631644252, 
+## -1.2536334002391, 0.291446235517463, -0.443291873218433, 0.00110535163162413, 
+## 0.0743413241516641, -0.589520946188072, -0.568668732818502, -0.135178615123832, 
+## 1.1780869965732, -1.52356680042976, 0.593946187628422, 0.332950371213518, 
+## 1.06309983727636, -0.304183923634301, 0.370018809916288, 0.267098790772231, 
+## -0.54252003099165, 1.20786780598317, 1.16040261569495, 0.700213649514998, 
+## 1.58683345454085, 0.558486425565304, -1.27659220845804, -0.573265414236886, 
+## -1.22461261489836, -0.473400636439312), y = c(-0.620366677224124, 
+## 0.0421158731442352, -0.910921648552446, 0.158028772404075, -0.654584643918818, 
+## 1.76728726937265, 0.716707476017206, 0.910174229495227, 0.384185357826345, 
+## 1.68217608051942, -0.635736453948977, -0.461644730360566, 1.43228223854166, 
+## -0.650696353310367, -0.207380743601965, -0.392807929441984, -0.319992868548507, 
+## -0.279113302976559, 0.494188331267827, -0.177330482269606, -0.505957462114257, 
+## 1.34303882517041, -0.214579408546869, -0.179556530043387, -0.100190741213562, 
+## 0.712666307051405, -0.0735644041263263, -0.0376341714670479, 
+## -0.681660478755657, -0.324270272246319, 0.0601604404345152, -0.588894486259664, 
+## 0.531496192632572, -1.51839408178679, 0.306557860789766, -1.53644982353759, 
+## -0.300976126836611, -0.528279904445006, -0.652094780680999, -0.0568967778473925, 
+## -1.91435942568001, 1.17658331201856, -1.664972436212, -0.463530401472386, 
+## -1.11592010504285, -0.750819001193448, 2.08716654562835, 0.0173956196932517, 
+## -1.28630053043433, -1.64060553441858, 0.450187101272656, -0.018559832714638, 
+## -0.318068374543844, -0.929362147453702, -1.48746031014148, -1.07519229661568, 
+## 1.00002880371391, -0.621266694796823, -1.38442684738449, 1.86929062242358, 
+## 0.425100377372448, -0.238647100913033, 1.05848304870902, 0.886422651374936, 
+## -0.619243048231147, 2.20610246454047, -0.255027030141015, -1.42449465021281, 
+## -0.144399601954219, 0.207538339232345, 2.30797839905936, 0.105802367893711, 
+## 0.456998805423414, -0.077152935356531, -0.334000842366544, -0.0347260283112762, 
+## 0.787639605630162, 2.07524500865228, 1.02739243876377, 1.2079083983867, 
+## -1.23132342155804, 0.983895570053379, 0.219924803660651, -1.46725002909224, 
+## 0.521022742648139, -0.158754604716016, 1.4645873119698, -0.766081999604665, 
+## -0.430211753928547, -0.926109497377437, -0.17710396143654, 0.402011779486338, 
+## -0.731748173119606, 0.830373167981674, -1.20808278630446, -1.04798441280774, 
+## 1.44115770684428, -1.01584746530465, 0.411974712317515, -0.38107605110892
+## ), z = c(0.409401839650934, 1.68887328620405, 1.58658843344197, 
+## -0.330907800682766, -2.28523553529247, 2.49766158983416, 0.667066166765493, 
+## 0.5413273359637, -0.0133995231459087, 0.510108422952926, -0.164375831769667, 
+## 0.420694643254513, -0.400246743977644, -1.37020787754746, 0.987838267454879, 
+## 1.51974502549955, -0.308740569225614, -1.25328975560769, 0.642241305677824, 
+## -0.0447091368939791, -1.73321840682484, 0.00213185968026965, 
+## -0.630300333928146, -0.340968579860405, -1.15657236263585, 1.80314190791747, 
+## -0.331132036391221, -1.60551341225308, 0.197193438739481, 0.263175646405474, 
+## -0.985826700409291, -2.88892067167955, -0.640481702565115, 0.570507635920485, 
+## -0.05972327604261, -0.0981787440052344, 0.560820728620116, -1.18645863857947, 
+## 1.09677704427424, -0.00534402827816569, 0.707310667398079, 1.03410773473746, 
+## 0.223480414915304, -0.878707612866019, 1.16296455596733, -2.00016494478548, 
+## -0.544790740001725, -0.255670709156989, -0.166121036765006, 1.02046390878411, 
+## 0.136221893102778, 0.407167603423836, -0.0696548130129049, -0.247664341619331, 
+## 0.69555080661964, 1.1462283572158, -2.40309621489187, 0.572739555245841, 
+## 0.374724406778655, -0.425267721556076, 0.951012807576816, -0.389237181718379, 
+## -0.284330661799574, 0.857409778079803, 1.7196272991206, 0.270054900937229, 
+## -0.42218400978764, -1.18911329485959, -0.33103297887901, -0.939829326510021, 
+## -0.258932583118785, 0.394379168221572, -0.851857092023863, 2.64916688109488, 
+## 0.156011675665079, 1.13020726745494, -2.28912397984011, 0.741001157195439, 
+## -1.31624516045156, 0.919803677609141, 0.398130155451956, -0.407528579269772, 
+## 1.32425863017727, -0.70123166924692, -0.580614304240536, -1.00107218102542, 
+## -0.668178606753393, 0.945184953373082, 0.433702149545162, 1.00515921767704, 
+## -0.390118664053679, 0.376370291774648, 0.244164924486494, -1.42625734238254, 
+## 1.77842928747545, 0.134447660933676, 0.765598999157864, 0.955136676908982, 
+## -0.0505657014422701, -0.305815419766971)), .Names = c(&quot;x&quot;, &quot;y&quot;, 
+## &quot;z&quot;), row.names = c(NA, -100L), class = &quot;data.frame&quot;)
+</code></pre>
+
+<p>As you can see, output is a complicated R expression (using the <code>structure</code> function), which includes all of the data values, the variable names, row names, and the class of the object. If you were to copy and paste this output into a new R session, you would have the exact same dataframe as the one we created here.
+We can write this to a file (with any extension) by specifying a <code>file</code> argument:</p>
+
+<pre><code class="r">dput(mydf, &quot;saveddf.txt&quot;)
+</code></pre>
+
+<p>I would tend to use the .txt (text file) extension, so that it will be easily openable in any text editor, but you can use any extension.
+Note: Unlike <code>save</code> and <code>load</code>, which store an R object and then restore it using the save name, <code>dput</code> does not store the name of the R object. So, if we want to load the dataframe again (using <code>dget</code>), we need to store the dataframe as a variable:</p>
+
+<pre><code class="r">mydf2 &lt;- dget(&quot;saveddf.txt&quot;)
+</code></pre>
+
+<p>Additionally, and again unlike <code>save</code>, dput only stores values up to a finite level of precision. So while our original <code>mydf</code> and the read-back-in dataframe <code>mydf2</code> look very similar, they differ due the rules of floating point values (a basic element of computer programming that is unimportant to really understand):</p>
+
+<pre><code class="r">head(mydf)
+</code></pre>
+
+<pre><code>##         x        y       z
+## 1 -0.6265 -0.62037  0.4094
+## 2  0.1836  0.04212  1.6889
+## 3 -0.8356 -0.91092  1.5866
+## 4  1.5953  0.15803 -0.3309
+## 5  0.3295 -0.65458 -2.2852
+## 6 -0.8205  1.76729  2.4977
+</code></pre>
+
+<pre><code class="r">head(mydf2)
+</code></pre>
+
+<pre><code>##         x        y       z
+## 1 -0.6265 -0.62037  0.4094
+## 2  0.1836  0.04212  1.6889
+## 3 -0.8356 -0.91092  1.5866
+## 4  1.5953  0.15803 -0.3309
+## 5  0.3295 -0.65458 -2.2852
+## 6 -0.8205  1.76729  2.4977
+</code></pre>
+
+<pre><code class="r">mydf == mydf2
+</code></pre>
+
+<pre><code>##            x     y     z
+##   [1,] FALSE FALSE FALSE
+##   [2,] FALSE FALSE FALSE
+##   [3,] FALSE FALSE FALSE
+##   [4,] FALSE FALSE FALSE
+##   [5,] FALSE FALSE FALSE
+##   [6,] FALSE FALSE FALSE
+##   [7,] FALSE FALSE  TRUE
+##   [8,] FALSE FALSE FALSE
+##   [9,] FALSE FALSE FALSE
+##  [10,]  TRUE FALSE FALSE
+##  [11,] FALSE  TRUE FALSE
+##  [12,] FALSE  TRUE FALSE
+##  [13,] FALSE FALSE FALSE
+##  [14,]  TRUE FALSE FALSE
+##  [15,] FALSE FALSE FALSE
+##  [16,] FALSE FALSE FALSE
+##  [17,] FALSE FALSE FALSE
+##  [18,] FALSE FALSE FALSE
+##  [19,] FALSE  TRUE FALSE
+##  [20,] FALSE FALSE FALSE
+##  [21,] FALSE FALSE FALSE
+##  [22,] FALSE FALSE FALSE
+##  [23,]  TRUE FALSE FALSE
+##  [24,] FALSE FALSE FALSE
+##  [25,] FALSE FALSE FALSE
+##  [26,] FALSE FALSE FALSE
+##  [27,] FALSE FALSE FALSE
+##  [28,] FALSE FALSE FALSE
+##  [29,] FALSE FALSE FALSE
+##  [30,] FALSE FALSE FALSE
+##  [31,] FALSE FALSE FALSE
+##  [32,] FALSE FALSE FALSE
+##  [33,] FALSE FALSE FALSE
+##  [34,] FALSE FALSE FALSE
+##  [35,] FALSE FALSE FALSE
+##  [36,] FALSE FALSE FALSE
+##  [37,] FALSE FALSE FALSE
+##  [38,] FALSE FALSE FALSE
+##  [39,] FALSE FALSE FALSE
+##  [40,] FALSE FALSE FALSE
+##  [41,] FALSE FALSE FALSE
+##  [42,] FALSE FALSE FALSE
+##  [43,] FALSE FALSE FALSE
+##  [44,] FALSE FALSE FALSE
+##  [45,] FALSE FALSE FALSE
+##  [46,] FALSE FALSE FALSE
+##  [47,] FALSE FALSE FALSE
+##  [48,] FALSE FALSE FALSE
+##  [49,] FALSE FALSE FALSE
+##  [50,] FALSE FALSE FALSE
+##  [51,] FALSE FALSE FALSE
+##  [52,] FALSE FALSE FALSE
+##  [53,] FALSE FALSE FALSE
+##  [54,] FALSE FALSE FALSE
+##  [55,] FALSE FALSE FALSE
+##  [56,]  TRUE FALSE FALSE
+##  [57,] FALSE FALSE FALSE
+##  [58,] FALSE FALSE FALSE
+##  [59,] FALSE FALSE FALSE
+##  [60,] FALSE FALSE FALSE
+##  [61,] FALSE FALSE FALSE
+##  [62,] FALSE FALSE FALSE
+##  [63,] FALSE  TRUE FALSE
+##  [64,] FALSE FALSE FALSE
+##  [65,] FALSE FALSE FALSE
+##  [66,] FALSE FALSE FALSE
+##  [67,] FALSE FALSE FALSE
+##  [68,] FALSE FALSE FALSE
+##  [69,] FALSE FALSE FALSE
+##  [70,] FALSE FALSE FALSE
+##  [71,] FALSE FALSE FALSE
+##  [72,] FALSE FALSE FALSE
+##  [73,] FALSE FALSE FALSE
+##  [74,] FALSE FALSE  TRUE
+##  [75,] FALSE FALSE FALSE
+##  [76,] FALSE FALSE FALSE
+##  [77,]  TRUE FALSE FALSE
+##  [78,] FALSE FALSE FALSE
+##  [79,] FALSE FALSE FALSE
+##  [80,] FALSE FALSE FALSE
+##  [81,] FALSE FALSE FALSE
+##  [82,] FALSE FALSE FALSE
+##  [83,] FALSE FALSE FALSE
+##  [84,] FALSE FALSE FALSE
+##  [85,] FALSE FALSE FALSE
+##  [86,] FALSE  TRUE FALSE
+##  [87,] FALSE FALSE FALSE
+##  [88,] FALSE FALSE FALSE
+##  [89,] FALSE FALSE FALSE
+##  [90,] FALSE FALSE FALSE
+##  [91,] FALSE FALSE FALSE
+##  [92,] FALSE FALSE FALSE
+##  [93,] FALSE FALSE FALSE
+##  [94,] FALSE FALSE FALSE
+##  [95,] FALSE FALSE FALSE
+##  [96,] FALSE FALSE FALSE
+##  [97,] FALSE FALSE FALSE
+##  [98,] FALSE FALSE FALSE
+##  [99,] FALSE FALSE FALSE
+## [100,] FALSE FALSE  TRUE
+</code></pre>
+
+<p>Thus, a dataframe saved using <code>save</code> is exactly the same when reloaded into R whereas the one saved using <code>dput</code> is the same up to a lesser degree of precision.</p>
+
+<p>Let&#39;s clean up that file so not to leave a mess:</p>
+
+<pre><code class="r">unlink(&quot;saveddf.text&quot;)
+</code></pre>
+
+<h2>dump (and source)</h2>
+
+<p>Similar to <code>dput</code>, the <code>dump</code> function writes the <code>dput</code> output to a file. Indeed, it write the exact same representation we saw above on the console. But, instead of writing an R expression that we have to save to a variable name later, <code>dump</code> preserves the name of our dataframe. Thus it is a blend between <code>dput</code> and <code>save</code> (but mostly it is like <code>dput</code>).
+<code>dump</code> also uses a default filename: <code>&quot;dumpdata.R&quot;</code>, making it a shorter command to write and one that is less likely to be destructive (except to previous data dumps). Let&#39;s see how it works:</p>
+
+<pre><code class="r">dump(&quot;mydf&quot;)
+</code></pre>
+
+<p>Note: We specify the dataframe name as a character string because this is written to the file so that when we load the <code>&quot;dumpdata.R&quot;</code> file, the dataframe has the same name as it does right now.
+We can load this dataframe into memory from the file using <code>source</code>:</p>
+
+<pre><code class="r">source(&quot;dumpdata.R&quot;, echo = TRUE)
+</code></pre>
+
+<pre><code>## 
+## &gt; mydf &lt;-
+## + structure(list(x = c(-0.626453810742332, 0.183643324222082, -0.835628612410047, 
+## + 1.59528080213779, 0.329507771815361, -0.820468384118015 .... [TRUNCATED]
+</code></pre>
+
+<p>As you&#39;ll see in the (truncated) output of <code>source</code>, the file looks just like <code>dput</code> but includes <code>mydf &lt;-</code> at the beginning, meaning it s storing the <code>dput</code>-like output into the <code>mydf</code> object in R memory.
+Note: <code>dump</code> can also take arbitrary file names to its <code>file</code> argument (like the <code>save</code> and <code>dput</code>).</p>
+
+<p>Let&#39;s clean up that file so not to leave a mess:</p>
+
+<pre><code class="r">unlink(&quot;dumpdata.R&quot;)
+</code></pre>
+
+<h2>write.csv and write.table</h2>
+
+<p>One of the easiest ways to save an R dataframe is to write it to a comma-separated value (CSV) file. CSV files are human-readable (e.g., in a text editor) and can be opened by essentially any statistical software (Excel, Stata, SPSS, SAS, etc.) making them one of the best formats for data sharing.
+To save a dataframe as CSV is easy. You simply need to use the <code>write.csv</code> function with the name of the dataframe and the name of the file you want to write to. Let&#39;s see how it works:</p>
+
+<pre><code class="r">write.csv(mydf, file = &quot;saveddf.csv&quot;)
+</code></pre>
+
+<p>That&#39;s all there is to it.
+R also allows you to save files in other CSV-like formats. For example, sometimes we want to save data using a different separator such as a tab (i.e., to create a tab-separated value file or TSV). The TSV is, for example, the default file format used by The Dataverse Network online data repository. To write to a TSV we use a related function <code>write.table</code> and specify the <code>sep</code> argument:</p>
+
+<pre><code class="r">write.table(mydf, file = &quot;saveddf.tsv&quot;, sep = &quot;\t&quot;)
+</code></pre>
+
+<p>Note: We use the <code>\t</code> symbol to represent a tab (a standard common to many programming languages).
+We could also specify any character as a separator, such as <code>|</code> or <code>;</code> or <code>.</code> but commas and tabs are the most common.
+Note: Just like <code>dput</code>, writing to a CSV or another delimited-format file necessarily includes some loss of precision, which may or may not be problematic for your particular use case.</p>
+
+<p>Let&#39;s clean up our files just so we don&#39;t leave a mess:</p>
+
+<pre><code class="r">unlink(&quot;savedf.csv&quot;)
+unlink(&quot;savedf.tsv&quot;)
+</code></pre>
+
+<h2>Writing to &ldquo;foreign&rdquo; file formats</h2>
+
+<p>The <strong>foreign</strong> package, which we can use to load &ldquo;foreign&rdquo; file formats also includes a <code>write.foreign</code> function that can be used to write an R dataframe to a foreign, proprietary data format. Supported formats include SPSS, Stata, and SAS.</p>
+
+</body>
+
+</html>

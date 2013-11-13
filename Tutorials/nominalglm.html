@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Multinomial Outcome Models</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Multinomial Outcome Models</h1>
+
+<p>One important, but sometimes problematic, class of regression models deals with nominal or multinomial outcomes (i.e., outcomes that are not continuous or even ordered). Estimating these models is not possible with <code>glm</code>, but can be estimated using the <em>nnet</em> add-on package, which is recommended and therefore simply needs to be loaded.
+Let&#39;s start by loading the package, or installing then loading it if it isn&#39;t already on our system:</p>
+
+<pre><code class="r">install.packages(&quot;nnet&quot;, repos = &quot;http://cran.r-project.org&quot;)
+</code></pre>
+
+<pre><code>## Warning: package &#39;nnet&#39; is in use and will not be installed
+</code></pre>
+
+<pre><code class="r">library(nnet)
+</code></pre>
+
+<p>Then let&#39;s create some simple bivariate data where the outcome <code>y</code> takes three values</p>
+
+<pre><code class="r">set.seed(100)
+y &lt;- sort(sample(1:3, 600, TRUE))
+x &lt;- numeric(length = 600)
+x[1:200] &lt;- -1 * x[1:200] + rnorm(200, 4, 2)
+x[201:400] &lt;- 1 * x[201:400] + rnorm(200)
+x[401:600] &lt;- 2 * x[401:600] + rnorm(200, 2, 2)
+</code></pre>
+
+<p>We can plot the data to see what&#39;s going on:</p>
+
+<pre><code class="r">plot(y ~ x, col = rgb(0, 0, 0, 0.3), pch = 19)
+abline(lm(y ~ x), col = &quot;red&quot;)  # a badly fitted regression line
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/> </p>
+
+<p>Clearly, there is a relationship between <code>x</code> and <code>y</code>, but it&#39;s certainly not linear and if we tried to draw a line through through the data (i.e., the straight red regression line), many of the predicted values would be problematic because <code>y</code> can only take on discrete values 1,2, and 3 and, in fact, the line hardly fits the data at all.
+We might therefore rely on a multinomial model, which will give us the coefficients for <code>x</code> for each level of the outcome. In other words, the coefficients from a multinomial logistic model express effects in terms of moving from the baseline category of the outcome to the other levels of the outcome (essentially combining several binary logistic regression models into a single model).
+Let&#39;s look at the output from the <code>multinom</code> function to see what these results look like:</p>
+
+<pre><code class="r">m1 &lt;- multinom(y ~ x)
+</code></pre>
+
+<pre><code>## # weights:  9 (4 variable)
+## initial  value 659.167373 
+## iter  10 value 535.823756
+## iter  10 value 535.823754
+## final  value 535.823754 
+## converged
+</code></pre>
+
+<pre><code class="r">summary(m1)
+</code></pre>
+
+<pre><code>## Call:
+## multinom(formula = y ~ x)
+## 
+## Coefficients:
+##   (Intercept)       x
+## 2       1.849 -0.8620
+## 3       1.126 -0.3208
+## 
+## Std. Errors:
+##   (Intercept)       x
+## 2      0.1900 0.07096
+## 3      0.1935 0.05141
+## 
+## Residual Deviance: 1072 
+## AIC: 1080
+</code></pre>
+
+<p>Our model only consists of one covariate, but we now see two intercept coefficients and two slope coefficients because the model is telling us the relationship between <code>x</code> and <code>y</code> in terms of moving from category 1 to category 2 in <code>y</code> and from category 1 to category 3 in <code>y</code>, respectively. The standard errors are printed below the coefficients.
+Unfortunately, its almost impossible to interpret the coefficients here because a unit change in <code>x</code> has some kind of negative impact on both levels of <code>y</code>, but we don&#39;t know how much.</p>
+
+<h2>Predicted values from multinomial models</h2>
+
+<p>A better way to examine the effects in a multinomial model is to look at predicted probabilities. We need to start with some new data representing the full scale of the <code>x</code> variable:</p>
+
+<pre><code class="r">newdata &lt;- data.frame(x = seq(min(x), max(x), length.out = 100))
+</code></pre>
+
+<p>Like with binary models, we can extract different kinds of predictions from the model using <code>predict</code>. The first type of prediction is simply the fitted &ldquo;class&rdquo; or level of the outcome:</p>
+
+<pre><code class="r">p1 &lt;- predict(m1, newdata, type = &quot;class&quot;)
+</code></pre>
+
+<p>The second is a predicted probability of being in each category of <code>y</code>. In other words, for each value of our new data, <code>predict</code> with <code>type=&quot;class&quot;</code> will return, in our example, three predicted probabilities.</p>
+
+<pre><code class="r">p2 &lt;- predict(m1, newdata, type = &quot;probs&quot;)
+</code></pre>
+
+<p>These probabilities also all sum to a value of 1, which means that the model requires that the categories of <code>y</code> be mutually exclusive and comprehensive. There&#39;s no opportunity for <code>x</code> to predict a value outside of those included in the model.
+You can verify this using <code>rowSums</code>:</p>
+
+<pre><code class="r">rowSums(p2)
+</code></pre>
+
+<pre><code>##   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90 
+##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
+##  91  92  93  94  95  96  97  98  99 100 
+##   1   1   1   1   1   1   1   1   1   1
+</code></pre>
+
+<p>If you want to relax this constraint, you can separately model your data using two or more binary logistic regressions comparing different categories. For example, we could model the data, predicting <code>y==2</code> against <code>y==1</code> and separately <code>y==3</code> against <code>y==1</code>. Do this we can create two subsets of our original data to separately <code>y==2</code> from <code>y==3</code>.</p>
+
+<pre><code class="r">df1 &lt;- data.frame(x = x, y = y)[y %in% c(1, 2), ]
+df1$y &lt;- df1$y - 1  # recode 2 to 1 and 1 to 0
+df2 &lt;- data.frame(x = x, y = y)[y %in% c(1, 3), ]
+df2$y[df2$y == 1] &lt;- 0  # recode 1 to 0
+df2$y[df2$y == 3] &lt;- 1  # recode 3 to 1
+</code></pre>
+
+<p>We can then model this and compare to the coefficients from the multinomial model:</p>
+
+<pre><code class="r">coef(glm(y ~ x, data = df1, family = binomial))  # predict 2 against 1
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      1.8428     -0.8839
+</code></pre>
+
+<pre><code class="r">coef(glm(y ~ x, data = df2, family = binomial))  # predict 3 against 1
+</code></pre>
+
+<pre><code>## (Intercept)           x 
+##      1.1102     -0.3144
+</code></pre>
+
+<pre><code class="r">coef(m1)  # multinomial model
+</code></pre>
+
+<pre><code>##   (Intercept)       x
+## 2       1.849 -0.8620
+## 3       1.126 -0.3208
+</code></pre>
+
+<p>Clearly, the coefficients from the two modeling strategies are similar, but not identical. The multinomial probably imposes a more plausible assumption (that predicted probabilities sum to 1), but you can easily try both approaches.</p>
+
+<h3>Plotting predicted classes</h3>
+
+<p>One way to visualize the results of a multinomial model is simply to plot our fitted values for <code>y</code> on top of our original data:</p>
+
+<pre><code class="r">plot(y ~ x, col = rgb(0, 0, 0, 0.05), pch = 19)
+lines(newdata$x, p1, col = rgb(1, 0, 0, 0.75), lwd = 5)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAA8FBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9lZmVltf1tbW15eXmAgICHh4eOjo6POQCPOTmPOWWPZgCPtY+P29qP2/2Wlpaenp6np6ewsLC1ZgC1/rW1/v25ubnDw8PNzs3PEBDREhLSExPTFBTUFRXVFhbWFxfYGRnY2djZGhraGxvajzna/tra/v3cHR3dHh7fICDhIiLjJCTk5eTlJibnKCjpKirrLCztLi7wMTHw8fDyNDP1Njb4OTn7PDz9tWX924/9/rX9/tr9/v3+QD+UeGYDAAAAUHRSTlP///////////////////////////////////////////////////////////////////////////////////////////////////////8A/61VtIYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAA+7SURBVHic7ZwBW9pYFoaXdtrurKPT3XVm1JndKQbXkO22VgbXIiaESERB+v//zd4bYFZHqJKcg+d4vrePBm7yfUnzEhJo4U8TYJI/PfUGgKcB4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijVJFfA1IhlF8hSzgBuKNAvFGgXijQLxRKosfvSmuEV8erloNnpSq4m/2tovp9avTFavBk1JV/Pjt4Z3p46vBk4Ij3iiVz/HjLZzjNbK2q/o4jm9N7g5Ob0dRXNyPwzCM3B3/Mx8Pg3oQuqFifhxHYeBuRm5oEoY7QeATcTEeBm6Wvx252/V6PXSL/thudzNHPnRkaZL6W1maZu4nSdxPN3Ezs6H7ydJup5P6O7lbopsk3c5OPZiuLAjqOztuPX4dfvP8qsK6+wn9dvrNnW5wVGzMdMt9MIombitDt92z4Xi6rXF8d2cs5ZGLrca6xMeDwSD+fXJ3cHq7FcfNlrvv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" alt="plot of chunk unnamed-chunk-11"/> </p>
+
+<p>This plot shows that as we increase along <code>x</code>, observations are first likely to be in <code>y==2</code>, then <code>y==3</code>, and finally <code>y==1</code>. Unfortunately, using the <code>lines</code> function gives a slight misrepresentation because of the vertical discontinuities. We can draw three separate lines to have a more accurate picture:</p>
+
+<pre><code class="r">plot(y ~ x, col = rgb(0, 0, 0, 0.05), pch = 19)
+lines(newdata$x[p1 == 1], p1[p1 == 1], col = &quot;red&quot;, lwd = 5)
+lines(newdata$x[p1 == 2], p1[p1 == 2], col = &quot;red&quot;, lwd = 5)
+lines(newdata$x[p1 == 3], p1[p1 == 3], col = &quot;red&quot;, lwd = 5)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAApVBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9lZmVltf1tbW15eXmAgICHh4eOjo6POQCPOTmPOWWPZgCPtY+P29qP2/2Wlpaenp6np6ewsLC1ZgC1/rW1/v25ubnDw8PNzs3Y2djajzna/tra/v3k5eTw8fD9tWX924/9/rX9/tr9/v3/AACwup5IAAAAN3RSTlP//////////////////////////////////////////////////////////////////////wD/rn+PdAAAAAlwSFlzAAALEgAACxIB0t1+/AAACqZJREFUeJzt3A1X2mgCQOHBTnW7joy760zRmd0Wgms+XIMg/v+ftu8bcA8edSUJEtJ7n542EPLVXEICrfy0FNJPXW+AumF4KMNDGR7K8FCGhzI8lOGhDA9leCjDQxkeyvBQhocyPJThoQwPZXgow0MZHsrwUIaHMjyU4aEMD2V4KMNDGR7K8FCGhzI8lOGhDA9leCjDQxkeyvBQhocyPJThoQwPZXgow0MZHsrwUIaHMjyU4aEMD2V4KMNDGR7K8FCGhzI8lOGhDA9leKg24Qc6ZB8YvsW8+miGhzI8lOGhDA/VOvz8pLpG/HRTd9HqVNvwD1cX1fD+813NRatTbcMvzm+eDbdftDrlEQ/V+hy/GHqO76O9XdWXZbkxeD5ydTvPy+p+maZpHu7E30/j02ScpGFU9XhZ5mkSbuZh1DJNR0kS5yir8WkSHoq383B7PB6nYdLfH9sYjZPVypJkPBqF9cR1xM2Lq0rH4XcatzNu7mqD82pjVlseZ8zzZdjKNGz3enS52tayfL4z3rTlZPXsK3w5m83K/w2ej1zdLsoyK8L98Gc2DXs2C3utKFfjp1kySaZpVhbh8dksS7M8zbI0TDMuJuE5cRnuFEGaTZNJnuRFkZXpdDK5nE7G01Gr7o+PX8dpXFmajL6GNaXTsHVh+7J0ml8mk+llOsnysI1FeCZUG5znRdiYWbXl8XZsHzcumRVlNToOg/jH5s540/N9tiu7Cr9xcffqPwMY/gcN/96iDQ8N7zn+RzvHz08GZ9de1ffOLt7HX4fq81Pfx/fKLj65uz/z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" alt="plot of chunk unnamed-chunk-12"/> </p>
+
+<h3>Plotting predicted probabilities</h3>
+
+<p>Plotting fitted values is helpful, but doesn&#39;t give us a sense of uncertainty. Obviously the red lines in the previous plots show the category that we are <em>most</em> likely to observe for a given value of <code>x</code>, but it doesn&#39;t show us how likely an observation is to be in the other categories.
+To see that, we need to look at predicted probabilities. Let&#39;s start by looking at the predicted probabilities object <code>p2</code>:</p>
+
+<pre><code class="r">head(p2)
+</code></pre>
+
+<pre><code>##         1      2       3
+## 1 0.01083 0.9021 0.08702
+## 2 0.01210 0.8949 0.09298
+## 3 0.01350 0.8872 0.09929
+## 4 0.01506 0.8790 0.10596
+## 5 0.01678 0.8702 0.11300
+## 6 0.01868 0.8609 0.12041
+</code></pre>
+
+<p>As stated above, this object contains a predicted probability of being in each category of <code>y</code> for a given value of <code>x</code>.
+The simplest plot of this is simply three lines, each of which is color coded to represent categories 1,2, and 3 of <code>y</code>, respectively:</p>
+
+<pre><code class="r">plot(NA, xlim = c(min(x), max(x)), ylim = c(0, 1), xlab = &quot;x&quot;, ylab = &quot;Predicted Probability&quot;)
+lines(newdata$x, p2[, 1], col = &quot;red&quot;, lwd = 2)
+lines(newdata$x, p2[, 2], col = &quot;blue&quot;, lwd = 2)
+lines(newdata$x, p2[, 3], col = &quot;green&quot;, lwd = 2)
+# some text labels help clarify things:
+text(9, 0.75, &quot;y==1&quot;, col = &quot;red&quot;)
+text(6, 0.4, &quot;y==3&quot;, col = &quot;green&quot;)
+text(5, 0.15, &quot;y==2&quot;, col = &quot;blue&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAABJlBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOY8AZrUAZv4A/wAA/zkA/2UA/48A/7U5AAA5ADk5AGU5AP85OWU5OY85Of45Zv45j9o5j/05/wA5/zk5/2U5/485/7U5/9plAABlADllAGVlAP9lOQBlOY9lOf5lZmVlZv5ltf1l/v1l/zll/2Vl/4+POQCPOTmPOf6POf+PZgCPtY+P29qP2/2P2/6P/rWP/v2P/zmP/2W1ZgC1Zv+1/rW1/v21/wC1/znajznaj//a24/a/rXa/tra/v3a/zn9jzn9tWX9tf7924/92/79/mX9/o/9/rX9/tr9/v39/v7+OTn+OWX+OY/+ZgD+Zjn+ZmX+tY/+tf3+27X+2/3+/v3/AAD/ADn/AGX/OY//ZrX/j9pUj34HAAAAYnRSTlP/////////////////////////////////////////////////////////////////////////////////////////////////////////AP///////////////////////5wUko8AAAAJcEhZcwAACxIAAAsSAdLdfvwAABLzSURBVHic7d0JdxtXGcbxKogYs4SWgMtWJ4WCC3UoYDY3ARdwqiqJPIGyFFBZvv+XQHckxZJmNLrLe+99l+d/ck7OcWJJnp/vnUWamdcaZLLXar8AVCfAGw3wRgO80QBvNMAbDfBGA7zRAG80wBsN8EYDvNEAbzTAGw3wRgO80QBvNMAbDfBGA7zRAG80wBsN8EYDvNEAbzTAGw3wRgO80QBvNMAbDfBGA7zRAG80wBsN8EYDvNEAbzTAGw3wRgO80QBvNMAbDfBGA7zRAG80wBsN8EYDvNEAbzTAGw3wRgO80QBvNMAbDfBGA7zRAG80wBstBX6EOJcRPuF7Ue4AbzTAGw3wRgO80ZLhp/fabcTPPQl9aFS1VPib87P278nd68CHRlVLhZ89fLL1t/9Do6phxBsteR0/O8U6XmLYqjca4I1GBb+xcef5NgCqGka80QBvNMAbDfBGSz5yd7rakuvuyAOec8kj/ub8JO6hUdXSp/rZg4uoh0ZVwzreaIA3GuCNBnijAd5ogDca4I0GeKMB3miANxrgjQZ4owHeaIA3GuCNBnijAd5o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" alt="plot of chunk unnamed-chunk-14"/> </p>
+
+<p>This plot gives us a bit more information than simply plotting predicted classes (as above). We now see that middling values of <code>x</code> are only somewhat more likely to be in category <code>y==3</code> than in the other categories, whereas at extreme values of <code>x</code>, the data are much more likely to be in categories <code>y==1</code> and <code>y==2</code>.
+A slightly more attractive variance of this uses the <code>polygon</code> plotting function rather than <code>lines</code>. Text labels might higlight We can also optionally add a horizontal bar at the base of the plot to highlight the predicted class for each value of <code>x</code>:</p>
+
+<pre><code class="r">plot(NA, xlim = c(min(x), max(x)), ylim = c(0, 1), xlab = &quot;x&quot;, ylab = &quot;Predicted Probability&quot;, 
+    bty = &quot;l&quot;)
+# polygons
+polygon(c(newdata$x, rev(newdata$x)), c(p2[, 1], rep(0, nrow(p2))), col = rgb(1, 
+    0, 0, 0.3), border = rgb(1, 0, 0, 0.3))
+polygon(c(newdata$x, rev(newdata$x)), c(p2[, 2], rep(0, nrow(p2))), col = rgb(0, 
+    0, 1, 0.3), border = rgb(0, 0, 1, 0.3))
+polygon(c(newdata$x, rev(newdata$x)), c(p2[, 3], rep(0, nrow(p2))), col = rgb(0, 
+    1, 0, 0.3), border = rgb(0, 1, 0, 0.3))
+# text labels
+text(9, 0.4, &quot;y=1&quot;, font = 2)
+text(2.5, 0.4, &quot;y=3&quot;, font = 2)
+text(-1.5, 0.4, &quot;y=2&quot;, font = 2)
+# optionally highlight predicted class:
+lines(newdata$x[p1 == 1], rep(0, sum(p1 == 1)), col = &quot;red&quot;, lwd = 3)
+lines(newdata$x[p1 == 2], rep(0, sum(p1 == 2)), col = &quot;blue&quot;, lwd = 3)
+lines(newdata$x[p1 == 3], rep(0, sum(p1 == 3)), col = &quot;green&quot;, lwd = 3)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAABUFBMVEX9/v0AAAAAACgAADkAAEcAAGUAAGYAAP8AKGQAKI8AOTkAOWQAOY8AR38AR7UAZn8AZrUA/wAoAAAoKAAoOQAoZNsoj5g5AAA5ADk5AGU5KAA5OWU5OY85ZJg5j9o9oV09v3xHAABHf/5HtbFXipdXpLFX2XxkKABkOQBkmP5k27FlAABlADllAGVlOQBlOY9lZmVltf1mAABmKGRmf7F8fP58inJ8pIx8ybF82Vd8/nx/RwB/ZgB/sf5//rGPKACPOQCPOTmPZgCPmLGPtY+P29qP2/2YZDmYjyiYsf6Y/rGxf2axmI+xpFexsbWxsduxsf6xtUexyXyx22Sx/n+x/pix/rG1RwC1ZgC1sbG1/rW1/v3ajzna24/a/rXa/tra/v3bZCjbsZjbsbH9tWX924/9/rX9/tr9/v3+fHz+f0f+mGT+sX/+sZj+sbH/AAAu1JhOAAAAcHRSTlP//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wD/////////vCiLuQAAAAlwSFlzAAALEgAACxIB0t1+/AAAFChJREFUeJzt3f17XFURwHEurQpaaK1CRUuk0Ba0rZoKJFWE1pe0WIQQIQYatZW8gSX+/795z33J7mbv25kz58zMmfk+PA9PaMPu5pOZe3eT3X3myFLZM9RXwKLJ4JVm8EozeKUZvNIMXmkGrzSDV5rBK83glWbwSjN4pRm80gxeaQavNINXmsErzeCVZvBKM3ilGbzSDF5pBq80g1eawSvN4JVm8EozeKUZvNIMXmkGrzSDV5rBK83glWbwSjN4pRm80gxeaQavNINXmsErzeCVZvBKM3ilGbzSDF5pBq80g1eawSvN4JVm8EozeKUZvNIMXmkGrzSDV5rBK83glRYCX6BdCyt5Bq80g1eawSvN4JVm8Eobh9+/VLi+82jpTwxecKPwh3dXq3/vnXt8+o8MXnCj8Ae3Hi38ey6DF5xNvNLGj/EHN+wYn2F2Vq80g1faZPi5k7uiLc5VslJkE680g1eawSvN4JU2/sjdjeZMbvmO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" alt="plot of chunk unnamed-chunk-15"/> </p>
+
+<p>This plot nicely highlights both the fitted class but also the uncertainty associated with similar predicted probabilities at some values of <code>x</code>.
+Multinomial regression models can be difficult to interpret, but taking the few simple steps to estimate predicted probabilities and fitted classes and then plotting those estimates in some way can make the models much more intuitive.</p>
+
+</body>
+
+</html>
