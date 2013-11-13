@@ -1,4 +1,4 @@
-# Course materials for teaching R #
+# Materials for teaching and learning R #
 
 This repository holds materials for teaching and learning R (principally for R beginners). The front-facing version of the site can be found at [http://www.thomasleeper.com/Rcourse](http://www.thomasleeper.com/Rcourse).
 
@@ -21,3 +21,5 @@ By breaking up learning R into a large number of small pieces, the materials her
 ## Why GitHub? ##
 
 Read more about why this course is on GitHub [here](fork.md).
+
+[![Build Status](https://travis-ci.org/leeper/Rcourse.png?branch=gh-pages)](https://travis-ci.org/leeper/Rcourse)
