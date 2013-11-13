@@ -6,7 +6,7 @@ The following code (run from the root directory of this repository) will convert
 
 ```
 setwd('./Scripts')
-lapply(dir(pattern='.r$'), knitr::spin)
+sapply(dir(pattern='.r$'), knitr::spin)
 ```
 
 ## Why produce original materials? ##

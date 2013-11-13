@@ -15,12 +15,12 @@ By breaking up learning R into a large number of small pieces, the materials her
 ---
 ## Course Outline ##
 
-I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. Slides for each part of the course are posted on the [Course Outline](CourseOutline.html), as well.
+I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. Slides for each part of the course are posted on the Course Outline, as well.
 
 
 ---
 ## Tutorial Scripts ##
-The [scripts page](Scripts.html) lists the various tutorial scripts that I've produced for the course.
+The [scripts page](Scripts.html) lists the various tutorial scripts that I've produced for the course. HTML versions of the scripts can be seen at the [Tutorials page](Tutorials/).
 
 These scripts are fully executable, meaning they can be copied into the R console, run through a script editor (like [rite](https://github.com/leeper/rite)) or IDE (like [RStudio](http://www.rstudio.com)), or executed on the command line using [RScript](http://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html).
 
@@ -29,8 +29,9 @@ They are also written in roxygen-style so that they can be directly converted to
 Specifically, the following code (run from the root directory of this repository, which you can [download as a .zip](https://github.com/leeper/Rcourse/archive/gh-pages.zip)) will convert all of the scripts to Rmarkdown and to HTML, allowing them to be viewed directly in a web browser:
 
 ```
-setwd('./Scripts');
-lapply(dir(pattern='.r$'), knitr::spin)
+setwd('./Scripts')
+
+sapply(dir(pattern='.r$'), knitr::spin)
 ```
 
 
