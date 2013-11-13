@@ -2,7 +2,7 @@
 layout: default
 title: Scripts
 scripturl: https://github.com/leeper/Rcourse/tree/gh-pages/Scripts
-tutorialurl: https://github.com/leeper/Rcourse/tree/gh-pages/Tutorials
+tutorialurl: https://www.thomasleeper.com/Rcourse/Tutorials
 ---
 
 # Tutorial Scripts #
