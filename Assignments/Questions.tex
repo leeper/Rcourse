@@ -46,16 +46,16 @@
 
 \subsection*{Variables}
 \begin{enumerate}
-\item What is {a} in the below:
-\texttt{a <- 2
-b <- 3
-a * b
-a <- a + b
+\item What is {a} in the below:\\
+\texttt{a <- 2\\
+b <- 3\\
+a * b\\
+a <- a + b\\
 }
 \item How many items are in \texttt{c(1,NULL,2,NULL,4)}?
 \vspace{1em}
-\item What is \texttt{c} in the following:
-\texttt{c <- 1
+\item What is \texttt{c} in the following:\\
+\texttt{c <- 1\\
 \lq c\lq <- 2
 }
 \item What happens when I type the following: \texttt{2 <- 3}?
@@ -67,11 +67,11 @@ a <- a + b
 \item What is the value of \texttt{seq\_along(c(3,1,2))}?
 \item Is \texttt{rep(c(1, 2), each = 4)} the same as \texttt{rep(c(1, 2), times = 4)}?
 \vspace{1em}
-\item What are the values of \texttt{d} and \texttt{e} in the following:
+\item What are the values of \texttt{d} and \texttt{e} in the following:\\
 \texttt{
-a <- 1:5
-b <- c(1:1,3,3,2)
-d <- a[b]
+a <- 1:5\\
+b <- c(1:1,3,3,2)\\
+d <- a[b]\\
 e <- b[a]
 }
 \vspace{1em}
@@ -82,8 +82,8 @@ e <- b[a]
 \item What is the value of \texttt{c(1,3,5,2,4,6) > 2}
 \item What are the values of \texttt{b} and \texttt{c} in the following:\\
 \texttt{
-a <- 1:10
-b <- a > 3 \& a < 8
+a <- 1:10\\
+b <- a > 3 \& a < 8\\
 c <- a > 3 \& a <= 2
 }
 \end{enumerate}
@@ -143,6 +143,13 @@ c <- a > 3 \& a <= 2
 \begin{enumerate}
 \item How would you draw a plot of the effect of \texttt{speed} on stopping \texttt{distance} in the \texttt{cars} dataframe?
 \item How would we plot the effects (on \texttt{len}) of \texttt{dose} for each type of \texttt{supp} in the \texttt{ToothGrowth} dataframe?
+\end{enumerate}
+
+\section*{GLM}
+\begin{enumerate}
+\item Are either \texttt{age} or \texttt{education} significant predictors of having had a previous \texttt{spontaneous} abortion in the \texttt{infert} dataframe?
+\item What about as predictors of an \texttt{induced} abortion?
+\item How would we draw a plot of the predicted probability of each type of abortion (\texttt{spontaneous} and \texttt{induced}) across \texttt{age}? And how would we draw appropriate uncertainty intervals?
 \end{enumerate}
 
 \end{document}
