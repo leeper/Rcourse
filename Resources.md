@@ -45,7 +45,7 @@ Other non-CRAN resources include:
 
 * [R-bloggers](http://www.r-bloggers.com/) aggregates blog posts about R from all over the web.
 
-* I've written [a short R introduction](/Intro2R/Intro2R.pdf) for undergraduates that may be helpful.
+* I've written [a short R introduction](Intro2R/Intro2R.pdf) for undergraduates that may be helpful.
 
 * [Teppei Yamamoto](http://web.mit.edu/teppei/www/teaching.html) has some simple handouts for Princeton's "Statistical Software Camp".
 
