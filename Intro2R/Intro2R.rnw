@@ -35,6 +35,12 @@ Aarhus University}
 
 \maketitle
 
+
+<<setup>>=
+library("knitr")
+opts_knit$set(progress = FALSE, verbose = FALSE, cache = TRUE, autodep = TRUE)
+@
+
 {\abstract The purpose of this document is to provide a brief introduction to \textbf{R}, focused on the core code needed to load and analyze social scientific data. While numerous other resources exist online to facilitate learning \textbf{R} and to provide guidance on performing particular procedures, this document serves as a quick-start guide catered to the needs of students who are learning \textbf{R} for the first time in the context of a course that provides little technical instruction in programming. My aim in this document is to make learning \textbf{R} relatively more smooth so that you focus more of your attention on learning statistics and political science research methods and less on being frustrated with the particular software we are using to implement those ideas.\footnote{Some of this material is adapted from Teppei Yamamoto's (2009) ``Introduction to \textbf{R}'' Short Course. It is released without copyright, but citation is always appreciated.}}
 
 \section{Why R?}\label{sec:intro}
@@ -62,6 +68,7 @@ sqrt(4)
 But, \textbf{R} is more than just a calculator (obviously!). To move away from using \textbf{R} as nothing more than a bloated calculator, we need to start doing some actual programming. But before we start writing more complex code, you'll probably want to move away from typing code directly into \textbf{R} and instead use another program to help you keep track of your code. There are a number of programs that can facilitate programming in \textbf{R} and dealing with its text and graphical outputs. First, you need a text editor to save the code you write. \textbf{R} doesn't automatically save the code that you tell it, so you'll save yourself a lot of time if you save all of your code in a separate program. You can use simple programs like Notepad, Wordpad, or even Word to do this, but better programs exist like TINN-R or Notepad++ (what I use), Emacs, or RStudio.%\footnote{While I'd highly recommend you use a separate program to save your code, I cannot provide you any assistance with these other programs.}
 \begin{itemize*}
 \item Simple text editors: Notepad, TextPad, TextEdit, Wordpad (usually one or more of these is built-in with your computer's operating system)
+\item Simple editor built in to R: \href{https://cran.r-project.org/web/packages/rite/index.html}{rite} (install and open with \texttt{install.packages("rite"); library("rite")}
 \item Fancier editors: \textbf{\href{http://sciviews.org/Tinn-R/}{TINN-R}, \href{http://www.winedt.com/}{WinEdt}, \href{http://www.gnu.org/software/emacs/}{Emacs}, \href{http://aquamacs.org/}{Aquamacs}}, \href{http://notepad-plus-plus.org/}{Notepad++}
 \item Advanced front-ends for \textbf{R}: \textbf{\href{http://rstudio.org/}{RStudio}, \href{http://www.revolutionanalytics.com/products/revolution-enterprise.php}{Revolution R}, \href{http://rforge.net/JGR/}{JGR}, \href{http://www.deducer.org/pmwiki/pmwiki.php}{Deducer}}
 \item Graphical User Interface for \textbf{R}: \textbf{\href{http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/}{Rcmdr}, \href{http://rkward.sourceforge.net/}{RKWard}}
@@ -70,15 +77,32 @@ But, \textbf{R} is more than just a calculator (obviously!). To move away from u
 If you save all of your code in one of these programs with a \texttt{.R} file extension, you should be able to completely replicate your analysis simply by opening this file with \textbf{R} or copying and pasting the entirety of the code into \textbf{R}. This is helpful if you ask someone for help with your code because they can run all of your code and see where it may have had problems.
 
 \subsection{Some General Notes Before Getting Started}
+
+Some things to know about R and the R interpreter that you'll be interacting with:
+
 \begin{itemize*}
 \item \textbf{R} is basically a functional programming language with certain object-oriented capabilities. That means when we talk about particular statistics or procedures, we have to write code that tells \textbf{R} how to perform that statistical \emph{procedure} on a \emph{data object} and the function will generally return some new object. Usually, this looks something like \texttt{mean(x)}, where \texttt{mean()} is a procedure and \texttt{x} is an object (specifically, a vector of data points) and the result is a new object, which we can print to the console, save for later reuse, or simply abandon. When you first start working with R code, it can be hard to distinguish what text is a procedure from what text is the label for a data object, but over time this will get easier. If you use a text editor with syntax recognition, the text editor will highlight procedures (and sometimes objects) making the process of reading and writing code even easier.
 \item \textbf{R} is case-sensitive. You need to type commands and variable names correctly or they will not work. As an example, \texttt{Mean()} does not mean \texttt{mean()}.
 \item Arrow up and Arrow down on your keyboard cycle through previous commands you have entered. They do not scroll the screen up and down. Use your mouse scrollpad, Page Up and Page Down, or the scrollbar instead.
-\item If you forget to put closing brackets on your commands, \textbf{R} will get confused and give you a \texttt{+} symbol instead of the usual \texttt{>} prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that \textbf{R} doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and \textbf{R} will have no problem with this, as long as you put the appropriate closing bracket at the end. If you use Mac OS or Linux OS, or some of the fancier text editors, closing brackets are often put in automatically as you type. If you're a Windows user like me, you're out of luck and need to be really careful with brackets.
-\item Sometimes \textbf{R} does weird stuff that doesn't make any sense. When this happens, double check your brackets and capitalization. Then, trying Googling it. If that doesn't work, you can always just restart the program.
+\item If you forget to put closing brackets on your commands, \textbf{R} will get confused and give you a \texttt{+} symbol instead of the usual \texttt{>} prompt. You can simply type the closing bracket in and the command will execute as if you typed it correctly the first time. This also means that \textbf{R} doesn't really recognize linebreaks. If you have a very long command (like for plots, which we'll talk about later), you may want to put the command on multiple lines so it is easier to read and \textbf{R} will have no problem with this, as long as you put the appropriate closing bracket at the end. If you use Mac OS or Linux OS, or some of the fancier text editors, closing brackets are often put in automatically as you type.
 \end{itemize*}
 
-\subsection{Creating constants, vectors, matrices, and data.frames}
+Some general advice for when things eventually go wrong in R:
+
+\begin{enumerate}
+\item Don't panic!
+\item Parsing errors versus syntax errors:
+	\begin{itemize}
+	\item Parsing errors mean you typed something wrong: \texttt{Error: unexpected ')' in "lm(y \textasciitilde)"}
+	\item Syntax errors mean you typed correctly but R didn't understand: \texttt{Error in eval(expr, envir, enclos) : object 'y' not found}
+	\end{itemize}
+\item Google the error or warning
+\item Use \href{http://stackoverflow.com/questions/tagged/r}{StackOverflow} to get help
+\end{enumerate}
+
+
+
+\subsection{Creating simple constants and vectors}
 To do statistical analysis, we need to have data. \textbf{R} has various objects for storing different types of data. The simplest way to store data is in a \emph{constant}. A constant, to \textbf{R}, is just a number that is given a name. We use the \texttt{<-} to store something into a particular labeled object; we can also use \texttt{=} to do this; or \texttt{->} by reversing the argument:
 <<constant>>=
 a<-4
@@ -86,7 +110,7 @@ a=4
 # 4->a # this works, too
 a
 @
-Here, we've created a constant called \texttt{a}, which has the value 4. \textbf{R} doesn't automatically display the value of \texttt{a} when we assign a value to it. To see the value of \texttt{a}, you need to simply type \texttt{a} and hit <enter>. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
+Here, we've created a constant called \texttt{a}, which has the value 4. \textbf{R} doesn't automatically display the value of \texttt{a} when we assign a value to it. To see the value of \texttt{a}, you need to simply type \texttt{a} and hit \texttt{<enter>}. We can store multiple constants, give new values to a constant we've already defined, and then conduct mathematical operations on those constants:
 <<constants>>=
 a=4
 a=6
@@ -205,6 +229,8 @@ mean(dice2)
 sd(dice2)
 cor(dice1,dice2)
 @
+
+\subsection{Creating matrices and data.frames}
 
 We could also represent these data a different way. Rather than having two vectors, we could ``column bind'' them (using the \texttt{cbind()} command) into a \emph{matrix}, which we can also call whatever we want.
 <<matrices2>>=
@@ -343,6 +369,7 @@ We can read this data into \textbf{R} from an outside ``patient.csv'' file and d
 
 <<readdata>>=
 <<setwd,echo=FALSE>>
+library("rio")
 data = import("../Data/patient.csv")
 dim(data)
 data
@@ -350,7 +377,7 @@ data
 
 Note that this creates a data.frame called \textbf{data} that has a row for each patient and a column for each variable.\footnote{You can call your data anything, but you need to store it as something. I always call my data.frames \textbf{data} or some variant thereof for simplicity, but you can use anything you want.} You can now proceed with analysis on this data.frame as you would any other, just as we did with the data.frames we created above.
 
-When we have created a data.frame (and potentially manipulated it in a number of ways) and want to save our new creation, we can use the \texttt{write.csv()} command to store the data.frame as a .csv file in our working directory.
+When we have created a data.frame (and potentially manipulated it in a number of ways) and want to save our new creation, we can use the \texttt{export(data, "data.csv")} command to store the data.frame as a .csv file in our working directory.
 
 \subsection{Data Manipulation and Subsetting}
 Often, we want to work with some smaller part of a dataset rather than the entire dataset --- for example, we may only be interested in looking at a subset of observations or looking only at some variables. \textbf{R} has a number of functions for manipulating and subsetting data.frames that can help us with these tasks. Recall that for data.frames, we can use the \texttt{\$} symbol to identify specific variables or use the \texttt{[,]} brackets to index specific observations, specific variables, or both. We will also make use of the \texttt{!} symbol and the \texttt{-} symbol, which serve as ``not'' commands. We'll use the patient data we just read in to demonstrate the results of using these commands in various combinations.
@@ -448,93 +475,70 @@ Each of these (and the other) distributions also have built-in functions for pro
 Besides generating random numbers, \textbf{R} also provides the ability to sample values from a vector or observations from a data.frame using the \texttt{sample()} command. Sampling can be conducted with or without replacement and involve samples of any size:
 
 <<random>>=
+set.seed(1)
 set = c(1,2,3,4,5)
 sample(set,5,replace=FALSE)
 sample(set,5,replace=TRUE)
 sample(set,10,replace=TRUE)
 @
 
-Sampling commands could be used to conduct simulations, including bootstrapping and permutation procedures, as well as Monte Carlo simulations (the latter, in combination with the random number generation functions).
+The \texttt{set.seed(1)} function makes our result reproducible by setting the ``seed'' of the pseudo-random number generator so that we can get the same result each time we run this code. Sampling commands could be used to conduct simulations, including bootstrapping and permutation procedures, as well as Monte Carlo simulations (the latter, in combination with the random number generation functions).
 
 \section{Plots}\label{sec:plots}
-The real power of \textbf{R} is its sophisticated graphical functionality. \textbf{R} comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. Let's discuss a couple of the basic \textbf{R} plots; these should be familiar to you from your previous statistics and mathematics training.
-\begin{itemize*}
-\item \texttt{barplot()}
-\item \texttt{hist()}
-\item \texttt{pie()}
-\item \texttt{plot()}
-\item \texttt{boxplot()}
-\end{itemize*}
+The real power of \textbf{R} is its sophisticated graphical functionality. \textbf{R} comes with a number of built-in plotting commands; other plots can be produced using a variety of packages or by writing your own code. 
 
-\subsection{Plotting Parameters}
-All plots can be modified using a common set of parameters described in detail at \url{http://stat.ethz.ch/R-manual/R-patched/library/graphics/html/par.html}. Some of the key parameters are:
-\begin{itemize*}
-\item \texttt{main}: Graphic title
-\item \texttt{xlab}: X-axis label
-\item \texttt{ylab}: Y-axis label
-\item \texttt{xlim}: X-axis minimum and maximum
-\item \texttt{ylim}: Y-axis minimum and maximum
-\item \texttt{bty}: "Box" type around the plot
-\item \texttt{pch}: Bullet style
-\item \texttt{lty}: Line type
-\item \texttt{lwd}: Line thickness
-\item \texttt{col}: Color
-\end{itemize*}
+We'll use an add-on package called ``ggplot2'' to do graphing because it provides a very flexible interface for drawing lots of different types of plots. We'll need to install it: \texttt{install.packages("ggplot2")} before we can use it to draw a graph. As with any package, we then need to load the package to use it:
 
-Going back to our dice rolling data, we can create a simple scatterplot of the two sets of dice rolls and then modify that plot using the the graphical parameters just described. The parameter arguments can either be comma-separated on the same line, or comma-separated on separate lines for ease of read. Let's compare the basic scatterplot \texttt{plot(dice1,dice2)} to a plot with various plotting arguments specified:
-\begin{verbatim}
-plot(dice1,dice2,			#Data to plot
-	main="Dice Rolls",	#Title
-	xlab="Set 1",		#X-axis label
-	ylab="Set 2",		#Y-axis label
-	xlim=c(2,12),		#X-axis dimensions
-	ylim=c(2,12)		#Y-axis dimensions
-	)
-\end{verbatim}
-
-\begin{minipage}[b]{0.5\linewidth}
-
-<<plot2a,echo=FALSE>>=
-
-<<matrices2,echo=false>>
-plot(dice1,dice2)
+<<loadggplot2>>=
+library("ggplot2")
 @
-\end{minipage}
-\begin{minipage}[b]{0.5\linewidth}
 
-<<plot2b,echo=FALSE>>=
 
-<<matrices2,echo=false>>
-plot(dice1,dice2,
-	main="Dice Rolls",
-	xlab="Set 1",
-	ylab="Set 2",
-	xlim=c(2,12),
-	ylim=c(2,12),
-	bty="l",            #"box" type
-	pch=15,			    #Sqaure points
-	)
+We'll use one of R's built-in datasets to produce some interesting plots. The most important function in ggplot2 is \texttt{ggplot()}, which is what sets up a data.frame to let us plot it. We can then add different plot elements using \texttt{+} operator to control what is displayed and how the plot looks. A cheatsheet for ggplot2 is available here: \url{https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf}. 
+
+Basically, a ggplot2 plot is a dataset, plus some information about what variables you want to plot, plus information about how you want to plot those variables. To obtain a histogram, which is a graphical representation of the distribution of a variable, we just do:
+
+<<fig.width = 4, fig.height = 4>>=
+ggplot(iris) + aes(x = Sepal.Length) + geom_histogram(binwidth = .25)
 @
-\end{minipage}
 
-This is a fairly simple set of changes, but it is also possible to change the size, color, and appearance of almost any feature of the plots, as well as design a matrix of plots as a single image output using the \texttt{par()} and/or \texttt{layout()} commands.
+The above code indicates that we are using the \texttt{iris} dataset that is built in to R, we want to graph the \texttt{Sepal.Length} variable from those data, and we want a histogram so we use the \texttt{geom\_histogram}. When we want a different kind of graph of the same data, we just change the geom:
 
-One particularly neat feature of \textbf{R} is that plots can be modified and combined to create informative presentations of multiple types of data. After you have created a plot, it is possible to add additional data to the plot using one of a number of commands:
-\begin{itemize*}
-\item \texttt{lines()}: Add a line to a plot using starting and end points
-\item \texttt{abline()}: Add a horizontal, vertical, or slope-intercept line to a plot
-\item \texttt{points()}: Add point(s) to a plot
-\item \texttt{text()}: Add text to a plot
-\end{itemize*}
+<<fig.width = 4, fig.height = 4>>=
+ggplot(iris) + aes(x = Sepal.Length) + geom_density()
+@
+
+There are many, many geoms for single-variable plots (see the cheatsheet) and many, many more for two or more variable situations. Here's an example of a two-variable plot in ggplot2:
+
+<<fig.width = 4, fig.height = 4>>=
+ggplot(iris) + aes(x = Sepal.Length, y = Sepal.Width) + geom_point()
+@
+
+The neat feature of ggplot2 is that we can \textit{layer} multiple graphical elements on top of one another. So, in the above graph, we can easily add a smoothed line showing the relationship between the two variables more clearly:
+
+
+<<fig.width = 4, fig.height = 4>>=
+ggplot(iris) + aes(x = Sepal.Length, y = Sepal.Width) + geom_point() + geom_smooth()
+@
+
+
+To display categorical data, we would use different geoms. Here we display boxplots showing the distribution of \texttt{Sepal.Length} across the different species in the \texttt{iris} dataset:
+
+<<fig.width = 4, fig.height = 4>>=
+ggplot(iris) + aes(x = Species, y = Sepal.Length) + geom_boxplot()
+@
+
+
 
 \subsection{Saving Plots}
-Once you have created a plot, you will likely want to save it outside of \textbf{R} (for example, to include in your problem set). The easiest way is to simply copy and paste the graph from \textbf{R} into some other program. A more flexible way is to sandwich the \texttt{plot()} command between two lines of code, like so:
+Once you have created a plot, you will likely want to save it outside of \textbf{R} (for example, to include in a problem set). The easiest way to do this is by writing a \texttt{ggsave()} line into your code:
+
 \begin{verbatim}
-pdf("hist1.pdf")
-hist(dice)
-dev.off()
+ggplot(iris) + aes(x = Species, y = Sepal.Length) + geom_boxplot()
+ggsave("myplot.png")
 \end{verbatim}
-This saves your plot as a PDF file, with the name you specify, in your working directory. You can also use analogous commands --- \texttt{jpeg()} and \texttt{png()} --- to save your plot in other image formats.
+
+This saves your plot as a PNG file in your working directory.
 
 \section{Basic Programming Tools: Logics, etc.}\label{sec:programming}
 As I've stated above, R is a programming language. Thus, it will be helpful to understand some basic programming to help you move beyond the relatively simple tasks we've learned about so far. I will focus on four areas:
