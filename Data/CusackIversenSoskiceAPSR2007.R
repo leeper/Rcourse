@@ -42,6 +42,7 @@ lm_extra2 <- lm(thresh ~ stthroct2 + coordds + dispro2 + fragdum,
     data=cis[cis$smpl==1 & cis$oursmpl==1 & !is.na(cis$dispro2) & !cis$cow==220,])
 
 # models also accounting for British colonial history
+# COW country codes from: http://correlatesofwar.org/data-sets/cow-country-codes
 cis$brit <- 
 c(1, # USA
 1, # Canada
