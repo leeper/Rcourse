@@ -12,13 +12,11 @@ There is an ever increasing library of online tutorials, books, and other resour
 By breaking up learning R into a large number of small pieces, the materials here will become a modular set of tools that can be used by courses of different sizes, levels, lengths, and objectives without having to change to a different text or combine parts of multiple texts to teach the intended material.
 
 
----
 ## Course Outline ##
 
 I've posted a [Course Outline](CourseOutline.html) that describes the course outline and schedule. Slides for each part of the course are posted on the Course Outline, as well.
 
 
----
 ## Tutorial Scripts ##
 The [scripts page](Scripts.html) lists the various tutorial scripts that I've produced for the course. HTML versions of the scripts can be seen at the [Tutorials page](Tutorials/).
 
@@ -35,12 +33,10 @@ sapply(dir(pattern='.r$'), knitr::spin)
 ```
 
 
----
 ## R Resources ##
 I've posted an up-to-date list of [resources](Resources.html) that will be useful for getting started with and becoming more sophisticated with R.
 
 
----
 ## Why GitHub? ##
 
 Read more about why this course is on GitHub [here](fork.html). You can access [the GitHub repository here](https://github.com/leeper/Rcourse).
