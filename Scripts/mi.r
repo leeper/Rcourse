@@ -76,23 +76,21 @@ coef(summary(lm))[,1:2] # original results
 #'
 #' ## mi ##
 library(mi)
-#' Let's start by visualizing the missing data:
-mp.plot(mydf)
-#' We can then see some summary information about the dataset and the nature of the missingness:
-mi.info(mydf)
-#' With that information confirmed, it is incredibly issue to conduct our multiple imputation using the `mi` function:
+#' It is incredibly issue to conduct our multiple imputation using the `mi` function:
 imp.mi <- mi(mydf)
-imp.mi
+#' Let's start by visualizing the missing data:
+image(imp.mi)
+summary(imp.mi)
 #' The results above report how many imputed datasets were produced and summarizes some of the results we saw above.
 #' For linear regression (and several other common models), the **mi** package includes functions that automatically run the model on each imputed dataset and aggregate the results:
-lm.mi.out <- lm.mi(y~x1+x2,imp.mi)
+lm.mi.out <- mi::pool(y~x1+x2, data = imp.mi, m = 5)
 #' We can extract the results using the following:
-coef.mi <- lm.mi.out@mi.pooled
+coef.mi <- coef(lm.mi.out)
 # or see them quickly with:
 display(lm.mi.out)
 #' Let's compare these results to our original model:
-do.call(cbind, coef.mi) # multiply imputed results
-coef(summary(lm))[,1:2] # original results
+coef.mi # multiply imputed results
+coef(summary(lm))[,1L] # original results
 #'
 #'
 #' ## mice ##
