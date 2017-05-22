@@ -1,7 +1,7 @@
 # Reproduction and Extension of Cusack, Iversen, and Soskice (2007)
 
 library("rio")
-cis <- import("CusackIversenSoskiceAPSR2007.dta")
+cis <- import("CusackIversenSoskiceAPSR2007.dta", haven = FALSE)
 
 # Table 3
 # Model 1
